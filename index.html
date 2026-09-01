@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>September 01 - EMAIL & Advertiser Performance Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .theme-header { background-color: #1e40af; }
+    .theme-header-ops { background-color: #dbeafe; }
+    .theme-header-aff { background-color: #1e293b; }
+
+    /* ================= CUADRÍCULAS EXCEL NÍTIDAS ================= */
+    .excel-table {
+      border-collapse: collapse !important;
+      border: 1.5px solid #64748b !important;
+      width: 100%;
+    }
+    .excel-table th, 
+    .excel-table td {
+      border: 1px solid #94a3b8 !important;
+    }
+    .excel-table thead th {
+      border: 1px solid #1e3a8a !important;
+      border-bottom: 2px solid #0f172a !important;
+    }
+
+    /* ================= TABLA DE ENTREGABILIDAD ESTILO OLIVE ================= */
+    .esp-table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .esp-table th {
+      background-color: #485c44;
+      color: #ffffff;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid #3b4c37;
+    }
+    .esp-table tbody tr.esp-summary-row {
+      background-color: #f8faf8;
+      border-bottom: 1.5px solid #cbd5e1;
+      font-weight: 600;
+    }
+    .esp-table tbody tr.esp-summary-row:hover {
+      background-color: #eef2ee;
+    }
+    .esp-table tbody tr.domain-row {
+      border-bottom: 1px solid #f1f5f9;
+      background-color: #ffffff;
+      transition: background-color 0.12s ease;
+    }
+    .esp-table tbody tr.domain-row:hover {
+      background-color: #f8fafc;
+    }
+    .esp-table tfoot {
+      border-top: 2.5px solid #485c44;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen p-4 md:p-8">
+
+  <div class="max-w-7xl mx-auto space-y-8">
+
+    <!-- HEADER -->
+    <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-emerald-600 animate-pulse"></span>
+          <h1 class="text-2xl font-bold text-slate-900 tracking-tight">September 01 - Performance Dashboard</h1>
+        </div>
+        <p class="text-sm text-slate-500 mt-1">Email Deliverability by ESP & Advertiser Conversions</p>
+      </div>
+      <div class="mt-4 sm:mt-0">
+        <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+          Sep 01, 2026
+        </span>
+      </div>
+    </header>
+
+    <!-- ================= SECTION 1: EMAIL & DOMAIN PERFORMANCE ================= -->
+    <div class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 gap-2">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded bg-blue-800 text-white text-xs font-bold uppercase">Section 1</span>
+          <h2 class="text-lg font-bold text-slate-800">September 01 - ESP Deliverability & Engagement</h2>
+        </div>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200 w-fit">
+          September 01, 2026
+        </span>
+      </div>
+
+      <!-- KPI CARDS -->
+      <section class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Delivered</p>
+          <p class="text-2xl font-bold text-slate-900 mt-1">0</p>
+          <span class="text-[11px] text-slate-400">Total sent</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Open</p>
+          <p class="text-2xl font-bold text-emerald-700 mt-1">0</p>
+          <span class="text-[11px] font-semibold text-emerald-600">0.00% Open Rate</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Click</p>
+          <p class="text-2xl font-bold text-sky-700 mt-1">0</p>
+          <span class="text-[11px] font-semibold text-sky-600">0.00% Click Rate</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Bounced</p>
+          <p class="text-2xl font-bold text-rose-600 mt-1">0</p>
+          <span class="text-[11px] text-slate-400">0.00% bounce rate</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Unsub / Blocked</p>
+          <p class="text-2xl font-bold text-purple-700 mt-1">0</p>
+          <span class="text-[11px] text-slate-400">Total opt-outs</span>
+        </div>
+
+        <!-- REGISTRATION KPI 500 + RR (33 & RR 990) -->
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Registration</p>
+          <p class="text-2xl font-bold text-amber-600 mt-1">33</p>
+          <div class="flex items-center gap-1.5 mt-1">
+            <span class="text-[11px] font-bold text-slate-900">KPI: 500</span>
+            <span class="text-[10px] text-slate-300">•</span>
+            <span class="text-[11px] font-bold text-emerald-600">RR: 990</span>
+          </div>
+        </div>
+
+        <!-- USERS KPI 40 + RR (0 & RR 0) -->
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Users</p>
+          <p class="text-2xl font-bold text-indigo-600 mt-1">0</p>
+          <div class="flex items-center gap-1.5 mt-1">
+            <span class="text-[11px] font-bold text-slate-900">KPI: 40</span>
+            <span class="text-[10px] text-slate-300">•</span>
+            <span class="text-[11px] font-bold text-slate-500">RR: 0</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- DATA TABLE -->
+      <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/50">
+          <div class="flex items-center gap-3">
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">MTD Email Performance by ESP</h3>
+            <button id="toggleTableBtn" onclick="toggleTableDetails()" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-[#485c44] hover:bg-[#3b4c37] active:bg-[#2f3d2c] text-white shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-1">
+              <svg id="btnIcon" class="w-3.5 h-3.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <span id="btnText">Show All</span>
+            </button>
+          </div>
+          <span class="text-xs text-slate-500 font-medium">September 01, 2026</span>
+        </div>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-right esp-table">
+            <thead>
+              <tr>
+                <th class="py-3 px-4 text-left font-bold text-xs uppercase tracking-wider">ESP ▲</th>
+                <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Delivered</th>
+                <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Bounced</th>
+                <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Opened</th>
+                <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Clicked</th>
+                <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">SIGNUPS</th>
+                <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">PLAYERS</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-700">
+
+              <!-- 1. MLJ (Mailjet) IP 1 -->
+              <tr class="esp-summary-row">
+                <td class="py-3 px-4 text-left font-bold text-slate-900">MLJ (Mailjet) IP 1</td>
+                <td class="py-3 px-4 font-mono font-bold">0</td>
+                <td class="py-3 px-4 font-mono">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-sky-700">0</td>
+                <td class="py-3 px-4 font-mono text-amber-600 font-bold">-</td>
+                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">-</td>
+              </tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">0</td><td>0</td><td class="font-semibold text-emerald-700">0</td><td class="font-semibold text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+
+              <!-- 2. SEG (Sendgrid) IP 1 -->
+              <tr class="esp-summary-row">
+                <td class="py-3 px-4 text-left font-bold text-slate-900">SEG (Sendgrid) IP 1</td>
+                <td class="py-3 px-4 font-mono font-bold">0</td>
+                <td class="py-3 px-4 font-mono">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-sky-700">0</td>
+                <td class="py-3 px-4 font-mono text-amber-600 font-bold">-</td>
+                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">-</td>
+              </tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">0</td><td>0</td><td class="font-semibold text-emerald-700">0</td><td class="font-semibold text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+
+              <!-- 3. SEG (Sendgrid) IP 2 / SH -->
+              <tr class="esp-summary-row">
+                <td class="py-3 px-4 text-left font-bold text-slate-900">SEG (Sendgrid) IP 2 / SH</td>
+                <td class="py-3 px-4 font-mono font-bold">0</td>
+                <td class="py-3 px-4 font-mono">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-sky-700">0</td>
+                <td class="py-3 px-4 font-mono text-amber-600 font-bold">-</td>
+                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">-</td>
+              </tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">0</td><td>0</td><td class="font-semibold text-emerald-700">0</td><td class="font-semibold text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+
+              <!-- 4. SMPT IP 1 -->
+              <tr class="esp-summary-row">
+                <td class="py-3 px-4 text-left font-bold text-slate-900">SMPT IP 1</td>
+                <td class="py-3 px-4 font-mono font-bold">0</td>
+                <td class="py-3 px-4 font-mono">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-sky-700">0</td>
+                <td class="py-3 px-4 font-mono text-amber-600 font-bold">-</td>
+                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">-</td>
+              </tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">0</td><td>0</td><td class="font-semibold text-emerald-700">0</td><td class="font-semibold text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+
+              <!-- 5. SMPT IP 2 -->
+              <tr class="esp-summary-row">
+                <td class="py-3 px-4 text-left font-bold text-slate-900">SMPT IP 2</td>
+                <td class="py-3 px-4 font-mono font-bold">0</td>
+                <td class="py-3 px-4 font-mono">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-sky-700">0</td>
+                <td class="py-3 px-4 font-mono text-amber-600 font-bold">-</td>
+                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">-</td>
+              </tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">0</td><td>0</td><td class="font-semibold text-emerald-700">0</td><td class="font-semibold text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+
+              <!-- 6. SMPT IP 3 -->
+              <tr class="esp-summary-row">
+                <td class="py-3 px-4 text-left font-bold text-slate-900">SMPT IP 3</td>
+                <td class="py-3 px-4 font-mono font-bold">0</td>
+                <td class="py-3 px-4 font-mono">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">0</td>
+                <td class="py-3 px-4 font-mono font-semibold text-sky-700">0</td>
+                <td class="py-3 px-4 font-mono text-amber-600 font-bold">-</td>
+                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">-</td>
+              </tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">0</td><td>0</td><td class="font-semibold text-emerald-700">0</td><td class="font-semibold text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
+
+            </tbody>
+            <tfoot>
+              <tr class="font-bold text-slate-900 text-sm">
+                <td class="py-3.5 px-4 text-left font-bold">Grand total</td>
+                <td class="py-3.5 px-4 font-mono font-bold">0</td>
+                <td class="py-3.5 px-4 font-mono font-bold">0</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-emerald-700">0</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-sky-700">0</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-amber-600">33</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-indigo-600">0</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 1 CHARTS -->
+      <div class="space-y-6">
+        <h3 class="text-sm font-bold text-slate-700 uppercase tracking-wider">1. ESP Deliverability & Engagement Charts</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-bold text-slate-900 uppercase">Delivered vs. Open</h4>
+              <p class="text-[11px] text-slate-500 mb-2">Volume comparison by ESP</p>
+            </div>
+            <div class="relative h-60">
+              <canvas id="chartEspVolumen"></canvas>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-bold text-slate-900 uppercase">Clicks by ESP</h4>
+              <p class="text-[11px] text-slate-500 mb-2">Exact click counts</p>
+            </div>
+            <div class="relative h-60">
+              <canvas id="chartEspClicks"></canvas>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-bold text-slate-900 uppercase">Open Rate (%) by ESP</h4>
+              <p class="text-[11px] text-slate-500 mb-2">Open efficiency per IP</p>
+            </div>
+            <div class="relative h-60">
+              <canvas id="chartEspOpenRate"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-sm font-bold text-slate-700 uppercase tracking-wider pt-2">2. Mailbox Domain Deliverability Charts</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-bold text-slate-900 uppercase">Delivered by Domain</h4>
+              <p class="text-[11px] text-slate-500 mb-2">Total volume sent per domain</p>
+            </div>
+            <div class="relative h-60">
+              <canvas id="chartDomainDelivered"></canvas>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-bold text-slate-900 uppercase">Open Rate (%) by Domain</h4>
+              <p class="text-[11px] text-slate-500 mb-2">Aperture rate by domain</p>
+            </div>
+            <div class="relative h-60">
+              <canvas id="chartDomainOpenRate"></canvas>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs font-bold text-slate-900 uppercase">Clicks by Domain</h4>
+              <p class="text-[11px] text-slate-500 mb-2">Clicks generated per domain</p>
+            </div>
+            <div class="relative h-60">
+              <canvas id="chartDomainClicks"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= OPS TEAM PERFORMANCE TABLES (SEPTEMBER 01) ================= -->
+    <div class="space-y-6 pt-2">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded bg-indigo-800 text-white text-xs font-bold uppercase">Team Ops</span>
+          <h2 class="text-lg font-bold text-slate-800">Email & Social Operations Performance</h2>
+        </div>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200 w-fit">
+          September 01, 2026
+        </span>
+      </div>
+
+      <!-- ROW 1: JESSIE & ANDREA KPI TABLES (KPIS: 250 REG, 20 USERS) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- TABLE 1: Jessie – Email-Ops -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-3">Jessie – Email-Ops</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-center excel-table">
+              <thead class="theme-header-ops font-bold text-slate-800 text-xs uppercase">
+                <tr>
+                  <th class="py-2 px-3 text-left">Item</th>
+                  <th class="py-2 px-3">KPIs</th>
+                  <th class="py-2 px-3">MTD</th>
+                  <th class="py-2 px-3">RR</th>
+                </tr>
+              </thead>
+              <tbody class="text-slate-800 font-medium">
+                <tr class="bg-white">
+                  <td class="py-2 px-3 text-left font-bold">Registrations</td>
+                  <td class="py-2 px-3 font-bold text-slate-900">250</td>
+                  <td class="py-2 px-3 font-bold">0</td>
+                  <td class="py-2 px-3 font-bold text-rose-600">0</td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-2 px-3 text-left font-bold">Users</td>
+                  <td class="py-2 px-3 font-bold text-slate-900">20</td>
+                  <td class="py-2 px-3 font-bold">0</td>
+                  <td class="py-2 px-3 font-bold text-rose-600">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TABLE 2: Andrea – Email Ops (32 REGISTRATIONS MTD -> RR 960) -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+          <h3 class="text-base font-bold text-slate-900 mb-3">Andrea – Email Ops</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-center excel-table">
+              <thead class="theme-header-ops font-bold text-slate-800 text-xs uppercase">
+                <tr>
+                  <th class="py-2 px-3 text-left">ITEM</th>
+                  <th class="py-2 px-3">KPIs</th>
+                  <th class="py-2 px-3">MTD</th>
+                  <th class="py-2 px-3">RR</th>
+                </tr>
+              </thead>
+              <tbody class="text-slate-800 font-medium">
+                <tr class="bg-white">
+                  <td class="py-2 px-3 text-left font-bold">Registrations</td>
+                  <td class="py-2 px-3 font-bold text-slate-900">250</td>
+                  <td class="py-2 px-3 font-bold text-amber-600">32</td>
+                  <td class="py-2 px-3 font-bold text-emerald-600">960</td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-2 px-3 text-left font-bold">Users</td>
+                  <td class="py-2 px-3 font-bold text-slate-900">20</td>
+                  <td class="py-2 px-3 font-bold">0</td>
+                  <td class="py-2 px-3 font-bold text-rose-600">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ROW 2: TEAM BREAKDOWN TABLES -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- TABLE 3: Registrations by team -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+          <div>
+            <h3 class="text-base font-bold text-slate-900 mb-3">Registrations by team</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm text-right excel-table">
+                <thead class="theme-header-aff text-white text-xs uppercase tracking-wider font-semibold">
+                  <tr>
+                    <th class="py-2.5 px-3 text-left">Advertiser</th>
+                    <th class="py-2.5 px-3">Andrea ('a')</th>
+                    <th class="py-2.5 px-3">Jessie ('j')</th>
+                    <th class="py-2.5 px-3">Total</th>
+                  </tr>
+                </thead>
+                <tbody class="text-slate-700">
+                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">AFF 66</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">ALL IN AFFILIATES</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">CHANCED</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">Splash</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">Basher Agency</td><td class="py-1.5 px-3 font-mono font-semibold text-amber-600">1</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">1</td></tr>
+                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">GameTime Digital</td><td class="py-1.5 px-3 font-mono font-semibold text-amber-600">31</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">31</td></tr>
+                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">CoinsRoyale</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">EPC</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">Acebet</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
+                </tbody>
+                <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
+                  <tr>
+                    <td class="py-2 px-3 text-left">Grand Total</td>
+                    <td class="py-2 px-3 font-mono text-amber-600">32</td>
+                    <td class="py-2 px-3 font-mono text-slate-400">0</td>
+                    <td class="py-2 px-3 font-mono text-amber-700">32</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLE 4: Users / FTD by team -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+          <div>
+            <h3 class="text-base font-bold text-slate-900 mb-3">Users / FTD by team</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm text-right excel-table">
+                <thead class="theme-header-aff text-white text-xs uppercase tracking-wider font-semibold">
+                  <tr>
+                    <th class="py-2.5 px-3 text-left">Advertiser</th>
+                    <th class="py-2.5 px-3">Andrea ('a')</th>
+                    <th class="py-2.5 px-3">Jessie ('j')</th>
+                    <th class="py-2.5 px-3">Total</th>
+                  </tr>
+                </thead>
+                <tbody class="text-slate-700">
+                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">AFF 66</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">ALL IN AFFILIATES</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">CHANCED</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">Splash</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">Basher Agency</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">GameTime Digital</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">CoinsRoyale</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">EPC</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">Acebet</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">0</td></tr>
+                </tbody>
+                <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
+                  <tr>
+                    <td class="py-2 px-3 text-left">Grand Total</td>
+                    <td class="py-2 px-3 font-mono text-slate-400">0</td>
+                    <td class="py-2 px-3 font-mono text-slate-400">0</td>
+                    <td class="py-2 px-3 font-mono text-slate-700">0</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= SECTION 2: ADVERTISER PERFORMANCE (SEPTEMBER 01) ================= -->
+    <div class="space-y-6 pt-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 gap-2">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded bg-slate-900 text-white text-xs font-bold uppercase">Section 2</span>
+          <h2 class="text-lg font-bold text-slate-800">September 01 - Advertiser Performance & Revenue</h2>
+        </div>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200 w-fit">
+          September 01, 2026
+        </span>
+      </div>
+
+      <!-- AFFILIATE KPI CARDS -->
+      <section class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Sign Ups</p>
+            <p class="text-3xl font-bold text-amber-600 mt-1">33</p>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="text-xs font-bold text-slate-900">KPI: 500</span>
+              <span class="text-xs text-slate-300">•</span>
+              <span class="text-xs font-bold text-emerald-600">RR: 990</span>
+            </div>
+          </div>
+          <div class="p-3 bg-amber-50 rounded-xl">
+            <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Users</p>
+            <p class="text-3xl font-bold text-indigo-600 mt-1">0</p>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="text-xs font-bold text-slate-900">KPI: 40</span>
+              <span class="text-xs text-slate-300">•</span>
+              <span class="text-xs font-bold text-slate-500">RR: 0</span>
+            </div>
+          </div>
+          <div class="p-3 bg-indigo-50 rounded-xl">
+            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Revenue</p>
+            <p class="text-3xl font-bold text-emerald-600 mt-1">$0</p>
+            <span class="text-xs text-slate-500 font-medium">Total Generated MTD</span>
+          </div>
+          <div class="p-3 bg-emerald-50 rounded-xl">
+            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- AFFILIATE TABLE (ACTUALIZADA: 32 GAMETIME, 1 BASHER AGENCY) -->
+      <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+          <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Advertiser Breakdown Table</h3>
+          <span class="text-xs font-medium text-slate-500">Metrics: Conversion S2P Ratio (1:X) & Revenue</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-right excel-table">
+            <thead class="theme-header-aff text-white text-xs uppercase tracking-wider font-semibold">
+              <tr>
+                <th class="py-3 px-4 text-left">Advertiser</th>
+                <th class="py-3 px-4">Sign Ups</th>
+                <th class="py-3 px-4">Users</th>
+                <th class="py-3 px-4">Revenue</th>
+                <th class="py-3 px-4">S2P (Ratio)</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-700">
+              <tr class="hover:bg-slate-50 bg-white">
+                <td class="py-2.5 px-4 text-left font-medium text-slate-900">GameTime Digital</td>
+                <td class="py-2.5 px-4 font-mono font-bold text-amber-600">32</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:32</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40">
+                <td class="py-2.5 px-4 text-left font-medium text-slate-900">CHANCED</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-white">
+                <td class="py-2.5 px-4 text-left font-medium text-slate-900">AFF 66</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40">
+                <td class="py-2.5 px-4 text-left font-medium text-slate-900">Basher Agency</td>
+                <td class="py-2.5 px-4 font-mono font-semibold text-amber-600">1</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:1</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-white">
+                <td class="py-2.5 px-4 text-left font-medium text-slate-900">Splash</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40">
+                <td class="py-2.5 px-4 text-left font-medium text-slate-900">ALL IN AFFILIATES</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-white">
+                <td class="py-2.5 px-4 text-left font-medium text-slate-900">Acebet</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40">
+                <td class="py-2.5 px-4 text-left font-medium text-slate-900">CoinsRoyale</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-white">
+                <td class="py-2.5 px-4 text-left font-medium text-slate-900">EPC</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
+              </tr>
+            </tbody>
+            <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
+              <tr>
+                <td class="py-2.5 px-4 text-left">Grand total</td>
+                <td class="py-2.5 px-4 font-mono text-amber-600">33</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400 font-bold">$0</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:33</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <!-- AFFILIATE CHARTS -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+          <div>
+            <h4 class="text-sm font-bold text-slate-900">Sign Ups by Advertiser</h4>
+            <p class="text-xs text-slate-500 mb-4">Total registrations per source</p>
+          </div>
+          <div class="relative h-80">
+            <canvas id="chartAffSignUps"></canvas>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+          <div>
+            <h4 class="text-sm font-bold text-slate-900">Users by Advertiser</h4>
+            <p class="text-xs text-slate-500 mb-4">Active converted users per source</p>
+          </div>
+          <div class="relative h-80">
+            <canvas id="chartAffUsers"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPTS & VISUALIZATIONS -->
+  <script>
+    // ================= FUNCIÓN PARA COLAPSAR / EXPANDIR DETALLE =================
+    function toggleTableDetails() {
+      const domainRows = document.querySelectorAll('.domain-row');
+      const btnText = document.getElementById('btnText');
+      const btnIcon = document.getElementById('btnIcon');
+      
+      let isHidden = true;
+      domainRows.forEach(row => {
+        if (!row.classList.contains('hidden')) {
+          isHidden = false;
+        }
+      });
+
+      if (isHidden) {
+        domainRows.forEach(row => row.classList.remove('hidden'));
+        btnText.textContent = 'Collapse All';
+        btnIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>';
+      } else {
+        domainRows.forEach(row => row.classList.add('hidden'));
+        btnText.textContent = 'Show All';
+        btnIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>';
+      }
+    }
+
+    // ================= BLOCK 1: ESP LEVEL DATA (SEP 01) =================
+    new Chart(document.getElementById('chartEspVolumen'), {
+      type: 'bar',
+      data: {
+        labels: ['MLJ IP1', 'SEG IP1', 'SEG IP2', 'SMPT IP1', 'SMPT IP2', 'SMPT IP3'],
+        datasets: [
+          { label: 'Delivered', data: [0, 0, 0, 0, 0, 0], backgroundColor: '#2563eb', borderRadius: 4 },
+          { label: 'Open', data: [0, 0, 0, 0, 0, 0], backgroundColor: '#10b981', borderRadius: 4 }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'top', labels: { boxWidth: 10, font: { size: 10 } } } },
+        scales: {
+          y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { font: { size: 9 } } },
+          x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('chartEspClicks'), {
+      type: 'bar',
+      data: {
+        labels: ['MLJ IP1', 'SEG IP1', 'SEG IP2', 'SMPT IP1', 'SMPT IP2', 'SMPT IP3'],
+        datasets: [{ label: 'Clicks', data: [0, 0, 0, 0, 0, 0], backgroundColor: '#0284c7', borderRadius: 4 }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { font: { size: 9 } } },
+          x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('chartEspOpenRate'), {
+      type: 'bar',
+      data: {
+        labels: ['MLJ IP1', 'SEG IP1', 'SEG IP2', 'SMPT IP1', 'SMPT IP2', 'SMPT IP3'],
+        datasets: [{ label: 'Open Rate (%)', data: [0, 0, 0, 0, 0, 0], backgroundColor: '#10b981', borderRadius: 4 }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, max: 25, grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
+          x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+        }
+      }
+    });
+
+    // ================= BLOCK 2: DOMAIN LEVEL DATA (SEP 01) =================
+    const domains = ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Hotmail', 'Aol'];
+
+    new Chart(document.getElementById('chartDomainDelivered'), {
+      type: 'bar',
+      data: {
+        labels: domains,
+        datasets: [{ label: 'Delivered', data: [0, 0, 0, 0, 0, 0, 0], backgroundColor: '#3b82f6', borderRadius: 4 }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { font: { size: 9 } } },
+          x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('chartDomainOpenRate'), {
+      type: 'bar',
+      data: {
+        labels: domains,
+        datasets: [{ label: 'Open Rate (%)', data: [0, 0, 0, 0, 0, 0, 0], backgroundColor: '#10b981', borderRadius: 4 }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { beginAtZero: true, max: 20, grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
+          y: { grid: { display: false }, ticks: { font: { size: 9 } } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('chartDomainClicks'), {
+      type: 'bar',
+      data: {
+        labels: domains,
+        datasets: [{ label: 'Clicks', data: [0, 0, 0, 0, 0, 0, 0], backgroundColor: '#0284c7', borderRadius: 4 }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { font: { size: 9 } } },
+          x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+        }
+      }
+    });
+
+    // ================= BLOCK 3: ADVERTISER DATA (SEP 01 - 32 GAMETIME, 1 BASHER) =================
+    const affLabels = ['GameTime Digital', 'CHANCED', 'AFF 66', 'Basher Agency', 'Splash', 'ALL IN AFFILIATES', 'Acebet', 'CoinsRoyale', 'EPC'];
+    const signupsData = [32, 0, 0, 1, 0, 0, 0, 0, 0];
+    const usersData = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    new Chart(document.getElementById('chartAffSignUps'), {
+      type: 'bar',
+      data: {
+        labels: affLabels,
+        datasets: [{ label: 'Sign Ups', data: signupsData, backgroundColor: '#d97706', borderRadius: 6 }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { beginAtZero: true, max: 40, grid: { color: '#f1f5f9' } },
+          y: { grid: { display: false } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('chartAffUsers'), {
+      type: 'bar',
+      data: {
+        labels: affLabels,
+        datasets: [{ label: 'Users', data: usersData, backgroundColor: '#4f46e5', borderRadius: 6 }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { beginAtZero: true, max: 10, grid: { color: '#f1f5f9' }, ticks: { stepSize: 2 } },
+          y: { grid: { display: false } }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
