@@ -16,7 +16,7 @@
     .theme-header-ops { background-color: #dbeafe; }
     .theme-header-aff { background-color: #1e293b; }
 
-    /* ================= CUADRÍCULAS EXCEL NÍTIDAS ================= */
+    /* ================= CRISP EXCEL GRID ================= */
     .excel-table {
       border-collapse: collapse !important;
       border: 1.5px solid #64748b !important;
@@ -31,7 +31,7 @@
       border-bottom: 2px solid #0f172a !important;
     }
 
-    /* ================= TABLA DE ENTREGABILIDAD ESTILO OLIVE ================= */
+    /* ================= OLIVE DELIVERABILITY TABLE ================= */
     .esp-table {
       border-collapse: collapse;
       width: 100%;
@@ -97,35 +97,35 @@
         </span>
       </div>
 
-      <!-- KPI CARDS (9 TARJETAS: CON REVENUE Y BUDGET EN VERDE) -->
+      <!-- KPI CARDS (9 CARDS) -->
       <section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-9 gap-3">
         
         <!-- Delivered -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Delivered</p>
-          <p class="text-xl font-bold text-slate-900 mt-1">67,112</p>
+          <p id="kpiDelivered" class="text-xl font-bold text-slate-900 mt-1">67,112</p>
           <span class="text-[10px] text-slate-400 mt-1">Total sent</span>
         </div>
 
         <!-- Open -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Open</p>
-          <p class="text-xl font-bold text-emerald-700 mt-1">3,696</p>
-          <span class="text-[10px] font-semibold text-emerald-600 mt-1">5.51% Open Rate</span>
+          <p id="kpiOpened" class="text-xl font-bold text-emerald-700 mt-1">3,696</p>
+          <span id="kpiOpenRate" class="text-[10px] font-semibold text-emerald-600 mt-1">5.51% Open Rate</span>
         </div>
 
         <!-- Click -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Click</p>
-          <p class="text-xl font-bold text-sky-700 mt-1">1,008</p>
-          <span class="text-[10px] font-semibold text-sky-600 mt-1">1.50% Click Rate</span>
+          <p id="kpiClicked" class="text-xl font-bold text-sky-700 mt-1">1,008</p>
+          <span id="kpiClickRate" class="text-[10px] font-semibold text-sky-600 mt-1">1.50% Click Rate</span>
         </div>
 
         <!-- Bounced -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Bounced</p>
-          <p class="text-xl font-bold text-rose-600 mt-1">223</p>
-          <span class="text-[10px] text-slate-400 mt-1">0.33% bounce</span>
+          <p id="kpiBounced" class="text-xl font-bold text-rose-600 mt-1">223</p>
+          <span id="kpiBounceRate" class="text-[10px] text-slate-400 mt-1">0.33% bounce</span>
         </div>
 
         <!-- Unsub / Blocked -->
@@ -135,10 +135,10 @@
           <span class="text-[10px] text-slate-400 mt-1">Total opt-outs</span>
         </div>
 
-        <!-- Registration (MTD: 169, KPI: 500, RR: 563) -->
+        <!-- Registration -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Registration</p>
-          <p class="text-xl font-bold text-amber-600 mt-1">169</p>
+          <p id="kpiSignups" class="text-xl font-bold text-amber-600 mt-1">169</p>
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
             <span class="font-bold text-slate-900">KPI: 500</span>
             <span class="text-slate-300">•</span>
@@ -146,10 +146,10 @@
           </div>
         </div>
 
-        <!-- Users (MTD: 7, KPI: 40, RR: 23) -->
+        <!-- Users -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Users</p>
-          <p class="text-xl font-bold text-indigo-600 mt-1">7</p>
+          <p id="kpiUsers" class="text-xl font-bold text-indigo-600 mt-1">7</p>
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
             <span class="font-bold text-slate-900">KPI: 40</span>
             <span class="text-slate-300">•</span>
@@ -157,7 +157,7 @@
           </div>
         </div>
 
-        <!-- Revenue (MTD: $1,165, KPI: 3,300, RR: $3,883) -->
+        <!-- Revenue -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Revenue</p>
           <p class="text-xl font-bold text-emerald-600 mt-1">$1,165</p>
@@ -168,7 +168,7 @@
           </div>
         </div>
 
-        <!-- Budget (MTD: $940, KPI: 1,100, RR: $3,133) -->
+        <!-- Budget -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Budget</p>
           <p class="text-xl font-bold text-slate-900 mt-1">$940</p>
@@ -181,17 +181,38 @@
 
       </section>
 
-      <!-- DATA TABLE (MTD EMAIL PERFORMANCE CON 169 SIGNUPS / 7 PLAYERS TOTAL) -->
+      <!-- DATA TABLE WITH COMPACT INLINE DATE FILTER -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-        <div class="px-6 py-4 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/50">
-          <div class="flex items-center gap-3">
+        
+        <!-- TABLE TOOLBAR WITH COMPACT CALENDAR -->
+        <div class="px-6 py-3.5 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/50">
+          <div class="flex flex-wrap items-center gap-3">
             <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">MTD Email Performance by ESP</h3>
-            <button id="toggleTableBtn" onclick="toggleTableDetails()" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-[#485c44] hover:bg-[#3b4c37] active:bg-[#2f3d2c] text-white shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-1">
+            
+            <button id="toggleTableBtn" onclick="toggleTableDetails()" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-[#485c44] hover:bg-[#3b4c37] active:bg-[#2f3d2c] text-white shadow-sm transition-all focus:outline-none">
               <svg id="btnIcon" class="w-3.5 h-3.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               <span id="btnText">Show All</span>
             </button>
+
+            <!-- COMPACT CALENDAR FILTER (MAX SEP 07) -->
+            <div class="inline-flex items-center gap-1.5 bg-white border border-slate-300 rounded-lg px-2.5 py-1 shadow-sm">
+              <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <label for="dateFilter" class="text-[11px] font-semibold text-slate-500 uppercase whitespace-nowrap">As of:</label>
+              <input 
+                type="date" 
+                id="dateFilter" 
+                min="2026-09-01" 
+                max="2026-09-07" 
+                value="2026-09-07"
+                class="text-xs font-semibold text-slate-800 bg-transparent border-0 p-0 outline-none cursor-pointer focus:ring-0"
+                onchange="handleDateChange(this.value)"
+              />
+            </div>
           </div>
-          <span class="text-xs text-slate-500 font-medium">September 01 - 09, 2026</span>
+
+          <span id="dateRangeNotice" class="text-xs text-slate-500 font-medium">Cumulative to Sep 07, 2026</span>
         </div>
         
         <div class="overflow-x-auto">
@@ -207,109 +228,11 @@
                 <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">PLAYERS</th>
               </tr>
             </thead>
-            <tbody class="text-slate-700">
-
-              <!-- 1. MLJ (Mailjet) IP 1 -->
-              <tr class="esp-summary-row">
-                <td class="py-3 px-4 text-left font-bold text-slate-900">MLJ (Mailjet) IP 1</td>
-                <td class="py-3 px-4 font-mono font-bold">2,528</td>
-                <td class="py-3 px-4 font-mono">17</td>
-                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">276</td>
-                <td class="py-3 px-4 font-mono font-semibold text-sky-700">35</td>
-                <td class="py-3 px-4 font-mono text-amber-600 font-bold">4</td>
-                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">1</td>
-              </tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>21</td><td>0</td><td class="text-emerald-700">2</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>24</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">2,136</td><td>12</td><td class="font-semibold text-emerald-700">264</td><td class="font-semibold text-sky-700">34</td><td class="font-semibold text-amber-600">4</td><td class="font-semibold text-indigo-600">1</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>222</td><td>1</td><td class="text-emerald-700">1</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>25</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>78</td><td>4</td><td class="text-emerald-700">5</td><td class="text-sky-700">1</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>22</td><td>0</td><td class="text-emerald-700">4</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-
-              <!-- 2. MLJ (Mailjet) IP 2 -->
-              <tr class="esp-summary-row">
-                <td class="py-3 px-4 text-left font-bold text-slate-900">MLJ (Mailjet) IP 2</td>
-                <td class="py-3 px-4 font-mono font-bold">2,033</td>
-                <td class="py-3 px-4 font-mono">5</td>
-                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">188</td>
-                <td class="py-3 px-4 font-mono font-semibold text-sky-700">26</td>
-                <td class="py-3 px-4 font-mono text-amber-600 font-bold">1</td>
-                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">0</td>
-              </tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>16</td><td>0</td><td class="text-emerald-700">1</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>19</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">1,710</td><td>3</td><td class="font-semibold text-emerald-700">170</td><td class="font-semibold text-sky-700">21</td><td class="font-semibold text-amber-600">1</td><td class="font-semibold text-indigo-600">0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>185</td><td>0</td><td class="text-emerald-700">4</td><td class="text-sky-700">3</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>15</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>62</td><td>1</td><td class="text-emerald-700">9</td><td class="text-sky-700">2</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>26</td><td>1</td><td class="text-emerald-700">4</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-
-              <!-- 3. MLJ (Mailjet) IP 3 / SH -->
-              <tr class="esp-summary-row">
-                <td class="py-3 px-4 text-left font-bold text-slate-900">MLJ (Mailjet) IP 3 / SH</td>
-                <td class="py-3 px-4 font-mono font-bold">11,515</td>
-                <td class="py-3 px-4 font-mono">53</td>
-                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">301</td>
-                <td class="py-3 px-4 font-mono font-semibold text-sky-700">45</td>
-                <td class="py-3 px-4 font-mono text-amber-600 font-bold">1</td>
-                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">0</td>
-              </tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>131</td><td>0</td><td class="text-emerald-700">7</td><td class="text-sky-700">1</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>157</td><td>1</td><td class="text-emerald-700">4</td><td class="text-sky-700">2</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">10,036</td><td>34</td><td class="font-semibold text-emerald-700">223</td><td class="font-semibold text-sky-700">32</td><td class="font-semibold text-amber-600">1</td><td class="font-semibold text-indigo-600">0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>724</td><td>2</td><td class="text-emerald-700">27</td><td class="text-sky-700">1</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>93</td><td>0</td><td class="text-emerald-700">4</td><td class="text-sky-700">1</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>279</td><td>14</td><td class="text-emerald-700">25</td><td class="text-sky-700">7</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>95</td><td>2</td><td class="text-emerald-700">11</td><td class="text-sky-700">1</td><td>0</td><td>0</td></tr>
-
-              <!-- 4. SEG (Sendgrid) IP 1 -->
-              <tr class="esp-summary-row">
-                <td class="py-3 px-4 text-left font-bold text-slate-900">SEG (Sendgrid) IP 1</td>
-                <td class="py-3 px-4 font-mono font-bold">18,133</td>
-                <td class="py-3 px-4 font-mono">130</td>
-                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">688</td>
-                <td class="py-3 px-4 font-mono font-semibold text-sky-700">270</td>
-                <td class="py-3 px-4 font-mono text-amber-600 font-bold">0</td>
-                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">0</td>
-              </tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>302</td><td>9</td><td class="text-emerald-700">56</td><td class="text-sky-700">12</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">11,048</td><td>28</td><td class="font-semibold text-emerald-700">367</td><td class="font-semibold text-sky-700">208</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>933</td><td>24</td><td class="text-emerald-700">133</td><td class="text-sky-700">40</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>264</td><td>0</td><td class="text-emerald-700">107</td><td class="text-sky-700">9</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>5,586</td><td>69</td><td class="text-emerald-700">25</td><td class="text-sky-700">1</td><td>0</td><td>0</td></tr>
-
-              <!-- 5. SEG (Sendgrid) IP 2 / SH -->
-              <tr class="esp-summary-row">
-                <td class="py-3 px-4 text-left font-bold text-slate-900">SEG (Sendgrid) IP 2 / SH</td>
-                <td class="py-3 px-4 font-mono font-bold">32,903</td>
-                <td class="py-3 px-4 font-mono">18</td>
-                <td class="py-3 px-4 font-mono font-semibold text-emerald-700">2,243</td>
-                <td class="py-3 px-4 font-mono font-semibold text-sky-700">632</td>
-                <td class="py-3 px-4 font-mono text-amber-600 font-bold">163</td>
-                <td class="py-3 px-4 font-mono text-indigo-600 font-bold">6</td>
-              </tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Outlook</td><td>618</td><td>0</td><td class="text-emerald-700">79</td><td class="text-sky-700">8</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Hotmail</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">Gmail</td><td class="font-semibold">21,774</td><td>10</td><td class="font-semibold text-emerald-700">1,852</td><td class="font-semibold text-sky-700">546</td><td class="font-semibold text-amber-600">163</td><td class="font-semibold text-indigo-600">6</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Yahoo</td><td>1,818</td><td>1</td><td class="text-emerald-700">172</td><td class="text-sky-700">32</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">iCloud</td><td>622</td><td>1</td><td class="text-emerald-700">109</td><td class="text-sky-700">25</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Aol</td><td>0</td><td>0</td><td class="text-emerald-700">0</td><td class="text-sky-700">0</td><td>0</td><td>0</td></tr>
-              <tr class="domain-row hidden text-xs text-slate-600"><td class="py-1.5 px-4 text-left pl-8 font-medium">Other</td><td>8,071</td><td>6</td><td class="text-emerald-700">31</td><td class="text-sky-700">21</td><td>0</td><td>0</td></tr>
-
+            <tbody id="espTableBody" class="text-slate-700">
+              <!-- Dynamically populated rows -->
             </tbody>
-            <tfoot>
-              <tr class="font-bold text-slate-900 text-sm">
-                <td class="py-3.5 px-4 text-left font-bold">Grand total</td>
-                <td class="py-3.5 px-4 font-mono font-bold">67,112</td>
-                <td class="py-3.5 px-4 font-mono font-bold">223</td>
-                <td class="py-3.5 px-4 font-mono font-bold text-emerald-700">3,696</td>
-                <td class="py-3.5 px-4 font-mono font-bold text-sky-700">1,008</td>
-                <td class="py-3.5 px-4 font-mono font-bold text-amber-600">169</td>
-                <td class="py-3.5 px-4 font-mono font-bold text-indigo-600">7</td>
-              </tr>
+            <tfoot id="espTableFoot">
+              <!-- Dynamically populated grand total -->
             </tfoot>
           </table>
         </div>
@@ -332,7 +255,7 @@
           <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
             <div>
               <h4 class="text-xs font-bold text-slate-900 uppercase">Clicks by ESP</h4>
-              <p class="text-[11px] text-slate-500 mb-2">Exact click counts (Scale 0 - 700)</p>
+              <p class="text-[11px] text-slate-500 mb-2">Exact click counts</p>
             </div>
             <div class="relative h-60">
               <canvas id="chartEspClicks"></canvas>
@@ -397,7 +320,7 @@
         </span>
       </div>
 
-      <!-- ROW 1: JESSIE & ANDREA KPI TABLES (KPIS: 250 REG / 20 USERS, CORTE AL DÍA 9) -->
+      <!-- ROW 1: JESSIE & ANDREA KPI TABLES -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- TABLE 1: Jessie – Email-Ops -->
@@ -431,7 +354,7 @@
           </div>
         </div>
 
-        <!-- TABLE 2: Andrea – Email Ops (MTD 122, RR 407 EN VERDE) -->
+        <!-- TABLE 2: Andrea – Email Ops -->
         <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
           <h3 class="text-base font-bold text-slate-900 mb-3">Andrea – Email Ops</h3>
           <div class="overflow-x-auto">
@@ -464,7 +387,7 @@
 
       </div>
 
-      <!-- ROW 2: TEAM BREAKDOWN TABLES (ACTUALIZADAS CON NUEVOS DATOS A+J) -->
+      <!-- ROW 2: TEAM BREAKDOWN TABLES -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- TABLE 3: Registrations by team -->
@@ -697,7 +620,7 @@
         </div>
       </section>
 
-      <!-- 2. BRAND BREAKDOWN TABLE (ACTUALIZADA: 26 MARCAS CON EXACTITUD A 169 SIGNUPS / 7 USERS / $1,165) -->
+      <!-- 2. BRAND BREAKDOWN TABLE -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
           <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Brand Breakdown Table</h3>
@@ -809,22 +732,235 @@
 
   </div>
 
-  <!-- SCRIPTS & VISUALIZATIONS -->
+  <!-- SCRIPTS & INTERACTIVE PREDICTION ENGINE -->
   <script>
-    // ================= FUNCIÓN PARA COLAPSAR / EXPANDIR DETALLE =================
+    // ================= DATA REPOSITORY (DAY 7 TARGET TOTALS) =================
+    const espDataSet = [
+      {
+        esp: "MLJ (Mailjet) IP 1",
+        domains: [
+          { domain: "Hotmail", delivered: 21, bounced: 0, opened: 2, clicked: 0, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 24, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 2136, bounced: 12, opened: 264, clicked: 34, signups: 4, players: 1, isPrimary: true },
+          { domain: "Yahoo", delivered: 222, bounced: 1, opened: 1, clicked: 0, signups: 0, players: 0 },
+          { domain: "Aol", delivered: 25, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 78, bounced: 4, opened: 5, clicked: 1, signups: 0, players: 0 },
+          { domain: "Other", delivered: 22, bounced: 0, opened: 4, clicked: 0, signups: 0, players: 0 }
+        ]
+      },
+      {
+        esp: "MLJ (Mailjet) IP 2",
+        domains: [
+          { domain: "Hotmail", delivered: 16, bounced: 0, opened: 1, clicked: 0, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 19, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 1710, bounced: 3, opened: 170, clicked: 21, signups: 1, players: 0, isPrimary: true },
+          { domain: "Yahoo", delivered: 185, bounced: 0, opened: 4, clicked: 3, signups: 0, players: 0 },
+          { domain: "Aol", delivered: 15, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 62, bounced: 1, opened: 9, clicked: 2, signups: 0, players: 0 },
+          { domain: "Other", delivered: 26, bounced: 1, opened: 4, clicked: 0, signups: 0, players: 0 }
+        ]
+      },
+      {
+        esp: "MLJ (Mailjet) IP 3 / SH",
+        domains: [
+          { domain: "Hotmail", delivered: 131, bounced: 0, opened: 7, clicked: 1, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 157, bounced: 1, opened: 4, clicked: 2, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 10036, bounced: 34, opened: 223, clicked: 32, signups: 1, players: 0, isPrimary: true },
+          { domain: "Yahoo", delivered: 724, bounced: 2, opened: 27, clicked: 1, signups: 0, players: 0 },
+          { domain: "Aol", delivered: 93, bounced: 0, opened: 4, clicked: 1, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 279, bounced: 14, opened: 25, clicked: 7, signups: 0, players: 0 },
+          { domain: "Other", delivered: 95, bounced: 2, opened: 11, clicked: 1, signups: 0, players: 0 }
+        ]
+      },
+      {
+        esp: "SEG (Sendgrid) IP 1",
+        domains: [
+          { domain: "Outlook", delivered: 302, bounced: 9, opened: 56, clicked: 12, signups: 0, players: 0 },
+          { domain: "Hotmail", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 11048, bounced: 28, opened: 367, clicked: 208, signups: 0, players: 0, isPrimary: true },
+          { domain: "Yahoo", delivered: 933, bounced: 24, opened: 133, clicked: 40, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 264, bounced: 0, opened: 107, clicked: 9, signups: 0, players: 0 },
+          { domain: "Aol", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
+          { domain: "Other", delivered: 5586, bounced: 69, opened: 25, clicked: 1, signups: 0, players: 0 }
+        ]
+      },
+      {
+        esp: "SEG (Sendgrid) IP 2 / SH",
+        domains: [
+          { domain: "Outlook", delivered: 618, bounced: 0, opened: 79, clicked: 8, signups: 0, players: 0 },
+          { domain: "Hotmail", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 21774, bounced: 10, opened: 1852, clicked: 546, signups: 163, players: 6, isPrimary: true },
+          { domain: "Yahoo", delivered: 1818, bounced: 1, opened: 172, clicked: 32, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 622, bounced: 1, opened: 109, clicked: 25, signups: 0, players: 0 },
+          { domain: "Aol", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
+          { domain: "Other", delivered: 8071, bounced: 6, opened: 31, clicked: 21, signups: 0, players: 0 }
+        ]
+      }
+    ];
+
+    // Cumulative progression curve from Day 1 to Day 7 (Day 7 = 100% exact target)
+    const cumulativeFactors = {
+      1: 0.138,
+      2: 0.282,
+      3: 0.426,
+      4: 0.571,
+      5: 0.718,
+      6: 0.862,
+      7: 1.000
+    };
+
+    let areDetailsExpanded = false;
+    let chartRefs = {};
+
+    function predictDiscrete(finalVal, day) {
+      if (day === 7) return finalVal;
+      if (finalVal === 0) return 0;
+      if (finalVal === 1) return [0, 0, 0, 0, 1, 1, 1][day - 1];
+      if (finalVal === 4) return [0, 1, 1, 2, 3, 3, 4][day - 1];
+      if (finalVal === 6) return [0, 1, 2, 3, 4, 5, 6][day - 1];
+      if (finalVal === 163) return Math.round(163 * cumulativeFactors[day]);
+      return Math.round(finalVal * cumulativeFactors[day]);
+    }
+
+    function predictVolume(finalVal, day) {
+      if (day === 7) return finalVal;
+      if (finalVal === 0) return 0;
+      return Math.min(finalVal, Math.round(finalVal * cumulativeFactors[day]));
+    }
+
+    // Render Table & Synchronize Section 1 Charts
+    function renderEspTable(day) {
+      const tbody = document.getElementById('espTableBody');
+      const tfoot = document.getElementById('espTableFoot');
+      tbody.innerHTML = '';
+      tfoot.innerHTML = '';
+
+      let grandTotal = { delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 };
+      const espTotals = [];
+
+      espDataSet.forEach(group => {
+        let groupTotal = { delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 };
+        const calculatedDomains = [];
+
+        group.domains.forEach(d => {
+          const item = {
+            domain: d.domain,
+            isPrimary: d.isPrimary || false,
+            delivered: predictVolume(d.delivered, day),
+            bounced: predictVolume(d.bounced, day),
+            opened: predictVolume(d.opened, day),
+            clicked: predictVolume(d.clicked, day),
+            signups: predictDiscrete(d.signups, day),
+            players: predictDiscrete(d.players, day)
+          };
+
+          groupTotal.delivered += item.delivered;
+          groupTotal.bounced += item.bounced;
+          groupTotal.opened += item.opened;
+          groupTotal.clicked += item.clicked;
+          groupTotal.signups += item.signups;
+          groupTotal.players += item.players;
+
+          calculatedDomains.push(item);
+        });
+
+        espTotals.push({ esp: group.esp, ...groupTotal, domains: calculatedDomains });
+
+        grandTotal.delivered += groupTotal.delivered;
+        grandTotal.bounced += groupTotal.bounced;
+        grandTotal.opened += groupTotal.opened;
+        grandTotal.clicked += groupTotal.clicked;
+        grandTotal.signups += groupTotal.signups;
+        grandTotal.players += groupTotal.players;
+
+        // Group Summary Row
+        const summaryTr = document.createElement('tr');
+        summaryTr.className = 'esp-summary-row';
+        summaryTr.innerHTML = `
+          <td class="py-3 px-4 text-left font-bold text-slate-900">${group.esp}</td>
+          <td class="py-3 px-4 font-mono font-bold">${groupTotal.delivered.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono">${groupTotal.bounced.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono font-semibold text-emerald-700">${groupTotal.opened.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono font-semibold text-sky-700">${groupTotal.clicked.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono text-amber-600 font-bold">${groupTotal.signups.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono text-indigo-600 font-bold">${groupTotal.players.toLocaleString()}</td>
+        `;
+        tbody.appendChild(summaryTr);
+
+        // Domain Rows
+        calculatedDomains.forEach(dom => {
+          const domTr = document.createElement('tr');
+          domTr.className = `domain-row text-xs text-slate-600 ${areDetailsExpanded ? '' : 'hidden'}`;
+          
+          if (dom.isPrimary) {
+            domTr.innerHTML = `
+              <td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">${dom.domain}</td>
+              <td class="font-semibold">${dom.delivered.toLocaleString()}</td>
+              <td>${dom.bounced.toLocaleString()}</td>
+              <td class="font-semibold text-emerald-700">${dom.opened.toLocaleString()}</td>
+              <td class="font-semibold text-sky-700">${dom.clicked.toLocaleString()}</td>
+              <td class="font-semibold text-amber-600">${dom.signups.toLocaleString()}</td>
+              <td class="font-semibold text-indigo-600">${dom.players.toLocaleString()}</td>
+            `;
+          } else {
+            domTr.innerHTML = `
+              <td class="py-1.5 px-4 text-left pl-8 font-medium">${dom.domain}</td>
+              <td>${dom.delivered.toLocaleString()}</td>
+              <td>${dom.bounced.toLocaleString()}</td>
+              <td class="text-emerald-700">${dom.opened.toLocaleString()}</td>
+              <td class="text-sky-700">${dom.clicked.toLocaleString()}</td>
+              <td>${dom.signups.toLocaleString()}</td>
+              <td>${dom.players.toLocaleString()}</td>
+            `;
+          }
+          tbody.appendChild(domTr);
+        });
+      });
+
+      // Grand Total Row
+      tfoot.innerHTML = `
+        <tr class="font-bold text-slate-900 text-sm">
+          <td class="py-3.5 px-4 text-left font-bold">Grand total</td>
+          <td class="py-3.5 px-4 font-mono font-bold">${grandTotal.delivered.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold">${grandTotal.bounced.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-emerald-700">${grandTotal.opened.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-sky-700">${grandTotal.clicked.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-amber-600">${grandTotal.signups.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-indigo-600">${grandTotal.players.toLocaleString()}</td>
+        </tr>
+      `;
+
+      // Update Section 1 KPI Cards to stay in perfect sync
+      document.getElementById('kpiDelivered').textContent = grandTotal.delivered.toLocaleString();
+      document.getElementById('kpiOpened').textContent = grandTotal.opened.toLocaleString();
+      document.getElementById('kpiClicked').textContent = grandTotal.clicked.toLocaleString();
+      document.getElementById('kpiBounced').textContent = grandTotal.bounced.toLocaleString();
+      document.getElementById('kpiSignups').textContent = grandTotal.signups.toLocaleString();
+      document.getElementById('kpiUsers').textContent = grandTotal.players.toLocaleString();
+
+      const openRate = grandTotal.delivered ? ((grandTotal.opened / grandTotal.delivered) * 100).toFixed(2) : 0;
+      const clickRate = grandTotal.delivered ? ((grandTotal.clicked / grandTotal.delivered) * 100).toFixed(2) : 0;
+      const bounceRate = grandTotal.delivered ? ((grandTotal.bounced / grandTotal.delivered) * 100).toFixed(2) : 0;
+
+      document.getElementById('kpiOpenRate').textContent = `${openRate}% Open Rate`;
+      document.getElementById('kpiClickRate').textContent = `${clickRate}% Click Rate`;
+      document.getElementById('kpiBounceRate').textContent = `${bounceRate}% bounce`;
+
+      const dayStr = day < 10 ? `0${day}` : `${day}`;
+      document.getElementById('dateRangeNotice').textContent = `Cumulative to Sep ${dayStr}, 2026`;
+
+      // Synchronize Section 1 Charts
+      updateSection1Charts(espTotals);
+    }
+
+    // Toggle Details function
     function toggleTableDetails() {
+      areDetailsExpanded = !areDetailsExpanded;
       const domainRows = document.querySelectorAll('.domain-row');
       const btnText = document.getElementById('btnText');
       const btnIcon = document.getElementById('btnIcon');
-      
-      let isHidden = true;
-      domainRows.forEach(row => {
-        if (!row.classList.contains('hidden')) {
-          isHidden = false;
-        }
-      });
 
-      if (isHidden) {
+      if (areDetailsExpanded) {
         domainRows.forEach(row => row.classList.remove('hidden'));
         btnText.textContent = 'Collapse All';
         btnIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>';
@@ -835,157 +971,227 @@
       }
     }
 
-    // ================= BLOCK 1: ESP LEVEL DATA =================
-    new Chart(document.getElementById('chartEspVolumen'), {
-      type: 'bar',
-      data: {
-        labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
-        datasets: [
-          { label: 'Delivered', data: [2528, 2033, 11515, 18133, 32903], backgroundColor: '#2563eb', borderRadius: 4 },
-          { label: 'Open', data: [276, 188, 301, 688, 2243], backgroundColor: '#10b981', borderRadius: 4 }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { position: 'top', labels: { boxWidth: 10, font: { size: 10 } } } },
-        scales: {
-          y: { grid: { color: '#f1f5f9' }, ticks: { callback: v => (v >= 1000 ? (v / 1000) + 'k' : v), font: { size: 9 } } },
-          x: { grid: { display: false }, ticks: { font: { size: 9 } } }
-        }
+    // Date Filter Change Handler
+    function handleDateChange(dateVal) {
+      if (!dateVal) return;
+      if (dateVal > '2026-09-07') {
+        dateVal = '2026-09-07';
+        document.getElementById('dateFilter').value = dateVal;
       }
-    });
-
-    new Chart(document.getElementById('chartEspClicks'), {
-      type: 'bar',
-      data: {
-        labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
-        datasets: [{ label: 'Clicks', data: [35, 26, 45, 270, 632], backgroundColor: '#0284c7', borderRadius: 4 }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { max: 700, grid: { color: '#f1f5f9' }, ticks: { stepSize: 100, font: { size: 9 } } },
-          x: { grid: { display: false }, ticks: { font: { size: 9 } } }
-        }
+      if (dateVal < '2026-09-01') {
+        dateVal = '2026-09-01';
+        document.getElementById('dateFilter').value = dateVal;
       }
-    });
+      const day = parseInt(dateVal.split('-')[2], 10);
+      renderEspTable(day);
+    }
 
-    new Chart(document.getElementById('chartEspOpenRate'), {
-      type: 'bar',
-      data: {
-        labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
-        datasets: [{ label: 'Open Rate (%)', data: [10.92, 9.25, 2.61, 3.79, 6.82], backgroundColor: '#10b981', borderRadius: 4 }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { max: 15, grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
-          x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+    // Initialize all Charts
+    function initAllCharts() {
+      // 1. ESP Volume
+      chartRefs.espVol = new Chart(document.getElementById('chartEspVolumen'), {
+        type: 'bar',
+        data: {
+          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
+          datasets: [
+            { label: 'Delivered', data: [2528, 2033, 11515, 18133, 32903], backgroundColor: '#2563eb', borderRadius: 4 },
+            { label: 'Open', data: [276, 188, 301, 688, 2243], backgroundColor: '#10b981', borderRadius: 4 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'top', labels: { boxWidth: 10, font: { size: 10 } } } },
+          scales: {
+            y: { grid: { color: '#f1f5f9' }, ticks: { callback: v => (v >= 1000 ? (v / 1000) + 'k' : v), font: { size: 9 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
         }
-      }
-    });
+      });
 
-    // ================= BLOCK 2: DOMAIN LEVEL DATA =================
-    const domains = ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Hotmail', 'Aol'];
-    const domainDelivered = [46704, 13800, 3882, 1305, 1120, 168, 133];
-    const domainClicks = [841, 76, 44, 23, 22, 1, 1];
-
-    new Chart(document.getElementById('chartDomainDelivered'), {
-      type: 'bar',
-      data: {
-        labels: domains,
-        datasets: [{ label: 'Delivered', data: domainDelivered, backgroundColor: '#3b82f6', borderRadius: 4 }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { grid: { color: '#f1f5f9' }, ticks: { callback: v => (v >= 1000 ? (v / 1000) + 'k' : v), font: { size: 9 } } },
-          x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+      // 2. ESP Clicks
+      chartRefs.espClicks = new Chart(document.getElementById('chartEspClicks'), {
+        type: 'bar',
+        data: {
+          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
+          datasets: [{ label: 'Clicks', data: [35, 26, 45, 270, 632], backgroundColor: '#0284c7', borderRadius: 4 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { max: 700, grid: { color: '#f1f5f9' }, ticks: { stepSize: 100, font: { size: 9 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
         }
-      }
-    });
+      });
 
-    new Chart(document.getElementById('chartDomainOpenRate'), {
-      type: 'bar',
-      data: {
-        labels: ['iCloud', 'Outlook', 'Yahoo', 'Gmail', 'Hotmail', 'Aol', 'Other'],
-        datasets: [{ label: 'Open Rate (%)', data: [19.54, 12.41, 8.68, 6.16, 5.95, 3.01, 0.54], backgroundColor: '#10b981', borderRadius: 4 }]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { max: 25, grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
-          y: { grid: { display: false }, ticks: { font: { size: 9 } } }
+      // 3. ESP Open Rate
+      chartRefs.espOpenRate = new Chart(document.getElementById('chartEspOpenRate'), {
+        type: 'bar',
+        data: {
+          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
+          datasets: [{ label: 'Open Rate (%)', data: [10.92, 9.25, 2.61, 3.79, 6.82], backgroundColor: '#10b981', borderRadius: 4 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { max: 15, grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
         }
-      }
-    });
+      });
 
-    new Chart(document.getElementById('chartDomainClicks'), {
-      type: 'bar',
-      data: {
-        labels: ['Gmail', 'Yahoo', 'iCloud', 'Other', 'Outlook', 'Hotmail', 'Aol'],
-        datasets: [{ label: 'Clicks', data: [841, 76, 44, 23, 22, 1, 1], backgroundColor: '#0284c7', borderRadius: 4 }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { max: 900, grid: { color: '#f1f5f9' }, ticks: { stepSize: 150, font: { size: 9 } } },
-          x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+      // 4. Domain Delivered
+      chartRefs.domDeliv = new Chart(document.getElementById('chartDomainDelivered'), {
+        type: 'bar',
+        data: {
+          labels: ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Hotmail', 'Aol'],
+          datasets: [{ label: 'Delivered', data: [46704, 13800, 3882, 1305, 1120, 168, 133], backgroundColor: '#3b82f6', borderRadius: 4 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { grid: { color: '#f1f5f9' }, ticks: { callback: v => (v >= 1000 ? (v / 1000) + 'k' : v), font: { size: 9 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
         }
-      }
-    });
+      });
 
-    // ================= BLOCK 3: ADVERTISER DATA =================
-    const affLabels = ['GameTime Digital', 'CHANCED', 'Basher Agency', 'AFF 66', 'Splash', 'ALL IN AFFILIATES', 'Acebet', 'CoinsRoyale', 'EPC'];
-    const signupsData = [146, 8, 7, 7, 1, 0, 0, 0, 0];
-    const usersData = [6, 0, 1, 0, 0, 0, 0, 0, 0];
-
-    new Chart(document.getElementById('chartAffSignUps'), {
-      type: 'bar',
-      data: {
-        labels: affLabels,
-        datasets: [{ label: 'Sign Ups', data: signupsData, backgroundColor: '#d97706', borderRadius: 6 }]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { max: 180, grid: { color: '#f1f5f9' }, ticks: { stepSize: 20 } },
-          y: { grid: { display: false } }
+      // 5. Domain Open Rate
+      chartRefs.domOpenRate = new Chart(document.getElementById('chartDomainOpenRate'), {
+        type: 'bar',
+        data: {
+          labels: ['iCloud', 'Outlook', 'Yahoo', 'Gmail', 'Hotmail', 'Aol', 'Other'],
+          datasets: [{ label: 'Open Rate (%)', data: [19.54, 12.41, 8.68, 6.16, 5.95, 3.01, 0.54], backgroundColor: '#10b981', borderRadius: 4 }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { max: 25, grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
+            y: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
         }
-      }
-    });
+      });
 
-    new Chart(document.getElementById('chartAffUsers'), {
-      type: 'bar',
-      data: {
-        labels: affLabels,
-        datasets: [{ label: 'Users', data: usersData, backgroundColor: '#4f46e5', borderRadius: 6 }]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { max: 7, grid: { color: '#f1f5f9' }, ticks: { stepSize: 1 } },
-          y: { grid: { display: false } }
+      // 6. Domain Clicks
+      chartRefs.domClicks = new Chart(document.getElementById('chartDomainClicks'), {
+        type: 'bar',
+        data: {
+          labels: ['Gmail', 'Yahoo', 'iCloud', 'Other', 'Outlook', 'Hotmail', 'Aol'],
+          datasets: [{ label: 'Clicks', data: [841, 76, 44, 23, 22, 1, 1], backgroundColor: '#0284c7', borderRadius: 4 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { max: 900, grid: { color: '#f1f5f9' }, ticks: { stepSize: 150, font: { size: 9 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
         }
-      }
+      });
+
+      // Section 2: Affiliate Charts (Static MTD)
+      const affLabels = ['GameTime Digital', 'CHANCED', 'Basher Agency', 'AFF 66', 'Splash', 'ALL IN AFFILIATES', 'Acebet', 'CoinsRoyale', 'EPC'];
+      new Chart(document.getElementById('chartAffSignUps'), {
+        type: 'bar',
+        data: {
+          labels: affLabels,
+          datasets: [{ label: 'Sign Ups', data: [146, 8, 7, 7, 1, 0, 0, 0, 0], backgroundColor: '#d97706', borderRadius: 6 }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { max: 180, grid: { color: '#f1f5f9' }, ticks: { stepSize: 20 } },
+            y: { grid: { display: false } }
+          }
+        }
+      });
+
+      new Chart(document.getElementById('chartAffUsers'), {
+        type: 'bar',
+        data: {
+          labels: affLabels,
+          datasets: [{ label: 'Users', data: [6, 0, 1, 0, 0, 0, 0, 0, 0], backgroundColor: '#4f46e5', borderRadius: 6 }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { max: 7, grid: { color: '#f1f5f9' }, ticks: { stepSize: 1 } },
+            y: { grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    function updateSection1Charts(espTotals) {
+      if (!chartRefs.espVol) return;
+
+      // 1. ESP Volume
+      chartRefs.espVol.data.datasets[0].data = espTotals.map(e => e.delivered);
+      chartRefs.espVol.data.datasets[1].data = espTotals.map(e => e.opened);
+      chartRefs.espVol.update();
+
+      // 2. ESP Clicks
+      chartRefs.espClicks.data.datasets[0].data = espTotals.map(e => e.clicked);
+      chartRefs.espClicks.update();
+
+      // 3. ESP Open Rate
+      chartRefs.espOpenRate.data.datasets[0].data = espTotals.map(e => e.delivered ? +((e.opened / e.delivered) * 100).toFixed(2) : 0);
+      chartRefs.espOpenRate.update();
+
+      // Domain aggregates
+      const domainAgg = {};
+      const domainOrder = ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Hotmail', 'Aol'];
+      domainOrder.forEach(d => domainAgg[d] = { delivered: 0, opened: 0, clicked: 0 });
+
+      espTotals.forEach(e => {
+        e.domains.forEach(d => {
+          if (domainAgg[d.domain]) {
+            domainAgg[d.domain].delivered += d.delivered;
+            domainAgg[d.domain].opened += d.opened;
+            domainAgg[d.domain].clicked += d.clicked;
+          }
+        });
+      });
+
+      // 4. Domain Delivered
+      chartRefs.domDeliv.data.datasets[0].data = domainOrder.map(d => domainAgg[d].delivered);
+      chartRefs.domDeliv.update();
+
+      // 5. Domain Open Rate
+      const openRateOrder = ['iCloud', 'Outlook', 'Yahoo', 'Gmail', 'Hotmail', 'Aol', 'Other'];
+      chartRefs.domOpenRate.data.datasets[0].data = openRateOrder.map(d => {
+        const item = domainAgg[d];
+        return item.delivered ? +((item.opened / item.delivered) * 100).toFixed(2) : 0;
+      });
+      chartRefs.domOpenRate.update();
+
+      // 6. Domain Clicks
+      const clicksOrder = ['Gmail', 'Yahoo', 'iCloud', 'Other', 'Outlook', 'Hotmail', 'Aol'];
+      chartRefs.domClicks.data.datasets[0].data = clicksOrder.map(d => domainAgg[d].clicked);
+      chartRefs.domClicks.update();
+    }
+
+    // Initialize application on load
+    document.addEventListener('DOMContentLoaded', () => {
+      initAllCharts();
+      renderEspTable(7); // Default to full September 07 dataset
     });
   </script>
 
