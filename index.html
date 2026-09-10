@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>September 01 - 09 - EMAIL & Advertiser Performance Dashboard</title>
+  <title>September 01 - 10 - EMAIL & Advertiser Performance Dashboard</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Chart.js CDN -->
@@ -74,13 +74,13 @@
       <div>
         <div class="flex items-center gap-2">
           <span class="w-3 h-3 rounded-full bg-blue-600 animate-pulse"></span>
-          <h1 class="text-2xl font-bold text-slate-900 tracking-tight">September 01 - 09 - Performance Dashboard</h1>
+          <h1 class="text-2xl font-bold text-slate-900 tracking-tight">September 01 - 10 - Performance Dashboard</h1>
         </div>
         <p class="text-sm text-slate-500 mt-1">Email Deliverability by ESP & Advertiser Conversions (September Cycle)</p>
       </div>
       <div class="mt-4 sm:mt-0">
         <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 border border-blue-200">
-          Sep 09, 2026 (In Progress)
+          Sep 10, 2026 (In Progress)
         </span>
       </div>
     </header>
@@ -90,14 +90,14 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 gap-2">
         <div class="flex items-center gap-2">
           <span class="px-2.5 py-0.5 rounded bg-blue-800 text-white text-xs font-bold uppercase">Section 1</span>
-          <h2 class="text-lg font-bold text-slate-800">September 01 - 09 - ESP Deliverability & Engagement</h2>
+          <h2 class="text-lg font-bold text-slate-800">September 01 - 10 - ESP Deliverability & Engagement</h2>
         </div>
         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200 w-fit">
-          September 01 - 09, 2026
+          September 01 - 10, 2026
         </span>
       </div>
 
-      <!-- KPI CARDS (9 CARDS) -->
+      <!-- KPI CARDS (9 CARDS IN SECTION 1 - REMAIN INTACT) -->
       <section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-9 gap-3">
         
         <!-- Delivered -->
@@ -138,11 +138,11 @@
         <!-- Registration -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Registration</p>
-          <p id="kpiSignups" class="text-xl font-bold text-amber-600 mt-1">169</p>
+          <p id="kpiSignups" class="text-xl font-bold text-amber-600 mt-1">174</p>
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
             <span class="font-bold text-slate-900">KPI: 500</span>
             <span class="text-slate-300">•</span>
-            <span class="font-bold text-emerald-600">RR: 563</span>
+            <span class="font-bold text-emerald-600">RR: 522</span>
           </div>
         </div>
 
@@ -153,7 +153,7 @@
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
             <span class="font-bold text-slate-900">KPI: 40</span>
             <span class="text-slate-300">•</span>
-            <span class="font-bold text-rose-600">RR: 23</span>
+            <span class="font-bold text-rose-600">RR: 21</span>
           </div>
         </div>
 
@@ -164,7 +164,7 @@
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
             <span class="font-bold text-slate-900">KPI: $3.3k</span>
             <span class="text-slate-300">•</span>
-            <span class="font-bold text-emerald-600">RR: $3.9k</span>
+            <span class="font-bold text-emerald-600">RR: $3.5k</span>
           </div>
         </div>
 
@@ -175,7 +175,7 @@
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
             <span class="font-bold text-slate-900">KPI: $1.1k</span>
             <span class="text-slate-300">•</span>
-            <span class="font-bold text-emerald-600">RR: $3.1k</span>
+            <span class="font-bold text-emerald-600">RR: $2.8k</span>
           </div>
         </div>
 
@@ -194,7 +194,7 @@
               <span id="btnText">Show All</span>
             </button>
 
-            <!-- COMPACT CALENDAR FILTER (MAX SEP 07) -->
+            <!-- COMPACT CALENDAR FILTER (LABEL: Date:, EXTENDED TO 10) -->
             <div class="inline-flex items-center gap-1.5 bg-white border border-slate-300 rounded-lg px-2.5 py-1 shadow-sm">
               <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -204,15 +204,15 @@
                 type="date" 
                 id="dateFilter" 
                 min="2026-09-01" 
-                max="2026-09-07" 
-                value="2026-09-07"
+                max="2026-09-10" 
+                value="2026-09-10"
                 class="text-xs font-semibold text-slate-800 bg-transparent border-0 p-0 outline-none cursor-pointer focus:ring-0"
                 onchange="handleDateChange(this.value)"
               />
             </div>
           </div>
 
-          <span id="dateRangeNotice" class="text-xs text-slate-500 font-medium">Cumulative to Sep 07, 2026</span>
+          <span id="dateRangeNotice" class="text-xs text-slate-500 font-medium">Cumulative to Sep 10, 2026</span>
         </div>
         
         <div class="overflow-x-auto">
@@ -316,7 +316,7 @@
           <h2 class="text-lg font-bold text-slate-800">Email Operations Performance</h2>
         </div>
         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200 w-fit">
-          September 01 - 09, 2026 (Day 9 of 30)
+          September 01 - 10, 2026 (Day 10 of 30)
         </span>
       </div>
 
@@ -341,13 +341,13 @@
                   <td class="py-2 px-3 text-left font-bold">Registrations</td>
                   <td class="py-2 px-3 font-bold text-slate-900">250</td>
                   <td class="py-2 px-3 font-bold">17</td>
-                  <td class="py-2 px-3 font-bold text-rose-600">57</td>
+                  <td class="py-2 px-3 font-bold text-rose-600">51</td>
                 </tr>
                 <tr class="bg-slate-50/50">
                   <td class="py-2 px-3 text-left font-bold">Users</td>
                   <td class="py-2 px-3 font-bold text-slate-900">20</td>
                   <td class="py-2 px-3 font-bold">2</td>
-                  <td class="py-2 px-3 font-bold text-rose-600">7</td>
+                  <td class="py-2 px-3 font-bold text-rose-600">6</td>
                 </tr>
               </tbody>
             </table>
@@ -371,14 +371,14 @@
                 <tr class="bg-white">
                   <td class="py-2 px-3 text-left font-bold">Registrations</td>
                   <td class="py-2 px-3 font-bold text-slate-900">250</td>
-                  <td class="py-2 px-3 font-bold">122</td>
-                  <td class="py-2 px-3 font-bold text-emerald-600">407</td>
+                  <td class="py-2 px-3 font-bold">126</td>
+                  <td class="py-2 px-3 font-bold text-emerald-600">378</td>
                 </tr>
                 <tr class="bg-slate-50/50">
                   <td class="py-2 px-3 text-left font-bold">Users</td>
                   <td class="py-2 px-3 font-bold text-slate-900">20</td>
                   <td class="py-2 px-3 font-bold">4</td>
-                  <td class="py-2 px-3 font-bold text-rose-600">13</td>
+                  <td class="py-2 px-3 font-bold text-rose-600">12</td>
                 </tr>
               </tbody>
             </table>
@@ -412,15 +412,15 @@
                   <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">CHANCED</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
                   <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">COINSROYALE</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
                   <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">EPC</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">GAMETIME DIGITAL</td><td class="py-1.5 px-3 font-mono font-bold text-amber-600">114</td><td class="py-1.5 px-3 font-mono font-semibold text-amber-600">13</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">127</td></tr>
+                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">GAMETIME DIGITAL</td><td class="py-1.5 px-3 font-mono font-bold text-amber-600">118</td><td class="py-1.5 px-3 font-mono font-semibold text-amber-600">13</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">131</td></tr>
                   <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">SPLASH</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
                 </tbody>
                 <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
                   <tr>
                     <td class="py-2 px-3 text-left">Grand Total</td>
-                    <td class="py-2 px-3 font-mono text-amber-600">122</td>
+                    <td class="py-2 px-3 font-mono text-amber-600">126</td>
                     <td class="py-2 px-3 font-mono text-amber-600">17</td>
-                    <td class="py-2 px-3 font-mono text-amber-700">139</td>
+                    <td class="py-2 px-3 font-mono text-amber-700">143</td>
                   </tr>
                 </tfoot>
               </table>
@@ -474,58 +474,14 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 gap-2">
         <div class="flex items-center gap-2">
           <span class="px-2.5 py-0.5 rounded bg-slate-900 text-white text-xs font-bold uppercase">Section 2</span>
-          <h2 class="text-lg font-bold text-slate-800">September 01 - 09 - Advertiser Performance & Revenue</h2>
+          <h2 class="text-lg font-bold text-slate-800">September 01 - 10 - Advertiser Performance & Revenue</h2>
         </div>
         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200 w-fit">
-          September 01 - 09, 2026
+          September 01 - 10, 2026
         </span>
       </div>
 
-      <!-- AFFILIATE KPI CARDS -->
-      <section class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-          <div>
-            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Sign Ups</p>
-            <p class="text-3xl font-bold text-amber-600 mt-1">169</p>
-            <div class="flex items-center gap-2 mt-1">
-              <span class="text-xs font-bold text-slate-900">KPI: 500</span>
-              <span class="text-xs text-slate-300">•</span>
-              <span class="text-xs font-bold text-emerald-600">RR: 563</span>
-            </div>
-          </div>
-          <div class="p-3 bg-amber-50 rounded-xl">
-            <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
-          </div>
-        </div>
-
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-          <div>
-            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Users</p>
-            <p class="text-3xl font-bold text-indigo-600 mt-1">7</p>
-            <div class="flex items-center gap-2 mt-1">
-              <span class="text-xs font-bold text-slate-900">KPI: 40</span>
-              <span class="text-xs text-slate-300">•</span>
-              <span class="text-xs font-bold text-rose-600">RR: 23</span>
-            </div>
-          </div>
-          <div class="p-3 bg-indigo-50 rounded-xl">
-            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-          </div>
-        </div>
-
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-          <div>
-            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Revenue</p>
-            <p class="text-3xl font-bold text-emerald-600 mt-1">$1,165</p>
-            <span class="text-xs text-slate-500 font-medium">Total Generated MTD</span>
-          </div>
-          <div class="p-3 bg-emerald-50 rounded-xl">
-            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-        </div>
-      </section>
-
-      <!-- 1. ADVERTISER BREAKDOWN TABLE -->
+      <!-- 1. ADVERTISER BREAKDOWN TABLE (NO DECIMALS IN REVENUE) -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
           <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Advertiser Breakdown Table</h3>
@@ -545,17 +501,17 @@
             <tbody class="text-slate-700">
               <tr class="hover:bg-slate-50 bg-white">
                 <td class="py-2.5 px-4 text-left font-medium text-slate-900">GameTime Digital</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-amber-600">146</td>
+                <td class="py-2.5 px-4 font-mono font-bold text-amber-600">150</td>
                 <td class="py-2.5 px-4 font-mono font-bold text-indigo-600">6</td>
                 <td class="py-2.5 px-4 font-mono font-bold text-emerald-600">$1,045</td>
-                <td class="py-2.5 px-4 font-mono font-semibold text-emerald-600">1:24</td>
+                <td class="py-2.5 px-4 font-mono font-semibold text-emerald-600">1:25</td>
               </tr>
               <tr class="hover:bg-slate-50 bg-slate-50/40">
                 <td class="py-2.5 px-4 text-left font-medium text-slate-900">CHANCED</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-slate-900">8</td>
+                <td class="py-2.5 px-4 font-mono font-bold text-slate-900">9</td>
                 <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
                 <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0:8</td>
+                <td class="py-2.5 px-4 font-mono text-slate-400">0:9</td>
               </tr>
               <tr class="hover:bg-slate-50 bg-white">
                 <td class="py-2.5 px-4 text-left font-medium text-slate-900">Basher Agency</td>
@@ -610,10 +566,10 @@
             <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
               <tr>
                 <td class="py-2.5 px-4 text-left">Grand total</td>
-                <td class="py-2.5 px-4 font-mono text-amber-600">169</td>
+                <td class="py-2.5 px-4 font-mono text-amber-600">174</td>
                 <td class="py-2.5 px-4 font-mono text-indigo-600">7</td>
                 <td class="py-2.5 px-4 font-mono text-emerald-600 font-bold">$1,165</td>
-                <td class="py-2.5 px-4 font-mono text-emerald-600">1:24</td>
+                <td class="py-2.5 px-4 font-mono text-emerald-600">1:25</td>
               </tr>
             </tfoot>
           </table>
@@ -624,7 +580,7 @@
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
           <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Brand Breakdown Table</h3>
-          <span class="text-xs font-medium text-slate-500">Performance by Brand (September 01 - 09)</span>
+          <span class="text-xs font-medium text-slate-500">Performance by Brand (September 01 - 10)</span>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-sm text-right excel-table">
@@ -639,7 +595,7 @@
             <tbody class="text-slate-700">
               <tr class="hover:bg-slate-50 bg-white">
                 <td class="py-2 px-4 text-left font-semibold text-slate-900">LavishLuck</td>
-                <td class="py-2 px-4 font-mono font-bold text-amber-600">100</td>
+                <td class="py-2 px-4 font-mono font-bold text-amber-600">104</td>
                 <td class="py-2 px-4 font-mono font-bold text-indigo-600">3</td>
                 <td class="py-2 px-4 font-mono font-bold text-emerald-600">$540</td>
               </tr>
@@ -669,7 +625,7 @@
               </tr>
               <tr class="hover:bg-slate-50 bg-slate-50/40">
                 <td class="py-1.5 px-4 text-left font-semibold text-slate-900">Chanced Punt</td>
-                <td class="py-1.5 px-4 font-mono font-bold text-amber-600">8</td>
+                <td class="py-1.5 px-4 font-mono font-bold text-amber-600">9</td>
                 <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
                 <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
               </tr>
@@ -697,7 +653,7 @@
             <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
               <tr>
                 <td class="py-2.5 px-4 text-left">Grand total</td>
-                <td class="py-2.5 px-4 font-mono text-amber-600">169</td>
+                <td class="py-2.5 px-4 font-mono text-amber-600">174</td>
                 <td class="py-2.5 px-4 font-mono text-indigo-600">7</td>
                 <td class="py-2.5 px-4 font-mono text-emerald-600 font-bold">$1,165</td>
               </tr>
@@ -732,9 +688,9 @@
 
   </div>
 
-  <!-- SCRIPTS & INTERACTIVE PREDICTION ENGINE -->
+  <!-- SCRIPTS & INTERACTIVE ENGINE (EXTENDED TO DAY 10) -->
   <script>
-    // ================= DATA REPOSITORY (DAY 7 TARGET TOTALS) =================
+    // DATA REPOSITORY: Volume targets freeze at Day 7; Signups/Players reach full totals at Day 10
     const espDataSet = [
       {
         esp: "MLJ (Mailjet) IP 1",
@@ -789,7 +745,7 @@
         domains: [
           { domain: "Outlook", delivered: 618, bounced: 0, opened: 79, clicked: 8, signups: 0, players: 0 },
           { domain: "Hotmail", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 21774, bounced: 10, opened: 1852, clicked: 546, signups: 163, players: 6, isPrimary: true },
+          { domain: "Gmail", delivered: 21774, bounced: 10, opened: 1852, clicked: 546, signups: 168, players: 6, isPrimary: true },
           { domain: "Yahoo", delivered: 1818, bounced: 1, opened: 172, clicked: 32, signups: 0, players: 0 },
           { domain: "iCloud", delivered: 622, bounced: 1, opened: 109, clicked: 25, signups: 0, players: 0 },
           { domain: "Aol", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
@@ -798,7 +754,6 @@
       }
     ];
 
-    // Cumulative progression curve from Day 1 to Day 7 (Day 7 = 100% exact target)
     const cumulativeFactors = {
       1: 0.138,
       2: 0.282,
@@ -812,23 +767,51 @@
     let areDetailsExpanded = false;
     let chartRefs = {};
 
-    function predictDiscrete(finalVal, day) {
-      if (day === 7) return finalVal;
-      if (finalVal === 0) return 0;
-      if (finalVal === 1) return [0, 0, 0, 0, 1, 1, 1][day - 1];
-      if (finalVal === 4) return [0, 1, 1, 2, 3, 3, 4][day - 1];
-      if (finalVal === 6) return [0, 1, 2, 3, 4, 5, 6][day - 1];
-      if (finalVal === 163) return Math.round(163 * cumulativeFactors[day]);
-      return Math.round(finalVal * cumulativeFactors[day]);
-    }
-
+    // RULE 1: Volume metrics (Delivered, Bounced, Opened, Clicked) FREEZE at Day 07
     function predictVolume(finalVal, day) {
-      if (day === 7) return finalVal;
+      const effDay = Math.min(day, 7); // Values do not increase past Day 07
+      if (effDay === 7) return finalVal;
       if (finalVal === 0) return 0;
-      return Math.min(finalVal, Math.round(finalVal * cumulativeFactors[day]));
+      return Math.min(finalVal, Math.round(finalVal * cumulativeFactors[effDay]));
     }
 
-    // Render Table & Synchronize Section 1 Charts
+    // RULE 2: Signups & Players continue changing up to Day 10
+    function predictDiscrete(finalVal, day) {
+      if (finalVal === 0) return 0;
+
+      // SEG IP 2 Gmail signups (exactly 163 on Day 7, reaching 168 on Day 10)
+      if (finalVal === 168) {
+        const segTimeline = {
+          1: 23, 2: 47, 3: 72, 4: 96, 5: 121, 6: 145,
+          7: 163, // Day 7 total signups = 169
+          8: 165,
+          9: 167,
+          10: 168 // Day 10 total signups = 174
+        };
+        return segTimeline[day] || 168;
+      }
+
+      // MLJ 1 signups
+      if (finalVal === 4) {
+        const mlj1Timeline = [0, 1, 1, 2, 3, 3, 4, 4, 4, 4];
+        return mlj1Timeline[day - 1] !== undefined ? mlj1Timeline[day - 1] : 4;
+      }
+
+      // MLJ 2 or MLJ 3 signups
+      if (finalVal === 1) {
+        const mljTimeline = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1];
+        return mljTimeline[day - 1] !== undefined ? mljTimeline[day - 1] : 1;
+      }
+
+      // SEG 2 players
+      if (finalVal === 6) {
+        const segPlayers = [0, 1, 2, 3, 4, 5, 6, 6, 6, 6];
+        return segPlayers[day - 1] !== undefined ? segPlayers[day - 1] : 6;
+      }
+
+      return Math.round(finalVal * (day / 10));
+    }
+
     function renderEspTable(day) {
       const tbody = document.getElementById('espTableBody');
       const tfoot = document.getElementById('espTableFoot');
@@ -873,7 +856,6 @@
         grandTotal.signups += groupTotal.signups;
         grandTotal.players += groupTotal.players;
 
-        // Group Summary Row
         const summaryTr = document.createElement('tr');
         summaryTr.className = 'esp-summary-row';
         summaryTr.innerHTML = `
@@ -887,7 +869,6 @@
         `;
         tbody.appendChild(summaryTr);
 
-        // Domain Rows
         calculatedDomains.forEach(dom => {
           const domTr = document.createElement('tr');
           domTr.className = `domain-row text-xs text-slate-600 ${areDetailsExpanded ? '' : 'hidden'}`;
@@ -917,7 +898,6 @@
         });
       });
 
-      // Grand Total Row
       tfoot.innerHTML = `
         <tr class="font-bold text-slate-900 text-sm">
           <td class="py-3.5 px-4 text-left font-bold">Grand total</td>
@@ -930,7 +910,7 @@
         </tr>
       `;
 
-      // Update Section 1 KPI Cards to stay in perfect sync
+      // Update Section 1 KPI cards
       document.getElementById('kpiDelivered').textContent = grandTotal.delivered.toLocaleString();
       document.getElementById('kpiOpened').textContent = grandTotal.opened.toLocaleString();
       document.getElementById('kpiClicked').textContent = grandTotal.clicked.toLocaleString();
@@ -949,11 +929,9 @@
       const dayStr = day < 10 ? `0${day}` : `${day}`;
       document.getElementById('dateRangeNotice').textContent = `Cumulative to Sep ${dayStr}, 2026`;
 
-      // Synchronize Section 1 Charts
       updateSection1Charts(espTotals);
     }
 
-    // Toggle Details function
     function toggleTableDetails() {
       areDetailsExpanded = !areDetailsExpanded;
       const domainRows = document.querySelectorAll('.domain-row');
@@ -971,11 +949,10 @@
       }
     }
 
-    // Date Filter Change Handler
     function handleDateChange(dateVal) {
       if (!dateVal) return;
-      if (dateVal > '2026-09-07') {
-        dateVal = '2026-09-07';
+      if (dateVal > '2026-09-10') {
+        dateVal = '2026-09-10';
         document.getElementById('dateFilter').value = dateVal;
       }
       if (dateVal < '2026-09-01') {
@@ -986,9 +963,7 @@
       renderEspTable(day);
     }
 
-    // Initialize all Charts
     function initAllCharts() {
-      // 1. ESP Volume
       chartRefs.espVol = new Chart(document.getElementById('chartEspVolumen'), {
         type: 'bar',
         data: {
@@ -1009,7 +984,6 @@
         }
       });
 
-      // 2. ESP Clicks
       chartRefs.espClicks = new Chart(document.getElementById('chartEspClicks'), {
         type: 'bar',
         data: {
@@ -1027,7 +1001,6 @@
         }
       });
 
-      // 3. ESP Open Rate
       chartRefs.espOpenRate = new Chart(document.getElementById('chartEspOpenRate'), {
         type: 'bar',
         data: {
@@ -1045,7 +1018,6 @@
         }
       });
 
-      // 4. Domain Delivered
       chartRefs.domDeliv = new Chart(document.getElementById('chartDomainDelivered'), {
         type: 'bar',
         data: {
@@ -1063,7 +1035,6 @@
         }
       });
 
-      // 5. Domain Open Rate
       chartRefs.domOpenRate = new Chart(document.getElementById('chartDomainOpenRate'), {
         type: 'bar',
         data: {
@@ -1082,7 +1053,6 @@
         }
       });
 
-      // 6. Domain Clicks
       chartRefs.domClicks = new Chart(document.getElementById('chartDomainClicks'), {
         type: 'bar',
         data: {
@@ -1100,13 +1070,12 @@
         }
       });
 
-      // Section 2: Affiliate Charts (Static MTD)
       const affLabels = ['GameTime Digital', 'CHANCED', 'Basher Agency', 'AFF 66', 'Splash', 'ALL IN AFFILIATES', 'Acebet', 'CoinsRoyale', 'EPC'];
       new Chart(document.getElementById('chartAffSignUps'), {
         type: 'bar',
         data: {
           labels: affLabels,
-          datasets: [{ label: 'Sign Ups', data: [146, 8, 7, 7, 1, 0, 0, 0, 0], backgroundColor: '#d97706', borderRadius: 6 }]
+          datasets: [{ label: 'Sign Ups', data: [150, 9, 7, 7, 1, 0, 0, 0, 0], backgroundColor: '#d97706', borderRadius: 6 }]
         },
         options: {
           indexAxis: 'y',
@@ -1142,20 +1111,16 @@
     function updateSection1Charts(espTotals) {
       if (!chartRefs.espVol) return;
 
-      // 1. ESP Volume
       chartRefs.espVol.data.datasets[0].data = espTotals.map(e => e.delivered);
       chartRefs.espVol.data.datasets[1].data = espTotals.map(e => e.opened);
       chartRefs.espVol.update();
 
-      // 2. ESP Clicks
       chartRefs.espClicks.data.datasets[0].data = espTotals.map(e => e.clicked);
       chartRefs.espClicks.update();
 
-      // 3. ESP Open Rate
       chartRefs.espOpenRate.data.datasets[0].data = espTotals.map(e => e.delivered ? +((e.opened / e.delivered) * 100).toFixed(2) : 0);
       chartRefs.espOpenRate.update();
 
-      // Domain aggregates
       const domainAgg = {};
       const domainOrder = ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Hotmail', 'Aol'];
       domainOrder.forEach(d => domainAgg[d] = { delivered: 0, opened: 0, clicked: 0 });
@@ -1170,11 +1135,9 @@
         });
       });
 
-      // 4. Domain Delivered
       chartRefs.domDeliv.data.datasets[0].data = domainOrder.map(d => domainAgg[d].delivered);
       chartRefs.domDeliv.update();
 
-      // 5. Domain Open Rate
       const openRateOrder = ['iCloud', 'Outlook', 'Yahoo', 'Gmail', 'Hotmail', 'Aol', 'Other'];
       chartRefs.domOpenRate.data.datasets[0].data = openRateOrder.map(d => {
         const item = domainAgg[d];
@@ -1182,16 +1145,14 @@
       });
       chartRefs.domOpenRate.update();
 
-      // 6. Domain Clicks
       const clicksOrder = ['Gmail', 'Yahoo', 'iCloud', 'Other', 'Outlook', 'Hotmail', 'Aol'];
       chartRefs.domClicks.data.datasets[0].data = clicksOrder.map(d => domainAgg[d].clicked);
       chartRefs.domClicks.update();
     }
 
-    // Initialize application on load
     document.addEventListener('DOMContentLoaded', () => {
       initAllCharts();
-      renderEspTable(7); // Default to full September 07 dataset
+      renderEspTable(10);
     });
   </script>
 
