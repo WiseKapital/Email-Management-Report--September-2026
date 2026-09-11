@@ -97,14 +97,14 @@
         </span>
       </div>
 
-      <!-- KPI CARDS (10 CARDS: NOW INCLUDING PROFIT TO THE RIGHT OF BUDGET) -->
+      <!-- KPI CARDS (10 CARDS) -->
       <section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-10 gap-3">
         
         <!-- Delivered -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Delivered</p>
           <p id="kpiDelivered" class="text-xl font-bold text-slate-900 mt-1">67,112</p>
-          <span class="text-[10px] text-slate-400 mt-1">Total sent</span>
+          <span class="text-[10px] text-slate-400 mt-1">Filtered sent</span>
         </div>
 
         <!-- Open -->
@@ -179,7 +179,7 @@
           </div>
         </div>
 
-        <!-- Profit (Revenue - Budget = $1,345 - $940 = $405 | KPI: 2,200 | RR: $1.1k) -->
+        <!-- Profit -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Profit</p>
           <p class="text-xl font-bold text-emerald-600 mt-1">$405</p>
@@ -192,10 +192,10 @@
 
       </section>
 
-      <!-- DATA TABLE WITH COMPACT INLINE DATE FILTER (CAP UP TO SEP 11) -->
+      <!-- DATA TABLE WITH COMPACT DATE RANGE FILTER -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         
-        <!-- TABLE TOOLBAR WITH COMPACT CALENDAR -->
+        <!-- TABLE TOOLBAR WITH RANGE SELECTOR -->
         <div class="px-6 py-3.5 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/50">
           <div class="flex flex-wrap items-center gap-3">
             <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">MTD Email Performance by ESP</h3>
@@ -205,25 +205,45 @@
               <span id="btnText">Show All</span>
             </button>
 
-            <!-- COMPACT CALENDAR FILTER (LABEL: Date:, EXTENDED TO SEP 11) -->
-            <div class="inline-flex items-center gap-1.5 bg-white border border-slate-300 rounded-lg px-2.5 py-1 shadow-sm">
-              <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- COMPACT INLINE DATE RANGE SELECTOR -->
+            <div class="inline-flex items-center gap-2 bg-white border border-slate-300 rounded-lg px-2.5 py-1 shadow-sm">
+              <svg class="w-3.5 h-3.5 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
-              <label for="dateFilter" class="text-[11px] font-semibold text-slate-500 uppercase whitespace-nowrap">Date:</label>
-              <input 
-                type="date" 
-                id="dateFilter" 
-                min="2026-09-01" 
-                max="2026-09-11" 
-                value="2026-09-11"
-                class="text-xs font-semibold text-slate-800 bg-transparent border-0 p-0 outline-none cursor-pointer focus:ring-0"
-                onchange="handleDateChange(this.value)"
-              />
+              
+              <!-- START DATE -->
+              <div class="flex items-center gap-1">
+                <label for="startDateFilter" class="text-[11px] font-semibold text-slate-500 uppercase whitespace-nowrap">From:</label>
+                <input 
+                  type="date" 
+                  id="startDateFilter" 
+                  min="2026-09-01" 
+                  max="2026-09-11" 
+                  value="2026-09-01"
+                  class="text-xs font-semibold text-slate-800 bg-transparent border-0 p-0 outline-none cursor-pointer focus:ring-0"
+                  onchange="handleDateRangeChange()"
+                />
+              </div>
+
+              <span class="text-slate-300 text-xs font-bold">|</span>
+
+              <!-- END DATE -->
+              <div class="flex items-center gap-1">
+                <label for="endDateFilter" class="text-[11px] font-semibold text-slate-500 uppercase whitespace-nowrap">To:</label>
+                <input 
+                  type="date" 
+                  id="endDateFilter" 
+                  min="2026-09-01" 
+                  max="2026-09-11" 
+                  value="2026-09-11"
+                  class="text-xs font-semibold text-slate-800 bg-transparent border-0 p-0 outline-none cursor-pointer focus:ring-0"
+                  onchange="handleDateRangeChange()"
+                />
+              </div>
             </div>
           </div>
 
-          <span id="dateRangeNotice" class="text-xs text-slate-500 font-medium">Cumulative to Sep 11, 2026</span>
+          <span id="dateRangeNotice" class="text-xs text-slate-500 font-medium">Sep 01, 2026 – Sep 11, 2026</span>
         </div>
         
         <div class="overflow-x-auto">
@@ -492,7 +512,7 @@
         </span>
       </div>
 
-      <!-- 1. ADVERTISER BREAKDOWN TABLE (NO DECIMALS IN REVENUE) -->
+      <!-- 1. ADVERTISER BREAKDOWN TABLE -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
           <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Advertiser Breakdown Table</h3>
@@ -604,174 +624,34 @@
               </tr>
             </thead>
             <tbody class="text-slate-700">
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-2 px-4 text-left font-semibold text-slate-900">LavishLuck</td>
-                <td class="py-2 px-4 font-mono font-bold text-amber-600">122</td>
-                <td class="py-2 px-4 font-mono font-bold text-indigo-600">4</td>
-                <td class="py-2 px-4 font-mono font-bold text-emerald-600">$720</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-2 px-4 text-left font-semibold text-slate-900">WiseSpin</td>
-                <td class="py-2 px-4 font-mono font-bold text-amber-600">8</td>
-                <td class="py-2 px-4 font-mono font-bold text-indigo-600">2</td>
-                <td class="py-2 px-4 font-mono font-bold text-emerald-600">$280</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-2 px-4 text-left font-semibold text-slate-900">Sweet Sweep</td>
-                <td class="py-2 px-4 font-mono font-semibold text-slate-900">2</td>
-                <td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td>
-                <td class="py-2 px-4 font-mono font-bold text-emerald-600">$150</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-2 px-4 text-left font-semibold text-slate-900">LuckyZino Sweepstakes Casino</td>
-                <td class="py-2 px-4 font-mono font-bold text-slate-900">6</td>
-                <td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td>
-                <td class="py-2 px-4 font-mono font-bold text-emerald-600">$120</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-2 px-4 text-left font-semibold text-slate-900">Spinjo CA</td>
-                <td class="py-2 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2 px-4 font-mono font-bold text-emerald-600">$75</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-semibold text-slate-900">Chanced Punt</td>
-                <td class="py-1.5 px-4 font-mono font-bold text-amber-600">14</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">Coins Royale sweeps</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">ChipNWin</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">7Bit Casino</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">Acebet</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">Betnjet</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">Casino Smartlink</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-semibold text-slate-900">High5Casino</td>
-                <td class="py-1.5 px-4 font-mono font-bold text-amber-600">15</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">Go Go Gold Win</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">FS Casino</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">Dorados</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">2</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">CoinsBack</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">McLuck</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-semibold text-slate-900">Jackpotgo</td>
-                <td class="py-1.5 px-4 font-mono font-bold text-amber-600">11</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">LavishLuck Sweepstakes Casino</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">3</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">Smash Casino</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">Sixty6</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-semibold text-slate-800">Rolla</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">4</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">Spinblitz SEO</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-semibold text-slate-800">SweepJungle</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">6</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">splashcoins</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-1.5 px-4 text-left font-semibold text-slate-900">The Boss</td>
-                <td class="py-1.5 px-4 font-mono font-bold text-slate-900">7</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-1.5 px-4 text-left font-medium text-slate-800">Zunado</td>
-                <td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-1.5 px-4 font-mono text-slate-400">$0</td>
-              </tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">LavishLuck</td><td class="py-2 px-4 font-mono font-bold text-amber-600">122</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">4</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$720</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-2 px-4 text-left font-semibold text-slate-900">WiseSpin</td><td class="py-2 px-4 font-mono font-bold text-amber-600">8</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">2</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$280</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">Sweet Sweep</td><td class="py-2 px-4 font-mono font-semibold text-slate-900">2</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$150</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-2 px-4 text-left font-semibold text-slate-900">LuckyZino Sweepstakes Casino</td><td class="py-2 px-4 font-mono font-bold text-slate-900">6</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$120</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">Spinjo CA</td><td class="py-2 px-4 font-mono text-slate-400">0</td><td class="py-2 px-4 font-mono text-slate-400">0</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$75</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-semibold text-slate-900">Chanced Punt</td><td class="py-1.5 px-4 font-mono font-bold text-amber-600">14</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Coins Royale sweeps</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">ChipNWin</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">7Bit Casino</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Acebet</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Betnjet</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Casino Smartlink</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-semibold text-slate-900">High5Casino</td><td class="py-1.5 px-4 font-mono font-bold text-amber-600">15</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Go Go Gold Win</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">FS Casino</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Dorados</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">2</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">CoinsBack</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">McLuck</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-semibold text-slate-900">Jackpotgo</td><td class="py-1.5 px-4 font-mono font-bold text-amber-600">11</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">LavishLuck Sweepstakes Casino</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">3</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Smash Casino</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Sixty6</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-semibold text-slate-800">Rolla</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">4</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Spinblitz SEO</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-semibold text-slate-800">SweepJungle</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">6</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">splashcoins</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-semibold text-slate-900">The Boss</td><td class="py-1.5 px-4 font-mono font-bold text-slate-900">7</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Zunado</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td></tr>
             </tbody>
             <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
               <tr>
@@ -811,7 +691,7 @@
 
   </div>
 
-  <!-- SCRIPTS & INTERACTIVE ENGINE -->
+  <!-- SCRIPTS & INTERACTIVE ENGINE (WITH DYNAMIC RANGE CALCULATION) -->
   <script>
     const espDataSet = [
       {
@@ -889,24 +769,22 @@
     let areDetailsExpanded = false;
     let chartRefs = {};
 
-    function predictVolume(finalVal, day) {
+    function predictCumulativeVolume(finalVal, day) {
+      if (day <= 0) return 0;
       const effDay = Math.min(day, 7);
       if (effDay === 7) return finalVal;
       if (finalVal === 0) return 0;
       return Math.min(finalVal, Math.round(finalVal * cumulativeFactors[effDay]));
     }
 
-    function predictDiscrete(finalVal, day) {
+    function predictCumulativeDiscrete(finalVal, day) {
+      if (day <= 0) return 0;
       if (finalVal === 0) return 0;
 
       if (finalVal === 202) {
         const segTimeline = {
           1: 23, 2: 47, 3: 72, 4: 96, 5: 121, 6: 145,
-          7: 163,
-          8: 165,
-          9: 167,
-          10: 168,
-          11: 202
+          7: 163, 8: 165, 9: 167, 10: 168, 11: 202
         };
         return segTimeline[day] || 202;
       }
@@ -929,7 +807,8 @@
       return Math.round(finalVal * (day / 11));
     }
 
-    function renderEspTable(day) {
+    // Dynamic Range calculation: Delta between End Day and (Start Day - 1)
+    function renderEspTableRange(startDay, endDay) {
       const tbody = document.getElementById('espTableBody');
       const tfoot = document.getElementById('espTableFoot');
       tbody.innerHTML = '';
@@ -943,15 +822,23 @@
         const calculatedDomains = [];
 
         group.domains.forEach(d => {
+          const delivered = Math.max(0, predictCumulativeVolume(d.delivered, endDay) - predictCumulativeVolume(d.delivered, startDay - 1));
+          const bounced   = Math.max(0, predictCumulativeVolume(d.bounced, endDay)   - predictCumulativeVolume(d.bounced, startDay - 1));
+          const opened    = Math.max(0, predictCumulativeVolume(d.opened, endDay)    - predictCumulativeVolume(d.opened, startDay - 1));
+          const clicked   = Math.max(0, predictCumulativeVolume(d.clicked, endDay)   - predictCumulativeVolume(d.clicked, startDay - 1));
+
+          const signups   = Math.max(0, predictCumulativeDiscrete(d.signups, endDay) - predictCumulativeDiscrete(d.signups, startDay - 1));
+          const players   = Math.max(0, predictCumulativeDiscrete(d.players, endDay) - predictCumulativeDiscrete(d.players, startDay - 1));
+
           const item = {
             domain: d.domain,
             isPrimary: d.isPrimary || false,
-            delivered: predictVolume(d.delivered, day),
-            bounced: predictVolume(d.bounced, day),
-            opened: predictVolume(d.opened, day),
-            clicked: predictVolume(d.clicked, day),
-            signups: predictDiscrete(d.signups, day),
-            players: predictDiscrete(d.players, day)
+            delivered,
+            bounced,
+            opened,
+            clicked,
+            signups,
+            players
           };
 
           groupTotal.delivered += item.delivered;
@@ -1027,6 +914,7 @@
         </tr>
       `;
 
+      // Update Section 1 KPI cards to reflect range
       document.getElementById('kpiDelivered').textContent = grandTotal.delivered.toLocaleString();
       document.getElementById('kpiOpened').textContent = grandTotal.opened.toLocaleString();
       document.getElementById('kpiClicked').textContent = grandTotal.clicked.toLocaleString();
@@ -1042,8 +930,9 @@
       document.getElementById('kpiClickRate').textContent = `${clickRate}% Click Rate`;
       document.getElementById('kpiBounceRate').textContent = `${bounceRate}% bounce`;
 
-      const dayStr = day < 10 ? `0${day}` : `${day}`;
-      document.getElementById('dateRangeNotice').textContent = `Cumulative to Sep ${dayStr}, 2026`;
+      const startDayStr = startDay < 10 ? `0${startDay}` : `${startDay}`;
+      const endDayStr = endDay < 10 ? `0${endDay}` : `${endDay}`;
+      document.getElementById('dateRangeNotice').textContent = `Sep ${startDayStr}, 2026 – Sep ${endDayStr}, 2026`;
 
       updateSection1Charts(espTotals);
     }
@@ -1065,18 +954,36 @@
       }
     }
 
-    function handleDateChange(dateVal) {
-      if (!dateVal) return;
-      if (dateVal > '2026-09-11') {
-        dateVal = '2026-09-11';
-        document.getElementById('dateFilter').value = dateVal;
+    // Handles changes to either Start Date or End Date
+    function handleDateRangeChange() {
+      const startInput = document.getElementById('startDateFilter');
+      const endInput = document.getElementById('endDateFilter');
+
+      let startVal = startInput.value;
+      let endVal = endInput.value;
+
+      if (!startVal) startVal = '2026-09-01';
+      if (!endVal) endVal = '2026-09-11';
+
+      if (startVal > '2026-09-11') startVal = '2026-09-11';
+      if (startVal < '2026-09-01') startVal = '2026-09-01';
+
+      if (endVal > '2026-09-11') endVal = '2026-09-11';
+      if (endVal < '2026-09-01') endVal = '2026-09-01';
+
+      // Keep range ordered: Start Date <= End Date
+      if (startVal > endVal) {
+        endVal = startVal;
+        endInput.value = endVal;
       }
-      if (dateVal < '2026-09-01') {
-        dateVal = '2026-09-01';
-        document.getElementById('dateFilter').value = dateVal;
-      }
-      const day = parseInt(dateVal.split('-')[2], 10);
-      renderEspTable(day);
+
+      startInput.value = startVal;
+      endInput.value = endVal;
+
+      const startDay = parseInt(startVal.split('-')[2], 10);
+      const endDay = parseInt(endVal.split('-')[2], 10);
+
+      renderEspTableRange(startDay, endDay);
     }
 
     function initAllCharts() {
@@ -1268,7 +1175,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       initAllCharts();
-      renderEspTable(11);
+      renderEspTableRange(1, 11); // Initial render for full range: Sep 01 to Sep 11
     });
   </script>
 
