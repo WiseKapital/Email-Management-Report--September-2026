@@ -97,8 +97,8 @@
         </span>
       </div>
 
-      <!-- KPI CARDS (9 CARDS IN SECTION 1) -->
-      <section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-9 gap-3">
+      <!-- KPI CARDS (10 CARDS: NOW INCLUDING PROFIT TO THE RIGHT OF BUDGET) -->
+      <section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-10 gap-3">
         
         <!-- Delivered -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
@@ -135,7 +135,7 @@
           <span class="text-[10px] text-slate-400 mt-1">Total opt-outs</span>
         </div>
 
-        <!-- Registration (MTD: 208, KPI: 500, RR: 567) -->
+        <!-- Registration -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Registration</p>
           <p id="kpiSignups" class="text-xl font-bold text-amber-600 mt-1">208</p>
@@ -146,7 +146,7 @@
           </div>
         </div>
 
-        <!-- Users (MTD: 8, KPI: 40, RR: 22) -->
+        <!-- Users -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Users</p>
           <p id="kpiUsers" class="text-xl font-bold text-indigo-600 mt-1">8</p>
@@ -157,7 +157,7 @@
           </div>
         </div>
 
-        <!-- Revenue (MTD: $1,345, KPI: 3,300, RR: $3,668) -->
+        <!-- Revenue -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Revenue</p>
           <p class="text-xl font-bold text-emerald-600 mt-1">$1,345</p>
@@ -168,7 +168,7 @@
           </div>
         </div>
 
-        <!-- Budget (MTD: $940, KPI: 1,100, RR: $2,564) -->
+        <!-- Budget -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Budget</p>
           <p class="text-xl font-bold text-slate-900 mt-1">$940</p>
@@ -176,6 +176,17 @@
             <span class="font-bold text-slate-900">KPI: $1.1k</span>
             <span class="text-slate-300">•</span>
             <span class="font-bold text-emerald-600">RR: $2.6k</span>
+          </div>
+        </div>
+
+        <!-- Profit (Revenue - Budget = $1,345 - $940 = $405 | KPI: 2,200 | RR: $1.1k) -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Profit</p>
+          <p class="text-xl font-bold text-emerald-600 mt-1">$405</p>
+          <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
+            <span class="font-bold text-slate-900">KPI: $2.2k</span>
+            <span class="text-slate-300">•</span>
+            <span class="font-bold text-rose-600">RR: $1.1k</span>
           </div>
         </div>
 
@@ -576,7 +587,7 @@
         </div>
       </section>
 
-      <!-- 2. BRAND BREAKDOWN TABLE (EXACT 28 BRANDS UPDATED TO SEP 11 DATA) -->
+      <!-- 2. BRAND BREAKDOWN TABLE (28 BRANDS) -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
           <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Brand Breakdown Table</h3>
@@ -800,9 +811,8 @@
 
   </div>
 
-  <!-- SCRIPTS & INTERACTIVE ENGINE (EXTENDED TO DAY 11) -->
+  <!-- SCRIPTS & INTERACTIVE ENGINE -->
   <script>
-    // DATA REPOSITORY: Volume targets freeze at Day 7; Signups/Players reach full totals at Day 11
     const espDataSet = [
       {
         esp: "MLJ (Mailjet) IP 1",
