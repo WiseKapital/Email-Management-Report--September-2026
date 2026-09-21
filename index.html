@@ -185,35 +185,35 @@
         <!-- Delivered -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Delivered</p>
-          <p id="kpiDelivered" class="text-xl font-bold text-slate-900 mt-1">182,423</p>
+          <p id="kpiDelivered" class="text-xl font-bold text-slate-900 mt-1">224,952</p>
           <span class="text-[10px] text-slate-400 mt-1">Filtered sent</span>
         </div>
 
         <!-- Open -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Open</p>
-          <p id="kpiOpened" class="text-xl font-bold text-emerald-700 mt-1">10,632</p>
-          <span id="kpiOpenRate" class="text-[10px] font-semibold text-emerald-600 mt-1">5.83% Open Rate</span>
+          <p id="kpiOpened" class="text-xl font-bold text-emerald-700 mt-1">12,626</p>
+          <span id="kpiOpenRate" class="text-[10px] font-semibold text-emerald-600 mt-1">5.61% Open Rate</span>
         </div>
 
         <!-- Click -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Click</p>
-          <p id="kpiClicked" class="text-xl font-bold text-sky-700 mt-1">3,070</p>
-          <span id="kpiClickRate" class="text-[10px] font-semibold text-sky-600 mt-1">1.68% Click Rate</span>
+          <p id="kpiClicked" class="text-xl font-bold text-sky-700 mt-1">3,424</p>
+          <span id="kpiClickRate" class="text-[10px] font-semibold text-sky-600 mt-1">1.52% Click Rate</span>
         </div>
 
         <!-- Bounced -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Bounced</p>
-          <p id="kpiBounced" class="text-xl font-bold text-rose-600 mt-1">658</p>
-          <span id="kpiBounceRate" class="text-[10px] text-slate-400 mt-1">0.36% bounce</span>
+          <p id="kpiBounced" class="text-xl font-bold text-rose-600 mt-1">725</p>
+          <span id="kpiBounceRate" class="text-[10px] text-slate-400 mt-1">0.32% bounce</span>
         </div>
 
         <!-- Unsub / Blocked -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Unsub / Block</p>
-          <p class="text-xl font-bold text-purple-700 mt-1">139</p>
+          <p class="text-xl font-bold text-purple-700 mt-1">161</p>
           <span class="text-[10px] text-slate-400 mt-1">Total opt-outs</span>
         </div>
 
@@ -791,31 +791,31 @@
 
   </div>
 
-  <!-- SCRIPTS & INTERACTIVE ENGINE (VOLUME DISTRIBUTED FROM SEP 01 TO SEP 21) -->
+  <!-- SCRIPTS & INTERACTIVE ENGINE (VOLUME DISTRIBUTED WITH WEIGHTED DAILY SPIKES) -->
   <script>
     const espDataSet = [
       {
         esp: "MLJ (Mailjet) IP 1",
         domains: [
-          { domain: "Hotmail", delivered: 139, bounced: 0, opened: 16, clicked: 0, signups: 0, players: 0 },
-          { domain: "Outlook", delivered: 121, bounced: 0, opened: 1, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 9991, bounced: 24, opened: 1378, clicked: 165, signups: 4, players: 1, isPrimary: true },
-          { domain: "Yahoo", delivered: 1072, bounced: 1, opened: 38, clicked: 3, signups: 0, players: 0 },
-          { domain: "Aol", delivered: 109, bounced: 0, opened: 10, clicked: 1, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 391, bounced: 8, opened: 61, clicked: 11, signups: 0, players: 0 },
-          { domain: "Other", delivered: 135, bounced: 0, opened: 30, clicked: 7, signups: 0, players: 0 }
+          { domain: "Hotmail", delivered: 165, bounced: 0, opened: 18, clicked: 0, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 149, bounced: 0, opened: 2, clicked: 0, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 12559, bounced: 25, opened: 1689, clicked: 200, signups: 4, players: 1, isPrimary: true },
+          { domain: "Yahoo", delivered: 1319, bounced: 1, opened: 75, clicked: 7, signups: 0, players: 0 },
+          { domain: "Aol", delivered: 139, bounced: 0, opened: 10, clicked: 1, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 459, bounced: 8, opened: 81, clicked: 12, signups: 0, players: 0 },
+          { domain: "Other", delivered: 151, bounced: 0, opened: 33, clicked: 8, signups: 0, players: 0 }
         ]
       },
       {
         esp: "MLJ (Mailjet) IP 2",
         domains: [
-          { domain: "Hotmail", delivered: 76, bounced: 0, opened: 5, clicked: 0, signups: 0, players: 0 },
-          { domain: "Outlook", delivered: 118, bounced: 0, opened: 6, clicked: 1, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 9000, bounced: 21, opened: 563, clicked: 68, signups: 1, players: 0, isPrimary: true },
-          { domain: "Yahoo", delivered: 907, bounced: 1, opened: 14, clicked: 5, signups: 0, players: 0 },
-          { domain: "Aol", delivered: 90, bounced: 1, opened: 1, clicked: 0, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 284, bounced: 3, opened: 52, clicked: 3, signups: 0, players: 0 },
-          { domain: "Other", delivered: 1476, bounced: 3, opened: 10, clicked: 0, signups: 0, players: 0 }
+          { domain: "Hotmail", delivered: 108, bounced: 0, opened: 7, clicked: 0, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 150, bounced: 0, opened: 8, clicked: 1, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 11611, bounced: 27, opened: 676, clicked: 87, signups: 1, players: 0, isPrimary: true },
+          { domain: "Yahoo", delivered: 1100, bounced: 2, opened: 29, clicked: 8, signups: 0, players: 0 },
+          { domain: "Aol", delivered: 116, bounced: 1, opened: 4, clicked: 0, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 360, bounced: 3, opened: 68, clicked: 6, signups: 0, players: 0 },
+          { domain: "Other", delivered: 1496, bounced: 3, opened: 14, clicked: 1, signups: 0, players: 0 }
         ]
       },
       {
@@ -833,36 +833,40 @@
       {
         esp: "SEG (Sendgrid) IP 1",
         domains: [
-          { domain: "Outlook", delivered: 981, bounced: 25, opened: 134, clicked: 18, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 1428, bounced: 26, opened: 174, clicked: 19, signups: 0, players: 0 },
           { domain: "Hotmail", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 30522, bounced: 111, opened: 1773, clicked: 536, signups: 6, players: 3, isPrimary: true }, // Maintained 6 signups and 3 players
-          { domain: "Yahoo", delivered: 2588, bounced: 78, opened: 431, clicked: 84, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 740, bounced: 1, opened: 230, clicked: 25, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 41369, bounced: 134, opened: 2068, clicked: 634, signups: 6, players: 3, isPrimary: true }, // Maintained 6 signups and 3 players
+          { domain: "Yahoo", delivered: 3436, bounced: 97, opened: 528, clicked: 99, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 958, bounced: 3, opened: 304, clicked: 34, signups: 0, players: 0 },
           { domain: "Aol", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Other", delivered: 16077, bounced: 214, opened: 341, clicked: 482, signups: 0, players: 0 }
+          { domain: "Other", delivered: 19136, bounced: 220, opened: 362, clicked: 498, signups: 0, players: 0 }
         ]
       },
       {
         esp: "SEG (Sendgrid) IP 2 / SH",
         domains: [
-          { domain: "Outlook", delivered: 1273, bounced: 0, opened: 166, clicked: 13, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 1856, bounced: 0, opened: 216, clicked: 17, signups: 0, players: 0 },
           { domain: "Hotmail", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 46330, bounced: 17, opened: 3470, clicked: 864, signups: 354, players: 13, isPrimary: true }, // Reaches 354 signups (total: 366), 13 players (total: 17)
-          { domain: "Yahoo", delivered: 3843, bounced: 1, opened: 367, clicked: 65, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 1228, bounced: 2, opened: 236, clicked: 57, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 60349, bounced: 22, opened: 4199, clicked: 954, signups: 354, players: 13, isPrimary: true }, // Reaches 354 signups (total: 366), 13 players (total: 17)
+          { domain: "Yahoo", delivered: 4857, bounced: 1, opened: 457, clicked: 72, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 1516, bounced: 2, opened: 268, clicked: 67, signups: 0, players: 0 },
           { domain: "Aol", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Other", delivered: 21511, bounced: 13, opened: 357, clicked: 551, signups: 0, players: 0 }
+          { domain: "Other", delivered: 26744, bounced: 16, opened: 394, clicked: 588, signups: 0, players: 0 }
         ]
       }
     ];
 
-    // Smooth telemetry distribution from Day 1 to Day 21
+    // Non-linear telemetry progression reflecting high-volume days (15, 16, 17) and weekend lulls (18-20)
     const cumulativeFactors = {
-      1: 0.048, 2: 0.095, 3: 0.143, 4: 0.190, 5: 0.238, 
-      6: 0.286, 7: 0.340, 8: 0.400, 9: 0.450, 10: 0.500,
-      11: 0.550, 12: 0.600, 13: 0.650, 14: 0.700, 15: 0.750,
-      16: 0.800, 17: 0.850, 18: 0.900, 19: 0.935, 20: 0.970, 
-      21: 1.000
+      1: 0.035, 2: 0.070, 3: 0.110, 4: 0.150, 5: 0.190, 6: 0.235, 7: 0.280, 8: 0.325, // Day 8 matches ~73k baseline
+      9: 0.365, 10: 0.410, 11: 0.455, 12: 0.505, 13: 0.555, 14: 0.610,
+      15: 0.685, // Volume surge (+26 signups)
+      16: 0.790, // Peak blast day (+39 signups!)
+      17: 0.875, // Heavy volume day (+31 signups)
+      18: 0.920, // Moderate Friday (+7 signups)
+      19: 0.945, // Weekend lull (Saturday)
+      20: 0.970, // Weekend lull (Sunday)
+      21: 1.000  // Monday completion (Sep 21: 224,952 delivered)
     };
 
     let areDetailsExpanded = false;
@@ -903,7 +907,7 @@
       }
 
       if (finalVal === 4) {
-        return Math.min(4, Math.max(1, Math.round(4 * (day / 21))));
+        return Math.min(4, Math.max(1, Math.round(4 * (day / 8))));
       }
 
       if (finalVal === 3) {
@@ -1099,8 +1103,8 @@
         data: {
           labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
           datasets: [
-            { label: 'Delivered', data: [11958, 11951, 33421, 50908, 74185], backgroundColor: '#2563eb', borderRadius: 4 },
-            { label: 'Open', data: [1534, 651, 942, 2909, 4596], backgroundColor: '#10b981', borderRadius: 4 }
+            { label: 'Delivered', data: [14941, 14941, 33421, 66327, 95322], backgroundColor: '#2563eb', borderRadius: 4 },
+            { label: 'Open', data: [1908, 806, 942, 3436, 5534], backgroundColor: '#10b981', borderRadius: 4 }
           ]
         },
         options: {
@@ -1118,14 +1122,14 @@
         type: 'bar',
         data: {
           labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
-          datasets: [{ label: 'Clicks', data: [187, 77, 111, 1145, 1550], backgroundColor: '#0284c7', borderRadius: 4 }]
+          datasets: [{ label: 'Clicks', data: [228, 103, 111, 1284, 1698], backgroundColor: '#0284c7', borderRadius: 4 }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
           plugins: { legend: { display: false } },
           scales: {
-            y: { max: 1700, grid: { color: '#f1f5f9' }, ticks: { stepSize: 200, font: { size: 9 } } },
+            y: { max: 1800, grid: { color: '#f1f5f9' }, ticks: { stepSize: 300, font: { size: 9 } } },
             x: { grid: { display: false }, ticks: { font: { size: 9 } } }
           }
         }
@@ -1135,7 +1139,7 @@
         type: 'bar',
         data: {
           labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
-          datasets: [{ label: 'Open Rate (%)', data: [12.83, 5.45, 2.82, 5.71, 6.20], backgroundColor: '#10b981', borderRadius: 4 }]
+          datasets: [{ label: 'Open Rate (%)', data: [12.77, 5.39, 2.82, 5.18, 5.81], backgroundColor: '#10b981', borderRadius: 4 }]
         },
         options: {
           responsive: true,
@@ -1152,7 +1156,7 @@
         type: 'bar',
         data: {
           labels: ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Hotmail', 'Aol'],
-          datasets: [{ label: 'Delivered', data: [124426, 40181, 10487, 3380, 2861, 640, 448], backgroundColor: '#3b82f6', borderRadius: 4 }]
+          datasets: [{ label: 'Delivered', data: [154471, 48509, 12789, 4030, 3951, 698, 504], backgroundColor: '#3b82f6', borderRadius: 4 }]
         },
         options: {
           responsive: true,
@@ -1169,7 +1173,7 @@
         type: 'bar',
         data: {
           labels: ['iCloud', 'Outlook', 'Yahoo', 'Aol', 'Hotmail', 'Gmail', 'Other'],
-          datasets: [{ label: 'Open Rate (%)', data: [18.91, 11.08, 9.55, 8.48, 6.88, 6.24, 2.05], backgroundColor: '#10b981', borderRadius: 4 }]
+          datasets: [{ label: 'Open Rate (%)', data: [19.38, 10.38, 9.70, 8.13, 6.88, 5.97, 1.83], backgroundColor: '#10b981', borderRadius: 4 }]
         },
         options: {
           indexAxis: 'y',
@@ -1187,14 +1191,14 @@
         type: 'bar',
         data: {
           labels: ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Aol', 'Hotmail'],
-          datasets: [{ label: 'Clicks', data: [1701, 1047, 175, 106, 34, 4, 3], backgroundColor: '#0284c7', borderRadius: 4 }]
+          datasets: [{ label: 'Clicks', data: [1943, 1102, 204, 129, 39, 4, 3], backgroundColor: '#0284c7', borderRadius: 4 }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
           plugins: { legend: { display: false } },
           scales: {
-            y: { max: 1800, grid: { color: '#f1f5f9' }, ticks: { stepSize: 300, font: { size: 9 } } },
+            y: { max: 2100, grid: { color: '#f1f5f9' }, ticks: { stepSize: 300, font: { size: 9 } } },
             x: { grid: { display: false }, ticks: { font: { size: 9 } } }
           }
         }
