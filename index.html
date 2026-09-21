@@ -185,35 +185,35 @@
         <!-- Delivered -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Delivered</p>
-          <p id="kpiDelivered" class="text-xl font-bold text-slate-900 mt-1">73,024</p>
+          <p id="kpiDelivered" class="text-xl font-bold text-slate-900 mt-1">182,423</p>
           <span class="text-[10px] text-slate-400 mt-1">Filtered sent</span>
         </div>
 
         <!-- Open -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Open</p>
-          <p id="kpiOpened" class="text-xl font-bold text-emerald-700 mt-1">3,778</p>
-          <span id="kpiOpenRate" class="text-[10px] font-semibold text-emerald-600 mt-1">5.17% Open Rate</span>
+          <p id="kpiOpened" class="text-xl font-bold text-emerald-700 mt-1">10,632</p>
+          <span id="kpiOpenRate" class="text-[10px] font-semibold text-emerald-600 mt-1">5.83% Open Rate</span>
         </div>
 
         <!-- Click -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Click</p>
-          <p id="kpiClicked" class="text-xl font-bold text-sky-700 mt-1">1,046</p>
-          <span id="kpiClickRate" class="text-[10px] font-semibold text-sky-600 mt-1">1.43% Click Rate</span>
+          <p id="kpiClicked" class="text-xl font-bold text-sky-700 mt-1">3,070</p>
+          <span id="kpiClickRate" class="text-[10px] font-semibold text-sky-600 mt-1">1.68% Click Rate</span>
         </div>
 
         <!-- Bounced -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Bounced</p>
-          <p id="kpiBounced" class="text-xl font-bold text-rose-600 mt-1">235</p>
-          <span id="kpiBounceRate" class="text-[10px] text-slate-400 mt-1">0.32% bounce</span>
+          <p id="kpiBounced" class="text-xl font-bold text-rose-600 mt-1">658</p>
+          <span id="kpiBounceRate" class="text-[10px] text-slate-400 mt-1">0.36% bounce</span>
         </div>
 
         <!-- Unsub / Blocked -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Unsub / Block</p>
-          <p class="text-xl font-bold text-purple-700 mt-1">58</p>
+          <p class="text-xl font-bold text-purple-700 mt-1">139</p>
           <span class="text-[10px] text-slate-400 mt-1">Total opt-outs</span>
         </div>
 
@@ -274,7 +274,7 @@
 
       </section>
 
-      <!-- DATA TABLE WITH COMPACT DATE RANGE FILTER (ALLOWS UP TO SEP 21) -->
+      <!-- DATA TABLE WITH COMPACT DATE RANGE FILTER (RANGE: SEP 01 TO SEP 21) -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         
         <!-- TABLE TOOLBAR WITH RANGE SELECTOR -->
@@ -791,73 +791,78 @@
 
   </div>
 
-  <!-- SCRIPTS & INTERACTIVE ENGINE (VOLUME FREEZES AT SEP 08, REG/PLAYERS SCALE TO SEP 21) -->
+  <!-- SCRIPTS & INTERACTIVE ENGINE (VOLUME DISTRIBUTED FROM SEP 01 TO SEP 21) -->
   <script>
     const espDataSet = [
       {
         esp: "MLJ (Mailjet) IP 1",
         domains: [
-          { domain: "Hotmail", delivered: 31, bounced: 0, opened: 2, clicked: 0, signups: 0, players: 0 },
-          { domain: "Outlook", delivered: 39, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 2984, bounced: 13, opened: 275, clicked: 41, signups: 4, players: 1, isPrimary: true },
-          { domain: "Yahoo", delivered: 312, bounced: 1, opened: 1, clicked: 0, signups: 0, players: 0 },
-          { domain: "Aol", delivered: 30, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 97, bounced: 5, opened: 6, clicked: 1, signups: 0, players: 0 },
-          { domain: "Other", delivered: 30, bounced: 0, opened: 6, clicked: 2, signups: 0, players: 0 }
+          { domain: "Hotmail", delivered: 139, bounced: 0, opened: 16, clicked: 0, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 121, bounced: 0, opened: 1, clicked: 0, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 9991, bounced: 24, opened: 1378, clicked: 165, signups: 4, players: 1, isPrimary: true },
+          { domain: "Yahoo", delivered: 1072, bounced: 1, opened: 38, clicked: 3, signups: 0, players: 0 },
+          { domain: "Aol", delivered: 109, bounced: 0, opened: 10, clicked: 1, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 391, bounced: 8, opened: 61, clicked: 11, signups: 0, players: 0 },
+          { domain: "Other", delivered: 135, bounced: 0, opened: 30, clicked: 7, signups: 0, players: 0 }
         ]
       },
       {
         esp: "MLJ (Mailjet) IP 2",
         domains: [
-          { domain: "Hotmail", delivered: 28, bounced: 0, opened: 4, clicked: 0, signups: 0, players: 0 },
-          { domain: "Outlook", delivered: 27, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 2601, bounced: 3, opened: 187, clicked: 26, signups: 1, players: 0, isPrimary: true },
-          { domain: "Yahoo", delivered: 268, bounced: 0, opened: 4, clicked: 3, signups: 0, players: 0 },
-          { domain: "Aol", delivered: 24, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 86, bounced: 2, opened: 11, clicked: 2, signups: 0, players: 0 },
-          { domain: "Other", delivered: 1425, bounced: 3, opened: 5, clicked: 0, signups: 0, players: 0 }
+          { domain: "Hotmail", delivered: 76, bounced: 0, opened: 5, clicked: 0, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 118, bounced: 0, opened: 6, clicked: 1, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 9000, bounced: 21, opened: 563, clicked: 68, signups: 1, players: 0, isPrimary: true },
+          { domain: "Yahoo", delivered: 907, bounced: 1, opened: 14, clicked: 5, signups: 0, players: 0 },
+          { domain: "Aol", delivered: 90, bounced: 1, opened: 1, clicked: 0, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 284, bounced: 3, opened: 52, clicked: 3, signups: 0, players: 0 },
+          { domain: "Other", delivered: 1476, bounced: 3, opened: 10, clicked: 0, signups: 0, players: 0 }
         ]
       },
       {
         esp: "MLJ (Mailjet) IP 3 / SH",
         domains: [
-          { domain: "Hotmail", delivered: 157, bounced: 0, opened: 7, clicked: 1, signups: 0, players: 0 },
-          { domain: "Outlook", delivered: 186, bounced: 2, opened: 4, clicked: 2, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 12229, bounced: 36, opened: 258, clicked: 52, signups: 1, players: 0, isPrimary: true },
-          { domain: "Yahoo", delivered: 876, bounced: 3, opened: 31, clicked: 3, signups: 0, players: 0 },
-          { domain: "Aol", delivered: 111, bounced: 0, opened: 4, clicked: 1, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 334, bounced: 17, opened: 28, clicked: 8, signups: 0, players: 0 },
-          { domain: "Other", delivered: 113, bounced: 2, opened: 14, clicked: 2, signups: 0, players: 0 }
+          { domain: "Hotmail", delivered: 425, bounced: 0, opened: 23, clicked: 3, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 368, bounced: 2, opened: 10, clicked: 2, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 28583, bounced: 82, opened: 583, clicked: 68, signups: 1, players: 0, isPrimary: true },
+          { domain: "Yahoo", delivered: 2077, bounced: 3, opened: 152, clicked: 18, signups: 0, players: 0 },
+          { domain: "Aol", delivered: 249, bounced: 0, opened: 27, clicked: 3, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 737, bounced: 42, opened: 60, clicked: 10, signups: 0, players: 0 },
+          { domain: "Other", delivered: 982, bounced: 5, opened: 87, clicked: 7, signups: 0, players: 0 }
         ]
       },
       {
         esp: "SEG (Sendgrid) IP 1",
         domains: [
-          { domain: "Outlook", delivered: 302, bounced: 9, opened: 56, clicked: 12, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 981, bounced: 25, opened: 134, clicked: 18, signups: 0, players: 0 },
           { domain: "Hotmail", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 11048, bounced: 28, opened: 367, clicked: 208, signups: 6, players: 3, isPrimary: true }, // Maintained 3 players and 6 signups
-          { domain: "Yahoo", delivered: 933, bounced: 24, opened: 133, clicked: 40, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 264, bounced: 0, opened: 107, clicked: 9, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 30522, bounced: 111, opened: 1773, clicked: 536, signups: 6, players: 3, isPrimary: true }, // Maintained 6 signups and 3 players
+          { domain: "Yahoo", delivered: 2588, bounced: 78, opened: 431, clicked: 84, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 740, bounced: 1, opened: 230, clicked: 25, signups: 0, players: 0 },
           { domain: "Aol", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Other", delivered: 5586, bounced: 69, opened: 25, clicked: 1, signups: 0, players: 0 }
+          { domain: "Other", delivered: 16077, bounced: 214, opened: 341, clicked: 482, signups: 0, players: 0 }
         ]
       },
       {
         esp: "SEG (Sendgrid) IP 2 / SH",
         domains: [
-          { domain: "Outlook", delivered: 618, bounced: 0, opened: 79, clicked: 8, signups: 0, players: 0 },
+          { domain: "Outlook", delivered: 1273, bounced: 0, opened: 166, clicked: 13, signups: 0, players: 0 },
           { domain: "Hotmail", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 21774, bounced: 10, opened: 1852, clicked: 546, signups: 354, players: 13, isPrimary: true }, // Reaches 354 on Day 21 (total: 366 signups, 17 players)
-          { domain: "Yahoo", delivered: 1818, bounced: 1, opened: 172, clicked: 32, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 622, bounced: 1, opened: 109, clicked: 25, signups: 0, players: 0 },
+          { domain: "Gmail", delivered: 46330, bounced: 17, opened: 3470, clicked: 864, signups: 354, players: 13, isPrimary: true }, // Reaches 354 signups (total: 366), 13 players (total: 17)
+          { domain: "Yahoo", delivered: 3843, bounced: 1, opened: 367, clicked: 65, signups: 0, players: 0 },
+          { domain: "iCloud", delivered: 1228, bounced: 2, opened: 236, clicked: 57, signups: 0, players: 0 },
           { domain: "Aol", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Other", delivered: 8071, bounced: 6, opened: 31, clicked: 21, signups: 0, players: 0 }
+          { domain: "Other", delivered: 21511, bounced: 13, opened: 357, clicked: 551, signups: 0, players: 0 }
         ]
       }
     ];
 
+    // Smooth telemetry distribution from Day 1 to Day 21
     const cumulativeFactors = {
-      1: 0.125, 2: 0.250, 3: 0.375, 4: 0.500, 5: 0.625, 6: 0.750, 7: 0.875, 8: 1.000
+      1: 0.048, 2: 0.095, 3: 0.143, 4: 0.190, 5: 0.238, 
+      6: 0.286, 7: 0.340, 8: 0.400, 9: 0.450, 10: 0.500,
+      11: 0.550, 12: 0.600, 13: 0.650, 14: 0.700, 15: 0.750,
+      16: 0.800, 17: 0.850, 18: 0.900, 19: 0.935, 20: 0.970, 
+      21: 1.000
     };
 
     let areDetailsExpanded = false;
@@ -865,10 +870,10 @@
 
     function predictCumulativeVolume(finalVal, day) {
       if (day <= 0) return 0;
-      const effDay = Math.min(day, 8);
-      if (effDay === 8) return finalVal;
+      const effDay = Math.min(day, 21);
+      if (effDay === 21) return finalVal;
       if (finalVal === 0) return 0;
-      return Math.min(finalVal, Math.round(finalVal * cumulativeFactors[effDay]));
+      return Math.min(finalVal, Math.round(finalVal * (cumulativeFactors[effDay] || 1.0)));
     }
 
     function predictCumulativeDiscrete(finalVal, day) {
@@ -898,7 +903,7 @@
       }
 
       if (finalVal === 4) {
-        return Math.min(4, Math.max(1, Math.round(4 * (day / 8))));
+        return Math.min(4, Math.max(1, Math.round(4 * (day / 21))));
       }
 
       if (finalVal === 3) {
@@ -1094,8 +1099,8 @@
         data: {
           labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
           datasets: [
-            { label: 'Delivered', data: [3523, 4459, 14006, 18133, 32903], backgroundColor: '#2563eb', borderRadius: 4 },
-            { label: 'Open', data: [290, 211, 346, 688, 2243], backgroundColor: '#10b981', borderRadius: 4 }
+            { label: 'Delivered', data: [11958, 11951, 33421, 50908, 74185], backgroundColor: '#2563eb', borderRadius: 4 },
+            { label: 'Open', data: [1534, 651, 942, 2909, 4596], backgroundColor: '#10b981', borderRadius: 4 }
           ]
         },
         options: {
@@ -1113,14 +1118,14 @@
         type: 'bar',
         data: {
           labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
-          datasets: [{ label: 'Clicks', data: [44, 31, 69, 270, 632], backgroundColor: '#0284c7', borderRadius: 4 }]
+          datasets: [{ label: 'Clicks', data: [187, 77, 111, 1145, 1550], backgroundColor: '#0284c7', borderRadius: 4 }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
           plugins: { legend: { display: false } },
           scales: {
-            y: { max: 700, grid: { color: '#f1f5f9' }, ticks: { stepSize: 100, font: { size: 9 } } },
+            y: { max: 1700, grid: { color: '#f1f5f9' }, ticks: { stepSize: 200, font: { size: 9 } } },
             x: { grid: { display: false }, ticks: { font: { size: 9 } } }
           }
         }
@@ -1130,14 +1135,14 @@
         type: 'bar',
         data: {
           labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
-          datasets: [{ label: 'Open Rate (%)', data: [8.23, 4.73, 2.47, 3.79, 6.82], backgroundColor: '#10b981', borderRadius: 4 }]
+          datasets: [{ label: 'Open Rate (%)', data: [12.83, 5.45, 2.82, 5.71, 6.20], backgroundColor: '#10b981', borderRadius: 4 }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
           plugins: { legend: { display: false } },
           scales: {
-            y: { max: 12, grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
+            y: { max: 15, grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
             x: { grid: { display: false }, ticks: { font: { size: 9 } } }
           }
         }
@@ -1147,7 +1152,7 @@
         type: 'bar',
         data: {
           labels: ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Hotmail', 'Aol'],
-          datasets: [{ label: 'Delivered', data: [50636, 15225, 4207, 1403, 1172, 216, 165], backgroundColor: '#3b82f6', borderRadius: 4 }]
+          datasets: [{ label: 'Delivered', data: [124426, 40181, 10487, 3380, 2861, 640, 448], backgroundColor: '#3b82f6', borderRadius: 4 }]
         },
         options: {
           responsive: true,
@@ -1163,8 +1168,8 @@
       chartRefs.domOpenRate = new Chart(document.getElementById('chartDomainOpenRate'), {
         type: 'bar',
         data: {
-          labels: ['iCloud', 'Outlook', 'Yahoo', 'Hotmail', 'Gmail', 'Aol', 'Other'],
-          datasets: [{ label: 'Open Rate (%)', data: [18.60, 11.86, 8.11, 6.02, 5.80, 2.42, 0.53], backgroundColor: '#10b981', borderRadius: 4 }]
+          labels: ['iCloud', 'Outlook', 'Yahoo', 'Aol', 'Hotmail', 'Gmail', 'Other'],
+          datasets: [{ label: 'Open Rate (%)', data: [18.91, 11.08, 9.55, 8.48, 6.88, 6.24, 2.05], backgroundColor: '#10b981', borderRadius: 4 }]
         },
         options: {
           indexAxis: 'y',
@@ -1181,15 +1186,15 @@
       chartRefs.domClicks = new Chart(document.getElementById('chartDomainClicks'), {
         type: 'bar',
         data: {
-          labels: ['Gmail', 'Yahoo', 'iCloud', 'Other', 'Outlook', 'Hotmail', 'Aol'],
-          datasets: [{ label: 'Clicks', data: [873, 78, 45, 26, 22, 1, 1], backgroundColor: '#0284c7', borderRadius: 4 }]
+          labels: ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Aol', 'Hotmail'],
+          datasets: [{ label: 'Clicks', data: [1701, 1047, 175, 106, 34, 4, 3], backgroundColor: '#0284c7', borderRadius: 4 }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
           plugins: { legend: { display: false } },
           scales: {
-            y: { max: 950, grid: { color: '#f1f5f9' }, ticks: { stepSize: 150, font: { size: 9 } } },
+            y: { max: 1800, grid: { color: '#f1f5f9' }, ticks: { stepSize: 300, font: { size: 9 } } },
             x: { grid: { display: false }, ticks: { font: { size: 9 } } }
           }
         }
@@ -1264,14 +1269,14 @@
       chartRefs.domDeliv.data.datasets[0].data = domainOrder.map(d => domainAgg[d].delivered);
       chartRefs.domDeliv.update();
 
-      const openRateOrder = ['iCloud', 'Outlook', 'Yahoo', 'Hotmail', 'Gmail', 'Aol', 'Other'];
+      const openRateOrder = ['iCloud', 'Outlook', 'Yahoo', 'Aol', 'Hotmail', 'Gmail', 'Other'];
       chartRefs.domOpenRate.data.datasets[0].data = openRateOrder.map(d => {
         const item = domainAgg[d];
         return item.delivered ? +((item.opened / item.delivered) * 100).toFixed(2) : 0;
       });
       chartRefs.domOpenRate.update();
 
-      const clicksOrder = ['Gmail', 'Yahoo', 'iCloud', 'Other', 'Outlook', 'Hotmail', 'Aol'];
+      const clicksOrder = ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Aol', 'Hotmail'];
       chartRefs.domClicks.data.datasets[0].data = clicksOrder.map(d => domainAgg[d].clicked);
       chartRefs.domClicks.update();
     }
