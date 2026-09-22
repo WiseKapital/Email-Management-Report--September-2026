@@ -31,6 +31,14 @@
       border-bottom: 2px solid #0f172a !important;
     }
 
+    /* Clean floating sort buttons row (no cell borders/boxes) */
+    .excel-table thead tr.sort-row th {
+      border: none !important;
+      background-color: #ffffff !important;
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+    }
+
     /* ================= OLIVE DELIVERABILITY TABLE ================= */
     .esp-table {
       border-collapse: collapse;
@@ -598,21 +606,63 @@
         </span>
       </div>
 
-      <!-- 1. ADVERTISER BREAKDOWN TABLE -->
+      <!-- 1. ADVERTISER BREAKDOWN TABLE (NO BOX / CELL BORDERS ON SORT ROW, BUTTONS CENTERED) -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-        <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-          <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Advertiser Breakdown Table</h3>
-          <span class="text-xs font-medium text-slate-500">Metrics: Conversion S2P Ratio (1:X) & Revenue</span>
+        <div class="px-6 py-4 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/50">
+          <div>
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Advertiser Breakdown Table</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Metrics: Conversion S2P Ratio (1:X) & Revenue</p>
+          </div>
+          <!-- Clear / Reset Table Button -->
+          <button onclick="resetTable('advertiserTable')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 active:bg-slate-100 shadow-sm transition-all cursor-pointer">
+            <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            <span>Clear / Reset Table</span>
+          </button>
         </div>
         <div class="overflow-x-auto">
-          <table class="w-full text-sm text-right excel-table">
-            <thead class="theme-header-aff text-white text-xs uppercase tracking-wider font-semibold">
-              <tr>
-                <th class="py-3 px-4 text-left">Advertiser</th>
-                <th class="py-3 px-4">Sign Ups</th>
-                <th class="py-3 px-4">Users</th>
-                <th class="py-3 px-4">Revenue</th>
-                <th class="py-3 px-4">S2P (Ratio)</th>
+          <table id="advertiserTable" class="w-full text-sm text-right excel-table">
+            <thead>
+              <!-- Sort Buttons Row: No borders, buttons centered, Advertiser has no button -->
+              <tr class="sort-row">
+                <th class="w-1/4"></th>
+                <th class="text-center">
+                  <div class="flex justify-center">
+                    <button onclick="sortTable('advertiserTable', 1, this, 'num')" class="sort-btn inline-flex items-center justify-center gap-1 px-3 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-semibold text-slate-700 shadow-xs hover:bg-slate-50 cursor-pointer">
+                      <span>Sort</span><span class="sort-icon text-slate-400">⇅</span>
+                    </button>
+                  </div>
+                </th>
+                <th class="text-center">
+                  <div class="flex justify-center">
+                    <button onclick="sortTable('advertiserTable', 2, this, 'num')" class="sort-btn inline-flex items-center justify-center gap-1 px-3 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-semibold text-slate-700 shadow-xs hover:bg-slate-50 cursor-pointer">
+                      <span>Sort</span><span class="sort-icon text-slate-400">⇅</span>
+                    </button>
+                  </div>
+                </th>
+                <th class="text-center">
+                  <div class="flex justify-center">
+                    <button onclick="sortTable('advertiserTable', 3, this, 'currency')" class="sort-btn inline-flex items-center justify-center gap-1 px-3 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-semibold text-slate-700 shadow-xs hover:bg-slate-50 cursor-pointer">
+                      <span>Sort</span><span class="sort-icon text-slate-400">⇅</span>
+                    </button>
+                  </div>
+                </th>
+                <th class="text-center">
+                  <div class="flex justify-center">
+                    <button onclick="sortTable('advertiserTable', 4, this, 'ratio')" class="sort-btn inline-flex items-center justify-center gap-1 px-3 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-semibold text-slate-700 shadow-xs hover:bg-slate-50 cursor-pointer">
+                      <span>Sort</span><span class="sort-icon text-slate-400">⇅</span>
+                    </button>
+                  </div>
+                </th>
+              </tr>
+              <!-- Column Titles Row -->
+              <tr class="theme-header-aff text-white text-xs uppercase tracking-wider font-semibold">
+                <th class="py-2.5 px-4 text-left">Advertiser</th>
+                <th class="py-2.5 px-4">Sign Ups</th>
+                <th class="py-2.5 px-4">Users</th>
+                <th class="py-2.5 px-4">Revenue</th>
+                <th class="py-2.5 px-4">S2P (Ratio)</th>
               </tr>
             </thead>
             <tbody class="text-slate-700">
@@ -700,23 +750,65 @@
                 <td class="py-2.5 px-4 font-mono text-amber-600">374</td>
                 <td class="py-2.5 px-4 font-mono text-indigo-600">17</td>
                 <td class="py-2.5 px-4 font-mono text-emerald-600 font-bold">$2,550</td>
-                <td class="py-2.5 px-4 font-mono text-emerald-600">1:22</td>
+                <td class="py-2.5 px-4 font-mono text-emerald-600 font-bold">1:22</td>
               </tr>
             </tfoot>
           </table>
         </div>
       </section>
 
-      <!-- 2. BRAND BREAKDOWN TABLE (38 BRANDS - WITH S2P RATIO COLUMN) -->
+      <!-- 2. BRAND BREAKDOWN TABLE (NO BOX / CELL BORDERS ON SORT ROW, BUTTONS CENTERED) -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-        <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-          <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Brand Breakdown Table</h3>
-          <span class="text-xs font-medium text-slate-500">Performance by Brand & Conversion S2P Ratio (September 01 - 22)</span>
+        <div class="px-6 py-4 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/50">
+          <div>
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Brand Breakdown Table</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Performance by Brand & Conversion S2P Ratio (September 01 - 22)</p>
+          </div>
+          <!-- Clear / Reset Table Button -->
+          <button onclick="resetTable('brandTable')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 active:bg-slate-100 shadow-sm transition-all cursor-pointer">
+            <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            <span>Clear / Reset Table</span>
+          </button>
         </div>
         <div class="overflow-x-auto">
-          <table class="w-full text-sm text-right excel-table">
-            <thead class="theme-header-aff text-white text-xs uppercase tracking-wider font-semibold">
-              <tr>
+          <table id="brandTable" class="w-full text-sm text-right excel-table">
+            <thead>
+              <!-- Sort Buttons Row: No borders, buttons centered, Brand has no button -->
+              <tr class="sort-row">
+                <th class="w-1/4"></th>
+                <th class="text-center">
+                  <div class="flex justify-center">
+                    <button onclick="sortTable('brandTable', 1, this, 'num')" class="sort-btn inline-flex items-center justify-center gap-1 px-3 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-semibold text-slate-700 shadow-xs hover:bg-slate-50 cursor-pointer">
+                      <span>Sort</span><span class="sort-icon text-slate-400">⇅</span>
+                    </button>
+                  </div>
+                </th>
+                <th class="text-center">
+                  <div class="flex justify-center">
+                    <button onclick="sortTable('brandTable', 2, this, 'num')" class="sort-btn inline-flex items-center justify-center gap-1 px-3 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-semibold text-slate-700 shadow-xs hover:bg-slate-50 cursor-pointer">
+                      <span>Sort</span><span class="sort-icon text-slate-400">⇅</span>
+                    </button>
+                  </div>
+                </th>
+                <th class="text-center">
+                  <div class="flex justify-center">
+                    <button onclick="sortTable('brandTable', 3, this, 'currency')" class="sort-btn inline-flex items-center justify-center gap-1 px-3 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-semibold text-slate-700 shadow-xs hover:bg-slate-50 cursor-pointer">
+                      <span>Sort</span><span class="sort-icon text-slate-400">⇅</span>
+                    </button>
+                  </div>
+                </th>
+                <th class="text-center">
+                  <div class="flex justify-center">
+                    <button onclick="sortTable('brandTable', 4, this, 'ratio')" class="sort-btn inline-flex items-center justify-center gap-1 px-3 py-1 rounded-md border border-slate-300 bg-white text-[11px] font-semibold text-slate-700 shadow-xs hover:bg-slate-50 cursor-pointer">
+                      <span>Sort</span><span class="sort-icon text-slate-400">⇅</span>
+                    </button>
+                  </div>
+                </th>
+              </tr>
+              <!-- Column Titles Row -->
+              <tr class="theme-header-aff text-white text-xs uppercase tracking-wider font-semibold">
                 <th class="py-2.5 px-4 text-left">Brand</th>
                 <th class="py-2.5 px-4">Signups</th>
                 <th class="py-2.5 px-4">FTD / Users</th>
@@ -883,6 +975,8 @@
 
     let areDetailsExpanded = false;
     let chartRefs = {};
+    const initialTableState = {};
+    const tableSortDirections = {};
 
     function predictCumulativeVolume(finalVal, day) {
       if (day <= 0) return 0;
@@ -1039,7 +1133,6 @@
         </tr>
       `;
 
-      // Update Section 1 KPI cards for delivery metrics
       document.getElementById('kpiDelivered').textContent = grandTotal.delivered.toLocaleString();
       document.getElementById('kpiOpened').textContent = grandTotal.opened.toLocaleString();
       document.getElementById('kpiClicked').textContent = grandTotal.clicked.toLocaleString();
@@ -1107,6 +1200,83 @@
       const endDay = parseInt(endVal.split('-')[2], 10);
 
       renderEspTableRange(startDay, endDay);
+    }
+
+    /* ================= GENERAL SORTING & RESET ENGINE ================= */
+    function initSortableTables() {
+      ['advertiserTable', 'brandTable'].forEach(tableId => {
+        const tbody = document.querySelector(`#${tableId} tbody`);
+        if (tbody) {
+          initialTableState[tableId] = tbody.innerHTML;
+          tableSortDirections[tableId] = {};
+        }
+      });
+    }
+
+    function sortTable(tableId, colIndex, btnElement, type) {
+      const tbody = document.querySelector(`#${tableId} tbody`);
+      if (!tbody) return;
+
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const currentDir = tableSortDirections[tableId][colIndex] || 'none';
+      const newDir = (currentDir === 'desc') ? 'asc' : 'desc'; // 1st click: desc (mayor a menor), 2nd click: asc (menor a mayor)
+      tableSortDirections[tableId] = { [colIndex]: newDir };
+
+      // Update button indicators in the header
+      const tableElement = document.getElementById(tableId);
+      tableElement.querySelectorAll('.sort-btn').forEach(btn => {
+        btn.querySelector('.sort-icon').textContent = '⇅';
+        btn.classList.remove('bg-blue-50', 'border-blue-400', 'text-blue-700');
+        btn.classList.add('bg-white', 'border-slate-300', 'text-slate-700');
+      });
+
+      btnElement.querySelector('.sort-icon').textContent = (newDir === 'desc') ? '▼' : '▲';
+      btnElement.classList.remove('bg-white', 'border-slate-300', 'text-slate-700');
+      btnElement.classList.add('bg-blue-50', 'border-blue-400', 'text-blue-700');
+
+      rows.sort((rowA, rowB) => {
+        const cellA = rowA.children[colIndex].innerText.trim();
+        const cellB = rowB.children[colIndex].innerText.trim();
+
+        let valA, valB;
+
+        if (type === 'num' || type === 'currency') {
+          valA = parseFloat(cellA.replace(/[^0-9.-]/g, '')) || 0;
+          valB = parseFloat(cellB.replace(/[^0-9.-]/g, '')) || 0;
+        } else if (type === 'ratio') {
+          const parseRatio = (rStr) => {
+            const parts = rStr.split(':').map(p => parseFloat(p.trim()) || 0);
+            if (parts.length === 2 && parts[1] > 0) return parts[0] / parts[1];
+            return 0;
+          };
+          valA = parseRatio(cellA);
+          valB = parseRatio(cellB);
+        } else {
+          valA = cellA.toLowerCase();
+          valB = cellB.toLowerCase();
+          return (newDir === 'desc') ? valB.localeCompare(valA) : valA.localeCompare(valB);
+        }
+
+        return (newDir === 'desc') ? (valB - valA) : (valA - valB);
+      });
+
+      tbody.innerHTML = '';
+      rows.forEach(r => tbody.appendChild(r));
+    }
+
+    function resetTable(tableId) {
+      const tbody = document.querySelector(`#${tableId} tbody`);
+      if (!tbody || !initialTableState[tableId]) return;
+
+      tbody.innerHTML = initialTableState[tableId];
+      tableSortDirections[tableId] = {};
+
+      const tableElement = document.getElementById(tableId);
+      tableElement.querySelectorAll('.sort-btn').forEach(btn => {
+        btn.querySelector('.sort-icon').textContent = '⇅';
+        btn.classList.remove('bg-blue-50', 'border-blue-400', 'text-blue-700');
+        btn.classList.add('bg-white', 'border-slate-300', 'text-slate-700');
+      });
     }
 
     function initAllCharts() {
@@ -1298,6 +1468,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       initAllCharts();
+      initSortableTables();
       renderEspTableRange(1, 22);
     });
   </script>
