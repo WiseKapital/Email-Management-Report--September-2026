@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ================= ANTI-CACHE META TAGS ================= -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <title>Performance Dashboard - Email & Advertisers</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -802,21 +808,29 @@
       return `${m}/${d}/${y}`;
     }
 
+    // STRICT ANTI-CACHE FETCH: appends a fresh timestamp & disables local cache
     async function fetchMonthFile(mKey) {
+      const timestamp = Date.now();
       const candidates = [
-        `data_${mKey}.json`,
-        `./data_${mKey}.json`,
-        `data/data_${mKey}.json`,
-        `./data/data_${mKey}.json`
+        `data_${mKey}.json?t=${timestamp}`,
+        `./data_${mKey}.json?t=${timestamp}`,
+        `data/data_${mKey}.json?t=${timestamp}`,
+        `./data/data_${mKey}.json?t=${timestamp}`
       ];
 
       for (const p of candidates) {
         try {
-          const res = await fetch(p);
+          const res = await fetch(p, {
+            cache: 'no-store',
+            headers: {
+              'Cache-Control': 'no-cache',
+              'Pragma': 'no-cache'
+            }
+          });
           if (res.ok) {
             const data = await res.json();
             if (data && (data.daily_records || data.summary_mtd)) {
-              console.log(`Successfully fetched: ${p}`);
+              console.log(`Successfully fetched fresh file: ${p}`);
               return data;
             }
           }
@@ -1123,7 +1137,6 @@
       }
 
       if (singleMonthFastMatch) {
-        // Direct exact match with month JSON
         const m = singleMonthFastMatch;
         agg.delivered = m.summary_mtd.delivered;
         agg.bounced = m.summary_mtd.bounced;
@@ -1548,7 +1561,7 @@
           <td class="py-2 px-4 font-mono font-bold text-amber-600">${item.signups}</td>
           <td class="py-2 px-4 font-mono font-bold text-indigo-600">${item.users}</td>
           <td class="py-2 px-4 font-mono font-bold text-emerald-600">$${Math.round(item.revenue).toLocaleString()}</td>
-          <td class="py-2 px-4 font-mono font-semibold text-emerald-600">${s2pStr}</td>
+          <td class="py-2.5 px-4 font-mono font-semibold text-emerald-600">${s2pStr}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -1842,6 +1855,7 @@
     document.addEventListener('DOMContentLoaded', async () => {
       initCharts();
 
+      // Fetches fresh month files bypassing browser & CDN cache
       globalLoadedMonths = await loadAllMonths();
 
       const badge = document.getElementById('dataStatusBadge');
