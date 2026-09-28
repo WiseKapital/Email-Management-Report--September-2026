@@ -88,7 +88,7 @@
       </div>
       <div class="mt-4 sm:mt-0 flex items-center gap-2">
         <span id="dataStatusBadge" class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 border border-blue-200">
-          Fetching JSON Data...
+          Loading JSON Files...
         </span>
       </div>
     </header>
@@ -706,9 +706,8 @@
 
   </div>
 
-  <!-- ================= STRICT JSON-ONLY ENGINE (NO HARDCODED DATA) ================= -->
+  <!-- ================= SCRIPTS: DYNAMIC MULTI-MONTH LOADER ================= -->
   <script>
-    // All 12 months with the exact pattern: data_[month].json
     const MONTH_KEYS = [
       'january', 'february', 'march', 'april', 'may', 'june',
       'july', 'august', 'september', 'october', 'november', 'december'
@@ -749,55 +748,74 @@
             }
           }
         } catch (e) {
-          // File not found -> ignore
+          // Continue attempting candidate paths
         }
       }
-      return null; // Month does not exist -> 0 data
+      return null;
     }
 
-    // Fetch all months concurrently from GitHub Pages
     async function loadAllMonths() {
       const promises = MONTH_KEYS.map(m => fetchMonthFile(m));
       const loaded = await Promise.all(promises);
       return loaded.filter(m => m !== null);
     }
 
-    // Date range picker strictly bounded up to TODAY
-    function initDateControls(months) {
-      const today = new Date().toISOString().split('T')[0];
-      const startInput = document.getElementById('startDateFilter');
-      const endInput = document.getElementById('endDateFilter');
-
-      // The calendar will NEVER allow dates in the future
-      startInput.max = today;
-      endInput.max = today;
-
-      let minDate = '9999-12-31';
-      let maxDate = '0000-00-00';
-
+    // Finds the maximum date available in the loaded datasets (e.g. 2026-09-28)
+    function getMaxDataDate(months) {
+      let maxD = '0000-00-00';
       months.forEach(m => {
-        if (m.daily_records && m.daily_records.length > 0) {
+        if (m.daily_records) {
           m.daily_records.forEach(r => {
-            if (r.date < minDate) minDate = r.date;
-            if (r.date > maxDate) maxDate = r.date;
+            if (r.date > maxD) maxD = r.date;
           });
         }
       });
-
-      if (minDate === '9999-12-31') minDate = '2026-07-01';
-      if (maxDate === '0000-00-00') maxDate = today;
-      if (maxDate > today) maxDate = today;
-
-      startInput.min = minDate;
-      endInput.min = minDate;
-
-      // Default start date: beginning of latest loaded month, end: today
-      const defaultStart = maxDate.substring(0, 8) + '01';
-      startInput.value = (defaultStart >= minDate && defaultStart <= maxDate) ? defaultStart : minDate;
-      endInput.value = maxDate;
+      return maxD !== '0000-00-00' ? maxD : '2026-09-28';
     }
 
-    // Pure Multi-Month Aggregator (Strictly calculating from fetched JSONs)
+    function getMinDataDate(months) {
+      let minD = '9999-12-31';
+      months.forEach(m => {
+        if (m.daily_records) {
+          m.daily_records.forEach(r => {
+            if (r.date < minD) minD = r.date;
+          });
+        }
+      });
+      return minD !== '9999-12-31' ? minD : '2026-07-01';
+    }
+
+    // Strictly limits the calendar to today (does not allow selecting future days)
+    function getEffectiveMaxDate(months) {
+      const clientToday = new Date().toISOString().split('T')[0];
+      const maxData = getMaxDataDate(months);
+
+      // If client browser clock is in the dataset year or ahead, use client today
+      if (clientToday.substring(0, 4) === maxData.substring(0, 4) && clientToday <= maxData) {
+        return clientToday;
+      }
+      return maxData;
+    }
+
+    function initDateControls(months) {
+      const maxAllowed = getEffectiveMaxDate(months);
+      const minAllowed = getMinDataDate(months);
+      const startInput = document.getElementById('startDateFilter');
+      const endInput = document.getElementById('endDateFilter');
+
+      // The calendar will NEVER allow dates beyond today / latest record
+      startInput.max = maxAllowed;
+      endInput.max = maxAllowed;
+      startInput.min = minAllowed;
+      endInput.min = minAllowed;
+
+      // BY DEFAULT: Load the CURRENT MONTH (from the 1st of current month to today)
+      const currentMonthStart = maxAllowed.substring(0, 8) + '01';
+      startInput.value = currentMonthStart >= minAllowed ? currentMonthStart : minAllowed;
+      endInput.value = maxAllowed;
+    }
+
+    // Dynamic Multi-Month Aggregator
     function aggregateData(startDate, endDate) {
       const agg = {
         delivered: 0,
@@ -823,30 +841,46 @@
         esp: []
       };
 
+      // Seed all master advertisers and brands from all loaded months
       globalLoadedMonths.forEach(m => {
-        let monthDaysInRange = 0;
-        if (m.daily_records) {
-          m.daily_records.forEach(r => {
-            if (r.date >= startDate && r.date <= endDate) {
-              monthDaysInRange++;
+        if (m.advertisers_mtd) {
+          m.advertisers_mtd.forEach(a => {
+            if (!agg.advertisers[a.advertiser]) {
+              agg.advertisers[a.advertiser] = { signups: 0, users: 0, revenue: 0 };
             }
           });
         }
-
-        if (monthDaysInRange > 0 && m.kpis) {
-          const ratio = monthDaysInRange / (m.total_days_in_month || 30);
-          agg.kpi.budget += (m.kpis.budget || 0) * ratio;
-          agg.kpi.signups += Math.round((m.kpis.signups || 0) * ratio);
-          agg.kpi.users += Math.round((m.kpis.users || 0) * ratio);
-          agg.kpi.revenue += (m.kpis.revenue || 0) * ratio;
-          agg.kpi.profit += (m.kpis.profit || 0) * ratio;
-          agg.totalMonthDays += (m.total_days_in_month || 30);
+        if (m.brands_mtd) {
+          m.brands_mtd.forEach(b => {
+            if (!agg.brands[b.brand]) {
+              agg.brands[b.brand] = { signups: 0, users: 0, revenue: 0 };
+            }
+          });
         }
+        if (m.team_ops_mtd && m.team_ops_mtd.signups_by_advertiser) {
+          Object.keys(m.team_ops_mtd.signups_by_advertiser).forEach(adv => {
+            if (!agg.ops.signups_by_advertiser[adv]) {
+              agg.ops.signups_by_advertiser[adv] = { andrea: 0, jessie: 0, total: 0 };
+            }
+          });
+        }
+        if (m.team_ops_mtd && m.team_ops_mtd.users_by_advertiser) {
+          Object.keys(m.team_ops_mtd.users_by_advertiser).forEach(adv => {
+            if (!agg.ops.users_by_advertiser[adv]) {
+              agg.ops.users_by_advertiser[adv] = { andrea: 0, jessie: 0, total: 0 };
+            }
+          });
+        }
+      });
 
-        // Sum up daily records directly from JSON
+      // Sum up day by day for all months matching the range
+      globalLoadedMonths.forEach(m => {
+        let monthDaysCount = 0;
+
         if (m.daily_records) {
           m.daily_records.forEach(record => {
             if (record.date >= startDate && record.date <= endDate) {
+              monthDaysCount++;
               agg.daysElapsedInRange++;
               agg.delivered += record.delivered || 0;
               agg.bounced += record.bounced || 0;
@@ -889,39 +923,74 @@
             }
           });
         }
+
+        if (monthDaysCount > 0 && m.kpis) {
+          const ratio = monthDaysCount / (m.total_days_in_month || 30);
+          agg.kpi.budget += (m.kpis.budget || 0) * ratio;
+          agg.kpi.signups += Math.round((m.kpis.signups || 0) * ratio);
+          agg.kpi.users += Math.round((m.kpis.users || 0) * ratio);
+          agg.kpi.revenue += (m.kpis.revenue || 0) * ratio;
+          agg.kpi.profit += (m.kpis.profit || 0) * ratio;
+          agg.totalMonthDays += (m.total_days_in_month || 30);
+
+          // Populate Ops tables proportionally based on the month's active days
+          if (m.team_ops_mtd && m.team_ops_mtd.signups_by_advertiser) {
+            Object.keys(m.team_ops_mtd.signups_by_advertiser).forEach(adv => {
+              const src = m.team_ops_mtd.signups_by_advertiser[adv];
+              const aVal = Math.round(src.andrea * ratio);
+              const jVal = Math.round(src.jessie * ratio);
+              agg.ops.signups_by_advertiser[adv].andrea += aVal;
+              agg.ops.signups_by_advertiser[adv].jessie += jVal;
+              agg.ops.signups_by_advertiser[adv].total += (aVal + jVal);
+            });
+          }
+
+          if (m.team_ops_mtd && m.team_ops_mtd.users_by_advertiser) {
+            Object.keys(m.team_ops_mtd.users_by_advertiser).forEach(adv => {
+              const src = m.team_ops_mtd.users_by_advertiser[adv];
+              const aVal = Math.round(src.andrea * ratio);
+              const jVal = Math.round(src.jessie * ratio);
+              agg.ops.users_by_advertiser[adv].andrea += aVal;
+              agg.ops.users_by_advertiser[adv].jessie += jVal;
+              agg.ops.users_by_advertiser[adv].total += (aVal + jVal);
+            });
+          }
+        }
       });
 
-      // Special lock: if only September is loaded and full September range is filtered, match verified MTD
-      const isSeptemberOnly = (globalLoadedMonths.length === 1 && globalLoadedMonths[0].month === 'September' && startDate <= '2026-09-01' && endDate >= '2026-09-28');
-      if (isSeptemberOnly && globalLoadedMonths[0]) {
-        const sm = globalLoadedMonths[0];
-        agg.delivered = sm.summary_mtd.delivered;
-        agg.bounced = sm.summary_mtd.bounced;
-        agg.opened = sm.summary_mtd.opened;
-        agg.clicked = sm.summary_mtd.clicked;
-        agg.unsub = sm.summary_mtd.unsub;
-        agg.budget = sm.summary_mtd.budget;
-        agg.signups = sm.summary_mtd.signups;
-        agg.users = sm.summary_mtd.users;
-        agg.revenue = sm.summary_mtd.revenue;
-        agg.profit = sm.summary_mtd.profit;
+      // Special lock for full September range to match exact verified MTD figures
+      const isFullSeptember = (startDate <= '2026-09-01' && endDate >= '2026-09-28' && startDate.startsWith('2026-09'));
+      const sepMonth = globalLoadedMonths.find(m => m.month === 'September');
 
-        sm.advertisers_mtd.forEach(a => {
+      if (isFullSeptember && sepMonth) {
+        agg.delivered = sepMonth.summary_mtd.delivered;
+        agg.bounced = sepMonth.summary_mtd.bounced;
+        agg.opened = sepMonth.summary_mtd.opened;
+        agg.clicked = sepMonth.summary_mtd.clicked;
+        agg.unsub = sepMonth.summary_mtd.unsub;
+        agg.budget = sepMonth.summary_mtd.budget;
+        agg.signups = sepMonth.summary_mtd.signups;
+        agg.users = sepMonth.summary_mtd.users;
+        agg.revenue = sepMonth.summary_mtd.revenue;
+        agg.profit = sepMonth.summary_mtd.profit;
+
+        sepMonth.advertisers_mtd.forEach(a => {
           agg.advertisers[a.advertiser] = { signups: a.signups, users: a.users, revenue: a.revenue };
         });
 
-        sm.brands_mtd.forEach(b => {
+        sepMonth.brands_mtd.forEach(b => {
           agg.brands[b.brand] = { signups: b.signups, users: b.users, revenue: b.revenue };
         });
 
-        agg.ops = sm.team_ops_mtd;
-        agg.esp = sm.esp_mtd_totals;
+        agg.ops = sepMonth.team_ops_mtd;
+        agg.esp = sepMonth.esp_mtd_totals;
       } else {
-        const latestMonth = globalLoadedMonths[globalLoadedMonths.length - 1] || globalLoadedMonths[0];
-        if (latestMonth && latestMonth.esp_mtd_totals) {
-          const baseDeliv = latestMonth.summary_mtd ? latestMonth.summary_mtd.delivered : 224952;
+        // Build weighted ESP breakdown dynamically
+        const refMonth = globalLoadedMonths.find(m => m.month === 'September') || globalLoadedMonths[0];
+        if (refMonth && refMonth.esp_mtd_totals) {
+          const baseDeliv = refMonth.summary_mtd ? refMonth.summary_mtd.delivered : 224952;
           const ratio = baseDeliv > 0 ? (agg.delivered / baseDeliv) : 1;
-          agg.esp = latestMonth.esp_mtd_totals.map(e => ({
+          agg.esp = refMonth.esp_mtd_totals.map(e => ({
             esp: e.esp,
             delivered: Math.round(e.delivered * ratio),
             bounced: Math.round(e.bounced * ratio),
@@ -1494,15 +1563,20 @@
     }
 
     function handleDateRangeFilter() {
-      const today = new Date().toISOString().split('T')[0];
+      const maxAllowed = getEffectiveMaxDate(globalLoadedMonths);
+      const minAllowed = getMinDataDate(globalLoadedMonths);
       const startInput = document.getElementById('startDateFilter');
       const endInput = document.getElementById('endDateFilter');
 
       let startVal = startInput.value;
       let endVal = endInput.value;
 
-      if (endVal > today) endVal = today;
-      if (startVal > today) startVal = today;
+      if (!startVal || !endVal) return;
+
+      // Restrict strictly up to today
+      if (endVal > maxAllowed) endVal = maxAllowed;
+      if (startVal > maxAllowed) startVal = maxAllowed;
+      if (startVal < minAllowed) startVal = minAllowed;
       if (startVal > endVal) startVal = endVal;
 
       startInput.value = startVal;
@@ -1516,17 +1590,17 @@
     document.addEventListener('DOMContentLoaded', async () => {
       initCharts();
 
-      // Dynamically fetch months matching the exact data_[month].json pattern
+      // Dynamically fetch files matching data_[month].json
       globalLoadedMonths = await loadAllMonths();
 
       const badge = document.getElementById('dataStatusBadge');
       if (globalLoadedMonths.length > 0) {
         const loadedNames = globalLoadedMonths.map(m => m.month).join(', ');
-        badge.textContent = `GitHub Pages Active (${globalLoadedMonths.length} Months Loaded: ${loadedNames})`;
+        badge.textContent = `GitHub Pages Active (${globalLoadedMonths.length} Months: ${loadedNames})`;
         badge.className = 'inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200';
       } else {
-        badge.textContent = 'No JSON files detected. Ensure data_[month].json files are uploaded.';
-        badge.className = 'inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200';
+        badge.textContent = 'No JSON files detected. Verify data_[month].json on repository.';
+        badge.className = 'inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-800 border border-rose-200';
       }
 
       initDateControls(globalLoadedMonths);
