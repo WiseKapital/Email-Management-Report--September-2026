@@ -274,7 +274,7 @@
               <span id="btnText">Show All</span>
             </button>
 
-            <!-- INLINE DATE RANGE SELECTOR (BOUNDED TO TODAY) -->
+            <!-- INLINE DATE RANGE SELECTOR -->
             <div class="inline-flex items-center gap-2 bg-white border border-slate-300 rounded-lg px-2.5 py-1 shadow-sm">
               <svg class="w-3.5 h-3.5 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -728,7 +728,6 @@
       return '0:0';
     }
 
-    // Resolves data_[month].json directly from your GitHub Pages root or /data/ folder
     async function fetchMonthFile(mKey) {
       const candidates = [
         `data_${mKey}.json`,
@@ -747,9 +746,7 @@
               return data;
             }
           }
-        } catch (e) {
-          // Continue attempting candidate paths
-        }
+        } catch (e) {}
       }
       return null;
     }
@@ -760,7 +757,6 @@
       return loaded.filter(m => m !== null);
     }
 
-    // Finds the maximum date available in the loaded datasets (e.g. 2026-09-28)
     function getMaxDataDate(months) {
       let maxD = '0000-00-00';
       months.forEach(m => {
@@ -785,12 +781,9 @@
       return minD !== '9999-12-31' ? minD : '2026-07-01';
     }
 
-    // Strictly limits the calendar to today (does not allow selecting future days)
     function getEffectiveMaxDate(months) {
       const clientToday = new Date().toISOString().split('T')[0];
       const maxData = getMaxDataDate(months);
-
-      // If client browser clock is in the dataset year or ahead, use client today
       if (clientToday.substring(0, 4) === maxData.substring(0, 4) && clientToday <= maxData) {
         return clientToday;
       }
@@ -803,13 +796,12 @@
       const startInput = document.getElementById('startDateFilter');
       const endInput = document.getElementById('endDateFilter');
 
-      // The calendar will NEVER allow dates beyond today / latest record
       startInput.max = maxAllowed;
       endInput.max = maxAllowed;
       startInput.min = minAllowed;
       endInput.min = minAllowed;
 
-      // BY DEFAULT: Load the CURRENT MONTH (from the 1st of current month to today)
+      // SET BY DEFAULT: CURRENT MONTH (September 01 to September 28)
       const currentMonthStart = maxAllowed.substring(0, 8) + '01';
       startInput.value = currentMonthStart >= minAllowed ? currentMonthStart : minAllowed;
       endInput.value = maxAllowed;
@@ -841,7 +833,28 @@
         esp: []
       };
 
-      // Seed all master advertisers and brands from all loaded months
+      const DEFAULT_ESPS = [
+        "MLJ (Mailjet) IP 1",
+        "MLJ (Mailjet) IP 2",
+        "MLJ (Mailjet) IP 3 / SH",
+        "SEG (Sendgrid) IP 1",
+        "SEG (Sendgrid) IP 2 / SH"
+      ];
+      const espMap = {};
+      DEFAULT_ESPS.forEach(name => {
+        espMap[name] = {
+          esp: name,
+          delivered: 0,
+          bounced: 0,
+          opened: 0,
+          clicked: 0,
+          signups: 0,
+          players: 0,
+          domains: {}
+        };
+      });
+
+      // Seed advertisers and brands
       globalLoadedMonths.forEach(m => {
         if (m.advertisers_mtd) {
           m.advertisers_mtd.forEach(a => {
@@ -873,9 +886,10 @@
         }
       });
 
-      // Sum up day by day for all months matching the range
+      // Sum up day by day for all months
       globalLoadedMonths.forEach(m => {
         let monthDaysCount = 0;
+        let monthDeliveredCount = 0;
 
         if (m.daily_records) {
           m.daily_records.forEach(record => {
@@ -891,6 +905,8 @@
               agg.signups += record.signups || 0;
               agg.users += record.users || 0;
               agg.revenue += record.revenue || 0;
+
+              monthDeliveredCount += (record.delivered || 0);
 
               if (record.advertisers) {
                 Object.keys(record.advertisers).forEach(adv => {
@@ -933,7 +949,6 @@
           agg.kpi.profit += (m.kpis.profit || 0) * ratio;
           agg.totalMonthDays += (m.total_days_in_month || 30);
 
-          // Populate Ops tables proportionally based on the month's active days
           if (m.team_ops_mtd && m.team_ops_mtd.signups_by_advertiser) {
             Object.keys(m.team_ops_mtd.signups_by_advertiser).forEach(adv => {
               const src = m.team_ops_mtd.signups_by_advertiser[adv];
@@ -956,53 +971,41 @@
             });
           }
         }
+
+        // ESP Deliverability Table: ONLY aggregate months that actually have email delivery
+        if (m.esp_mtd_totals && m.esp_mtd_totals.length > 0 && monthDeliveredCount > 0) {
+          const mTotalDeliv = m.summary_mtd && m.summary_mtd.delivered > 0 ? m.summary_mtd.delivered : monthDeliveredCount;
+          const delivRatio = monthDeliveredCount / mTotalDeliv;
+
+          m.esp_mtd_totals.forEach(item => {
+            if (espMap[item.esp]) {
+              espMap[item.esp].delivered += Math.round(item.delivered * delivRatio);
+              espMap[item.esp].bounced += Math.round(item.bounced * delivRatio);
+              espMap[item.esp].opened += Math.round(item.opened * delivRatio);
+              espMap[item.esp].clicked += Math.round(item.clicked * delivRatio);
+              espMap[item.esp].signups += Math.round(item.signups * delivRatio);
+              espMap[item.esp].players += Math.round(item.players * delivRatio);
+
+              if (item.domains) {
+                Object.keys(item.domains).forEach(domName => {
+                  if (!espMap[item.esp].domains[domName]) {
+                    espMap[item.esp].domains[domName] = { delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 };
+                  }
+                  const d = item.domains[domName];
+                  espMap[item.esp].domains[domName].delivered += Math.round(d.delivered * delivRatio);
+                  espMap[item.esp].domains[domName].bounced += Math.round(d.bounced * delivRatio);
+                  espMap[item.esp].domains[domName].opened += Math.round(d.opened * delivRatio);
+                  espMap[item.esp].domains[domName].clicked += Math.round(d.clicked * delivRatio);
+                  espMap[item.esp].domains[domName].signups += Math.round(d.signups * delivRatio);
+                  espMap[item.esp].domains[domName].players += Math.round(d.players * delivRatio);
+                });
+              }
+            }
+          });
+        }
       });
 
-      // Special lock for full September range to match exact verified MTD figures
-      const isFullSeptember = (startDate <= '2026-09-01' && endDate >= '2026-09-28' && startDate.startsWith('2026-09'));
-      const sepMonth = globalLoadedMonths.find(m => m.month === 'September');
-
-      if (isFullSeptember && sepMonth) {
-        agg.delivered = sepMonth.summary_mtd.delivered;
-        agg.bounced = sepMonth.summary_mtd.bounced;
-        agg.opened = sepMonth.summary_mtd.opened;
-        agg.clicked = sepMonth.summary_mtd.clicked;
-        agg.unsub = sepMonth.summary_mtd.unsub;
-        agg.budget = sepMonth.summary_mtd.budget;
-        agg.signups = sepMonth.summary_mtd.signups;
-        agg.users = sepMonth.summary_mtd.users;
-        agg.revenue = sepMonth.summary_mtd.revenue;
-        agg.profit = sepMonth.summary_mtd.profit;
-
-        sepMonth.advertisers_mtd.forEach(a => {
-          agg.advertisers[a.advertiser] = { signups: a.signups, users: a.users, revenue: a.revenue };
-        });
-
-        sepMonth.brands_mtd.forEach(b => {
-          agg.brands[b.brand] = { signups: b.signups, users: b.users, revenue: b.revenue };
-        });
-
-        agg.ops = sepMonth.team_ops_mtd;
-        agg.esp = sepMonth.esp_mtd_totals;
-      } else {
-        // Build weighted ESP breakdown dynamically
-        const refMonth = globalLoadedMonths.find(m => m.month === 'September') || globalLoadedMonths[0];
-        if (refMonth && refMonth.esp_mtd_totals) {
-          const baseDeliv = refMonth.summary_mtd ? refMonth.summary_mtd.delivered : 224952;
-          const ratio = baseDeliv > 0 ? (agg.delivered / baseDeliv) : 1;
-          agg.esp = refMonth.esp_mtd_totals.map(e => ({
-            esp: e.esp,
-            delivered: Math.round(e.delivered * ratio),
-            bounced: Math.round(e.bounced * ratio),
-            opened: Math.round(e.opened * ratio),
-            clicked: Math.round(e.clicked * ratio),
-            signups: Math.round(e.signups * ratio),
-            players: Math.round(e.players * ratio),
-            domains: e.domains
-          }));
-        }
-      }
-
+      agg.esp = Object.values(espMap);
       agg.profit = agg.revenue - agg.budget;
       return agg;
     }
@@ -1573,7 +1576,6 @@
 
       if (!startVal || !endVal) return;
 
-      // Restrict strictly up to today
       if (endVal > maxAllowed) endVal = maxAllowed;
       if (startVal > maxAllowed) startVal = maxAllowed;
       if (startVal < minAllowed) startVal = minAllowed;
