@@ -178,9 +178,9 @@
         </div>
       </div>
 
+      <!-- ERROR ALERT (ONLY SHOWN IF SOMETHING FAILS) -->
       <div class="flex items-center gap-2 self-start lg:self-center">
-        <span id="dataStatusBadge" class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 border border-blue-200">
-          Loading JSON Files...
+        <span id="dataStatusBadge" class="hidden inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-800 border border-rose-200">
         </span>
       </div>
     </header>
@@ -1561,7 +1561,7 @@
           <td class="py-2 px-4 font-mono font-bold text-amber-600">${item.signups}</td>
           <td class="py-2 px-4 font-mono font-bold text-indigo-600">${item.users}</td>
           <td class="py-2 px-4 font-mono font-bold text-emerald-600">$${Math.round(item.revenue).toLocaleString()}</td>
-          <td class="py-2.5 px-4 font-mono font-semibold text-emerald-600">${s2pStr}</td>
+          <td class="py-2 px-4 font-mono font-semibold text-emerald-600">${s2pStr}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -1859,13 +1859,13 @@
       globalLoadedMonths = await loadAllMonths();
 
       const badge = document.getElementById('dataStatusBadge');
-      if (globalLoadedMonths.length > 0) {
-        const loadedNames = globalLoadedMonths.map(m => m.month).join(', ');
-        badge.textContent = `GitHub Pages Active (${globalLoadedMonths.length} Months: ${loadedNames})`;
-        badge.className = 'inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200';
+      if (globalLoadedMonths.length === 0) {
+        // Only show if there is an error loading JSON files
+        badge.textContent = 'Error: No JSON data files detected. Check repository.';
+        badge.classList.remove('hidden');
       } else {
-        badge.textContent = 'No JSON files detected. Verify data_[month].json on repository.';
-        badge.className = 'inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-800 border border-rose-200';
+        // Keep completely hidden when working normally
+        badge.classList.add('hidden');
       }
 
       initDateControls(globalLoadedMonths);
