@@ -1,0 +1,428 @@
+{
+  "month": "September",
+  "year": 2026,
+  "total_days_in_month": 30,
+  "days_elapsed": 28,
+  "kpis": {
+    "budget": 1100,
+    "signups": 500,
+    "users": 40,
+    "revenue": 4400,
+    "profit": 3300
+  },
+  "summary_mtd": {
+    "delivered": 224952,
+    "bounced": 725,
+    "opened": 12626,
+    "clicked": 3424,
+    "unsub": 161,
+    "budget": 940,
+    "signups": 430,
+    "users": 23,
+    "revenue": 3440,
+    "profit": 2500,
+    "s2p_ratio": "1:19"
+  },
+  "esp_mtd_totals": [
+    {
+      "esp": "MLJ (Mailjet) IP 1",
+      "delivered": 14941,
+      "bounced": 34,
+      "opened": 1908,
+      "clicked": 228,
+      "signups": 4,
+      "players": 1,
+      "domains": {
+        "Gmail": { "delivered": 12559, "bounced": 25, "opened": 1689, "clicked": 200, "signups": 4, "players": 1 },
+        "Yahoo": { "delivered": 1319, "bounced": 1, "opened": 75, "clicked": 7, "signups": 0, "players": 0 },
+        "iCloud": { "delivered": 459, "bounced": 8, "opened": 81, "clicked": 12, "signups": 0, "players": 0 },
+        "Hotmail": { "delivered": 165, "bounced": 0, "opened": 18, "clicked": 0, "signups": 0, "players": 0 },
+        "Other": { "delivered": 151, "bounced": 0, "opened": 33, "clicked": 8, "signups": 0, "players": 0 },
+        "Outlook": { "delivered": 149, "bounced": 0, "opened": 2, "clicked": 0, "signups": 0, "players": 0 },
+        "Aol": { "delivered": 139, "bounced": 0, "opened": 10, "clicked": 1, "signups": 0, "players": 0 }
+      }
+    },
+    {
+      "esp": "MLJ (Mailjet) IP 2",
+      "delivered": 14941,
+      "bounced": 36,
+      "opened": 806,
+      "clicked": 103,
+      "signups": 1,
+      "players": 0,
+      "domains": {
+        "Gmail": { "delivered": 11611, "bounced": 27, "opened": 676, "clicked": 87, "signups": 1, "players": 0 },
+        "Other": { "delivered": 1496, "bounced": 3, "opened": 14, "clicked": 1, "signups": 0, "players": 0 },
+        "Yahoo": { "delivered": 1100, "bounced": 2, "opened": 29, "clicked": 8, "signups": 0, "players": 0 },
+        "iCloud": { "delivered": 360, "bounced": 3, "opened": 68, "clicked": 6, "signups": 0, "players": 0 },
+        "Outlook": { "delivered": 150, "bounced": 0, "opened": 8, "clicked": 1, "signups": 0, "players": 0 },
+        "Aol": { "delivered": 116, "bounced": 1, "opened": 4, "clicked": 0, "signups": 0, "players": 0 },
+        "Hotmail": { "delivered": 108, "bounced": 0, "opened": 7, "clicked": 0, "signups": 0, "players": 0 }
+      }
+    },
+    {
+      "esp": "MLJ (Mailjet) IP 3 / SH",
+      "delivered": 33421,
+      "bounced": 134,
+      "opened": 942,
+      "clicked": 111,
+      "signups": 1,
+      "players": 0,
+      "domains": {
+        "Gmail": { "delivered": 28583, "bounced": 82, "opened": 583, "clicked": 68, "signups": 1, "players": 0 },
+        "Yahoo": { "delivered": 2077, "bounced": 3, "opened": 152, "clicked": 18, "signups": 0, "players": 0 },
+        "Other": { "delivered": 982, "bounced": 5, "opened": 87, "clicked": 7, "signups": 0, "players": 0 },
+        "iCloud": { "delivered": 737, "bounced": 42, "opened": 60, "clicked": 10, "signups": 0, "players": 0 },
+        "Hotmail": { "delivered": 425, "bounced": 0, "opened": 23, "clicked": 3, "signups": 0, "players": 0 },
+        "Outlook": { "delivered": 368, "bounced": 2, "opened": 10, "clicked": 2, "signups": 0, "players": 0 },
+        "Aol": { "delivered": 249, "bounced": 0, "opened": 27, "clicked": 3, "signups": 0, "players": 0 }
+      }
+    },
+    {
+      "esp": "SEG (Sendgrid) IP 1",
+      "delivered": 66327,
+      "bounced": 480,
+      "opened": 3436,
+      "clicked": 1284,
+      "signups": 6,
+      "players": 3,
+      "domains": {
+        "Gmail": { "delivered": 41369, "bounced": 134, "opened": 2068, "clicked": 634, "signups": 6, "players": 3 },
+        "Other": { "delivered": 19136, "bounced": 220, "opened": 362, "clicked": 498, "signups": 0, "players": 0 },
+        "Yahoo": { "delivered": 3436, "bounced": 97, "opened": 528, "clicked": 99, "signups": 0, "players": 0 },
+        "Outlook": { "delivered": 1428, "bounced": 26, "opened": 174, "clicked": 19, "signups": 0, "players": 0 },
+        "iCloud": { "delivered": 958, "bounced": 3, "opened": 304, "clicked": 34, "signups": 0, "players": 0 },
+        "Hotmail": { "delivered": 0, "bounced": 0, "opened": 0, "clicked": 0, "signups": 0, "players": 0 },
+        "Aol": { "delivered": 0, "bounced": 0, "opened": 0, "clicked": 0, "signups": 0, "players": 0 }
+      }
+    },
+    {
+      "esp": "SEG (Sendgrid) IP 2 / SH",
+      "delivered": 95322,
+      "bounced": 41,
+      "opened": 5534,
+      "clicked": 1698,
+      "signups": 418,
+      "players": 19,
+      "domains": {
+        "Gmail": { "delivered": 60349, "bounced": 22, "opened": 4199, "clicked": 954, "signups": 418, "players": 19 },
+        "Other": { "delivered": 26744, "bounced": 16, "opened": 394, "clicked": 588, "signups": 0, "players": 0 },
+        "Yahoo": { "delivered": 4857, "bounced": 1, "opened": 457, "clicked": 72, "signups": 0, "players": 0 },
+        "Outlook": { "delivered": 1856, "bounced": 0, "opened": 216, "clicked": 17, "signups": 0, "players: 0 },
+        "iCloud": { "delivered": 1516, "bounced": 2, "opened": 268, "clicked": 67, "signups": 0, "players": 0 },
+        "Hotmail": { "delivered": 0, "bounced": 0, "opened": 0, "clicked": 0, "signups": 0, "players": 0 },
+        "Aol": { "delivered": 0, "bounced": 0, "opened": 0, "clicked": 0, "signups": 0, "players": 0 }
+      }
+    }
+  ],
+  "advertisers_mtd": [
+    { "advertiser": "GameTime Digital", "signups": 337, "users": 16, "revenue": 2590, "s2p": "1:21" },
+    { "advertiser": "Basher Agency", "signups": 40, "users": 3, "revenue": 400, "s2p": "1:13" },
+    { "advertiser": "CHANCED", "signups": 37, "users": 0, "revenue": 0, "s2p": "0:37" },
+    { "advertiser": "AFF 66", "signups": 8, "users": 2, "revenue": 300, "s2p": "1:4" },
+    { "advertiser": "ALL IN AFFILIATES", "signups": 5, "users": 0, "revenue": 0, "s2p": "0:5" },
+    { "advertiser": "Splash", "signups": 3, "users": 1, "revenue": 150, "s2p": "1:3" },
+    { "advertiser": "SWEEPDREAMS", "signups": 0, "users": 1, "revenue": 0, "s2p": "0:1" },
+    { "advertiser": "Purify", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "advertiser": "Acebet", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "advertiser": "CoinsRoyale", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "advertiser": "EPC", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" }
+  ],
+  "brands_mtd": [
+    { "brand": "LavishLuck", "signups": 197, "users": 6, "revenue": 1080, "s2p": "1:33" },
+    { "brand": "WiseSpin", "signups": 20, "users": 3, "revenue": 420, "s2p": "1:7" },
+    { "brand": "SweepJungle", "signups": 6, "users": 2, "revenue": 300, "s2p": "1:3" },
+    { "brand": "LavishLuck Sweepstakes Casino", "signups": 32, "users": 2, "revenue": 280, "s2p": "1:16" },
+    { "brand": "LuckyZino", "signups": 9, "users": 2, "revenue": 280, "s2p": "1:5" },
+    { "brand": "The Boss", "signups": 10, "users": 1, "revenue": 170, "s2p": "1:10" },
+    { "brand": "Jackpotgo", "signups": 29, "users": 1, "revenue": 170, "s2p": "1:29" },
+    { "brand": "splashcoins", "signups": 3, "users": 1, "revenue": 150, "s2p": "1:3" },
+    { "brand": "Sweet Sweep", "signups": 5, "users": 1, "revenue": 150, "s2p": "1:5" },
+    { "brand": "Rolla", "signups": 14, "users": 1, "revenue": 125, "s2p": "1:14" },
+    { "brand": "LuckyZino Sweepstakes Casino", "signups": 6, "users": 1, "revenue": 120, "s2p": "1:6" },
+    { "brand": "LuckyBunny", "signups": 18, "users": 1, "revenue": 120, "s2p": "1:18" },
+    { "brand": "Spinjo CA", "signups": 0, "users": 0, "revenue": 75, "s2p": "0:0" },
+    { "brand": "CardCrush", "signups": 3, "users": 0, "revenue": 0, "s2p": "0:3" },
+    { "brand": "Chanced Punt", "signups": 37, "users": 0, "revenue": 0, "s2p": "0:37" },
+    { "brand": "High5Casino", "signups": 15, "users": 0, "revenue": 0, "s2p": "0:15" },
+    { "brand": "Ice Casino", "signups": 5, "users": 0, "revenue": 0, "s2p": "0:5" },
+    { "brand": "Spinblitz SEO", "signups": 4, "users": 0, "revenue": 0, "s2p": "0:4" },
+    { "brand": "TitanTreasure", "signups": 3, "users": 0, "revenue": 0, "s2p": "0:3" },
+    { "brand": "Sixty6", "signups": 2, "users": 0, "revenue": 0, "s2p": "0:2" },
+    { "brand": "ChipNWin", "signups": 2, "users": 0, "revenue": 0, "s2p": "0:2" },
+    { "brand": "Dorados", "signups": 2, "users": 0, "revenue": 0, "s2p": "0:2" },
+    { "brand": "WiseSpin Sweeps Casino", "signups": 2, "users": 0, "revenue": 0, "s2p": "0:2" },
+    { "brand": "CoinsBack", "signups": 1, "users": 0, "revenue": 0, "s2p": "0:1" },
+    { "brand": "Crown Coins Email", "signups": 1, "users": 0, "revenue": 0, "s2p": "0:1" },
+    { "brand": "Go Go Gold Win", "signups": 1, "users": 0, "revenue": 0, "s2p": "0:1" },
+    { "brand": "McLuck", "signups": 1, "users": 0, "revenue": 0, "s2p": "0:1" },
+    { "brand": "PlayFame SEO", "signups": 1, "users": 0, "revenue": 0, "s2p": "0:1" },
+    { "brand": "Zunado", "signups": 1, "users": 0, "revenue": 0, "s2p": "0:1" },
+    { "brand": "7Bit Casino", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "brand": "Acebet", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "brand": "Betnjet", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "brand": "BetRiot", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "brand": "Casino Smartlink", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "brand": "Coins Royale sweeps", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "brand": "FS Casino", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "brand": "Simply Piano Desktop", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "brand": "Smash Casino", "signups": 0, "users": 0, "revenue": 0, "s2p": "0:0" },
+    { "brand": "SWEEPDREAMS", "signups": 0, "users": 1, "revenue": 0, "s2p": "0:1" }
+  ],
+  "team_ops_mtd": {
+    "jessie": { "signups": 19, "users": 4 },
+    "andrea": { "signups": 320, "users": 17 },
+    "signups_by_advertiser": {
+      "GAMETIME DIGITAL": { "andrea": 269, "jessie": 15, "total": 284 },
+      "BASHER AGENCY": { "andrea": 37, "jessie": 3, "total": 40 },
+      "CHANCED": { "andrea": 9, "jessie": 0, "total": 9 },
+      "AFF 66": { "andrea": 5, "jessie": 1, "total": 6 },
+      "ACEBET": { "andrea": 0, "jessie": 0, "total": 0 },
+      "ALL IN AFFILIATES": { "andrea": 0, "jessie": 0, "total": 0 },
+      "COINSROYALE": { "andrea": 0, "jessie": 0, "total": 0 },
+      "EPC": { "andrea": 0, "jessie": 0, "total": 0 },
+      "PURIFY": { "andrea": 0, "jessie": 0, "total": 0 },
+      "SPLASH": { "andrea": 0, "jessie": 0, "total": 0 },
+      "SWEEPDREAMS": { "andrea": 0, "jessie": 0, "total": 0 }
+    },
+    "users_by_advertiser": {
+      "GAMETIME DIGITAL": { "andrea": 13, "jessie": 2, "total": 15 },
+      "BASHER AGENCY": { "andrea": 3, "jessie": 0, "total": 3 },
+      "AFF 66": { "andrea": 1, "jessie": 1, "total": 2 },
+      "SWEEPDREAMS": { "andrea": 0, "jessie": 1, "total": 1 },
+      "ACEBET": { "andrea": 0, "jessie": 0, "total": 0 },
+      "ALL IN AFFILIATES": { "andrea": 0, "jessie": 0, "total": 0 },
+      "CHANCED": { "andrea": 0, "jessie": 0, "total": 0 },
+      "COINSROYALE": { "andrea": 0, "jessie": 0, "total": 0 },
+      "EPC": { "andrea": 0, "jessie": 0, "total": 0 },
+      "PURIFY": { "andrea": 0, "jessie": 0, "total": 0 },
+      "SPLASH": { "andrea": 0, "jessie": 0, "total": 0 }
+    }
+  },
+  "daily_records": [
+    {
+      "date": "2026-09-01",
+      "delivered": 7873, "bounced": 25, "opened": 442, "clicked": 120, "unsub": 6, "budget": 33.57,
+      "signups": 13, "users": 1, "revenue": 140,
+      "advertisers": { "GameTime Digital": { "signups": 12, "users": 1, "revenue": 140 }, "Basher Agency": { "signups": 1, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 8, "users": 1, "revenue": 140 }, "Chanced Punt": { "signups": 2, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 11, "users": 1 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-02",
+      "delivered": 7874, "bounced": 25, "opened": 442, "clicked": 120, "unsub": 5, "budget": 33.57,
+      "signups": 13, "users": 1, "revenue": 125,
+      "advertisers": { "GameTime Digital": { "signups": 12, "users": 1, "revenue": 125 }, "CHANCED": { "signups": 1, "users": 0, "revenue": 0 } },
+      "brands": { "Rolla": { "signups": 2, "users": 1, "revenue": 125 }, "LavishLuck": { "signups": 7, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 12, "users": 1 }, "jessie": { "signups": 0, "users": 0 } }
+    },
+    {
+      "date": "2026-09-03",
+      "delivered": 8998, "bounced": 29, "opened": 505, "clicked": 137, "unsub": 6, "budget": 33.57,
+      "signups": 13, "users": 0, "revenue": 0,
+      "advertisers": { "GameTime Digital": { "signups": 11, "users": 0, "revenue": 0 }, "Basher Agency": { "signups": 2, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 8, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 10, "users": 0 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-04",
+      "delivered": 8998, "bounced": 29, "opened": 505, "clicked": 137, "unsub": 6, "budget": 33.57,
+      "signups": 14, "users": 1, "revenue": 150,
+      "advertisers": { "Splash": { "signups": 1, "users": 1, "revenue": 150 }, "GameTime Digital": { "signups": 11, "users": 0, "revenue": 0 } },
+      "brands": { "splashcoins": { "signups": 1, "users": 1, "revenue": 150 }, "LavishLuck": { "signups": 7, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 9, "users": 0 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-05",
+      "delivered": 8998, "bounced": 29, "opened": 505, "clicked": 137, "unsub": 6, "budget": 33.57,
+      "signups": 13, "users": 0, "revenue": 0,
+      "advertisers": { "GameTime Digital": { "signups": 11, "users": 0, "revenue": 0 }, "ALL IN AFFILIATES": { "signups": 1, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 8, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 10, "users": 0 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-06",
+      "delivered": 10123, "bounced": 33, "opened": 568, "clicked": 154, "unsub": 7, "budget": 33.57,
+      "signups": 13, "users": 1, "revenue": 150,
+      "advertisers": { "AFF 66": { "signups": 2, "users": 1, "revenue": 150 }, "GameTime Digital": { "signups": 10, "users": 0, "revenue": 0 } },
+      "brands": { "SweepJungle": { "signups": 2, "users": 1, "revenue": 150 }, "LavishLuck": { "signups": 6, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 11, "users": 1 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-07",
+      "delivered": 10123, "bounced": 33, "opened": 568, "clicked": 154, "unsub": 7, "budget": 33.57,
+      "signups": 13, "users": 1, "revenue": 170,
+      "advertisers": { "GameTime Digital": { "signups": 12, "users": 1, "revenue": 170 } },
+      "brands": { "The Boss": { "signups": 2, "users": 1, "revenue": 170 }, "LavishLuck": { "signups": 7, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 11, "users": 1 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-08",
+      "delivered": 10122, "bounced": 33, "opened": 568, "clicked": 154, "unsub": 7, "budget": 33.57,
+      "signups": 12, "users": 0, "revenue": 75,
+      "advertisers": { "GameTime Digital": { "signups": 10, "users": 0, "revenue": 75 } },
+      "brands": { "Spinjo CA": { "signups": 0, "users": 0, "revenue": 75 }, "LavishLuck": { "signups": 6, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 10, "users": 0 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-09",
+      "delivered": 8998, "bounced": 29, "opened": 505, "clicked": 137, "unsub": 6, "budget": 33.57,
+      "signups": 21, "users": 1, "revenue": 140,
+      "advertisers": { "GameTime Digital": { "signups": 18, "users": 1, "revenue": 140 } },
+      "brands": { "LuckyZino": { "signups": 2, "users": 1, "revenue": 140 }, "LavishLuck": { "signups": 9, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 16, "users": 1 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-10",
+      "delivered": 10123, "bounced": 33, "opened": 568, "clicked": 154, "unsub": 7, "budget": 33.57,
+      "signups": 22, "users": 1, "revenue": 150,
+      "advertisers": { "AFF 66": { "signups": 2, "users": 1, "revenue": 150 }, "GameTime Digital": { "signups": 19, "users": 0, "revenue": 0 } },
+      "brands": { "SweepJungle": { "signups": 2, "users": 1, "revenue": 150 }, "LavishLuck": { "signups": 10, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 17, "users": 0 }, "jessie": { "signups": 1, "users": 1 } }
+    },
+    {
+      "date": "2026-09-11",
+      "delivered": 10123, "bounced": 33, "opened": 568, "clicked": 154, "unsub": 7, "budget": 33.57,
+      "signups": 22, "users": 0, "revenue": 0,
+      "advertisers": { "GameTime Digital": { "signups": 18, "users": 0, "revenue": 0 }, "CHANCED": { "signups": 2, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 9, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 17, "users": 0 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-12",
+      "delivered": 11248, "bounced": 36, "opened": 631, "clicked": 171, "unsub": 8, "budget": 33.57,
+      "signups": 21, "users": 1, "revenue": 140,
+      "advertisers": { "GameTime Digital": { "signups": 17, "users": 1, "revenue": 140 } },
+      "brands": { "WiseSpin": { "signups": 3, "users": 1, "revenue": 140 }, "LavishLuck": { "signups": 8, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 16, "users": 1 }, "jessie": { "signups": 0, "users": 0 } }
+    },
+    {
+      "date": "2026-09-13",
+      "delivered": 11247, "bounced": 36, "opened": 631, "clicked": 171, "unsub": 8, "budget": 33.57,
+      "signups": 22, "users": 0, "revenue": 0,
+      "advertisers": { "GameTime Digital": { "signups": 19, "users": 0, "revenue": 0 }, "Basher Agency": { "signups": 2, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 10, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 17, "users": 0 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-14",
+      "delivered": 12373, "bounced": 40, "opened": 694, "clicked": 188, "unsub": 9, "budget": 33.57,
+      "signups": 21, "users": 0, "revenue": 0,
+      "advertisers": { "GameTime Digital": { "signups": 18, "users": 0, "revenue": 0 }, "ALL IN AFFILIATES": { "signups": 1, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 9, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 16, "users": 0 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-15",
+      "delivered": 16871, "bounced": 54, "opened": 947, "clicked": 257, "unsub": 12, "budget": 33.57,
+      "signups": 26, "users": 3, "revenue": 450,
+      "advertisers": { "GameTime Digital": { "signups": 23, "users": 3, "revenue": 450 }, "Basher Agency": { "signups": 2, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 14, "users": 2, "revenue": 300 }, "Sweet Sweep": { "signups": 2, "users": 1, "revenue": 150 } },
+      "ops": { "andrea": { "signups": 21, "users": 3 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-16",
+      "delivered": 23620, "bounced": 76, "opened": 1326, "clicked": 360, "unsub": 17, "budget": 33.57,
+      "signups": 39, "users": 1, "revenue": 140,
+      "advertisers": { "GameTime Digital": { "signups": 34, "users": 1, "revenue": 140 }, "CHANCED": { "signups": 3, "users": 0, "revenue": 0 } },
+      "brands": { "WiseSpin": { "signups": 4, "users": 1, "revenue": 140 }, "LavishLuck": { "signups": 18, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 31, "users": 1 }, "jessie": { "signups": 2, "users": 0 } }
+    },
+    {
+      "date": "2026-09-17",
+      "delivered": 19121, "bounced": 62, "opened": 1073, "clicked": 291, "unsub": 14, "budget": 33.57,
+      "signups": 31, "users": 4, "revenue": 380,
+      "advertisers": { "Basher Agency": { "signups": 5, "users": 2, "revenue": 260 }, "GameTime Digital": { "signups": 23, "users": 1, "revenue": 120 }, "SWEEPDREAMS": { "signups": 0, "users": 1, "revenue": 0 } },
+      "brands": { "LavishLuck Sweepstakes Casino": { "signups": 3, "users": 1, "revenue": 140 }, "LuckyZino Sweepstakes Casino": { "signups": 2, "users": 1, "revenue": 120 }, "WiseSpin": { "signups": 2, "users": 1, "revenue": 120 }, "SWEEPDREAMS": { "signups": 0, "users": 1, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 24, "users": 2 }, "jessie": { "signups": 3, "users": 1 } }
+    },
+    {
+      "date": "2026-09-18",
+      "delivered": 10123, "bounced": 33, "opened": 568, "clicked": 154, "unsub": 7, "budget": 33.57,
+      "signups": 7, "users": 0, "revenue": 0,
+      "advertisers": { "GameTime Digital": { "signups": 6, "users": 0, "revenue": 0 }, "Basher Agency": { "signups": 1, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 4, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 5, "users": 0 }, "jessie": { "signups": 0, "users": 0 } }
+    },
+    {
+      "date": "2026-09-19",
+      "delivered": 5624, "bounced": 18, "opened": 316, "clicked": 86, "unsub": 4, "budget": 33.57,
+      "signups": 10, "users": 0, "revenue": 0,
+      "advertisers": { "GameTime Digital": { "signups": 9, "users": 0, "revenue": 0 }, "AFF 66": { "signups": 1, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 6, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 8, "users": 0 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-20",
+      "delivered": 5623, "bounced": 18, "opened": 316, "clicked": 86, "unsub": 4, "budget": 33.57,
+      "signups": 10, "users": 1, "revenue": 160,
+      "advertisers": { "GameTime Digital": { "signups": 9, "users": 1, "revenue": 160 } },
+      "brands": { "LavishLuck": { "signups": 5, "users": 1, "revenue": 160 } },
+      "ops": { "andrea": { "signups": 7, "users": 1 }, "jessie": { "signups": 1, "users": 0 } }
+    },
+    {
+      "date": "2026-09-21",
+      "delivered": 6749, "bounced": 22, "opened": 379, "clicked": 103, "unsub": 5, "budget": 33.57,
+      "signups": 10, "users": 0, "revenue": 0,
+      "advertisers": { "GameTime Digital": { "signups": 9, "users": 0, "revenue": 0 }, "Basher Agency": { "signups": 1, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 5, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 8, "users": 0 }, "jessie": { "signups": 0, "users": 0 } }
+    },
+    {
+      "date": "2026-09-22",
+      "delivered": 4200, "bounced": 13, "opened": 235, "clicked": 64, "unsub": 3, "budget": 33.57,
+      "signups": 8, "users": 0, "revenue": 0,
+      "advertisers": { "GameTime Digital": { "signups": 6, "users": 0, "revenue": 0 }, "AFF 66": { "signups": 1, "users": 0, "revenue": 0 }, "Basher Agency": { "signups": 1, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 3, "users": 0, "revenue": 0 }, "Crown Coins Email": { "signups": 1, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 7, "users": 0 }, "jessie": { "signups": 0, "users": 0 } }
+    },
+    {
+      "date": "2026-09-23",
+      "delivered": 3500, "bounced": 11, "opened": 196, "clicked": 53, "unsub": 2, "budget": 33.57,
+      "signups": 7, "users": 0, "revenue": 0,
+      "advertisers": { "GameTime Digital": { "signups": 7, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck": { "signups": 1, "users": 0, "revenue": 0 }, "CardCrush": { "signups": 1, "users": 0, "revenue": 0 }, "Jackpotgo": { "signups": 1, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 6, "users": 0 }, "jessie": { "signups": 0, "users": 0 } }
+    },
+    {
+      "date": "2026-09-24",
+      "delivered": 2800, "bounced": 9, "opened": 157, "clicked": 42, "unsub": 2, "budget": 33.57,
+      "signups": 7, "users": 1, "revenue": 140,
+      "advertisers": { "GameTime Digital": { "signups": 7, "users": 1, "revenue": 140 } },
+      "brands": { "LuckyZino": { "signups": 1, "users": 1, "revenue": 140 }, "LavishLuck": { "signups": 1, "users": 0, "revenue": 0 }, "Rolla": { "signups": 1, "users": 0, "revenue": 0 }, "CardCrush": { "signups": 1, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 6, "users": 1 }, "jessie": { "signups": 0, "users": 0 } }
+    },
+    {
+      "date": "2026-09-25",
+      "delivered": 2200, "bounced": 7, "opened": 123, "clicked": 33, "unsub": 1, "budget": 33.57,
+      "signups": 10, "users": 2, "revenue": 300,
+      "advertisers": { "GameTime Digital": { "signups": 10, "users": 2, "revenue": 300 } },
+      "brands": { "LavishLuck": { "signups": 8, "users": 1, "revenue": 180 }, "LuckyBunny": { "signups": 1, "users": 1, "revenue": 120 } },
+      "ops": { "andrea": { "signups": 9, "users": 2 }, "jessie": { "signups": 0, "users": 0 } }
+    },
+    {
+      "date": "2026-09-26",
+      "delivered": 1500, "bounced": 5, "opened": 84, "clicked": 23, "unsub": 1, "budget": 33.57,
+      "signups": 11, "users": 1, "revenue": 170,
+      "advertisers": { "GameTime Digital": { "signups": 9, "users": 1, "revenue": 170 }, "Basher Agency": { "signups": 2, "users": 0, "revenue": 0 } },
+      "brands": { "Jackpotgo": { "signups": 6, "users": 1, "revenue": 170 }, "LavishLuck": { "signups": 2, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 7, "users": 1 }, "jessie": { "signups": 0, "users": 0 } }
+    },
+    {
+      "date": "2026-09-27",
+      "delivered": 1200, "bounced": 4, "opened": 67, "clicked": 18, "unsub": 1, "budget": 33.57,
+      "signups": 10, "users": 1, "revenue": 140,
+      "advertisers": { "Basher Agency": { "signups": 3, "users": 1, "revenue": 140 }, "GameTime Digital": { "signups": 6, "users": 0, "revenue": 0 }, "Splash": { "signups": 1, "users": 0, "revenue": 0 } },
+      "brands": { "LavishLuck Sweepstakes Casino": { "signups": 3, "users": 1, "revenue": 140 }, "splashcoins": { "signups": 1, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 7, "users": 1 }, "jessie": { "signups": 0, "users": 0 } }
+    },
+    {
+      "date": "2026-09-28",
+      "delivered": 1000, "bounced": 3, "opened": 56, "clicked": 15, "unsub": 1, "budget": 33.57,
+      "signups": 11, "users": 1, "revenue": 140,
+      "advertisers": { "GameTime Digital": { "signups": 9, "users": 1, "revenue": 140 }, "Basher Agency": { "signups": 2, "users": 0, "revenue": 0 } },
+      "brands": { "LuckyZino": { "signups": 1, "users": 1, "revenue": 140 }, "LavishLuck": { "signups": 2, "users": 0, "revenue": 0 }, "The Boss": { "signups": 1, "users": 0, "revenue": 0 }, "LuckyBunny": { "signups": 5, "users": 0, "revenue": 0 } },
+      "ops": { "andrea": { "signups": 7, "users": 1 }, "jessie": { "signups": 0, "users": 0 } }
+    }
+  ]
+}
