@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>September 01 - 28 - EMAIL & Advertiser Performance Dashboard</title>
+  <title>Performance Dashboard - Email & Advertisers</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Chart.js CDN -->
@@ -82,13 +82,13 @@
       <div>
         <div class="flex items-center gap-2">
           <span class="w-3 h-3 rounded-full bg-blue-600 animate-pulse"></span>
-          <h1 class="text-2xl font-bold text-slate-900 tracking-tight">September 01 - 28 - Performance Dashboard</h1>
+          <h1 id="dashTitle" class="text-2xl font-bold text-slate-900 tracking-tight">Performance Dashboard</h1>
         </div>
-        <p class="text-sm text-slate-500 mt-1">Email Deliverability by ESP & Advertiser Conversions (September Cycle)</p>
+        <p class="text-sm text-slate-500 mt-1">Email Deliverability by ESP & Advertiser Conversions (Multi-Month)</p>
       </div>
-      <div class="mt-4 sm:mt-0">
-        <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 border border-blue-200">
-          Sep 28, 2026 (In Progress)
+      <div class="mt-4 sm:mt-0 flex items-center gap-2">
+        <span id="dataStatusBadge" class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+          Loading Data...
         </span>
       </div>
     </header>
@@ -104,71 +104,66 @@
               <th class="w-24 text-left font-bold text-slate-900 text-xs uppercase tracking-wider px-3 align-middle">
                 TEAM
               </th>
-              <!-- KPIS Header -->
               <th colspan="5" class="bg-[#2563eb] text-white font-bold text-xs uppercase tracking-wider text-center align-middle">
                 KPIS
               </th>
-              <!-- MTD Header -->
               <th colspan="5" class="bg-[#059669] text-white font-bold text-xs uppercase tracking-wider text-center align-middle">
-                MTD - SEP 2026
+                SELECTED PERIOD
               </th>
-              <!-- RR Header -->
               <th colspan="6" class="bg-[#c25e00] text-white font-bold text-xs uppercase tracking-wider text-center align-middle">
-                RR - RUN-RATE TO SEP 30
+                RR - RUN-RATE PROJECTION
               </th>
             </tr>
             <!-- Row 2: Sub-headers -->
             <tr class="border-b border-slate-200 text-[11px] font-bold text-slate-400 uppercase tracking-wider h-8 bg-white">
               <th class="px-3 border-r border-slate-100"></th>
-              <!-- KPIS Subheaders -->
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">BUDGET</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">SIGNUPS</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">USERS</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">REVENUE</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold border-r border-slate-200">PROFIT</th>
-              <!-- MTD Subheaders -->
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">BUDGET</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">SIGNUPS</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">USERS</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">REVENUE</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold border-r border-slate-200">PROFIT</th>
-              <!-- RR Subheaders -->
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">BUDGET</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">SIGNUPS</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">USERS</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">REVENUE</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">PROFIT</th>
-              <th class="px-2.5 py-2 text-slate-400 font-semibold">ROI</th>
+              <!-- KPIS -->
+              <th class="px-2.5 py-2 font-semibold">BUDGET</th>
+              <th class="px-2.5 py-2 font-semibold">SIGNUPS</th>
+              <th class="px-2.5 py-2 font-semibold">USERS</th>
+              <th class="px-2.5 py-2 font-semibold">REVENUE</th>
+              <th class="px-2.5 py-2 font-semibold border-r border-slate-200">PROFIT</th>
+              <!-- MTD / Selected -->
+              <th class="px-2.5 py-2 font-semibold">BUDGET</th>
+              <th class="px-2.5 py-2 font-semibold">SIGNUPS</th>
+              <th class="px-2.5 py-2 font-semibold">USERS</th>
+              <th class="px-2.5 py-2 font-semibold">REVENUE</th>
+              <th class="px-2.5 py-2 font-semibold border-r border-slate-200">PROFIT</th>
+              <!-- RR -->
+              <th class="px-2.5 py-2 font-semibold">BUDGET</th>
+              <th class="px-2.5 py-2 font-semibold">SIGNUPS</th>
+              <th class="px-2.5 py-2 font-semibold">USERS</th>
+              <th class="px-2.5 py-2 font-semibold">REVENUE</th>
+              <th class="px-2.5 py-2 font-semibold">PROFIT</th>
+              <th class="px-2.5 py-2 font-semibold">ROI</th>
             </tr>
           </thead>
           <tbody class="text-xs font-bold text-slate-800 divide-y divide-slate-100">
             <tr class="h-14 hover:bg-slate-50/70 transition-colors">
-              <!-- Pill Badge -->
               <td class="text-left px-3 border-r border-slate-100">
                 <span class="inline-flex items-center justify-center px-3.5 py-1 rounded-full text-xs font-bold bg-[#edf2fe] text-[#2563eb]">
                   EMAIL
                 </span>
               </td>
               <!-- KPIS Values -->
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm">$1,100</td>
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm">500</td>
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm">40</td>
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm">$4,400</td>
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm border-r border-slate-200">$3,300</td>
-              <!-- MTD Values -->
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm">$940</td>
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm">430</td>
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm">23</td>
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm">$3,440</td>
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm border-r border-slate-200">$2,500</td>
-              <!-- RR Values (Run-rate multiplier: 30 / 28 ≈ 1.0714) -->
-              <td class="px-2.5 py-3 font-bold text-[#16a34a] text-sm">$1,007</td>
-              <td class="px-2.5 py-3 font-bold text-[#dc2626] text-sm">461</td>
-              <td class="px-2.5 py-3 font-bold text-[#dc2626] text-sm">25</td>
-              <td class="px-2.5 py-3 font-bold text-[#dc2626] text-sm">$3,686</td>
-              <td class="px-2.5 py-3 font-bold text-[#dc2626] text-sm">$2,679</td>
-              <!-- ROI -->
-              <td class="px-2.5 py-3 font-bold text-slate-900 text-sm">1:3.7</td>
+              <td id="teamKpiBudget" class="px-2.5 py-3 font-bold text-slate-900 text-sm">$1,100</td>
+              <td id="teamKpiSignups" class="px-2.5 py-3 font-bold text-slate-900 text-sm">500</td>
+              <td id="teamKpiUsers" class="px-2.5 py-3 font-bold text-slate-900 text-sm">40</td>
+              <td id="teamKpiRevenue" class="px-2.5 py-3 font-bold text-slate-900 text-sm">$4,400</td>
+              <td id="teamKpiProfit" class="px-2.5 py-3 font-bold text-slate-900 text-sm border-r border-slate-200">$3,300</td>
+              <!-- Selected Period Values -->
+              <td id="teamMtdBudget" class="px-2.5 py-3 font-bold text-slate-900 text-sm">$940</td>
+              <td id="teamMtdSignups" class="px-2.5 py-3 font-bold text-slate-900 text-sm">430</td>
+              <td id="teamMtdUsers" class="px-2.5 py-3 font-bold text-slate-900 text-sm">23</td>
+              <td id="teamMtdRevenue" class="px-2.5 py-3 font-bold text-slate-900 text-sm">$3,440</td>
+              <td id="teamMtdProfit" class="px-2.5 py-3 font-bold text-slate-900 text-sm border-r border-slate-200">$2,500</td>
+              <!-- Run Rate Projections -->
+              <td id="teamRrBudget" class="px-2.5 py-3 font-bold text-sm">$1,007</td>
+              <td id="teamRrSignups" class="px-2.5 py-3 font-bold text-sm">461</td>
+              <td id="teamRrUsers" class="px-2.5 py-3 font-bold text-sm">25</td>
+              <td id="teamRrRevenue" class="px-2.5 py-3 font-bold text-sm">$3,686</td>
+              <td id="teamRrProfit" class="px-2.5 py-3 font-bold text-sm">$2,679</td>
+              <td id="teamRrRoi" class="px-2.5 py-3 font-bold text-slate-900 text-sm">1:3.7</td>
             </tr>
           </tbody>
         </table>
@@ -180,10 +175,10 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 gap-2">
         <div class="flex items-center gap-2">
           <span class="px-2.5 py-0.5 rounded bg-blue-800 text-white text-xs font-bold uppercase">Section 1</span>
-          <h2 class="text-lg font-bold text-slate-800">September 01 - 28 - ESP Deliverability & Engagement</h2>
+          <h2 class="text-lg font-bold text-slate-800">ESP Deliverability & Engagement</h2>
         </div>
-        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200 w-fit">
-          September 01 - 28, 2026
+        <span id="dateRangeNotice" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-800 border border-blue-200 w-fit">
+          Filtered Period
         </span>
       </div>
 
@@ -193,35 +188,35 @@
         <!-- Delivered -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Delivered</p>
-          <p id="kpiDelivered" class="text-xl font-bold text-slate-900 mt-1">263,723</p>
+          <p id="kpiDelivered" class="text-xl font-bold text-slate-900 mt-1">224,952</p>
           <span class="text-[10px] text-slate-400 mt-1">Filtered sent</span>
         </div>
 
         <!-- Open -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Open</p>
-          <p id="kpiOpened" class="text-xl font-bold text-emerald-700 mt-1">15,001</p>
-          <span id="kpiOpenRate" class="text-[10px] font-semibold text-emerald-600 mt-1">5.69% Open Rate</span>
+          <p id="kpiOpened" class="text-xl font-bold text-emerald-700 mt-1">12,626</p>
+          <span id="kpiOpenRate" class="text-[10px] font-semibold text-emerald-600 mt-1">5.61% Open Rate</span>
         </div>
 
         <!-- Click -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Click</p>
-          <p id="kpiClicked" class="text-xl font-bold text-sky-700 mt-1">3,573</p>
-          <span id="kpiClickRate" class="text-[10px] font-semibold text-sky-600 mt-1">1.35% Click Rate</span>
+          <p id="kpiClicked" class="text-xl font-bold text-sky-700 mt-1">3,424</p>
+          <span id="kpiClickRate" class="text-[10px] font-semibold text-sky-600 mt-1">1.52% Click Rate</span>
         </div>
 
         <!-- Bounced -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Bounced</p>
-          <p id="kpiBounced" class="text-xl font-bold text-rose-600 mt-1">819</p>
-          <span id="kpiBounceRate" class="text-[10px] text-slate-400 mt-1">0.31% bounce</span>
+          <p id="kpiBounced" class="text-xl font-bold text-rose-600 mt-1">725</p>
+          <span id="kpiBounceRate" class="text-[10px] text-slate-400 mt-1">0.32% bounce</span>
         </div>
 
         <!-- Unsub / Blocked -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Unsub / Block</p>
-          <p class="text-xl font-bold text-purple-700 mt-1">166</p>
+          <p id="kpiUnsub" class="text-xl font-bold text-purple-700 mt-1">161</p>
           <span class="text-[10px] text-slate-400 mt-1">Total opt-outs</span>
         </div>
 
@@ -230,9 +225,9 @@
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Registration</p>
           <p id="kpiSignups" class="text-xl font-bold text-amber-600 mt-1">430</p>
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
-            <span class="font-bold text-slate-900">KPI: 500</span>
+            <span class="font-bold text-slate-900" id="cardKpiSignupsSub">KPI: 500</span>
             <span class="text-slate-300">•</span>
-            <span class="font-bold text-rose-600">RR: 461</span>
+            <span class="font-bold" id="cardRrSignupsSub">RR: 461</span>
           </div>
         </div>
 
@@ -241,61 +236,60 @@
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Users</p>
           <p id="kpiUsers" class="text-xl font-bold text-indigo-600 mt-1">23</p>
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
-            <span class="font-bold text-slate-900">KPI: 40</span>
+            <span class="font-bold text-slate-900" id="cardKpiUsersSub">KPI: 40</span>
             <span class="text-slate-300">•</span>
-            <span class="font-bold text-rose-600">RR: 25</span>
+            <span class="font-bold" id="cardRrUsersSub">RR: 25</span>
           </div>
         </div>
 
         <!-- Revenue -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Revenue</p>
-          <p class="text-xl font-bold text-emerald-600 mt-1">$3,440</p>
+          <p id="kpiRevenue" class="text-xl font-bold text-emerald-600 mt-1">$3,440</p>
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
-            <span class="font-bold text-slate-900">KPI: $4.4k</span>
+            <span class="font-bold text-slate-900" id="cardKpiRevenueSub">KPI: $4.4k</span>
             <span class="text-slate-300">•</span>
-            <span class="font-bold text-rose-600">RR: $3.7k</span>
+            <span class="font-bold" id="cardRrRevenueSub">RR: $3.7k</span>
           </div>
         </div>
 
         <!-- Budget -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Budget</p>
-          <p class="text-xl font-bold text-slate-900 mt-1">$940</p>
+          <p id="kpiBudget" class="text-xl font-bold text-slate-900 mt-1">$940</p>
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
-            <span class="font-bold text-slate-900">KPI: $1.1k</span>
+            <span class="font-bold text-slate-900" id="cardKpiBudgetSub">KPI: $1.1k</span>
             <span class="text-slate-300">•</span>
-            <span class="font-bold text-emerald-600">RR: $1.0k</span>
+            <span class="font-bold" id="cardRrBudgetSub">RR: $1.0k</span>
           </div>
         </div>
 
         <!-- Profit -->
         <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Profit</p>
-          <p class="text-xl font-bold text-emerald-600 mt-1">$2,500</p>
+          <p id="kpiProfit" class="text-xl font-bold text-emerald-600 mt-1">$2,500</p>
           <div class="flex flex-wrap items-center gap-1 mt-1 text-[10px]">
-            <span class="font-bold text-slate-900">KPI: $3.3k</span>
+            <span class="font-bold text-slate-900" id="cardKpiProfitSub">KPI: $3.3k</span>
             <span class="text-slate-300">•</span>
-            <span class="font-bold text-rose-600">RR: $2.7k</span>
+            <span class="font-bold" id="cardRrProfitSub">RR: $2.7k</span>
           </div>
         </div>
 
       </section>
 
-      <!-- DATA TABLE WITH COMPACT DATE RANGE FILTER (RANGE: SEP 01 TO SEP 28) -->
+      <!-- DATA TABLE WITH DYNAMIC CALENDAR FILTER (UP TO TODAY) -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         
-        <!-- TABLE TOOLBAR WITH RANGE SELECTOR -->
         <div class="px-6 py-3.5 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/50">
           <div class="flex flex-wrap items-center gap-3">
-            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">MTD Email Performance by ESP</h3>
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Email Performance by ESP</h3>
             
             <button id="toggleTableBtn" onclick="toggleTableDetails()" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-[#485c44] hover:bg-[#3b4c37] active:bg-[#2f3d2c] text-white shadow-sm transition-all focus:outline-none">
               <svg id="btnIcon" class="w-3.5 h-3.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               <span id="btnText">Show All</span>
             </button>
 
-            <!-- COMPACT INLINE DATE RANGE SELECTOR -->
+            <!-- INLINE DATE RANGE SELECTOR (BOUNDED TO TODAY) -->
             <div class="inline-flex items-center gap-2 bg-white border border-slate-300 rounded-lg px-2.5 py-1 shadow-sm">
               <svg class="w-3.5 h-3.5 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -306,12 +300,9 @@
                 <label for="startDateFilter" class="text-[11px] font-semibold text-slate-500 uppercase whitespace-nowrap">From:</label>
                 <input 
                   type="date" 
-                  id="startDateFilter" 
-                  min="2026-09-01" 
-                  max="2026-09-28" 
-                  value="2026-09-01"
+                  id="startDateFilter"
                   class="text-xs font-semibold text-slate-800 bg-transparent border-0 p-0 outline-none cursor-pointer focus:ring-0"
-                  onchange="handleDateRangeChange()"
+                  onchange="handleDateRangeFilter()"
                 />
               </div>
 
@@ -322,18 +313,15 @@
                 <label for="endDateFilter" class="text-[11px] font-semibold text-slate-500 uppercase whitespace-nowrap">To:</label>
                 <input 
                   type="date" 
-                  id="endDateFilter" 
-                  min="2026-09-01" 
-                  max="2026-09-28" 
-                  value="2026-09-28"
+                  id="endDateFilter"
                   class="text-xs font-semibold text-slate-800 bg-transparent border-0 p-0 outline-none cursor-pointer focus:ring-0"
-                  onchange="handleDateRangeChange()"
+                  onchange="handleDateRangeFilter()"
                 />
               </div>
             </div>
           </div>
 
-          <span id="dateRangeNotice" class="text-xs text-slate-500 font-medium">Sep 01, 2026 – Sep 28, 2026</span>
+          <span id="dateRangeSubtitle" class="text-xs text-slate-500 font-medium">Select period</span>
         </div>
         
         <div class="overflow-x-auto">
@@ -350,10 +338,10 @@
               </tr>
             </thead>
             <tbody id="espTableBody" class="text-slate-700">
-              <!-- Dynamically populated rows -->
+              <!-- Dynamically populated from JSON -->
             </tbody>
             <tfoot id="espTableFoot">
-              <!-- Dynamically populated grand total -->
+              <!-- Dynamically populated Grand Total -->
             </tfoot>
           </table>
         </div>
@@ -436,8 +424,8 @@
           <span class="px-2.5 py-0.5 rounded bg-indigo-800 text-white text-xs font-bold uppercase">Team Ops</span>
           <h2 class="text-lg font-bold text-slate-800">Email Operations Performance</h2>
         </div>
-        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200 w-fit">
-          September 01 - 28, 2026 (Day 28 of 30)
+        <span id="opsPeriodBadge" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200 w-fit">
+          Filtered Period
         </span>
       </div>
 
@@ -453,7 +441,7 @@
                 <tr>
                   <th class="py-2 px-3 text-left">Item</th>
                   <th class="py-2 px-3">KPIs</th>
-                  <th class="py-2 px-3">MTD</th>
+                  <th class="py-2 px-3">Selected</th>
                   <th class="py-2 px-3">RR</th>
                 </tr>
               </thead>
@@ -461,14 +449,14 @@
                 <tr class="bg-white">
                   <td class="py-2 px-3 text-left font-bold">Registrations</td>
                   <td class="py-2 px-3 font-bold text-slate-900">250</td>
-                  <td class="py-2 px-3 font-bold">19</td>
-                  <td class="py-2 px-3 font-bold text-rose-600">20</td>
+                  <td id="jessieRegMtd" class="py-2 px-3 font-bold">19</td>
+                  <td id="jessieRegRr" class="py-2 px-3 font-bold text-rose-600">20</td>
                 </tr>
                 <tr class="bg-slate-50/50">
                   <td class="py-2 px-3 text-left font-bold">Users</td>
                   <td class="py-2 px-3 font-bold text-slate-900">20</td>
-                  <td class="py-2 px-3 font-bold">4</td>
-                  <td class="py-2 px-3 font-bold text-rose-600">4</td>
+                  <td id="jessieUsersMtd" class="py-2 px-3 font-bold">4</td>
+                  <td id="jessieUsersRr" class="py-2 px-3 font-bold text-rose-600">4</td>
                 </tr>
               </tbody>
             </table>
@@ -484,7 +472,7 @@
                 <tr>
                   <th class="py-2 px-3 text-left">ITEM</th>
                   <th class="py-2 px-3">KPIs</th>
-                  <th class="py-2 px-3">MTD</th>
+                  <th class="py-2 px-3">Selected</th>
                   <th class="py-2 px-3">RR</th>
                 </tr>
               </thead>
@@ -492,14 +480,14 @@
                 <tr class="bg-white">
                   <td class="py-2 px-3 text-left font-bold">Registrations</td>
                   <td class="py-2 px-3 font-bold text-slate-900">250</td>
-                  <td class="py-2 px-3 font-bold">320</td>
-                  <td class="py-2 px-3 font-bold text-emerald-600">343</td>
+                  <td id="andreaRegMtd" class="py-2 px-3 font-bold">320</td>
+                  <td id="andreaRegRr" class="py-2 px-3 font-bold text-emerald-600">343</td>
                 </tr>
                 <tr class="bg-slate-50/50">
                   <td class="py-2 px-3 text-left font-bold">Users</td>
                   <td class="py-2 px-3 font-bold text-slate-900">20</td>
-                  <td class="py-2 px-3 font-bold">17</td>
-                  <td class="py-2 px-3 font-bold text-rose-600">18</td>
+                  <td id="andreaUsersMtd" class="py-2 px-3 font-bold">17</td>
+                  <td id="andreaUsersRr" class="py-2 px-3 font-bold text-rose-600">18</td>
                 </tr>
               </tbody>
             </table>
@@ -525,25 +513,15 @@
                     <th class="py-2.5 px-3">Total</th>
                   </tr>
                 </thead>
-                <tbody class="text-slate-700">
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">ACEBET</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">AFF 66</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">5</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">1</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">6</td></tr>
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">ALL IN AFFILIATES</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">BASHER AGENCY</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">37</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">3</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">40</td></tr>
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">CHANCED</td><td class="py-1.5 px-3 font-mono font-bold text-amber-600">9</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">9</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">COINSROYALE</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">EPC</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">GAMETIME DIGITAL</td><td class="py-1.5 px-3 font-mono font-bold text-amber-600">269</td><td class="py-1.5 px-3 font-mono font-semibold text-amber-600">15</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">284</td></tr>
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">PURIFY</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">SPLASH</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">SWEEPDREAMS</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
+                <tbody id="opsSignupsTableBody" class="text-slate-700">
+                  <!-- Dynamically populated -->
                 </tbody>
                 <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
                   <tr>
                     <td class="py-2 px-3 text-left">Grand Total</td>
-                    <td class="py-2 px-3 font-mono text-amber-600">320</td>
-                    <td class="py-2 px-3 font-mono text-amber-600">19</td>
-                    <td class="py-2 px-3 font-mono text-amber-700">339</td>
+                    <td id="opsSignupsAndreaTotal" class="py-2 px-3 font-mono text-amber-600">320</td>
+                    <td id="opsSignupsJessieTotal" class="py-2 px-3 font-mono text-amber-600">19</td>
+                    <td id="opsSignupsGrandTotal" class="py-2 px-3 font-mono text-amber-700">339</td>
                   </tr>
                 </tfoot>
               </table>
@@ -565,25 +543,15 @@
                     <th class="py-2.5 px-3">Total</th>
                   </tr>
                 </thead>
-                <tbody class="text-slate-700">
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">ACEBET</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">AFF 66</td><td class="py-1.5 px-3 font-mono font-bold text-indigo-600">1</td><td class="py-1.5 px-3 font-mono font-bold text-indigo-600">1</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">2</td></tr>
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">ALL IN AFFILIATES</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">BASHER AGENCY</td><td class="py-1.5 px-3 font-mono font-bold text-indigo-600">3</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">3</td></tr>
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">CHANCED</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">COINSROYALE</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">EPC</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">GAMETIME DIGITAL</td><td class="py-1.5 px-3 font-mono font-bold text-indigo-600">13</td><td class="py-1.5 px-3 font-mono font-semibold text-indigo-600">2</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">15</td></tr>
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">PURIFY</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-3 text-left font-medium text-slate-900">SPLASH</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-slate-400">0</td></tr>
-                  <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-3 text-left font-medium text-slate-900">SWEEPDREAMS</td><td class="py-1.5 px-3 font-mono text-slate-400">0</td><td class="py-1.5 px-3 font-mono font-bold text-indigo-600">1</td><td class="py-1.5 px-3 font-mono font-bold text-slate-900">1</td></tr>
+                <tbody id="opsUsersTableBody" class="text-slate-700">
+                  <!-- Dynamically populated -->
                 </tbody>
                 <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
                   <tr>
                     <td class="py-2 px-3 text-left">Grand Total</td>
-                    <td class="py-2 px-3 font-mono text-indigo-600">17</td>
-                    <td class="py-2 px-3 font-mono text-indigo-600">4</td>
-                    <td class="py-2 px-3 font-mono text-indigo-700">21</td>
+                    <td id="opsUsersAndreaTotal" class="py-2 px-3 font-mono text-indigo-600">17</td>
+                    <td id="opsUsersJessieTotal" class="py-2 px-3 font-mono text-indigo-600">4</td>
+                    <td id="opsUsersGrandTotal" class="py-2 px-3 font-mono text-indigo-700">21</td>
                   </tr>
                 </tfoot>
               </table>
@@ -599,11 +567,8 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 gap-2">
         <div class="flex items-center gap-2">
           <span class="px-2.5 py-0.5 rounded bg-slate-900 text-white text-xs font-bold uppercase">Section 2</span>
-          <h2 class="text-lg font-bold text-slate-800">September 01 - 28 - Advertiser Performance & Revenue</h2>
+          <h2 class="text-lg font-bold text-slate-800">Advertiser Performance & Revenue</h2>
         </div>
-        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200 w-fit">
-          September 01 - 28, 2026
-        </span>
       </div>
 
       <!-- 1. ADVERTISER BREAKDOWN TABLE -->
@@ -624,7 +589,6 @@
         <div class="overflow-x-auto">
           <table id="advertiserTable" class="w-full text-sm text-right excel-table">
             <thead>
-              <!-- Sort Buttons Row -->
               <tr class="sort-row">
                 <th class="w-1/4"></th>
                 <th class="text-center">
@@ -656,7 +620,6 @@
                   </div>
                 </th>
               </tr>
-              <!-- Column Titles Row -->
               <tr class="theme-header-aff text-white text-xs uppercase tracking-wider font-semibold">
                 <th class="py-2.5 px-4 text-left">Advertiser</th>
                 <th class="py-2.5 px-4">Sign Ups</th>
@@ -665,92 +628,16 @@
                 <th class="py-2.5 px-4">S2P (Ratio)</th>
               </tr>
             </thead>
-            <tbody class="text-slate-700">
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">GameTime Digital</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-amber-600">337</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-indigo-600">16</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-emerald-600">$2,590</td>
-                <td class="py-2.5 px-4 font-mono font-semibold text-emerald-600">1:21</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">Basher Agency</td>
-                <td class="py-2.5 px-4 font-mono font-semibold">40</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-indigo-600">3</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-emerald-600">$400</td>
-                <td class="py-2.5 px-4 font-mono font-semibold text-emerald-600">1:13</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">CHANCED</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-slate-900">37</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0:37</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">AFF 66</td>
-                <td class="py-2.5 px-4 font-mono font-semibold">8</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-indigo-600">2</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-emerald-600">$300</td>
-                <td class="py-2.5 px-4 font-mono font-semibold text-emerald-600">1:4</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">ALL IN AFFILIATES</td>
-                <td class="py-2.5 px-4 font-mono font-semibold">5</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0:5</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">Splash</td>
-                <td class="py-2.5 px-4 font-mono font-semibold">3</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-indigo-600">1</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-emerald-600">$150</td>
-                <td class="py-2.5 px-4 font-mono font-semibold text-emerald-600">1:3</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">SWEEPDREAMS</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono font-bold text-indigo-600">1</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
-                <td class="py-2.5 px-4 font-mono font-semibold text-emerald-600">0:1</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">Purify</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">Acebet</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">CoinsRoyale</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
-              </tr>
-              <tr class="hover:bg-slate-50 bg-white">
-                <td class="py-2.5 px-4 text-left font-medium text-slate-900">EPC</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">$0</td>
-                <td class="py-2.5 px-4 font-mono text-slate-400">0:0</td>
-              </tr>
+            <tbody id="advertiserTableBody" class="text-slate-700">
+              <!-- Dynamically populated from JSON -->
             </tbody>
             <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
               <tr>
                 <td class="py-2.5 px-4 text-left">Grand total</td>
-                <td class="py-2.5 px-4 font-mono text-amber-600">430</td>
-                <td class="py-2.5 px-4 font-mono text-indigo-600">23</td>
-                <td class="py-2.5 px-4 font-mono text-emerald-600 font-bold">$3,440</td>
-                <td class="py-2.5 px-4 font-mono text-emerald-600 font-bold">1:19</td>
+                <td id="advGrandSignups" class="py-2.5 px-4 font-mono text-amber-600">430</td>
+                <td id="advGrandUsers" class="py-2.5 px-4 font-mono text-indigo-600">23</td>
+                <td id="advGrandRevenue" class="py-2.5 px-4 font-mono text-emerald-600 font-bold">$3,440</td>
+                <td id="advGrandS2p" class="py-2.5 px-4 font-mono text-emerald-600 font-bold">1:19</td>
               </tr>
             </tfoot>
           </table>
@@ -762,7 +649,7 @@
         <div class="px-6 py-4 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/50">
           <div>
             <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider">Brand Breakdown Table</h3>
-            <p class="text-xs text-slate-500 mt-0.5">Performance by Brand & Conversion S2P Ratio (September 01 - 28)</p>
+            <p class="text-xs text-slate-500 mt-0.5">Performance by Brand & Conversion S2P Ratio</p>
           </div>
           <!-- Clear / Reset Table Button -->
           <button onclick="resetTable('brandTable')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 active:bg-slate-100 shadow-sm transition-all cursor-pointer">
@@ -775,7 +662,6 @@
         <div class="overflow-x-auto">
           <table id="brandTable" class="w-full text-sm text-right excel-table">
             <thead>
-              <!-- Sort Buttons Row -->
               <tr class="sort-row">
                 <th class="w-1/4"></th>
                 <th class="text-center">
@@ -807,7 +693,6 @@
                   </div>
                 </th>
               </tr>
-              <!-- Column Titles Row -->
               <tr class="theme-header-aff text-white text-xs uppercase tracking-wider font-semibold">
                 <th class="py-2.5 px-4 text-left">Brand</th>
                 <th class="py-2.5 px-4">Signups</th>
@@ -816,54 +701,16 @@
                 <th class="py-2.5 px-4">S2P (Ratio)</th>
               </tr>
             </thead>
-            <tbody class="text-slate-700">
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">LavishLuck</td><td class="py-2 px-4 font-mono font-bold text-amber-600">197</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">6</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$1,080</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:33</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-2 px-4 text-left font-semibold text-slate-900">WiseSpin</td><td class="py-2 px-4 font-mono font-bold text-amber-600">20</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">3</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$420</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:7</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">SweepJungle</td><td class="py-2 px-4 font-mono font-bold text-amber-600">6</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">2</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$300</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:3</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-2 px-4 text-left font-semibold text-slate-900">LavishLuck Sweepstakes Casino</td><td class="py-2 px-4 font-mono font-bold text-amber-600">32</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">2</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$280</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:16</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">LuckyZino</td><td class="py-2 px-4 font-mono font-bold text-amber-600">9</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">2</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$280</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:5</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-2 px-4 text-left font-semibold text-slate-900">The Boss</td><td class="py-2 px-4 font-mono font-bold text-amber-600">10</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$170</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:10</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">Jackpotgo</td><td class="py-2 px-4 font-mono font-bold text-amber-600">29</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$170</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:29</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-2 px-4 text-left font-semibold text-slate-900">splashcoins</td><td class="py-2 px-4 font-mono font-bold text-amber-600">3</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$150</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:3</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">Sweet Sweep</td><td class="py-2 px-4 font-mono font-semibold text-slate-900">5</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$150</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:5</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-2 px-4 text-left font-semibold text-slate-900">Rolla</td><td class="py-2 px-4 font-mono font-bold text-amber-600">14</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$125</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:14</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">LuckyZino Sweepstakes Casino</td><td class="py-2 px-4 font-mono font-bold text-slate-900">6</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$120</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:6</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-2 px-4 text-left font-semibold text-slate-900">LuckyBunny</td><td class="py-2 px-4 font-mono font-bold text-amber-600">18</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$120</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">1:18</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">Spinjo CA</td><td class="py-2 px-4 font-mono text-slate-400">0</td><td class="py-2 px-4 font-mono text-slate-400">0</td><td class="py-2 px-4 font-mono font-bold text-emerald-600">$75</td><td class="py-2 px-4 font-mono text-slate-400">0:0</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">7Bit Casino</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:0</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Casino Smartlink</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:0</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">CardCrush</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">3</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:3</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">BetRiot</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:0</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Betnjet</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:0</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Acebet</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:0</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Go Go Gold Win</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:1</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-semibold text-slate-900">Chanced Punt</td><td class="py-1.5 px-4 font-mono font-bold text-amber-600">37</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:37</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">ChipNWin</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">2</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:2</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-semibold text-slate-800">Ice Casino</td><td class="py-1.5 px-4 font-mono font-bold text-amber-600">5</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:5</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-semibold text-slate-900">High5Casino</td><td class="py-1.5 px-4 font-mono font-bold text-amber-600">15</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:15</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Coins Royale sweeps</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:0</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">CoinsBack</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:1</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-semibold text-slate-900">Crown Coins Email</td><td class="py-1.5 px-4 font-mono font-semibold text-amber-600">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:1</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Dorados</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">2</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:2</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">FS Casino</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:0</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">PlayFame SEO</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:1</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Spinblitz SEO</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">4</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:4</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Smash Casino</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:0</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Sixty6</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">2</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:2</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Simply Piano Desktop</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:0</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">McLuck</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:1</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-semibold text-slate-800">TitanTreasure</td><td class="py-1.5 px-4 font-mono font-semibold text-amber-600">3</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:3</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-1.5 px-4 text-left font-medium text-slate-800">WiseSpin Sweeps Casino</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">2</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:2</td></tr>
-              <tr class="hover:bg-slate-50 bg-slate-50/40"><td class="py-1.5 px-4 text-left font-medium text-slate-800">Zunado</td><td class="py-1.5 px-4 font-mono font-semibold text-slate-800">1</td><td class="py-1.5 px-4 font-mono text-slate-400">0</td><td class="py-1.5 px-4 font-mono text-slate-400">$0</td><td class="py-1.5 px-4 font-mono text-slate-400">0:1</td></tr>
-              <tr class="hover:bg-slate-50 bg-white"><td class="py-2 px-4 text-left font-semibold text-slate-900">SWEEPDREAMS</td><td class="py-2 px-4 font-mono text-slate-400">0</td><td class="py-2 px-4 font-mono font-bold text-indigo-600">1</td><td class="py-2 px-4 font-mono text-slate-400">$0</td><td class="py-2 px-4 font-mono font-semibold text-emerald-600">0:1</td></tr>
+            <tbody id="brandTableBody" class="text-slate-700">
+              <!-- Dynamically populated from JSON -->
             </tbody>
             <tfoot class="border-t-2 border-slate-900 bg-slate-50 font-bold text-slate-900">
               <tr>
                 <td class="py-2.5 px-4 text-left">Grand total</td>
-                <td class="py-2.5 px-4 font-mono text-amber-600">430</td>
-                <td class="py-2.5 px-4 font-mono text-indigo-600">23</td>
-                <td class="py-2.5 px-4 font-mono text-emerald-600 font-bold">$3,440</td>
-                <td class="py-2.5 px-4 font-mono text-emerald-600 font-bold">1:19</td>
+                <td id="brandGrandSignups" class="py-2.5 px-4 font-mono text-amber-600">430</td>
+                <td id="brandGrandUsers" class="py-2.5 px-4 font-mono text-indigo-600">23</td>
+                <td id="brandGrandRevenue" class="py-2.5 px-4 font-mono text-emerald-600 font-bold">$3,440</td>
+                <td id="brandGrandS2p" class="py-2.5 px-4 font-mono text-emerald-600 font-bold">1:19</td>
               </tr>
             </tfoot>
           </table>
@@ -875,7 +722,7 @@
         <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
           <div>
             <h4 class="text-sm font-bold text-slate-900">Sign Ups by Advertiser</h4>
-            <p class="text-xs text-slate-500 mb-4">Total registrations per source (Scale 0 - 380)</p>
+            <p class="text-xs text-slate-500 mb-4">Total registrations per source</p>
           </div>
           <div class="relative h-80">
             <canvas id="chartAffSignUps"></canvas>
@@ -885,7 +732,7 @@
         <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
           <div>
             <h4 class="text-sm font-bold text-slate-900">Users by Advertiser</h4>
-            <p class="text-xs text-slate-500 mb-4">Active converted users per source (Scale 0 - 18)</p>
+            <p class="text-xs text-slate-500 mb-4">Active converted users per source</p>
           </div>
           <div class="relative h-80">
             <canvas id="chartAffUsers"></canvas>
@@ -896,335 +743,728 @@
 
   </div>
 
-  <!-- SCRIPTS & INTERACTIVE ENGINE -->
+  <!-- ================= SCRIPTS: DYNAMIC JSON FETCH & MULTI-MONTH ENGINE ================= -->
   <script>
-    const espDataSet = [
-      {
-        esp: "MLJ (Mailjet) IP 1",
-        domains: [
-          { domain: "Hotmail", delivered: 211, bounced: 0, opened: 20, clicked: 0, signups: 0, players: 0 },
-          { domain: "Outlook", delivered: 199, bounced: 0, opened: 3, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 16022, bounced: 27, opened: 1867, clicked: 211, signups: 4, players: 1, isPrimary: true },
-          { domain: "Yahoo", delivered: 1617, bounced: 1, opened: 75, clicked: 7, signups: 0, players: 0 },
-          { domain: "Aol", delivered: 181, bounced: 0, opened: 10, clicked: 1, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 533, bounced: 8, opened: 85, clicked: 12, signups: 0, players: 0 },
-          { domain: "Other", delivered: 173, bounced: 0, opened: 35, clicked: 8, signups: 0, players: 0 }
-        ]
-      },
-      {
-        esp: "MLJ (Mailjet) IP 2",
-        domains: [
-          { domain: "Hotmail", delivered: 146, bounced: 0, opened: 8, clicked: 0, signups: 0, players: 0 },
-          { domain: "Outlook", delivered: 186, bounced: 0, opened: 8, clicked: 1, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 15102, bounced: 28, opened: 974, clicked: 94, signups: 1, players: 0, isPrimary: true },
-          { domain: "Yahoo", delivered: 1372, bounced: 2, opened: 35, clicked: 8, signups: 0, players: 0 },
-          { domain: "Aol", delivered: 158, bounced: 1, opened: 5, clicked: 0, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 452, bounced: 4, opened: 76, clicked: 7, signups: 0, players: 0 },
-          { domain: "Other", delivered: 1520, bounced: 3, opened: 16, clicked: 2, signups: 0, players: 0 }
-        ]
-      },
-      {
-        esp: "MLJ (Mailjet) IP 3 / SH",
-        domains: [
-          { domain: "Hotmail", delivered: 622, bounced: 1, opened: 28, clicked: 3, signups: 0, players: 0 },
-          { domain: "Outlook", delivered: 452, bounced: 2, opened: 12, clicked: 2, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 35577, bounced: 117, opened: 1863, clicked: 68, signups: 1, players: 0, isPrimary: true },
-          { domain: "Yahoo", delivered: 2537, bounced: 3, opened: 159, clicked: 18, signups: 0, players: 0 },
-          { domain: "Aol", delivered: 289, bounced: 0, opened: 28, clicked: 3, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 873, bounced: 46, opened: 121, clicked: 10, signups: 0, players: 0 },
-          { domain: "Other", delivered: 1026, bounced: 5, opened: 90, clicked: 7, signups: 0, players: 0 }
-        ]
-      },
-      {
-        esp: "SEG (Sendgrid) IP 1",
-        domains: [
-          { domain: "Outlook", delivered: 1733, bounced: 31, opened: 188, clicked: 19, signups: 0, players: 0 },
-          { domain: "Hotmail", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 48947, bounced: 152, opened: 2248, clicked: 694, signups: 6, players: 3, isPrimary: true },
-          { domain: "Yahoo", delivered: 4013, bounced: 120, opened: 569, clicked: 107, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 1158, bounced: 3, opened: 372, clicked: 41, signups: 0, players: 0 },
-          { domain: "Aol", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Other", delivered: 20778, bounced: 222, opened: 364, clicked: 499, signups: 0, players: 0 }
-        ]
-      },
-      {
-        esp: "SEG (Sendgrid) IP 2 / SH",
-        domains: [
-          { domain: "Outlook", delivered: 2178, bounced: 0, opened: 230, clicked: 18, signups: 0, players: 0 },
-          { domain: "Hotmail", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Gmail", delivered: 68971, bounced: 24, opened: 4334, clicked: 989, signups: 418, players: 19, isPrimary: true },
-          { domain: "Yahoo", delivered: 5472, bounced: 1, opened: 498, clicked: 81, signups: 0, players: 0 },
-          { domain: "iCloud", delivered: 1681, bounced: 2, opened: 281, clicked: 67, signups: 0, players: 0 },
-          { domain: "Aol", delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 },
-          { domain: "Other", delivered: 29544, bounced: 16, opened: 399, clicked: 596, signups: 0, players: 0 }
-        ]
-      }
+    // List of months to dynamically fetch from GitHub Pages
+    const MONTH_DATA_FILES = [
+      'September_data.json'
+      // You can add 'October_data.json', 'November_data.json', etc. as new months arrive!
     ];
 
-    const cumulativeFactors = {
-      1: 0.035, 2: 0.070, 3: 0.110, 4: 0.150, 5: 0.190, 6: 0.235, 7: 0.280, 8: 0.325,
-      9: 0.365, 10: 0.410, 11: 0.455, 12: 0.505, 13: 0.555, 14: 0.610,
-      15: 0.685,
-      16: 0.790,
-      17: 0.875,
-      18: 0.920,
-      19: 0.945,
-      20: 0.970,
-      21: 0.980,
-      22: 0.985,
-      23: 0.990,
-      24: 0.995,
-      25: 0.998,
-      26: 0.999,
-      27: 0.999,
-      28: 1.000
-    };
-
+    let globalLoadedMonths = [];
     let areDetailsExpanded = false;
     let chartRefs = {};
     const initialTableState = {};
     const tableSortDirections = {};
 
-    function predictCumulativeVolume(finalVal, day) {
-      if (day <= 0) return 0;
-      const effDay = Math.min(day, 28);
-      if (effDay === 28) return finalVal;
-      if (finalVal === 0) return 0;
-      return Math.min(finalVal, Math.round(finalVal * (cumulativeFactors[effDay] || 1.0)));
+    // Calculate S2P string format
+    function formatS2P(signups, users) {
+      if (users > 0) {
+        if (signups === 0) return '0:1';
+        return `1:${Math.round(signups / users)}`;
+      }
+      if (signups > 0) return `0:${signups}`;
+      return '0:0';
     }
 
-    function predictCumulativeDiscrete(finalVal, day) {
-      if (day <= 0) return 0;
-      if (finalVal === 0) return 0;
-
-      if (finalVal === 418) {
-        const segTimeline = {
-          1: 12, 2: 24, 3: 36, 4: 48, 5: 60, 6: 72, 7: 84,
-          8: 95, 9: 116, 10: 138, 11: 160, 12: 181, 13: 203,
-          14: 224, 15: 250, 16: 285, 17: 317, 18: 324, 19: 334, 20: 344, 21: 354, 22: 362, 23: 369, 24: 376, 25: 386, 26: 395, 27: 405, 28: 418
-        };
-        return segTimeline[day] || 418;
-      }
-
-      if (finalVal === 19) {
-        const segPlayers = {
-          1: 0, 2: 1, 3: 1, 4: 2, 5: 2, 6: 3, 7: 3,
-          8: 4, 9: 5, 10: 6, 11: 7, 12: 8, 13: 8,
-          14: 9, 15: 10, 16: 11, 17: 12, 18: 12, 19: 12, 20: 13, 21: 13, 22: 13, 23: 13, 24: 14, 25: 16, 26: 17, 27: 18, 28: 19
-        };
-        return segPlayers[day] || 19;
-      }
-
-      if (finalVal === 6) {
-        return Math.min(6, Math.max(1, Math.round(6 * (day / 28))));
-      }
-
-      if (finalVal === 4) {
-        return Math.min(4, Math.max(1, Math.round(4 * (day / 8))));
-      }
-
-      if (finalVal === 3) {
-        return Math.min(3, Math.max(0, Math.round(3 * (day / 28))));
-      }
-
-      if (finalVal === 1) {
-        return day >= 4 ? 1 : 0;
-      }
-
-      return Math.round(finalVal * (day / 28));
-    }
-
-    function renderEspTableRange(startDay, endDay) {
-      const tbody = document.getElementById('espTableBody');
-      const tfoot = document.getElementById('espTableFoot');
-      tbody.innerHTML = '';
-      tfoot.innerHTML = '';
-
-      let grandTotal = { delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 };
-      const espTotals = [];
-
-      espDataSet.forEach(group => {
-        let groupTotal = { delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 };
-        const calculatedDomains = [];
-
-        group.domains.forEach(d => {
-          const delivered = Math.max(0, predictCumulativeVolume(d.delivered, endDay) - predictCumulativeVolume(d.delivered, startDay - 1));
-          const bounced   = Math.max(0, predictCumulativeVolume(d.bounced, endDay)   - predictCumulativeVolume(d.bounced, startDay - 1));
-          const opened    = Math.max(0, predictCumulativeVolume(d.opened, endDay)    - predictCumulativeVolume(d.opened, startDay - 1));
-          const clicked   = Math.max(0, predictCumulativeVolume(d.clicked, endDay)   - predictCumulativeVolume(d.clicked, startDay - 1));
-
-          const signups   = Math.max(0, predictCumulativeDiscrete(d.signups, endDay) - predictCumulativeDiscrete(d.signups, startDay - 1));
-          const players   = Math.max(0, predictCumulativeDiscrete(d.players, endDay) - predictCumulativeDiscrete(d.players, startDay - 1));
-
-          const item = {
-            domain: d.domain,
-            isPrimary: d.isPrimary || false,
-            delivered,
-            bounced,
-            opened,
-            clicked,
-            signups,
-            players
-          };
-
-          groupTotal.delivered += item.delivered;
-          groupTotal.bounced += item.bounced;
-          groupTotal.opened += item.opened;
-          groupTotal.clicked += item.clicked;
-          groupTotal.signups += item.signups;
-          groupTotal.players += item.players;
-
-          calculatedDomains.push(item);
-        });
-
-        espTotals.push({ esp: group.esp, ...groupTotal, domains: calculatedDomains });
-
-        grandTotal.delivered += groupTotal.delivered;
-        grandTotal.bounced += groupTotal.bounced;
-        grandTotal.opened += groupTotal.opened;
-        grandTotal.clicked += groupTotal.clicked;
-        grandTotal.signups += groupTotal.signups;
-        grandTotal.players += groupTotal.players;
-
-        const summaryTr = document.createElement('tr');
-        summaryTr.className = 'esp-summary-row';
-        summaryTr.innerHTML = `
-          <td class="py-3 px-4 text-left font-bold text-slate-900">${group.esp}</td>
-          <td class="py-3 px-4 font-mono font-bold">${groupTotal.delivered.toLocaleString()}</td>
-          <td class="py-3 px-4 font-mono">${groupTotal.bounced.toLocaleString()}</td>
-          <td class="py-3 px-4 font-mono font-semibold text-emerald-700">${groupTotal.opened.toLocaleString()}</td>
-          <td class="py-3 px-4 font-mono font-semibold text-sky-700">${groupTotal.clicked.toLocaleString()}</td>
-          <td class="py-3 px-4 font-mono text-amber-600 font-bold">${groupTotal.signups.toLocaleString()}</td>
-          <td class="py-3 px-4 font-mono text-indigo-600 font-bold">${groupTotal.players.toLocaleString()}</td>
-        `;
-        tbody.appendChild(summaryTr);
-
-        calculatedDomains.forEach(dom => {
-          const domTr = document.createElement('tr');
-          domTr.className = `domain-row text-xs text-slate-600 ${areDetailsExpanded ? '' : 'hidden'}`;
-          
-          if (dom.isPrimary) {
-            domTr.innerHTML = `
-              <td class="py-1.5 px-4 text-left pl-8 font-semibold text-slate-800">${dom.domain}</td>
-              <td class="font-semibold">${dom.delivered.toLocaleString()}</td>
-              <td>${dom.bounced.toLocaleString()}</td>
-              <td class="font-semibold text-emerald-700">${dom.opened.toLocaleString()}</td>
-              <td class="font-semibold text-sky-700">${dom.clicked.toLocaleString()}</td>
-              <td class="font-semibold text-amber-600">${dom.signups.toLocaleString()}</td>
-              <td class="font-semibold text-indigo-600">${dom.players.toLocaleString()}</td>
-            `;
-          } else {
-            domTr.innerHTML = `
-              <td class="py-1.5 px-4 text-left pl-8 font-medium">${dom.domain}</td>
-              <td>${dom.delivered.toLocaleString()}</td>
-              <td>${dom.bounced.toLocaleString()}</td>
-              <td class="text-emerald-700">${dom.opened.toLocaleString()}</td>
-              <td class="text-sky-700">${dom.clicked.toLocaleString()}</td>
-              <td>${dom.signups.toLocaleString()}</td>
-              <td>${dom.players.toLocaleString()}</td>
-            `;
+    // Load all registered monthly JSON files with robust path resolution
+    async function loadAllMonthData() {
+      const results = [];
+      for (const fileName of MONTH_DATA_FILES) {
+        let loaded = null;
+        try {
+          // Attempt 1: same directory (e.g. root on GitHub Pages)
+          let res = await fetch(`./${fileName}`);
+          if (!res.ok) {
+            // Attempt 2: inside data/ directory
+            res = await fetch(`./data/${fileName}`);
           }
-          tbody.appendChild(domTr);
-        });
+          if (res.ok) {
+            loaded = await res.json();
+          }
+        } catch (err) {
+          console.warn(`Could not fetch ${fileName}:`, err);
+        }
+
+        if (loaded) {
+          results.push(loaded);
+        }
+      }
+      return results;
+    }
+
+    // Initialize date inputs bounded to Today's date
+    function initDateControls(loadedMonths) {
+      const today = new Date().toISOString().split('T')[0];
+      const startInput = document.getElementById('startDateFilter');
+      const endInput = document.getElementById('endDateFilter');
+
+      // The calendar will never allow dates past TODAY
+      startInput.max = today;
+      endInput.max = today;
+
+      // Extract earliest available date and latest available date from data
+      let minDate = '9999-12-31';
+      let maxDate = '0000-00-00';
+
+      loadedMonths.forEach(m => {
+        if (m.daily_records && m.daily_records.length > 0) {
+          m.daily_records.forEach(r => {
+            if (r.date < minDate) minDate = r.date;
+            if (r.date > maxDate) maxDate = r.date;
+          });
+        }
       });
 
-      tfoot.innerHTML = `
-        <tr class="font-bold text-slate-900 text-sm">
-          <td class="py-3.5 px-4 text-left font-bold">Grand total</td>
-          <td class="py-3.5 px-4 font-mono font-bold">${grandTotal.delivered.toLocaleString()}</td>
-          <td class="py-3.5 px-4 font-mono font-bold">${grandTotal.bounced.toLocaleString()}</td>
-          <td class="py-3.5 px-4 font-mono font-bold text-emerald-700">${grandTotal.opened.toLocaleString()}</td>
-          <td class="py-3.5 px-4 font-mono font-bold text-sky-700">${grandTotal.clicked.toLocaleString()}</td>
-          <td class="py-3.5 px-4 font-mono font-bold text-amber-600">${grandTotal.signups.toLocaleString()}</td>
-          <td class="py-3.5 px-4 font-mono font-bold text-indigo-600">${grandTotal.players.toLocaleString()}</td>
-        </tr>
-      `;
+      if (minDate === '9999-12-31') minDate = '2026-09-01';
+      if (maxDate === '0000-00-00') maxDate = today;
 
-      document.getElementById('kpiDelivered').textContent = grandTotal.delivered.toLocaleString();
-      document.getElementById('kpiOpened').textContent = grandTotal.opened.toLocaleString();
-      document.getElementById('kpiClicked').textContent = grandTotal.clicked.toLocaleString();
-      document.getElementById('kpiBounced').textContent = grandTotal.bounced.toLocaleString();
-      document.getElementById('kpiSignups').textContent = grandTotal.signups.toLocaleString();
-      document.getElementById('kpiUsers').textContent = grandTotal.players.toLocaleString();
+      // Ensure end date does not exceed today
+      if (maxDate > today) maxDate = today;
 
-      const openRate = grandTotal.delivered ? ((grandTotal.opened / grandTotal.delivered) * 100).toFixed(2) : 0;
-      const clickRate = grandTotal.delivered ? ((grandTotal.clicked / grandTotal.delivered) * 100).toFixed(2) : 0;
-      const bounceRate = grandTotal.delivered ? ((grandTotal.bounced / grandTotal.delivered) * 100).toFixed(2) : 0;
+      startInput.min = minDate;
+      endInput.min = minDate;
+
+      startInput.value = minDate;
+      endInput.value = maxDate;
+    }
+
+    // Core Aggregation Engine across filtered dates and multiple months
+    function aggregateData(startDate, endDate) {
+      const agg = {
+        delivered: 0,
+        bounced: 0,
+        opened: 0,
+        clicked: 0,
+        unsub: 0,
+        budget: 0,
+        signups: 0,
+        users: 0,
+        revenue: 0,
+        kpi: { budget: 0, signups: 0, users: 0, revenue: 0, profit: 0 },
+        totalMonthDays: 0,
+        daysElapsedInRange: 0,
+        advertisers: {},
+        brands: {},
+        ops: {
+          jessie: { signups: 0, users: 0 },
+          andrea: { signups: 0, users: 0 },
+          signups_by_advertiser: {},
+          users_by_advertiser: {}
+        },
+        esp: []
+      };
+
+      // Check if entire loaded month is selected to preserve MTD exact baseline
+      const isFullSeptemberRange = (startDate === '2026-09-01' && endDate >= '2026-09-28');
+
+      globalLoadedMonths.forEach(m => {
+        agg.kpi.budget += m.kpis.budget;
+        agg.kpi.signups += m.kpis.signups;
+        agg.kpi.users += m.kpis.users;
+        agg.kpi.revenue += m.kpis.revenue;
+        agg.kpi.profit += m.kpis.profit;
+        agg.totalMonthDays += (m.total_days_in_month || 30);
+
+        // Seed advertisers and brands from master lists
+        if (m.advertisers_mtd) {
+          m.advertisers_mtd.forEach(a => {
+            if (!agg.advertisers[a.advertiser]) {
+              agg.advertisers[a.advertiser] = { signups: 0, users: 0, revenue: 0 };
+            }
+          });
+        }
+        if (m.brands_mtd) {
+          m.brands_mtd.forEach(b => {
+            if (!agg.brands[b.brand]) {
+              agg.brands[b.brand] = { signups: 0, users: 0, revenue: 0 };
+            }
+          });
+        }
+
+        // Aggregate day by day within the requested range
+        if (m.daily_records) {
+          m.daily_records.forEach(record => {
+            if (record.date >= startDate && record.date <= endDate) {
+              agg.daysElapsedInRange++;
+              agg.delivered += record.delivered || 0;
+              agg.bounced += record.bounced || 0;
+              agg.opened += record.opened || 0;
+              agg.clicked += record.clicked || 0;
+              agg.unsub += record.unsub || 0;
+              agg.budget += record.budget || 0;
+              agg.signups += record.signups || 0;
+              agg.users += record.users || 0;
+              agg.revenue += record.revenue || 0;
+
+              // Aggregate advertisers
+              if (record.advertisers) {
+                Object.keys(record.advertisers).forEach(adv => {
+                  if (!agg.advertisers[adv]) agg.advertisers[adv] = { signups: 0, users: 0, revenue: 0 };
+                  agg.advertisers[adv].signups += record.advertisers[adv].signups || 0;
+                  agg.advertisers[adv].users += record.advertisers[adv].users || 0;
+                  agg.advertisers[adv].revenue += record.advertisers[adv].revenue || 0;
+                });
+              }
+
+              // Aggregate brands
+              if (record.brands) {
+                Object.keys(record.brands).forEach(br => {
+                  if (!agg.brands[br]) agg.brands[br] = { signups: 0, users: 0, revenue: 0 };
+                  agg.brands[br].signups += record.brands[br].signups || 0;
+                  agg.brands[br].users += record.brands[br].users || 0;
+                  agg.brands[br].revenue += record.brands[br].revenue || 0;
+                });
+              }
+
+              // Aggregate Ops
+              if (record.ops) {
+                if (record.ops.andrea) {
+                  agg.ops.andrea.signups += record.ops.andrea.signups || 0;
+                  agg.ops.andrea.users += record.ops.andrea.users || 0;
+                }
+                if (record.ops.jessie) {
+                  agg.ops.jessie.signups += record.ops.jessie.signups || 0;
+                  agg.ops.jessie.users += record.ops.jessie.users || 0;
+                }
+              }
+            }
+          });
+        }
+      });
+
+      // If full MTD range is selected, lock to exact verified figures
+      if (isFullSeptemberRange && globalLoadedMonths[0]) {
+        const sm = globalLoadedMonths[0];
+        agg.delivered = sm.summary_mtd.delivered;
+        agg.bounced = sm.summary_mtd.bounced;
+        agg.opened = sm.summary_mtd.opened;
+        agg.clicked = sm.summary_mtd.clicked;
+        agg.unsub = sm.summary_mtd.unsub;
+        agg.budget = sm.summary_mtd.budget;
+        agg.signups = sm.summary_mtd.signups;
+        agg.users = sm.summary_mtd.users;
+        agg.revenue = sm.summary_mtd.revenue;
+
+        sm.advertisers_mtd.forEach(a => {
+          agg.advertisers[a.advertiser] = { signups: a.signups, users: a.users, revenue: a.revenue };
+        });
+
+        sm.brands_mtd.forEach(b => {
+          agg.brands[b.brand] = { signups: b.signups, users: b.users, revenue: b.revenue };
+        });
+
+        agg.ops = sm.team_ops_mtd;
+        agg.esp = sm.esp_mtd_totals;
+      } else {
+        // Build weighted ESP breakdown proportionally
+        const ratio = 224952 > 0 ? (agg.delivered / 224952) : 1;
+        if (globalLoadedMonths[0] && globalLoadedMonths[0].esp_mtd_totals) {
+          agg.esp = globalLoadedMonths[0].esp_mtd_totals.map(e => ({
+            esp: e.esp,
+            delivered: Math.round(e.delivered * ratio),
+            bounced: Math.round(e.bounced * ratio),
+            opened: Math.round(e.opened * ratio),
+            clicked: Math.round(e.clicked * ratio),
+            signups: Math.round(e.signups * ratio),
+            players: Math.round(e.players * ratio),
+            domains: e.domains
+          }));
+        }
+      }
+
+      agg.profit = agg.revenue - agg.budget;
+      return agg;
+    }
+
+    // Render Dashboard UI from Aggregated Data
+    function renderDashboard(agg, startDate, endDate) {
+      const daysCount = Math.max(1, agg.daysElapsedInRange || 28);
+      const rrFactor = 30 / daysCount;
+
+      // 1. Team Performance Overview
+      document.getElementById('teamKpiBudget').textContent = `$${agg.kpi.budget.toLocaleString()}`;
+      document.getElementById('teamKpiSignups').textContent = agg.kpi.signups.toLocaleString();
+      document.getElementById('teamKpiUsers').textContent = agg.kpi.users.toLocaleString();
+      document.getElementById('teamKpiRevenue').textContent = `$${agg.kpi.revenue.toLocaleString()}`;
+      document.getElementById('teamKpiProfit').textContent = `$${agg.kpi.profit.toLocaleString()}`;
+
+      document.getElementById('teamMtdBudget').textContent = `$${Math.round(agg.budget).toLocaleString()}`;
+      document.getElementById('teamMtdSignups').textContent = agg.signups.toLocaleString();
+      document.getElementById('teamMtdUsers').textContent = agg.users.toLocaleString();
+      document.getElementById('teamMtdRevenue').textContent = `$${Math.round(agg.revenue).toLocaleString()}`;
+      document.getElementById('teamMtdProfit').textContent = `$${Math.round(agg.profit).toLocaleString()}`;
+
+      const rrBudget = Math.round(agg.budget * rrFactor);
+      const rrSignups = Math.round(agg.signups * rrFactor);
+      const rrUsers = Math.round(agg.users * rrFactor);
+      const rrRevenue = Math.round(agg.revenue * rrFactor);
+      const rrProfit = Math.round(agg.profit * rrFactor);
+      const roiRatio = rrBudget > 0 ? (rrRevenue / rrBudget).toFixed(1) : '0.0';
+
+      const rrBudgetEl = document.getElementById('teamRrBudget');
+      rrBudgetEl.textContent = `$${rrBudget.toLocaleString()}`;
+      rrBudgetEl.className = `px-2.5 py-3 font-bold text-sm ${rrBudget <= agg.kpi.budget ? 'text-[#16a34a]' : 'text-[#dc2626]'}`;
+
+      const rrSignupsEl = document.getElementById('teamRrSignups');
+      rrSignupsEl.textContent = rrSignups.toLocaleString();
+      rrSignupsEl.className = `px-2.5 py-3 font-bold text-sm ${rrSignups >= agg.kpi.signups ? 'text-[#16a34a]' : 'text-[#dc2626]'}`;
+
+      const rrUsersEl = document.getElementById('teamRrUsers');
+      rrUsersEl.textContent = rrUsers.toLocaleString();
+      rrUsersEl.className = `px-2.5 py-3 font-bold text-sm ${rrUsers >= agg.kpi.users ? 'text-[#16a34a]' : 'text-[#dc2626]'}`;
+
+      const rrRevenueEl = document.getElementById('teamRrRevenue');
+      rrRevenueEl.textContent = `$${rrRevenue.toLocaleString()}`;
+      rrRevenueEl.className = `px-2.5 py-3 font-bold text-sm ${rrRevenue >= agg.kpi.revenue ? 'text-[#16a34a]' : 'text-[#dc2626]'}`;
+
+      const rrProfitEl = document.getElementById('teamRrProfit');
+      rrProfitEl.textContent = `$${rrProfit.toLocaleString()}`;
+      rrProfitEl.className = `px-2.5 py-3 font-bold text-sm ${rrProfit >= agg.kpi.profit ? 'text-[#16a34a]' : 'text-[#dc2626]'}`;
+
+      document.getElementById('teamRrRoi').textContent = `1:${roiRatio}`;
+
+      // 2. Section 1 Top 10 KPI Cards
+      document.getElementById('kpiDelivered').textContent = agg.delivered.toLocaleString();
+      document.getElementById('kpiOpened').textContent = agg.opened.toLocaleString();
+      document.getElementById('kpiClicked').textContent = agg.clicked.toLocaleString();
+      document.getElementById('kpiBounced').textContent = agg.bounced.toLocaleString();
+      document.getElementById('kpiUnsub').textContent = agg.unsub.toLocaleString();
+      document.getElementById('kpiSignups').textContent = agg.signups.toLocaleString();
+      document.getElementById('kpiUsers').textContent = agg.users.toLocaleString();
+      document.getElementById('kpiRevenue').textContent = `$${Math.round(agg.revenue).toLocaleString()}`;
+      document.getElementById('kpiBudget').textContent = `$${Math.round(agg.budget).toLocaleString()}`;
+      document.getElementById('kpiProfit').textContent = `$${Math.round(agg.profit).toLocaleString()}`;
+
+      const openRate = agg.delivered > 0 ? ((agg.opened / agg.delivered) * 100).toFixed(2) : 0;
+      const clickRate = agg.delivered > 0 ? ((agg.clicked / agg.delivered) * 100).toFixed(2) : 0;
+      const bounceRate = agg.delivered > 0 ? ((agg.bounced / agg.delivered) * 100).toFixed(2) : 0;
 
       document.getElementById('kpiOpenRate').textContent = `${openRate}% Open Rate`;
       document.getElementById('kpiClickRate').textContent = `${clickRate}% Click Rate`;
       document.getElementById('kpiBounceRate').textContent = `${bounceRate}% bounce`;
 
-      const startDayStr = startDay < 10 ? `0${startDay}` : `${startDay}`;
-      const endDayStr = endDay < 10 ? `0${endDay}` : `${endDay}`;
-      document.getElementById('dateRangeNotice').textContent = `Sep ${startDayStr}, 2026 – Sep ${endDayStr}, 2026`;
+      const cardRrSignupsSub = document.getElementById('cardRrSignupsSub');
+      cardRrSignupsSub.textContent = `RR: ${rrSignups}`;
+      cardRrSignupsSub.className = `font-bold ${rrSignups >= agg.kpi.signups ? 'text-emerald-600' : 'text-rose-600'}`;
 
-      updateSection1Charts(espTotals);
+      const cardRrUsersSub = document.getElementById('cardRrUsersSub');
+      cardRrUsersSub.textContent = `RR: ${rrUsers}`;
+      cardRrUsersSub.className = `font-bold ${rrUsers >= agg.kpi.users ? 'text-emerald-600' : 'text-rose-600'}`;
+
+      const cardRrRevenueSub = document.getElementById('cardRrRevenueSub');
+      cardRrRevenueSub.textContent = `RR: $${(rrRevenue / 1000).toFixed(1)}k`;
+      cardRrRevenueSub.className = `font-bold ${rrRevenue >= agg.kpi.revenue ? 'text-emerald-600' : 'text-rose-600'}`;
+
+      const cardRrBudgetSub = document.getElementById('cardRrBudgetSub');
+      cardRrBudgetSub.textContent = `RR: $${(rrBudget / 1000).toFixed(1)}k`;
+      cardRrBudgetSub.className = `font-bold ${rrBudget <= agg.kpi.budget ? 'text-emerald-600' : 'text-rose-600'}`;
+
+      const cardRrProfitSub = document.getElementById('cardRrProfitSub');
+      cardRrProfitSub.textContent = `RR: $${(rrProfit / 1000).toFixed(1)}k`;
+      cardRrProfitSub.className = `font-bold ${rrProfit >= agg.kpi.profit ? 'text-emerald-600' : 'text-rose-600'}`;
+
+      // Date range notices
+      const dateText = `${startDate} – ${endDate}`;
+      document.getElementById('dateRangeNotice').textContent = dateText;
+      document.getElementById('dateRangeSubtitle').textContent = dateText;
+      document.getElementById('opsPeriodBadge').textContent = dateText;
+
+      // 3. Render ESP Deliverability Table
+      renderEspTable(agg.esp, agg);
+
+      // 4. Render Ops Team Tables
+      renderOpsTeam(agg.ops, rrFactor);
+
+      // 5. Render Advertiser Breakdown Table
+      renderAdvertiserTable(agg.advertisers, agg.signups, agg.users, agg.revenue);
+
+      // 6. Render Brand Breakdown Table
+      renderBrandTable(agg.brands, agg.signups, agg.users, agg.revenue);
+
+      // 7. Update Charts
+      updateCharts(agg);
     }
 
-    function toggleTableDetails() {
-      areDetailsExpanded = !areDetailsExpanded;
-      const domainRows = document.querySelectorAll('.domain-row');
-      const btnText = document.getElementById('btnText');
-      const btnIcon = document.getElementById('btnIcon');
+    function renderEspTable(espList, agg) {
+      const tbody = document.getElementById('espTableBody');
+      const tfoot = document.getElementById('espTableFoot');
+      tbody.innerHTML = '';
 
-      if (areDetailsExpanded) {
-        domainRows.forEach(row => row.classList.remove('hidden'));
-        btnText.textContent = 'Collapse All';
-        btnIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>';
-      } else {
-        domainRows.forEach(row => row.classList.add('hidden'));
-        btnText.textContent = 'Show All';
-        btnIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>';
-      }
+      espList.forEach(item => {
+        const summaryTr = document.createElement('tr');
+        summaryTr.className = 'esp-summary-row';
+        summaryTr.innerHTML = `
+          <td class="py-3 px-4 text-left font-bold text-slate-900">${item.esp}</td>
+          <td class="py-3 px-4 font-mono font-bold">${item.delivered.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono">${item.bounced.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono font-semibold text-emerald-700">${item.opened.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono font-semibold text-sky-700">${item.clicked.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono text-amber-600 font-bold">${item.signups.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono text-indigo-600 font-bold">${item.players.toLocaleString()}</td>
+        `;
+        tbody.appendChild(summaryTr);
+
+        if (item.domains) {
+          Object.keys(item.domains).forEach(domName => {
+            const d = item.domains[domName];
+            const domTr = document.createElement('tr');
+            domTr.className = `domain-row text-xs text-slate-600 ${areDetailsExpanded ? '' : 'hidden'}`;
+            domTr.innerHTML = `
+              <td class="py-1.5 px-4 text-left pl-8 font-medium">${domName}</td>
+              <td>${d.delivered.toLocaleString()}</td>
+              <td>${d.bounced.toLocaleString()}</td>
+              <td class="text-emerald-700">${d.opened.toLocaleString()}</td>
+              <td class="text-sky-700">${d.clicked.toLocaleString()}</td>
+              <td>${d.signups.toLocaleString()}</td>
+              <td>${d.players.toLocaleString()}</td>
+            `;
+            tbody.appendChild(domTr);
+          });
+        }
+      });
+
+      tfoot.innerHTML = `
+        <tr class="font-bold text-slate-900 text-sm">
+          <td class="py-3.5 px-4 text-left font-bold">Grand total</td>
+          <td class="py-3.5 px-4 font-mono font-bold">${agg.delivered.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold">${agg.bounced.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-emerald-700">${agg.opened.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-sky-700">${agg.clicked.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-amber-600">${agg.signups.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-indigo-600">${agg.users.toLocaleString()}</td>
+        </tr>
+      `;
     }
 
-    function handleDateRangeChange() {
-      const startInput = document.getElementById('startDateFilter');
-      const endInput = document.getElementById('endDateFilter');
+    function renderOpsTeam(ops, rrFactor) {
+      document.getElementById('jessieRegMtd').textContent = ops.jessie.signups;
+      document.getElementById('jessieRegRr').textContent = Math.round(ops.jessie.signups * rrFactor);
+      document.getElementById('jessieUsersMtd').textContent = ops.jessie.users;
+      document.getElementById('jessieUsersRr').textContent = Math.round(ops.jessie.users * rrFactor);
 
-      let startVal = startInput.value;
-      let endVal = endInput.value;
+      document.getElementById('andreaRegMtd').textContent = ops.andrea.signups;
+      document.getElementById('andreaRegRr').textContent = Math.round(ops.andrea.signups * rrFactor);
+      document.getElementById('andreaUsersMtd').textContent = ops.andrea.users;
+      document.getElementById('andreaUsersRr').textContent = Math.round(ops.andrea.users * rrFactor);
 
-      if (!startVal) startVal = '2026-09-01';
-      if (!endVal) endVal = '2026-09-28';
+      // Ops Table 3 (Signups by advertiser)
+      const tbodySignups = document.getElementById('opsSignupsTableBody');
+      tbodySignups.innerHTML = '';
+      let totA_sig = 0, totJ_sig = 0;
 
-      if (startVal > '2026-09-28') startVal = '2026-09-28';
-      if (startVal < '2026-09-01') startVal = '2026-09-01';
+      const signupsMaster = ops.signups_by_advertiser || {};
+      Object.keys(signupsMaster).forEach(adv => {
+        const row = signupsMaster[adv];
+        totA_sig += row.andrea;
+        totJ_sig += row.jessie;
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50 bg-white';
+        tr.innerHTML = `
+          <td class="py-1.5 px-3 text-left font-medium text-slate-900">${adv}</td>
+          <td class="py-1.5 px-3 font-mono font-bold">${row.andrea}</td>
+          <td class="py-1.5 px-3 font-mono font-bold">${row.jessie}</td>
+          <td class="py-1.5 px-3 font-mono font-bold">${row.total}</td>
+        `;
+        tbodySignups.appendChild(tr);
+      });
+      document.getElementById('opsSignupsAndreaTotal').textContent = totA_sig;
+      document.getElementById('opsSignupsJessieTotal').textContent = totJ_sig;
+      document.getElementById('opsSignupsGrandTotal').textContent = totA_sig + totJ_sig;
 
-      if (endVal > '2026-09-28') endVal = '2026-09-28';
-      if (endVal < '2026-09-01') endVal = '2026-09-01';
+      // Ops Table 4 (Users by advertiser)
+      const tbodyUsers = document.getElementById('opsUsersTableBody');
+      tbodyUsers.innerHTML = '';
+      let totA_usr = 0, totJ_usr = 0;
 
-      if (startVal > endVal) {
-        endVal = startVal;
-        endInput.value = endVal;
-      }
-
-      startInput.value = startVal;
-      endInput.value = endVal;
-
-      const startDay = parseInt(startVal.split('-')[2], 10);
-      const endDay = parseInt(endVal.split('-')[2], 10);
-
-      renderEspTableRange(startDay, endDay);
+      const usersMaster = ops.users_by_advertiser || {};
+      Object.keys(usersMaster).forEach(adv => {
+        const row = usersMaster[adv];
+        totA_usr += row.andrea;
+        totJ_usr += row.jessie;
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50 bg-white';
+        tr.innerHTML = `
+          <td class="py-1.5 px-3 text-left font-medium text-slate-900">${adv}</td>
+          <td class="py-1.5 px-3 font-mono font-bold">${row.andrea}</td>
+          <td class="py-1.5 px-3 font-mono font-bold">${row.jessie}</td>
+          <td class="py-1.5 px-3 font-mono font-bold">${row.total}</td>
+        `;
+        tbodyUsers.appendChild(tr);
+      });
+      document.getElementById('opsUsersAndreaTotal').textContent = totA_usr;
+      document.getElementById('opsUsersJessieTotal').textContent = totJ_usr;
+      document.getElementById('opsUsersGrandTotal').textContent = totA_usr + totJ_usr;
     }
 
-    /* ================= GENERAL SORTING & RESET ENGINE ================= */
-    function initSortableTables() {
-      ['advertiserTable', 'brandTable'].forEach(tableId => {
-        const tbody = document.querySelector(`#${tableId} tbody`);
-        if (tbody) {
-          initialTableState[tableId] = tbody.innerHTML;
-          tableSortDirections[tableId] = {};
+    function renderAdvertiserTable(advMap, totalSignups, totalUsers, totalRev) {
+      const tbody = document.getElementById('advertiserTableBody');
+      tbody.innerHTML = '';
+
+      const advKeys = Object.keys(advMap).sort((a, b) => (advMap[b].revenue || 0) - (advMap[a].revenue || 0));
+      advKeys.forEach(advName => {
+        const item = advMap[advName];
+        const s2pStr = formatS2P(item.signups, item.users);
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50 bg-white';
+        tr.innerHTML = `
+          <td class="py-2.5 px-4 text-left font-medium text-slate-900">${advName}</td>
+          <td class="py-2.5 px-4 font-mono font-bold text-amber-600">${item.signups}</td>
+          <td class="py-2.5 px-4 font-mono font-bold text-indigo-600">${item.users}</td>
+          <td class="py-2.5 px-4 font-mono font-bold text-emerald-600">$${Math.round(item.revenue).toLocaleString()}</td>
+          <td class="py-2.5 px-4 font-mono font-semibold text-emerald-600">${s2pStr}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('advGrandSignups').textContent = totalSignups;
+      document.getElementById('advGrandUsers').textContent = totalUsers;
+      document.getElementById('advGrandRevenue').textContent = `$${Math.round(totalRev).toLocaleString()}`;
+      document.getElementById('advGrandS2p').textContent = formatS2P(totalSignups, totalUsers);
+
+      initialTableState['advertiserTable'] = tbody.innerHTML;
+    }
+
+    function renderBrandTable(brandMap, totalSignups, totalUsers, totalRev) {
+      const tbody = document.getElementById('brandTableBody');
+      tbody.innerHTML = '';
+
+      const brandKeys = Object.keys(brandMap).sort((a, b) => {
+        if ((brandMap[b].revenue || 0) !== (brandMap[a].revenue || 0)) {
+          return (brandMap[b].revenue || 0) - (brandMap[a].revenue || 0);
+        }
+        return (brandMap[b].signups || 0) - (brandMap[a].signups || 0);
+      });
+
+      brandKeys.forEach(bName => {
+        const item = brandMap[bName];
+        const s2pStr = formatS2P(item.signups, item.users);
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50 bg-white';
+        tr.innerHTML = `
+          <td class="py-2 px-4 text-left font-semibold text-slate-900">${bName}</td>
+          <td class="py-2 px-4 font-mono font-bold text-amber-600">${item.signups}</td>
+          <td class="py-2 px-4 font-mono font-bold text-indigo-600">${item.users}</td>
+          <td class="py-2 px-4 font-mono font-bold text-emerald-600">$${Math.round(item.revenue).toLocaleString()}</td>
+          <td class="py-2 px-4 font-mono font-semibold text-emerald-600">${s2pStr}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('brandGrandSignups').textContent = totalSignups;
+      document.getElementById('brandGrandUsers').textContent = totalUsers;
+      document.getElementById('brandGrandRevenue').textContent = `$${Math.round(totalRev).toLocaleString()}`;
+      document.getElementById('brandGrandS2p').textContent = formatS2P(totalSignups, totalUsers);
+
+      initialTableState['brandTable'] = tbody.innerHTML;
+    }
+
+    // Chart.js dynamic controller
+    function initCharts() {
+      chartRefs.espVol = new Chart(document.getElementById('chartEspVolumen'), {
+        type: 'bar',
+        data: {
+          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
+          datasets: [
+            { label: 'Delivered', data: [], backgroundColor: '#2563eb', borderRadius: 4 },
+            { label: 'Open', data: [], backgroundColor: '#10b981', borderRadius: 4 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'top', labels: { boxWidth: 10, font: { size: 10 } } } },
+          scales: {
+            y: { grid: { color: '#f1f5f9' }, ticks: { callback: v => (v >= 1000 ? (v / 1000) + 'k' : v), font: { size: 9 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
+        }
+      });
+
+      chartRefs.espClicks = new Chart(document.getElementById('chartEspClicks'), {
+        type: 'bar',
+        data: {
+          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
+          datasets: [{ label: 'Clicks', data: [], backgroundColor: '#0284c7', borderRadius: 4 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { grid: { color: '#f1f5f9' }, ticks: { stepSize: 300, font: { size: 9 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
+        }
+      });
+
+      chartRefs.espOpenRate = new Chart(document.getElementById('chartEspOpenRate'), {
+        type: 'bar',
+        data: {
+          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
+          datasets: [{ label: 'Open Rate (%)', data: [], backgroundColor: '#10b981', borderRadius: 4 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
+        }
+      });
+
+      chartRefs.domDeliv = new Chart(document.getElementById('chartDomainDelivered'), {
+        type: 'bar',
+        data: {
+          labels: ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Hotmail', 'Aol'],
+          datasets: [{ label: 'Delivered', data: [], backgroundColor: '#3b82f6', borderRadius: 4 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { grid: { color: '#f1f5f9' }, ticks: { callback: v => (v >= 1000 ? (v / 1000) + 'k' : v), font: { size: 9 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
+        }
+      });
+
+      chartRefs.domOpenRate = new Chart(document.getElementById('chartDomainOpenRate'), {
+        type: 'bar',
+        data: {
+          labels: ['iCloud', 'Outlook', 'Yahoo', 'Aol', 'Hotmail', 'Gmail', 'Other'],
+          datasets: [{ label: 'Open Rate (%)', data: [], backgroundColor: '#10b981', borderRadius: 4 }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
+            y: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
+        }
+      });
+
+      chartRefs.domClicks = new Chart(document.getElementById('chartDomainClicks'), {
+        type: 'bar',
+        data: {
+          labels: ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Aol', 'Hotmail'],
+          datasets: [{ label: 'Clicks', data: [], backgroundColor: '#0284c7', borderRadius: 4 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { grid: { color: '#f1f5f9' }, ticks: { stepSize: 300, font: { size: 9 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+          }
+        }
+      });
+
+      chartRefs.affSignups = new Chart(document.getElementById('chartAffSignUps'), {
+        type: 'bar',
+        data: {
+          labels: [],
+          datasets: [{ label: 'Sign Ups', data: [], backgroundColor: '#d97706', borderRadius: 6 }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: '#f1f5f9' } },
+            y: { grid: { display: false } }
+          }
+        }
+      });
+
+      chartRefs.affUsers = new Chart(document.getElementById('chartAffUsers'), {
+        type: 'bar',
+        data: {
+          labels: [],
+          datasets: [{ label: 'Users', data: [], backgroundColor: '#4f46e5', borderRadius: 6 }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: '#f1f5f9' }, ticks: { stepSize: 2 } },
+            y: { grid: { display: false } }
+          }
         }
       });
     }
 
+    function updateCharts(agg) {
+      if (!chartRefs.espVol) return;
+
+      // 1. ESP Charts
+      chartRefs.espVol.data.datasets[0].data = agg.esp.map(e => e.delivered);
+      chartRefs.espVol.data.datasets[1].data = agg.esp.map(e => e.opened);
+      chartRefs.espVol.update();
+
+      chartRefs.espClicks.data.datasets[0].data = agg.esp.map(e => e.clicked);
+      chartRefs.espClicks.update();
+
+      chartRefs.espOpenRate.data.datasets[0].data = agg.esp.map(e => e.delivered > 0 ? +((e.opened / e.delivered) * 100).toFixed(2) : 0);
+      chartRefs.espOpenRate.update();
+
+      // 2. Domain Charts
+      const domainAgg = { Gmail: 0, Other: 0, Yahoo: 0, iCloud: 0, Outlook: 0, Hotmail: 0, Aol: 0 };
+      const domainOpens = { Gmail: 0, Other: 0, Yahoo: 0, iCloud: 0, Outlook: 0, Hotmail: 0, Aol: 0 };
+      const domainClicks = { Gmail: 0, Other: 0, Yahoo: 0, iCloud: 0, Outlook: 0, Hotmail: 0, Aol: 0 };
+
+      agg.esp.forEach(e => {
+        if (e.domains) {
+          Object.keys(e.domains).forEach(dom => {
+            if (domainAgg[dom] !== undefined) {
+              domainAgg[dom] += e.domains[dom].delivered;
+              domainOpens[dom] += e.domains[dom].opened;
+              domainClicks[dom] += e.domains[dom].clicked;
+            }
+          });
+        }
+      });
+
+      const domOrder = ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Hotmail', 'Aol'];
+      chartRefs.domDeliv.data.datasets[0].data = domOrder.map(d => domainAgg[d]);
+      chartRefs.domDeliv.update();
+
+      const openRateOrder = ['iCloud', 'Outlook', 'Yahoo', 'Aol', 'Hotmail', 'Gmail', 'Other'];
+      chartRefs.domOpenRate.data.datasets[0].data = openRateOrder.map(d => domainAgg[d] > 0 ? +((domainOpens[d] / domainAgg[d]) * 100).toFixed(2) : 0);
+      chartRefs.domOpenRate.update();
+
+      const clicksOrder = ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Aol', 'Hotmail'];
+      chartRefs.domClicks.data.datasets[0].data = clicksOrder.map(d => domainClicks[d]);
+      chartRefs.domClicks.update();
+
+      // 3. Advertiser Charts
+      const sortedAdvNames = Object.keys(agg.advertisers).sort((a, b) => (agg.advertisers[b].signups || 0) - (agg.advertisers[a].signups || 0));
+      chartRefs.affSignups.data.labels = sortedAdvNames;
+      chartRefs.affSignups.data.datasets[0].data = sortedAdvNames.map(k => agg.advertisers[k].signups);
+      chartRefs.affSignups.update();
+
+      chartRefs.affUsers.data.labels = sortedAdvNames;
+      chartRefs.affUsers.data.datasets[0].data = sortedAdvNames.map(k => agg.advertisers[k].users);
+      chartRefs.affUsers.update();
+    }
+
+    // Interactive Sorting Engine
     function sortTable(tableId, colIndex, btnElement, type) {
       const tbody = document.querySelector(`#${tableId} tbody`);
       if (!tbody) return;
 
       const rows = Array.from(tbody.querySelectorAll('tr'));
+      if (!tableSortDirections[tableId]) tableSortDirections[tableId] = {};
       const currentDir = tableSortDirections[tableId][colIndex] || 'none';
       const newDir = (currentDir === 'desc') ? 'asc' : 'desc';
       tableSortDirections[tableId] = { [colIndex]: newDir };
@@ -1245,7 +1485,6 @@
         const cellB = rowB.children[colIndex].innerText.trim();
 
         let valA, valB;
-
         if (type === 'num' || type === 'currency') {
           valA = parseFloat(cellA.replace(/[^0-9.-]/g, '')) || 0;
           valB = parseFloat(cellB.replace(/[^0-9.-]/g, '')) || 0;
@@ -1285,197 +1524,67 @@
       });
     }
 
-    function initAllCharts() {
-      chartRefs.espVol = new Chart(document.getElementById('chartEspVolumen'), {
-        type: 'bar',
-        data: {
-          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
-          datasets: [
-            { label: 'Delivered', data: [18936, 18936, 41376, 76629, 107846], backgroundColor: '#2563eb', borderRadius: 4 },
-            { label: 'Open', data: [2095, 1122, 2301, 3741, 5742], backgroundColor: '#10b981', borderRadius: 4 }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'top', labels: { boxWidth: 10, font: { size: 10 } } } },
-          scales: {
-            y: { grid: { color: '#f1f5f9' }, ticks: { callback: v => (v >= 1000 ? (v / 1000) + 'k' : v), font: { size: 9 } } },
-            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
-          }
-        }
-      });
+    function toggleTableDetails() {
+      areDetailsExpanded = !areDetailsExpanded;
+      const domainRows = document.querySelectorAll('.domain-row');
+      const btnText = document.getElementById('btnText');
+      const btnIcon = document.getElementById('btnIcon');
 
-      chartRefs.espClicks = new Chart(document.getElementById('chartEspClicks'), {
-        type: 'bar',
-        data: {
-          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
-          datasets: [{ label: 'Clicks', data: [239, 112, 111, 1360, 1751], backgroundColor: '#0284c7', borderRadius: 4 }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            y: { max: 1900, grid: { color: '#f1f5f9' }, ticks: { stepSize: 300, font: { size: 9 } } },
-            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
-          }
-        }
-      });
-
-      chartRefs.espOpenRate = new Chart(document.getElementById('chartEspOpenRate'), {
-        type: 'bar',
-        data: {
-          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
-          datasets: [{ label: 'Open Rate (%)', data: [11.06, 5.93, 5.56, 4.88, 5.32], backgroundColor: '#10b981', borderRadius: 4 }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            y: { max: 15, grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
-            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
-          }
-        }
-      });
-
-      chartRefs.domDeliv = new Chart(document.getElementById('chartDomainDelivered'), {
-        type: 'bar',
-        data: {
-          labels: ['Gmail', 'Other', 'Yahoo', 'Outlook', 'iCloud', 'Hotmail', 'Aol'],
-          datasets: [{ label: 'Delivered', data: [184619, 53041, 15011, 4748, 4697, 979, 628], backgroundColor: '#3b82f6', borderRadius: 4 }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            y: { grid: { color: '#f1f5f9' }, ticks: { callback: v => (v >= 1000 ? (v / 1000) + 'k' : v), font: { size: 9 } } },
-            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
-          }
-        }
-      });
-
-      chartRefs.domOpenRate = new Chart(document.getElementById('chartDomainOpenRate'), {
-        type: 'bar',
-        data: {
-          labels: ['iCloud', 'Outlook', 'Yahoo', 'Aol', 'Gmail', 'Hotmail', 'Other'],
-          datasets: [{ label: 'Open Rate (%)', data: [19.91, 9.29, 8.90, 6.85, 6.11, 5.72, 1.70], backgroundColor: '#10b981', borderRadius: 4 }]
-        },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            x: { max: 25, grid: { color: '#f1f5f9' }, ticks: { callback: v => v + '%', font: { size: 9 } } },
-            y: { grid: { display: false }, ticks: { font: { size: 9 } } }
-          }
-        }
-      });
-
-      chartRefs.domClicks = new Chart(document.getElementById('chartDomainClicks'), {
-        type: 'bar',
-        data: {
-          labels: ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Aol', 'Hotmail'],
-          datasets: [{ label: 'Clicks', data: [2056, 1112, 221, 137, 40, 4, 3], backgroundColor: '#0284c7', borderRadius: 4 }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            y: { max: 2200, grid: { color: '#f1f5f9' }, ticks: { stepSize: 300, font: { size: 9 } } },
-            x: { grid: { display: false }, ticks: { font: { size: 9 } } }
-          }
-        }
-      });
-
-      const affLabels = ['GameTime Digital', 'Basher Agency', 'CHANCED', 'AFF 66', 'ALL IN AFFILIATES', 'Splash', 'SWEEPDREAMS', 'Purify', 'Acebet', 'CoinsRoyale', 'EPC'];
-      new Chart(document.getElementById('chartAffSignUps'), {
-        type: 'bar',
-        data: {
-          labels: affLabels,
-          datasets: [{ label: 'Sign Ups', data: [337, 40, 37, 8, 5, 3, 0, 0, 0, 0, 0], backgroundColor: '#d97706', borderRadius: 6 }]
-        },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            x: { max: 380, grid: { color: '#f1f5f9' }, ticks: { stepSize: 50 } },
-            y: { grid: { display: false } }
-          }
-        }
-      });
-
-      new Chart(document.getElementById('chartAffUsers'), {
-        type: 'bar',
-        data: {
-          labels: affLabels,
-          datasets: [{ label: 'Users', data: [16, 3, 0, 2, 0, 1, 1, 0, 0, 0, 0], backgroundColor: '#4f46e5', borderRadius: 6 }]
-        },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            x: { max: 18, grid: { color: '#f1f5f9' }, ticks: { stepSize: 2 } },
-            y: { grid: { display: false } }
-          }
-        }
-      });
+      if (areDetailsExpanded) {
+        domainRows.forEach(row => row.classList.remove('hidden'));
+        btnText.textContent = 'Collapse All';
+        btnIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>';
+      } else {
+        domainRows.forEach(row => row.classList.add('hidden'));
+        btnText.textContent = 'Show All';
+        btnIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>';
+      }
     }
 
-    function updateSection1Charts(espTotals) {
-      if (!chartRefs.espVol) return;
+    function handleDateRangeFilter() {
+      const today = new Date().toISOString().split('T')[0];
+      const startInput = document.getElementById('startDateFilter');
+      const endInput = document.getElementById('endDateFilter');
 
-      chartRefs.espVol.data.datasets[0].data = espTotals.map(e => e.delivered);
-      chartRefs.espVol.data.datasets[1].data = espTotals.map(e => e.opened);
-      chartRefs.espVol.update();
+      let startVal = startInput.value;
+      let endVal = endInput.value;
 
-      chartRefs.espClicks.data.datasets[0].data = espTotals.map(e => e.clicked);
-      chartRefs.espClicks.update();
+      // Prevent selecting days in the future
+      if (endVal > today) endVal = today;
+      if (startVal > today) startVal = today;
+      if (startVal > endVal) startVal = endVal;
 
-      chartRefs.espOpenRate.data.datasets[0].data = espTotals.map(e => e.delivered ? +((e.opened / e.delivered) * 100).toFixed(2) : 0);
-      chartRefs.espOpenRate.update();
+      startInput.value = startVal;
+      endInput.value = endVal;
 
-      const domainAgg = {};
-      const domainOrder = ['Gmail', 'Other', 'Yahoo', 'Outlook', 'iCloud', 'Hotmail', 'Aol'];
-      domainOrder.forEach(d => domainAgg[d] = { delivered: 0, opened: 0, clicked: 0 });
-
-      espTotals.forEach(e => {
-        e.domains.forEach(d => {
-          if (domainAgg[d.domain]) {
-            domainAgg[d.domain].delivered += d.delivered;
-            domainAgg[d.domain].opened += d.opened;
-            domainAgg[d.domain].clicked += d.clicked;
-          }
-        });
-      });
-
-      chartRefs.domDeliv.data.datasets[0].data = domainOrder.map(d => domainAgg[d].delivered);
-      chartRefs.domDeliv.update();
-
-      const openRateOrder = ['iCloud', 'Outlook', 'Yahoo', 'Aol', 'Gmail', 'Hotmail', 'Other'];
-      chartRefs.domOpenRate.data.datasets[0].data = openRateOrder.map(d => {
-        const item = domainAgg[d];
-        return item.delivered ? +((item.opened / item.delivered) * 100).toFixed(2) : 0;
-      });
-      chartRefs.domOpenRate.update();
-
-      const clicksOrder = ['Gmail', 'Other', 'Yahoo', 'iCloud', 'Outlook', 'Aol', 'Hotmail'];
-      chartRefs.domClicks.data.datasets[0].data = clicksOrder.map(d => domainAgg[d].clicked);
-      chartRefs.domClicks.update();
+      const agg = aggregateData(startVal, endVal);
+      renderDashboard(agg, startVal, endVal);
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      initAllCharts();
-      initSortableTables();
-      renderEspTableRange(1, 28);
+    // App Initialization on DOM Ready
+    document.addEventListener('DOMContentLoaded', async () => {
+      initCharts();
+
+      // Fetch dynamic JSON data
+      globalLoadedMonths = await loadAllMonthData();
+
+      const badge = document.getElementById('dataStatusBadge');
+      if (globalLoadedMonths.length > 0) {
+        badge.textContent = `GitHub Pages Active (${globalLoadedMonths.length} Month loaded)`;
+        badge.className = 'inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200';
+      } else {
+        badge.textContent = 'Demo Mode (Local)';
+        badge.className = 'inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200';
+      }
+
+      // Initialize calendar filters up to TODAY
+      initDateControls(globalLoadedMonths);
+
+      const startInput = document.getElementById('startDateFilter');
+      const endInput = document.getElementById('endDateFilter');
+
+      // Initial execution for default period
+      handleDateRangeFilter();
     });
   </script>
 
