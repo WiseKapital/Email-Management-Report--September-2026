@@ -235,7 +235,7 @@
                   EMAIL
                 </span>
               </td>
-              <!-- KPIS Values -->
+              <!-- KPIS Values (SUMMED DYNAMICALLY ACROSS FILTERED MONTHS) -->
               <td id="teamKpiBudget" class="px-2.5 py-3 font-bold text-slate-900 text-sm">$0</td>
               <td id="teamKpiSignups" class="px-2.5 py-3 font-bold text-slate-900 text-sm">0</td>
               <td id="teamKpiUsers" class="px-2.5 py-3 font-bold text-slate-900 text-sm">0</td>
@@ -488,13 +488,13 @@
               <tbody class="text-slate-800 font-medium">
                 <tr class="bg-white">
                   <td class="py-2 px-3 text-left font-bold">Registrations</td>
-                  <td class="py-2 px-3 font-bold text-slate-900">250</td>
+                  <td id="jessieKpiReg" class="py-2 px-3 font-bold text-slate-900">250</td>
                   <td id="jessieRegMtd" class="py-2 px-3 font-bold">0</td>
                   <td id="jessieRegRr" class="py-2 px-3 font-bold text-rose-600">0</td>
                 </tr>
                 <tr class="bg-slate-50/50">
                   <td class="py-2 px-3 text-left font-bold">Users</td>
-                  <td class="py-2 px-3 font-bold text-slate-900">20</td>
+                  <td id="jessieKpiUsers" class="py-2 px-3 font-bold text-slate-900">20</td>
                   <td id="jessieUsersMtd" class="py-2 px-3 font-bold">0</td>
                   <td id="jessieUsersRr" class="py-2 px-3 font-bold text-rose-600">0</td>
                 </tr>
@@ -519,13 +519,13 @@
               <tbody class="text-slate-800 font-medium">
                 <tr class="bg-white">
                   <td class="py-2 px-3 text-left font-bold">Registrations</td>
-                  <td class="py-2 px-3 font-bold text-slate-900">250</td>
+                  <td id="andreaKpiReg" class="py-2 px-3 font-bold text-slate-900">250</td>
                   <td id="andreaRegMtd" class="py-2 px-3 font-bold">0</td>
                   <td id="andreaRegRr" class="py-2 px-3 font-bold text-emerald-600">0</td>
                 </tr>
                 <tr class="bg-slate-50/50">
                   <td class="py-2 px-3 text-left font-bold">Users</td>
-                  <td class="py-2 px-3 font-bold text-slate-900">20</td>
+                  <td id="andreaKpiUsers" class="py-2 px-3 font-bold text-slate-900">20</td>
                   <td id="andreaUsersMtd" class="py-2 px-3 font-bold">0</td>
                   <td id="andreaUsersRr" class="py-2 px-3 font-bold text-rose-600">0</td>
                 </tr>
@@ -808,7 +808,6 @@
       return `${m}/${d}/${y}`;
     }
 
-    // STRICT ANTI-CACHE FETCH: appends a fresh timestamp & disables local cache
     async function fetchMonthFile(mKey) {
       const timestamp = Date.now();
       const candidates = [
@@ -1040,7 +1039,8 @@
       }
     });
 
-    // Dynamic Multi-Month Aggregator (STRICT FILTER BY ACTIVE MONTHS)
+    // ================= DYNAMIC MULTI-MONTH AGGREGATOR =================
+    // Queries each JSON's KPIs directly and sums them if multiple months are in range
     function aggregateData(startDate, endDate) {
       const agg = {
         delivered: 0,
@@ -1087,13 +1087,31 @@
         };
       });
 
-      // ONLY consider months that fall within the selected date range
+      // 1. Identify which months actually fall within the selected date range
       const activeMonthsInRange = globalLoadedMonths.filter(m => {
         if (!m.daily_records || m.daily_records.length === 0) return false;
         return m.daily_records.some(r => r.date >= startDate && r.date <= endDate);
       });
 
-      // Seed advertisers and brands EXCLUSIVELY from months in range
+      // 2. Query and SUM KPIs from each active month in range
+      activeMonthsInRange.forEach(m => {
+        if (!m.kpis) return;
+        const totalDays = m.total_days_in_month || 30;
+        const elapsedDays = m.days_elapsed || totalDays;
+        const daysMatching = m.daily_records.filter(r => r.date >= startDate && r.date <= endDate).length;
+
+        // If all elapsed days of this month are selected, add 100% of this month's KPI
+        const ratio = (daysMatching >= elapsedDays) ? 1 : (daysMatching / totalDays);
+
+        agg.kpi.budget += (m.kpis.budget || 0) * ratio;
+        agg.kpi.signups += Math.round((m.kpis.signups || 0) * ratio);
+        agg.kpi.users += Math.round((m.kpis.users || 0) * ratio);
+        agg.kpi.revenue += (m.kpis.revenue || 0) * ratio;
+        agg.kpi.profit += (m.kpis.profit || 0) * ratio;
+        agg.totalMonthDays += totalDays;
+      });
+
+      // 3. Seed advertisers and brands exclusively from months in range
       activeMonthsInRange.forEach(m => {
         if (m.advertisers_mtd) {
           m.advertisers_mtd.forEach(a => {
@@ -1125,7 +1143,7 @@
         }
       });
 
-      // Check if viewing a single full month (e.g. all 28 days of September)
+      // 4. Single full-month fast path (exact JSON match)
       let singleMonthFastMatch = null;
       if (activeMonthsInRange.length === 1) {
         const m = activeMonthsInRange[0];
@@ -1151,18 +1169,11 @@
         agg.daysElapsedInRange = m.days_elapsed || 28;
         agg.totalMonthDays = m.total_days_in_month || 30;
 
-        agg.kpi.budget = m.kpis.budget;
-        agg.kpi.signups = m.kpis.signups;
-        agg.kpi.users = m.kpis.users;
-        agg.kpi.revenue = m.kpis.revenue;
-        agg.kpi.profit = m.kpis.profit;
-
         agg.advertisers = {};
         m.advertisers_mtd.forEach(a => {
           agg.advertisers[a.advertiser] = { signups: a.signups, users: a.users, revenue: a.revenue };
         });
 
-        // Exact brands from this single month's JSON
         agg.brands = {};
         m.brands_mtd.forEach(b => {
           agg.brands[b.brand] = { signups: b.signups, users: b.users, revenue: b.revenue };
@@ -1173,7 +1184,7 @@
         return agg;
       }
 
-      // Sum up day by day for sub-ranges or multi-month ranges
+      // 5. Multi-month or sub-range day-by-day accumulation
       activeMonthsInRange.forEach(m => {
         let monthDaysCount = 0;
         let monthDeliveredCount = 0;
@@ -1227,14 +1238,10 @@
           });
         }
 
-        if (monthDaysCount > 0 && m.kpis) {
-          const ratio = monthDaysCount / (m.total_days_in_month || 30);
-          agg.kpi.budget += (m.kpis.budget || 0) * ratio;
-          agg.kpi.signups += Math.round((m.kpis.signups || 0) * ratio);
-          agg.kpi.users += Math.round((m.kpis.users || 0) * ratio);
-          agg.kpi.revenue += (m.kpis.revenue || 0) * ratio;
-          agg.kpi.profit += (m.kpis.profit || 0) * ratio;
-          agg.totalMonthDays += (m.total_days_in_month || 30);
+        if (monthDaysCount > 0) {
+          const ratio = (monthDaysCount >= (m.days_elapsed || m.total_days_in_month || 28)) 
+                        ? 1 
+                        : (monthDaysCount / (m.days_elapsed || m.total_days_in_month || 28));
 
           if (m.team_ops_mtd && m.team_ops_mtd.signups_by_advertiser) {
             Object.keys(m.team_ops_mtd.signups_by_advertiser).forEach(adv => {
@@ -1300,7 +1307,7 @@
       const daysCount = Math.max(1, agg.daysElapsedInRange || 28);
       const rrFactor = agg.totalMonthDays > 0 ? (agg.totalMonthDays / daysCount) : (30 / daysCount);
 
-      // 1. Team Performance Overview
+      // 1. Team Performance Overview (SUMMED KPIS SHOWN DYNAMICALLY)
       document.getElementById('teamKpiBudget').textContent = `$${Math.round(agg.kpi.budget).toLocaleString()}`;
       document.getElementById('teamKpiSignups').textContent = Math.round(agg.kpi.signups).toLocaleString();
       document.getElementById('teamKpiUsers').textContent = Math.round(agg.kpi.users).toLocaleString();
@@ -1342,7 +1349,7 @@
 
       document.getElementById('teamRrRoi').textContent = `1:${roiRatio}`;
 
-      // 2. Section 1 Top 10 KPI Cards
+      // 2. Section 1 Top 10 KPI Cards (KPI SUBTITLES SUMMED PROPORTIONALLY)
       document.getElementById('kpiDelivered').textContent = agg.delivered.toLocaleString();
       document.getElementById('kpiOpened').textContent = agg.opened.toLocaleString();
       document.getElementById('kpiClicked').textContent = agg.clicked.toLocaleString();
@@ -1361,6 +1368,12 @@
       document.getElementById('kpiOpenRate').textContent = `${openRate}% Open Rate`;
       document.getElementById('kpiClickRate').textContent = `${clickRate}% Click Rate`;
       document.getElementById('kpiBounceRate').textContent = `${bounceRate}% bounce`;
+
+      document.getElementById('cardKpiSignupsSub').textContent = `KPI: ${Math.round(agg.kpi.signups).toLocaleString()}`;
+      document.getElementById('cardKpiUsersSub').textContent = `KPI: ${Math.round(agg.kpi.users).toLocaleString()}`;
+      document.getElementById('cardKpiRevenueSub').textContent = `KPI: $${(Math.round(agg.kpi.revenue) / 1000).toFixed(1)}k`;
+      document.getElementById('cardKpiBudgetSub').textContent = `KPI: $${(Math.round(agg.kpi.budget) / 1000).toFixed(1)}k`;
+      document.getElementById('cardKpiProfitSub').textContent = `KPI: $${(Math.round(agg.kpi.profit) / 1000).toFixed(1)}k`;
 
       const cardRrSignupsSub = document.getElementById('cardRrSignupsSub');
       cardRrSignupsSub.textContent = `RR: ${rrSignups}`;
@@ -1391,7 +1404,7 @@
       renderEspTable(agg.esp, agg);
 
       // 4. Render Ops Team Tables
-      renderOpsTeam(agg.ops, rrFactor);
+      renderOpsTeam(agg.ops, rrFactor, agg.kpi);
 
       // 5. Render Advertiser Breakdown Table
       renderAdvertiserTable(agg.advertisers, agg.signups, agg.users, agg.revenue);
@@ -1454,7 +1467,16 @@
       `;
     }
 
-    function renderOpsTeam(ops, rrFactor) {
+    function renderOpsTeam(ops, rrFactor, kpi) {
+      // Dynamic KPI targets for Ops Team (split 50% Andrea / 50% Jessie)
+      const opsKpiReg = Math.round(kpi.signups / 2);
+      const opsKpiUsers = Math.round(kpi.users / 2);
+
+      document.getElementById('jessieKpiReg').textContent = opsKpiReg.toLocaleString();
+      document.getElementById('jessieKpiUsers').textContent = opsKpiUsers.toLocaleString();
+      document.getElementById('andreaKpiReg').textContent = opsKpiReg.toLocaleString();
+      document.getElementById('andreaKpiUsers').textContent = opsKpiUsers.toLocaleString();
+
       document.getElementById('jessieRegMtd').textContent = ops.jessie.signups;
       document.getElementById('jessieRegRr').textContent = Math.round(ops.jessie.signups * rrFactor);
       document.getElementById('jessieUsersMtd').textContent = ops.jessie.users;
@@ -1860,11 +1882,9 @@
 
       const badge = document.getElementById('dataStatusBadge');
       if (globalLoadedMonths.length === 0) {
-        // Only show if there is an error loading JSON files
         badge.textContent = 'Error: No JSON data files detected. Check repository.';
         badge.classList.remove('hidden');
       } else {
-        // Keep completely hidden when working normally
         badge.classList.add('hidden');
       }
 
