@@ -1,0 +1,1387 @@
+{
+  "month": "October",
+  "year": 2026,
+  "total_days_in_month": 31,
+  "days_elapsed": 31,
+  "kpis": {
+    "budget": 1100,
+    "signups": 450,
+    "users": 40,
+    "revenue": 4400,
+    "profit": 3300
+  },
+  "summary_mtd": {
+    "delivered": 0,
+    "bounced": 0,
+    "opened": 0,
+    "clicked": 0,
+    "unsub": 0,
+    "budget": 0.0,
+    "signups": 6,
+    "users": 1,
+    "revenue": 150.0,
+    "profit": 150.0,
+    "s2p_ratio": "1:6"
+  },
+  "esp_mtd_totals": [
+    {
+      "esp": "MLJ (Mailjet) IP 1",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "signups": 0,
+      "players": 0,
+      "domains": {
+        "Gmail": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Yahoo": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "iCloud": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Hotmail": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Other": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Outlook": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Aol": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        }
+      }
+    },
+    {
+      "esp": "MLJ (Mailjet) IP 2",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "signups": 0,
+      "players": 0,
+      "domains": {
+        "Gmail": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Yahoo": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "iCloud": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Hotmail": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Other": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Outlook": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Aol": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        }
+      }
+    },
+    {
+      "esp": "MLJ (Mailjet) IP 3 / SH",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "signups": 0,
+      "players": 0,
+      "domains": {
+        "Gmail": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Yahoo": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "iCloud": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Hotmail": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Other": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Outlook": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Aol": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        }
+      }
+    },
+    {
+      "esp": "SEG (Sendgrid) IP 1",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "signups": 0,
+      "players": 0,
+      "domains": {
+        "Gmail": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Yahoo": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "iCloud": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Hotmail": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Other": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Outlook": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Aol": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        }
+      }
+    },
+    {
+      "esp": "SEG (Sendgrid) IP 2 / SH",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "signups": 0,
+      "players": 0,
+      "domains": {
+        "Gmail": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Yahoo": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "iCloud": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Hotmail": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Other": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Outlook": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        },
+        "Aol": {
+          "delivered": 0,
+          "bounced": 0,
+          "opened": 0,
+          "clicked": 0,
+          "signups": 0,
+          "players": 0
+        }
+      }
+    }
+  ],
+  "advertisers_mtd": [
+    {
+      "advertiser": "GameTime Digital",
+      "signups": 3,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:3"
+    },
+    {
+      "advertiser": "Splash",
+      "signups": 3,
+      "users": 1,
+      "revenue": 150.0,
+      "s2p": "1:3"
+    },
+    {
+      "advertiser": "AFF 66",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "advertiser": "ALL IN AFFILIATES",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "advertiser": "CHANCED",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "advertiser": "Basher Agency",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "advertiser": "Purify",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "advertiser": "CoinsRoyale",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "advertiser": "EPC",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "advertiser": "Acebet",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    }
+  ],
+  "brands_mtd": [
+    {
+      "brand": "splashcoins",
+      "signups": 3,
+      "users": 1,
+      "revenue": 150.0,
+      "s2p": "1:3"
+    },
+    {
+      "brand": "CoinsBack",
+      "signups": 2,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:2"
+    },
+    {
+      "brand": "McLuck",
+      "signups": 1,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:1"
+    },
+    {
+      "brand": "Acebet",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "brand": "Betnjet",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "brand": "Coins Royale sweeps",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "brand": "Chanced Punt",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "brand": "SweepJungle",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "brand": "nan",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    }
+  ],
+  "team_ops_mtd": {
+    "jessie": {
+      "signups": 0,
+      "users": 0
+    },
+    "andrea": {
+      "signups": 3,
+      "users": 0
+    },
+    "signups_by_advertiser": {
+      "ACEBET": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "AFF 66": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "ALL IN AFFILIATES": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "BASHER AGENCY": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "CHANCED": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "COINSROYALE": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "EPC": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "GAMETIME DIGITAL": {
+        "andrea": 3,
+        "jessie": 0,
+        "total": 3
+      },
+      "PURIFY": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "SPLASH": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      }
+    },
+    "users_by_advertiser": {
+      "ACEBET": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "AFF 66": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "ALL IN AFFILIATES": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "BASHER AGENCY": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "CHANCED": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "COINSROYALE": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "EPC": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "GAMETIME DIGITAL": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "PURIFY": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "SPLASH": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      }
+    }
+  },
+  "daily_records": [
+    {
+      "date": "2026-10-01",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 6,
+      "users": 1,
+      "revenue": 150.0,
+      "advertisers": {
+        "GameTime Digital": {
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "Splash": {
+          "signups": 3,
+          "users": 1,
+          "revenue": 150.0
+        }
+      },
+      "brands": {
+        "splashcoins": {
+          "signups": 3,
+          "users": 1,
+          "revenue": 150.0
+        },
+        "CoinsBack": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "McLuck": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        }
+      },
+      "ops": {
+        "andrea": {
+          "signups": 3,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-02",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-03",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-04",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-05",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-06",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-07",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-08",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-09",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-10",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-11",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-12",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-14",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-16",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-17",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-19",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-20",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-21",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-23",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-24",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-25",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-26",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-29",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-30",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-31",
+      "delivered": 0,
+      "bounced": 0,
+      "opened": 0,
+      "clicked": 0,
+      "unsub": 0,
+      "budget": 0.0,
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "advertisers": {},
+      "brands": {},
+      "ops": {
+        "andrea": {
+          "signups": 0,
+          "users": 0
+        },
+        "jessie": {
+          "signups": 0,
+          "users": 0
+        }
+      }
+    }
+  ]
+}
