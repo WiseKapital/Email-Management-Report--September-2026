@@ -11,740 +11,1087 @@
     "profit": 3300
   },
   "summary_mtd": {
-    "delivered": 0,
+    "delivered": 2805,
     "bounced": 0,
     "opened": 0,
     "clicked": 0,
     "unsub": 0,
-    "budget": 950,
-    "signups": 401,
-    "users": 15,
-    "revenue": 1337,
-    "profit": 387,
-    "s2p_ratio": "1:27"
+    "budget": 2122.0,
+    "signups": 1065,
+    "users": 54,
+    "revenue": 5136.22,
+    "profit": 3014.22,
+    "s2p_ratio": "1:20"
   },
-  "esp_mtd_totals": [],
   "advertisers_mtd": [
     {
-      "advertiser": "GameTime Digital",
-      "signups": 232,
-      "users": 8,
-      "revenue": 620,
-      "s2p": "1:29"
+      "advertiser": "WIZ",
+      "signups": 508,
+      "users": 7,
+      "revenue": 1110.0,
+      "budget": 330.0,
+      "s2p": "1:73"
     },
     {
-      "advertiser": "EPC",
-      "signups": 50,
-      "users": 2,
-      "revenue": 240,
-      "s2p": "1:25"
+      "advertiser": "LGL",
+      "signups": 233,
+      "users": 1,
+      "revenue": 170.0,
+      "budget": 111.0,
+      "s2p": "1:233"
     },
     {
-      "advertiser": "CoinsRoyale",
-      "signups": 41,
-      "users": 2,
-      "revenue": 0,
+      "advertiser": "MON",
+      "signups": 76,
+      "users": 6,
+      "revenue": 0.0,
+      "budget": 900.0,
+      "s2p": "1:13"
+    },
+    {
+      "advertiser": "PRO",
+      "signups": 62,
+      "users": 17,
+      "revenue": 2360.0,
+      "budget": 0.0,
+      "s2p": "1:4"
+    },
+    {
+      "advertiser": "REV",
+      "signups": 33,
+      "users": 9,
+      "revenue": 180.0,
+      "budget": 75.0,
+      "s2p": "1:4"
+    },
+    {
+      "advertiser": "WDG",
+      "signups": 23,
+      "users": 3,
+      "revenue": 0.0,
+      "budget": 450.0,
+      "s2p": "1:8"
+    },
+    {
+      "advertiser": "CHA",
+      "signups": 21,
+      "users": 1,
+      "revenue": 160.0,
+      "budget": 0.0,
       "s2p": "1:21"
     },
     {
-      "advertiser": "ALL IN AFFILIATES",
-      "signups": 26,
+      "advertiser": "SPX",
+      "signups": 20,
       "users": 1,
-      "revenue": 192,
-      "s2p": "1:26"
+      "revenue": 220.0,
+      "budget": 0.0,
+      "s2p": "1:20"
     },
     {
-      "advertiser": "Basher Agency",
-      "signups": 24,
+      "advertiser": "VENE",
+      "signups": 17,
       "users": 1,
-      "revenue": 135,
-      "s2p": "1:24"
+      "revenue": 170.0,
+      "budget": 0.0,
+      "s2p": "1:17"
     },
     {
-      "advertiser": "Splash",
-      "signups": 14,
+      "advertiser": "ADM",
+      "signups": 12,
       "users": 1,
-      "revenue": 150,
-      "s2p": "1:14"
+      "revenue": 220.0,
+      "budget": 75.0,
+      "s2p": "1:12"
     },
     {
-      "advertiser": "CHANCED",
-      "signups": 14,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:14"
+      "advertiser": "ADO",
+      "signups": 7,
+      "users": 3,
+      "revenue": 370.0,
+      "budget": 0.0,
+      "s2p": "1:2"
     },
     {
-      "advertiser": "AFF 66",
+      "advertiser": "APG",
+      "signups": 5,
+      "users": 1,
+      "revenue": 160.0,
+      "budget": 0.0,
+      "s2p": "1:5"
+    },
+    {
+      "advertiser": "XLE",
+      "signups": 3,
+      "users": 3,
+      "revenue": 16.22,
+      "budget": 10.0,
+      "s2p": "1:1"
+    },
+    {
+      "advertiser": "FXM",
       "signups": 0,
       "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "advertiser": "SWEEPDREAMS",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "advertiser": "Purify",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "advertiser": "Acebet",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
+      "revenue": 0.0,
+      "budget": 171.0,
       "s2p": "0:0"
     }
   ],
   "brands_mtd": [
     {
-      "brand": "LuckyBunny",
-      "signups": 27,
-      "users": 2,
-      "revenue": 240,
-      "s2p": "1:14"
+      "brand": "WIZ",
+      "advertiser": "WIZ",
+      "signups": 508,
+      "users": 7,
+      "revenue": 1110.0,
+      "s2p": "1:73"
     },
     {
-      "brand": "SweepSpotGameTime",
-      "signups": 9,
-      "users": 2,
-      "revenue": 240,
-      "s2p": "1:5"
-    },
-    {
-      "brand": "SpinRise",
-      "signups": 12,
+      "brand": "LGL",
+      "advertiser": "LGL",
+      "signups": 233,
       "users": 1,
-      "revenue": 160,
-      "s2p": "1:12"
+      "revenue": 170.0,
+      "s2p": "1:233"
     },
     {
-      "brand": "splashcoins",
-      "signups": 14,
-      "users": 1,
-      "revenue": 150,
-      "s2p": "1:14"
+      "brand": "MON",
+      "advertiser": "MON",
+      "signups": 76,
+      "users": 6,
+      "revenue": 0.0,
+      "s2p": "1:13"
     },
     {
-      "brand": "Greenluck",
-      "signups": 10,
-      "users": 1,
-      "revenue": 135,
-      "s2p": "1:10"
+      "brand": "PRO",
+      "advertiser": "PRO",
+      "signups": 62,
+      "users": 17,
+      "revenue": 2360.0,
+      "s2p": "1:4"
     },
     {
-      "brand": "CoinsBack",
-      "signups": 8,
-      "users": 1,
-      "revenue": 130,
+      "brand": "REV",
+      "advertiser": "REV",
+      "signups": 33,
+      "users": 9,
+      "revenue": 180.0,
+      "s2p": "1:4"
+    },
+    {
+      "brand": "WDG",
+      "advertiser": "WDG",
+      "signups": 23,
+      "users": 3,
+      "revenue": 0.0,
       "s2p": "1:8"
     },
     {
-      "brand": "SweepShark",
-      "signups": 26,
-      "users": 1,
-      "revenue": 125,
-      "s2p": "1:26"
-    },
-    {
-      "brand": "Rolla",
-      "signups": 16,
-      "users": 1,
-      "revenue": 125,
-      "s2p": "1:16"
-    },
-    {
-      "brand": "Midarion",
-      "signups": 4,
+      "brand": "EPV",
+      "advertiser": "EPV",
+      "signups": 22,
       "users": 0,
-      "revenue": 32,
-      "s2p": "0:4"
+      "revenue": 0.0,
+      "s2p": "0:22"
     },
     {
-      "brand": "Mega Spinz",
-      "signups": 10,
-      "users": 3,
-      "revenue": 0,
-      "s2p": "1:3"
-    },
-    {
-      "brand": "Coins Royale sweeps",
-      "signups": 41,
-      "users": 2,
-      "revenue": 0,
+      "brand": "CHA",
+      "advertiser": "CHA",
+      "signups": 21,
+      "users": 1,
+      "revenue": 160.0,
       "s2p": "1:21"
     },
     {
-      "brand": "The Boss",
-      "signups": 32,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:32"
+      "brand": "SPX",
+      "advertiser": "SPX",
+      "signups": 20,
+      "users": 1,
+      "revenue": 220.0,
+      "s2p": "1:20"
     },
     {
-      "brand": "Dorados",
-      "signups": 29,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:29"
+      "brand": "VENE",
+      "advertiser": "VENE",
+      "signups": 17,
+      "users": 1,
+      "revenue": 170.0,
+      "s2p": "1:17"
     },
     {
-      "brand": "Sweet Sweep",
-      "signups": 19,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:19"
+      "brand": "ADM",
+      "advertiser": "ADM",
+      "signups": 12,
+      "users": 1,
+      "revenue": 220.0,
+      "s2p": "1:12"
     },
     {
-      "brand": "BankRolla",
-      "signups": 16,
+      "brand": "LUM",
+      "advertiser": "LUM",
+      "signups": 7,
       "users": 0,
-      "revenue": 0,
-      "s2p": "0:16"
+      "revenue": 0.0,
+      "s2p": "0:7"
     },
     {
-      "brand": "VegasWays",
-      "signups": 15,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:15"
+      "brand": "ADO",
+      "advertiser": "ADO",
+      "signups": 7,
+      "users": 3,
+      "revenue": 370.0,
+      "s2p": "1:2"
     },
     {
-      "brand": "Chanced Punt",
-      "signups": 14,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:14"
-    },
-    {
-      "brand": "5Bet",
-      "signups": 11,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:11"
-    },
-    {
-      "brand": "CasinoClick",
-      "signups": 10,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:10"
-    },
-    {
-      "brand": "lonestar new",
-      "signups": 10,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:10"
-    },
-    {
-      "brand": "High5",
-      "signups": 10,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:10"
-    },
-    {
-      "brand": "ChipNWin",
-      "signups": 6,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:6"
-    },
-    {
-      "brand": "Baba",
-      "signups": 6,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:6"
-    },
-    {
-      "brand": "High5Casino",
+      "brand": "APG",
+      "advertiser": "APG",
       "signups": 5,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:5"
+      "users": 1,
+      "revenue": 160.0,
+      "s2p": "1:5"
     },
     {
-      "brand": "theWinZone",
-      "signups": 5,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:5"
+      "brand": "XLE",
+      "advertiser": "XLE",
+      "signups": 3,
+      "users": 3,
+      "revenue": 16.22,
+      "s2p": "1:1"
     },
     {
-      "brand": "QBet",
-      "signups": 4,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:4"
-    },
-    {
-      "brand": "McLuck",
-      "signups": 4,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:4"
-    },
-    {
-      "brand": "Spinfinite2",
-      "signups": 4,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:4"
-    },
-    {
-      "brand": "Mega Bonanza",
+      "brand": "IPK",
+      "advertiser": "IPK",
       "signups": 3,
       "users": 0,
-      "revenue": 0,
+      "revenue": 0.0,
       "s2p": "0:3"
     },
     {
-      "brand": "Seven Casino",
-      "signups": 3,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:3"
-    },
-    {
-      "brand": "Spinbara",
-      "signups": 3,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:3"
-    },
-    {
-      "brand": "Spree",
-      "signups": 3,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:3"
-    },
-    {
-      "brand": "Bitkingz",
+      "brand": "MOD",
+      "advertiser": "MOD",
       "signups": 2,
       "users": 0,
-      "revenue": 0,
+      "revenue": 0.0,
       "s2p": "0:2"
     },
     {
-      "brand": "Rolling Riches",
+      "brand": "DRCT",
+      "advertiser": "DRCT",
       "signups": 2,
       "users": 0,
-      "revenue": 0,
+      "revenue": 0.0,
       "s2p": "0:2"
     },
     {
-      "brand": "Lucky Vibe CA",
+      "brand": "FZY",
+      "advertiser": "FZY",
+      "signups": 2,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:2"
+    },
+    {
+      "brand": "SDG",
+      "advertiser": "SDG",
+      "signups": 2,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:2"
+    },
+    {
+      "brand": "SGA",
+      "advertiser": "SGA",
       "signups": 1,
       "users": 0,
-      "revenue": 0,
+      "revenue": 0.0,
       "s2p": "0:1"
     },
     {
-      "brand": "Legendz",
+      "brand": "CFL",
+      "advertiser": "CFL",
       "signups": 1,
       "users": 0,
-      "revenue": 0,
+      "revenue": 0.0,
       "s2p": "0:1"
     },
     {
-      "brand": "Jackpotgo",
+      "brand": "WRW",
+      "advertiser": "WRW",
       "signups": 1,
       "users": 0,
-      "revenue": 0,
+      "revenue": 0.0,
       "s2p": "0:1"
     },
     {
-      "brand": "CrownsCoins",
+      "brand": "BTD",
+      "advertiser": "BTD",
       "signups": 1,
       "users": 0,
-      "revenue": 0,
+      "revenue": 0.0,
       "s2p": "0:1"
     },
     {
-      "brand": "Pulsz SEO",
+      "brand": "ADV",
+      "advertiser": "ADV",
       "signups": 1,
       "users": 0,
-      "revenue": 0,
+      "revenue": 0.0,
       "s2p": "0:1"
-    },
-    {
-      "brand": "Millioner",
-      "signups": 1,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:1"
-    },
-    {
-      "brand": "Rooster.bet CA",
-      "signups": 1,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:1"
-    },
-    {
-      "brand": "SweetSweepsGameTime",
-      "signups": 1,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:1"
-    },
-    {
-      "brand": "SWEEPDREAMS",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "Casino Smartlink",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "BetRiot",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "Betnjet",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "BetAlice",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "Acebet",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "Revolution Casino",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "Lussurio",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "RodeoSlot Casino",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "Sixty6",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "Smash Casino",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "SpinPanda",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "SweepJungle",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0,
-      "s2p": "0:0"
     }
   ],
+  "esp_mtd_totals": [],
   "team_ops_mtd": {
-    "jessie": {
-      "signups": 40,
-      "users": 1
-    },
     "andrea": {
-      "signups": 15,
+      "signups": 0,
       "users": 0
     },
-    "signups_by_advertiser": {
-      "GAMETIME DIGITAL": {
-        "andrea": 15,
-        "jessie": 25,
-        "total": 40
-      },
-      "EPC": {
-        "andrea": 0,
-        "jessie": 7,
-        "total": 7
-      },
-      "ALL IN AFFILIATES": {
-        "andrea": 0,
-        "jessie": 4,
-        "total": 4
-      },
-      "CHANCED": {
-        "andrea": 0,
-        "jessie": 4,
-        "total": 4
-      },
-      "ACEBET": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "AFF 66": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "BASHER AGENCY": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "COINSROYALE": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "PURIFY": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "SPLASH": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "SWEEPDREAMS": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      }
+    "jessie": {
+      "signups": 0,
+      "users": 0
     },
-    "users_by_advertiser": {
-      "EPC": {
-        "andrea": 0,
-        "jessie": 1,
-        "total": 1
-      },
-      "ACEBET": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "AFF 66": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "ALL IN AFFILIATES": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "BASHER AGENCY": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "CHANCED": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "COINSROYALE": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "GAMETIME DIGITAL": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "PURIFY": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "SPLASH": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "SWEEPDREAMS": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      }
-    }
+    "signups_by_advertiser": {},
+    "users_by_advertiser": {}
   },
   "daily_records": [
     {
       "date": "2026-07-01",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 120,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "GameTime Digital": {
+        "WIZ": {
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
           "signups": 8,
           "users": 1,
-          "revenue": 120
+          "revenue": 5.836909871244635
         },
-        "EPC": {
-          "signups": 2,
-          "users": 0,
-          "revenue": 0
-        },
-        "CoinsRoyale": {
+        "MON": {
           "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 10.90909090909091
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 52.857142857142854
+        },
+        "APG": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 32.0
+        },
+        "XLE": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.406666666666666
+        },
+        "IPK": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "MOD": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "DRCT": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "FZY": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "SDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "SGA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CFL": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "WRW": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "BTD": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "brands": {
-        "LuckyBunny": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 1,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
           "signups": 2,
           "users": 1,
-          "revenue": 120
+          "revenue": 76.12903225806451
         },
-        "Coins Royale sweeps": {
-          "signups": 3,
+        "REV": {
+          "advertiser": "REV",
+          "signups": 2,
+          "users": 1,
+          "revenue": 10.90909090909091
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 1,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 1,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 1,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 1,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "advertiser": "LUM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "advertiser": "ADO",
+          "signups": 1,
+          "users": 1,
+          "revenue": 52.857142857142854
+        },
+        "APG": {
+          "advertiser": "APG",
+          "signups": 1,
+          "users": 1,
+          "revenue": 32.0
+        },
+        "XLE": {
+          "advertiser": "XLE",
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.406666666666666
+        },
+        "IPK": {
+          "advertiser": "IPK",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "MOD": {
+          "advertiser": "MOD",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "DRCT": {
+          "advertiser": "DRCT",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "FZY": {
+          "advertiser": "FZY",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "SDG": {
+          "advertiser": "SDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "SGA": {
+          "advertiser": "SGA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CFL": {
+          "advertiser": "CFL",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "WRW": {
+          "advertiser": "WRW",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "BTD": {
+          "advertiser": "BTD",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADV": {
+          "advertiser": "ADV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-02",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 9,
-          "users": 0,
-          "revenue": 0
+        "WIZ": {
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
         },
-        "CHANCED": {
-          "signups": 2,
+        "LGL": {
+          "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
         },
-        "Basher Agency": {
+        "MON": {
+          "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
           "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 10.90909090909091
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 52.857142857142854
+        },
+        "APG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 32.0
+        },
+        "XLE": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.406666666666666
+        },
+        "IPK": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "MOD": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "DRCT": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "FZY": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "SDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "brands": {
-        "The Boss": {
-          "signups": 2,
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 2,
+          "users": 1,
+          "revenue": 10.90909090909091
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "advertiser": "LUM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "advertiser": "ADO",
+          "signups": 1,
+          "users": 1,
+          "revenue": 52.857142857142854
+        },
+        "APG": {
+          "advertiser": "APG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 32.0
+        },
+        "XLE": {
+          "advertiser": "XLE",
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.406666666666666
+        },
+        "IPK": {
+          "advertiser": "IPK",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "MOD": {
+          "advertiser": "MOD",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "DRCT": {
+          "advertiser": "DRCT",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "FZY": {
+          "advertiser": "FZY",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "SDG": {
+          "advertiser": "SDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-03",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 120,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "EPC": {
-          "signups": 3,
+        "WIZ": {
+          "signups": 17,
           "users": 1,
-          "revenue": 120
+          "revenue": 37.145669291338585
         },
-        "GameTime Digital": {
+        "LGL": {
           "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
         },
-        "ALL IN AFFILIATES": {
+        "MON": {
+          "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
           "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 52.857142857142854
+        },
+        "APG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 32.0
+        },
+        "XLE": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.406666666666666
+        },
+        "IPK": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "brands": {
-        "SweepSpotGameTime": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
           "signups": 1,
           "users": 1,
-          "revenue": 120
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "advertiser": "LUM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "advertiser": "ADO",
+          "signups": 1,
+          "users": 1,
+          "revenue": 52.857142857142854
+        },
+        "APG": {
+          "advertiser": "APG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 32.0
+        },
+        "XLE": {
+          "advertiser": "XLE",
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.406666666666666
+        },
+        "IPK": {
+          "advertiser": "IPK",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "ops": {
@@ -753,90 +1100,360 @@
           "users": 0
         },
         "jessie": {
-          "signups": 2,
-          "users": 1
+          "signups": 0,
+          "users": 0
         }
       }
     },
     {
       "date": "2026-07-04",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "GameTime Digital": {
+        "WIZ": {
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
           "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
         },
-        "Splash": {
-          "signups": 2,
-          "users": 0,
-          "revenue": 0
-        },
-        "CoinsRoyale": {
+        "MON": {
           "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 52.857142857142854
+        },
+        "APG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 32.0
         }
       },
       "brands": {
-        "Dorados": {
-          "signups": 2,
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "advertiser": "LUM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "advertiser": "ADO",
+          "signups": 1,
+          "users": 0,
+          "revenue": 52.857142857142854
+        },
+        "APG": {
+          "advertiser": "APG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 32.0
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-05",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 160,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "ALL IN AFFILIATES": {
-          "signups": 3,
+        "WIZ": {
+          "signups": 17,
           "users": 1,
-          "revenue": 160
+          "revenue": 37.145669291338585
         },
-        "GameTime Digital": {
+        "LGL": {
           "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
         },
-        "Basher Agency": {
+        "MON": {
+          "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
           "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 52.857142857142854
+        },
+        "APG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 32.0
         }
       },
       "brands": {
-        "SpinRise": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
           "signups": 1,
           "users": 1,
-          "revenue": 160
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "advertiser": "LUM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "advertiser": "ADO",
+          "signups": 1,
+          "users": 0,
+          "revenue": 52.857142857142854
+        },
+        "APG": {
+          "advertiser": "APG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 32.0
         }
       },
       "ops": {
@@ -845,90 +1462,338 @@
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-06",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 9,
-          "users": 0,
-          "revenue": 0
+        "WIZ": {
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
         },
-        "EPC": {
-          "signups": 2,
+        "LGL": {
+          "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
         },
-        "CoinsRoyale": {
+        "MON": {
+          "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
           "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 52.857142857142854
         }
       },
       "brands": {
-        "Sweet Sweep": {
-          "signups": 2,
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 1,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "advertiser": "LUM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "advertiser": "ADO",
+          "signups": 1,
+          "users": 0,
+          "revenue": 52.857142857142854
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-07",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 150,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "Splash": {
-          "signups": 2,
+        "WIZ": {
+          "signups": 17,
           "users": 1,
-          "revenue": 150
+          "revenue": 37.145669291338585
         },
-        "GameTime Digital": {
+        "LGL": {
           "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
         },
-        "CHANCED": {
+        "MON": {
           "signups": 3,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 52.857142857142854
         }
       },
       "brands": {
-        "splashcoins": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
+          "users": 1,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
           "signups": 2,
           "users": 1,
-          "revenue": 150
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
+        },
+        "LUM": {
+          "advertiser": "LUM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "ADO": {
+          "advertiser": "ADO",
+          "signups": 1,
+          "users": 0,
+          "revenue": 52.857142857142854
         }
       },
       "ops": {
@@ -937,182 +1802,590 @@
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-08",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 135,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "Basher Agency": {
+        "WIZ": {
+          "signups": 17,
+          "users": 0,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
           "signups": 2,
           "users": 1,
-          "revenue": 135
+          "revenue": 76.12903225806451
         },
-        "GameTime Digital": {
-          "signups": 9,
-          "users": 0,
-          "revenue": 0
+        "REV": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
         },
-        "EPC": {
-          "signups": 2,
+        "WDG": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
         }
       },
       "brands": {
-        "Greenluck": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
+          "users": 0,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
           "signups": 1,
           "users": 1,
-          "revenue": 135
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-09",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 9,
+        "WIZ": {
+          "signups": 17,
           "users": 0,
-          "revenue": 0
+          "revenue": 37.145669291338585
         },
-        "CoinsRoyale": {
-          "signups": 2,
+        "LGL": {
+          "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
         },
-        "ALL IN AFFILIATES": {
-          "signups": 2,
+        "MON": {
+          "signups": 3,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
         }
       },
       "brands": {
-        "BankRolla": {
-          "signups": 2,
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
           "users": 0,
-          "revenue": 0
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 1,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-10",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 130,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 9,
+        "WIZ": {
+          "signups": 17,
+          "users": 0,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
           "users": 1,
-          "revenue": 130
+          "revenue": 76.12903225806451
         },
-        "EPC": {
-          "signups": 2,
+        "REV": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.454545454545455
         },
-        "Splash": {
-          "signups": 2,
+        "WDG": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
         }
       },
       "brands": {
-        "CoinsBack": {
-          "signups": 1,
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
+          "users": 0,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
           "users": 1,
-          "revenue": 130
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-11",
-      "delivered": 0,
+      "delivered": 92,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 69.74,
+      "signups": 35,
+      "users": 2,
+      "revenue": 168.8,
+      "profit": 99.06,
       "advertisers": {
-        "GameTime Digital": {
+        "WIZ": {
+          "signups": 17,
+          "users": 0,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
           "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
         },
-        "Basher Agency": {
-          "signups": 2,
-          "users": 0,
-          "revenue": 0
-        },
-        "CHANCED": {
+        "MON": {
           "signups": 3,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
         }
       },
       "brands": {
-        "VegasWays": {
-          "signups": 2,
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
           "users": 0,
-          "revenue": 0
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
         }
       },
       "ops": {
@@ -1121,131 +2394,420 @@
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-12",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 125,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 8,
-          "users": 1,
-          "revenue": 125
+        "WIZ": {
+          "signups": 17,
+          "users": 0,
+          "revenue": 37.145669291338585
         },
-        "ALL IN AFFILIATES": {
+        "LGL": {
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
           "signups": 3,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
         }
       },
       "brands": {
-        "SweepShark": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 17,
+          "users": 0,
+          "revenue": 37.145669291338585
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
           "signups": 2,
           "users": 1,
-          "revenue": 125
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
+        },
+        "ADM": {
+          "advertiser": "ADM",
+          "signups": 1,
+          "users": 0,
+          "revenue": 18.333333333333332
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-13",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 125,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 9,
+        "WIZ": {
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
           "users": 1,
-          "revenue": 125
+          "revenue": 76.12903225806451
         },
-        "EPC": {
-          "signups": 2,
+        "REV": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.454545454545455
         },
-        "Splash": {
-          "signups": 2,
+        "WDG": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
         }
       },
       "brands": {
-        "Rolla": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
           "signups": 2,
           "users": 1,
-          "revenue": 125
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-14",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 32,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "ALL IN AFFILIATES": {
-          "signups": 3,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 32
+          "revenue": 34.960629921259844
         },
-        "GameTime Digital": {
+        "LGL": {
           "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
         },
-        "Basher Agency": {
-          "signups": 2,
+        "MON": {
+          "signups": 3,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
         }
       },
       "brands": {
-        "Midarion": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
           "signups": 1,
           "users": 0,
-          "revenue": 32
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
         }
       },
       "ops": {
@@ -1254,90 +2816,272 @@
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-15",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 120,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "EPC": {
-          "signups": 3,
-          "users": 1,
-          "revenue": 120
+        "WIZ": {
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
         },
-        "GameTime Digital": {
+        "LGL": {
           "signups": 8,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.836909871244635
         },
-        "CoinsRoyale": {
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
         }
       },
       "brands": {
-        "SweepSpotGameTime": {
-          "signups": 1,
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
           "users": 1,
-          "revenue": 120
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-16",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 120,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 9,
+        "WIZ": {
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
           "users": 1,
-          "revenue": 120
+          "revenue": 76.12903225806451
         },
-        "CHANCED": {
-          "signups": 2,
+        "REV": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.454545454545455
         },
-        "Basher Agency": {
-          "signups": 2,
+        "WDG": {
+          "signups": 1,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
         }
       },
       "brands": {
-        "LuckyBunny": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 8,
+          "users": 0,
+          "revenue": 5.836909871244635
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
           "signups": 2,
           "users": 1,
-          "revenue": 120
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
         }
       },
       "ops": {
@@ -1346,136 +3090,387 @@
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-17",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 8,
-          "users": 1,
-          "revenue": 0
-        },
-        "EPC": {
-          "signups": 3,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "Splash": {
+        "LGL": {
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 1,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
         }
       },
       "brands": {
-        "Mega Spinz": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
           "signups": 2,
           "users": 1,
-          "revenue": 0
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
+        },
+        "VENE": {
+          "advertiser": "VENE",
+          "signups": 1,
+          "users": 0,
+          "revenue": 10.0
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-18",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "CoinsRoyale": {
-          "signups": 3,
-          "users": 1,
-          "revenue": 0
-        },
-        "GameTime Digital": {
-          "signups": 8,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "ALL IN AFFILIATES": {
+        "LGL": {
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
         }
       },
       "brands": {
-        "Coins Royale sweeps": {
-          "signups": 3,
-          "users": 1,
-          "revenue": 0
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-19",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 8,
-          "users": 1,
-          "revenue": 0
-        },
-        "Basher Agency": {
-          "signups": 3,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "CHANCED": {
+        "LGL": {
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
         }
       },
       "brands": {
-        "Mega Spinz": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
           "signups": 2,
-          "users": 1,
-          "revenue": 0
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
         }
       },
       "ops": {
@@ -1484,136 +3479,343 @@
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-20",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "CoinsRoyale": {
-          "signups": 3,
-          "users": 1,
-          "revenue": 0
-        },
-        "GameTime Digital": {
-          "signups": 8,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "EPC": {
+        "LGL": {
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
         }
       },
       "brands": {
-        "Coins Royale sweeps": {
-          "signups": 3,
-          "users": 1,
-          "revenue": 0
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
+        },
+        "SPX": {
+          "advertiser": "SPX",
+          "signups": 1,
+          "users": 0,
+          "revenue": 11.0
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-21",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 1,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 9,
-          "users": 1,
-          "revenue": 0
+        "WIZ": {
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
         },
-        "ALL IN AFFILIATES": {
+        "LGL": {
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
         },
-        "Splash": {
+        "PRO": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
         }
       },
       "brands": {
-        "Mega Spinz": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
           "signups": 2,
-          "users": 1,
-          "revenue": 0
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "CHA": {
+          "advertiser": "CHA",
+          "signups": 1,
+          "users": 0,
+          "revenue": 7.619047619047619
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-22",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 8,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "Basher Agency": {
-          "signups": 3,
+        "LGL": {
+          "signups": 7,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.1072961373390555
         },
-        "EPC": {
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "brands": {
-        "The Boss": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "EPV": {
+          "advertiser": "EPV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "ops": {
@@ -1622,90 +3824,173 @@
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-23",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 2,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 8,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "CoinsRoyale": {
-          "signups": 3,
+        "LGL": {
+          "signups": 7,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.1072961373390555
         },
-        "CHANCED": {
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "brands": {
-        "Chanced Punt": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
+        },
+        "WDG": {
+          "advertiser": "WDG",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-24",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 1,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 8,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "EPC": {
-          "signups": 3,
+        "LGL": {
+          "signups": 7,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.1072961373390555
         },
-        "ALL IN AFFILIATES": {
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "brands": {
-        "SweepShark": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "ops": {
@@ -1714,90 +3999,162 @@
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-25",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 1,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 8,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "Basher Agency": {
-          "signups": 3,
+        "LGL": {
+          "signups": 7,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.1072961373390555
         },
-        "Splash": {
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "brands": {
-        "splashcoins": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-26",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 1,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
+        "WIZ": {
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
           "signups": 7,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.1072961373390555
         },
-        "CoinsRoyale": {
-          "signups": 3,
+        "MON": {
+          "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
         },
-        "EPC": {
-          "signups": 3,
+        "PRO": {
+          "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "brands": {
-        "Coins Royale sweeps": {
-          "signups": 3,
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "ops": {
@@ -1806,90 +4163,162 @@
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-27",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 1,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 8,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "ALL IN AFFILIATES": {
-          "signups": 3,
+        "LGL": {
+          "signups": 7,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.1072961373390555
         },
-        "Basher Agency": {
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "brands": {
-        "Greenluck": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-28",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 1,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 8,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "EPC": {
-          "signups": 3,
+        "LGL": {
+          "signups": 7,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.1072961373390555
         },
-        "CoinsRoyale": {
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "brands": {
-        "Dorados": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "ops": {
@@ -1898,90 +4327,162 @@
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-29",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 13,
-      "users": 0,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 1,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 8,
+        "WIZ": {
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
         },
-        "CoinsRoyale": {
-          "signups": 3,
+        "LGL": {
+          "signups": 7,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.1072961373390555
         },
-        "CHANCED": {
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "brands": {
-        "Coins Royale sweeps": {
-          "signups": 3,
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
           "users": 0,
-          "revenue": 0
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "ops": {
         "andrea": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-30",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.65,
-      "signups": 12,
-      "users": 0,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 1,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
+        "WIZ": {
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
           "signups": 7,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.1072961373390555
         },
-        "EPC": {
-          "signups": 3,
-          "users": 0,
-          "revenue": 0
-        },
-        "Splash": {
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "brands": {
-        "Dorados": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "ops": {
@@ -1990,44 +4491,80 @@
           "users": 0
         },
         "jessie": {
-          "signups": 1,
+          "signups": 0,
           "users": 0
         }
       }
     },
     {
       "date": "2026-07-31",
-      "delivered": 0,
+      "delivered": 90,
       "bounced": 0,
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 30.5,
-      "signups": 12,
-      "users": 0,
-      "revenue": 0,
+      "budget": 67.74,
+      "signups": 34,
+      "users": 1,
+      "revenue": 163.97,
+      "profit": 96.23,
       "advertisers": {
-        "GameTime Digital": {
+        "WIZ": {
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
           "signups": 7,
           "users": 0,
-          "revenue": 0
+          "revenue": 5.1072961373390555
         },
-        "ALL IN AFFILIATES": {
-          "signups": 3,
-          "users": 0,
-          "revenue": 0
-        },
-        "CoinsRoyale": {
+        "MON": {
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "brands": {
-        "The Boss": {
+        "WIZ": {
+          "advertiser": "WIZ",
+          "signups": 16,
+          "users": 0,
+          "revenue": 34.960629921259844
+        },
+        "LGL": {
+          "advertiser": "LGL",
+          "signups": 7,
+          "users": 0,
+          "revenue": 5.1072961373390555
+        },
+        "MON": {
+          "advertiser": "MON",
           "signups": 2,
           "users": 0,
-          "revenue": 0
+          "revenue": 0.0
+        },
+        "PRO": {
+          "advertiser": "PRO",
+          "signups": 2,
+          "users": 0,
+          "revenue": 76.12903225806451
+        },
+        "REV": {
+          "advertiser": "REV",
+          "signups": 1,
+          "users": 0,
+          "revenue": 5.454545454545455
         }
       },
       "ops": {
@@ -2036,7 +4573,7 @@
           "users": 0
         },
         "jessie": {
-          "signups": 2,
+          "signups": 0,
           "users": 0
         }
       }
