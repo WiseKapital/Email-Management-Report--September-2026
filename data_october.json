@@ -2,7 +2,7 @@
   "month": "October",
   "year": 2026,
   "total_days_in_month": 31,
-  "days_elapsed": 31,
+  "days_elapsed": 1,
   "kpis": {
     "budget": 1100,
     "signups": 450,
@@ -16,364 +16,27 @@
     "opened": 0,
     "clicked": 0,
     "unsub": 0,
-    "budget": 980.0,
+    "budget": 35.48,
     "signups": 6,
     "users": 1,
     "revenue": 150.0,
-    "profit": -830.0,
+    "profit": 114.52,
     "s2p_ratio": "1:6"
   },
-  "esp_mtd_totals": [
-    {
-      "esp": "MLJ (Mailjet) IP 1",
-      "delivered": 0,
-      "bounced": 0,
-      "opened": 0,
-      "clicked": 0,
-      "signups": 0,
-      "players": 0,
-      "domains": {
-        "Gmail": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Yahoo": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "iCloud": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Hotmail": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Other": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Outlook": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Aol": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        }
-      }
-    },
-    {
-      "esp": "MLJ (Mailjet) IP 2",
-      "delivered": 0,
-      "bounced": 0,
-      "opened": 0,
-      "clicked": 0,
-      "signups": 0,
-      "players": 0,
-      "domains": {
-        "Gmail": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Yahoo": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "iCloud": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Hotmail": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Other": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Outlook": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Aol": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        }
-      }
-    },
-    {
-      "esp": "MLJ (Mailjet) IP 3 / SH",
-      "delivered": 0,
-      "bounced": 0,
-      "opened": 0,
-      "clicked": 0,
-      "signups": 0,
-      "players": 0,
-      "domains": {
-        "Gmail": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Yahoo": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "iCloud": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Hotmail": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Other": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Outlook": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Aol": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        }
-      }
-    },
-    {
-      "esp": "SEG (Sendgrid) IP 1",
-      "delivered": 0,
-      "bounced": 0,
-      "opened": 0,
-      "clicked": 0,
-      "signups": 0,
-      "players": 0,
-      "domains": {
-        "Gmail": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Yahoo": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "iCloud": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Hotmail": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Other": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Outlook": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Aol": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        }
-      }
-    },
-    {
-      "esp": "SEG (Sendgrid) IP 2 / SH",
-      "delivered": 0,
-      "bounced": 0,
-      "opened": 0,
-      "clicked": 0,
-      "signups": 0,
-      "players": 0,
-      "domains": {
-        "Gmail": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Yahoo": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "iCloud": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Hotmail": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Other": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Outlook": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        },
-        "Aol": {
-          "delivered": 0,
-          "bounced": 0,
-          "opened": 0,
-          "clicked": 0,
-          "signups": 0,
-          "players": 0
-        }
-      }
-    }
-  ],
   "advertisers_mtd": [
-    {
-      "advertiser": "GameTime Digital",
-      "signups": 3,
-      "users": 0,
-      "revenue": 0.0,
-      "s2p": "0:3"
-    },
     {
       "advertiser": "Splash",
       "signups": 3,
       "users": 1,
       "revenue": 150.0,
       "s2p": "1:3"
+    },
+    {
+      "advertiser": "GameTime Digital",
+      "signups": 3,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:3"
     },
     {
       "advertiser": "AFF 66",
@@ -435,6 +98,7 @@
   "brands_mtd": [
     {
       "brand": "splashcoins",
+      "advertiser": "Splash",
       "signups": 3,
       "users": 1,
       "revenue": 150.0,
@@ -442,6 +106,7 @@
     },
     {
       "brand": "CoinsBack",
+      "advertiser": "GameTime Digital",
       "signups": 2,
       "users": 0,
       "revenue": 0.0,
@@ -449,6 +114,7 @@
     },
     {
       "brand": "McLuck",
+      "advertiser": "GameTime Digital",
       "signups": 1,
       "users": 0,
       "revenue": 0.0,
@@ -456,20 +122,7 @@
     },
     {
       "brand": "Acebet",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0.0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "Betnjet",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0.0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "Coins Royale sweeps",
+      "advertiser": "Acebet",
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
@@ -477,6 +130,23 @@
     },
     {
       "brand": "Chanced Punt",
+      "advertiser": "CHANCED",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "brand": "Betnjet",
+      "advertiser": "ALL IN AFFILIATES",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "brand": "Coins Royale sweeps",
+      "advertiser": "CoinsRoyale",
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
@@ -484,29 +154,34 @@
     },
     {
       "brand": "SweepJungle",
-      "signups": 0,
-      "users": 0,
-      "revenue": 0.0,
-      "s2p": "0:0"
-    },
-    {
-      "brand": "nan",
+      "advertiser": "AFF 66",
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
       "s2p": "0:0"
     }
   ],
+  "esp_mtd_totals": [],
   "team_ops_mtd": {
-    "jessie": {
-      "signups": 0,
-      "users": 0
-    },
     "andrea": {
       "signups": 3,
       "users": 0
     },
+    "jessie": {
+      "signups": 0,
+      "users": 0
+    },
     "signups_by_advertiser": {
+      "GAMETIME DIGITAL": {
+        "andrea": 3,
+        "jessie": 0,
+        "total": 3
+      },
+      "SPLASH": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
       "ACEBET": {
         "andrea": 0,
         "jessie": 0,
@@ -542,23 +217,23 @@
         "jessie": 0,
         "total": 0
       },
-      "GAMETIME DIGITAL": {
-        "andrea": 3,
-        "jessie": 0,
-        "total": 3
-      },
       "PURIFY": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "SPLASH": {
         "andrea": 0,
         "jessie": 0,
         "total": 0
       }
     },
     "users_by_advertiser": {
+      "SPLASH": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
+      "GAMETIME DIGITAL": {
+        "andrea": 0,
+        "jessie": 0,
+        "total": 0
+      },
       "ACEBET": {
         "andrea": 0,
         "jessie": 0,
@@ -594,17 +269,7 @@
         "jessie": 0,
         "total": 0
       },
-      "GAMETIME DIGITAL": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
       "PURIFY": {
-        "andrea": 0,
-        "jessie": 0,
-        "total": 0
-      },
-      "SPLASH": {
         "andrea": 0,
         "jessie": 0,
         "total": 0
@@ -619,34 +284,38 @@
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 980.0,
+      "budget": 35.48,
       "signups": 6,
       "users": 1,
       "revenue": 150.0,
+      "profit": 114.52,
       "advertisers": {
-        "GameTime Digital": {
-          "signups": 3,
-          "users": 0,
-          "revenue": 0.0
-        },
         "Splash": {
           "signups": 3,
           "users": 1,
           "revenue": 150.0
+        },
+        "GameTime Digital": {
+          "signups": 3,
+          "users": 0,
+          "revenue": 0.0
         }
       },
       "brands": {
         "splashcoins": {
+          "advertiser": "Splash",
           "signups": 3,
           "users": 1,
           "revenue": 150.0
         },
         "CoinsBack": {
+          "advertiser": "GameTime Digital",
           "signups": 2,
           "users": 0,
           "revenue": 0.0
         },
         "McLuck": {
+          "advertiser": "GameTime Digital",
           "signups": 1,
           "users": 0,
           "revenue": 0.0
@@ -674,6 +343,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -698,6 +368,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -722,6 +393,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -746,6 +418,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -770,6 +443,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -794,6 +468,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -818,6 +493,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -842,6 +518,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -866,6 +543,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -890,6 +568,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -914,6 +593,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -938,6 +618,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -962,6 +643,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -986,6 +668,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1010,6 +693,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1034,6 +718,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1058,6 +743,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1082,6 +768,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1106,6 +793,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1130,6 +818,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1154,6 +843,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1178,6 +868,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1202,6 +893,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1226,6 +918,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1250,6 +943,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1274,6 +968,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1298,6 +993,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1322,6 +1018,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1346,6 +1043,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
@@ -1370,6 +1068,7 @@
       "signups": 0,
       "users": 0,
       "revenue": 0.0,
+      "profit": 0.0,
       "advertisers": {},
       "brands": {},
       "ops": {
