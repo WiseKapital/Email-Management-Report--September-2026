@@ -16,11 +16,11 @@
     "opened": 0,
     "clicked": 0,
     "unsub": 0,
-    "budget": 0.0,
+    "budget": 980.0,
     "signups": 6,
     "users": 1,
     "revenue": 150.0,
-    "profit": 150.0,
+    "profit": -830.0,
     "s2p_ratio": "1:6"
   },
   "esp_mtd_totals": [
@@ -619,7 +619,7 @@
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 0.0,
+      "budget": 980.0,
       "signups": 6,
       "users": 1,
       "revenue": 150.0,
