@@ -105,7 +105,7 @@
               onclick="toggleCustomCalendar('from')" 
               class="flex items-center gap-2 bg-white border border-[#99d5ca] ring-2 ring-[#e1f5f2] rounded-xl px-3 py-1.5 shadow-xs transition-all hover:bg-slate-50 cursor-pointer focus:outline-none"
             >
-              <span id="fromDisplay" class="text-xs font-bold text-slate-800 font-mono tracking-tight">09/01/2026</span>
+              <span id="fromDisplay" class="text-xs font-bold text-slate-800 font-mono tracking-tight">--/--/----</span>
               <svg class="w-3.5 h-3.5 text-slate-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
@@ -121,7 +121,7 @@
               onclick="toggleCustomCalendar('to')" 
               class="flex items-center gap-2 bg-white border border-slate-300 rounded-xl px-3 py-1.5 shadow-xs transition-all hover:border-slate-400 cursor-pointer focus:outline-none"
             >
-              <span id="toDisplay" class="text-xs font-bold text-slate-800 font-mono tracking-tight">09/28/2026</span>
+              <span id="toDisplay" class="text-xs font-bold text-slate-800 font-mono tracking-tight">--/--/----</span>
               <svg class="w-3.5 h-3.5 text-slate-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
@@ -146,7 +146,7 @@
               </button>
 
               <span id="calHeaderTitle" class="text-xs font-extrabold text-[#0f172a] uppercase tracking-wider">
-                SEPTEMBER 2026
+                OCTOBER 2026
               </span>
 
               <button 
@@ -782,11 +782,21 @@
     const initialTableState = {};
     const tableSortDirections = {};
 
-    let currentStartDate = '2026-09-01';
-    let currentEndDate = '2026-09-28';
+    // Helper para obtener hoy en formato local YYYY-MM-DD
+    function getTodayIso() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+
+    const _initialToday = getTodayIso();
+    let currentStartDate = _initialToday.substring(0, 8) + '01'; // Día 01 del mes actual
+    let currentEndDate = _initialToday;                         // Hasta el día de hoy
     let activeCalTarget = 'from';
-    let calViewYear = 2026;
-    let calViewMonth = 8;
+    let calViewYear = new Date().getFullYear();
+    let calViewMonth = new Date().getMonth();
 
     const MONTH_NAMES = [
       'JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE',
@@ -845,15 +855,7 @@
     }
 
     function getMaxDataDate(months) {
-      let maxD = '0000-00-00';
-      months.forEach(m => {
-        if (m.daily_records) {
-          m.daily_records.forEach(r => {
-            if (r.date > maxD) maxD = r.date;
-          });
-        }
-      });
-      return maxD !== '0000-00-00' ? maxD : '2026-09-28';
+      return getTodayIso();
     }
 
     function getMinDataDate(months) {
@@ -865,32 +867,27 @@
           });
         }
       });
-      return minD !== '9999-12-31' ? minD : '2026-07-01';
+      return minD !== '9999-12-31' ? minD : `${new Date().getFullYear()}-01-01`;
     }
 
+    // El límite superior máximo seleccionable es siempre el día de hoy
     function getEffectiveMaxDate(months) {
-      const clientToday = new Date().toISOString().split('T')[0];
-      const maxData = getMaxDataDate(months);
-      if (clientToday.substring(0, 4) === maxData.substring(0, 4) && clientToday <= maxData) {
-        return clientToday;
-      }
-      return maxData;
+      return getTodayIso();
     }
 
     function initDateControls(months) {
       const maxAllowed = getEffectiveMaxDate(months);
-      const minAllowed = getMinDataDate(months);
 
+      // Muestra desde el 01 del mes actual hasta el día actual
       currentStartDate = maxAllowed.substring(0, 8) + '01';
       currentEndDate = maxAllowed;
-
-      if (currentStartDate < minAllowed) currentStartDate = minAllowed;
 
       document.getElementById('fromDisplay').textContent = isoToDisplay(currentStartDate);
       document.getElementById('toDisplay').textContent = isoToDisplay(currentEndDate);
 
-      calViewYear = parseInt(currentEndDate.substring(0, 4), 10);
-      calViewMonth = parseInt(currentEndDate.substring(5, 7), 10) - 1;
+      const now = new Date();
+      calViewYear = now.getFullYear();
+      calViewMonth = now.getMonth();
     }
 
     // ================= CUSTOM CALENDAR POPUP CONTROLLER =================
@@ -953,6 +950,7 @@
 
       headerTitle.textContent = `${MONTH_NAMES[calViewMonth]} ${calViewYear}`;
 
+      // Deshabilita el botón siguiente si se está en el mes actual o superior
       const maxYear = parseInt(maxAllowed.substring(0, 4), 10);
       const maxMonth = parseInt(maxAllowed.substring(5, 7), 10) - 1;
       if (calViewYear > maxYear || (calViewYear === maxYear && calViewMonth >= maxMonth)) {
@@ -984,6 +982,7 @@
         cell.type = 'button';
         cell.textContent = day;
 
+        // Bloquea cualquier día superior a la fecha actual de hoy
         const isPastToday = dateIso > maxAllowed;
         const isBeforeMin = dateIso < minAllowed;
 
@@ -1040,7 +1039,6 @@
     });
 
     // ================= DYNAMIC MULTI-MONTH AGGREGATOR =================
-    // Queries each JSON's KPIs directly and sums them if multiple months are in range
     function aggregateData(startDate, endDate) {
       const agg = {
         delivered: 0,
@@ -1100,7 +1098,6 @@
         const elapsedDays = m.days_elapsed || totalDays;
         const daysMatching = m.daily_records.filter(r => r.date >= startDate && r.date <= endDate).length;
 
-        // If all elapsed days of this month are selected, add 100% of this month's KPI
         const ratio = (daysMatching >= elapsedDays) ? 1 : (daysMatching / totalDays);
 
         agg.kpi.budget += (m.kpis.budget || 0) * ratio;
@@ -1307,7 +1304,7 @@
       const daysCount = Math.max(1, agg.daysElapsedInRange || 28);
       const rrFactor = agg.totalMonthDays > 0 ? (agg.totalMonthDays / daysCount) : (30 / daysCount);
 
-      // 1. Team Performance Overview (SUMMED KPIS SHOWN DYNAMICALLY)
+      // 1. Team Performance Overview
       document.getElementById('teamKpiBudget').textContent = `$${Math.round(agg.kpi.budget).toLocaleString()}`;
       document.getElementById('teamKpiSignups').textContent = Math.round(agg.kpi.signups).toLocaleString();
       document.getElementById('teamKpiUsers').textContent = Math.round(agg.kpi.users).toLocaleString();
@@ -1349,7 +1346,7 @@
 
       document.getElementById('teamRrRoi').textContent = `1:${roiRatio}`;
 
-      // 2. Section 1 Top 10 KPI Cards (KPI SUBTITLES SUMMED PROPORTIONALLY)
+      // 2. Section 1 Top 10 KPI Cards
       document.getElementById('kpiDelivered').textContent = agg.delivered.toLocaleString();
       document.getElementById('kpiOpened').textContent = agg.opened.toLocaleString();
       document.getElementById('kpiClicked').textContent = agg.clicked.toLocaleString();
@@ -1409,7 +1406,7 @@
       // 5. Render Advertiser Breakdown Table
       renderAdvertiserTable(agg.advertisers, agg.signups, agg.users, agg.revenue);
 
-      // 6. Render Brand Breakdown Table (ONLY brands from selected period)
+      // 6. Render Brand Breakdown Table
       renderBrandTable(agg.brands, agg.signups, agg.users, agg.revenue);
 
       // 7. Update Charts
@@ -1468,7 +1465,6 @@
     }
 
     function renderOpsTeam(ops, rrFactor, kpi) {
-      // Dynamic KPI targets for Ops Team (split 50% Andrea / 50% Jessie)
       const opsKpiReg = Math.round(kpi.signups / 2);
       const opsKpiUsers = Math.round(kpi.users / 2);
 
@@ -1875,6 +1871,8 @@
 
     // App Initialization on DOM Ready
     document.addEventListener('DOMContentLoaded', async () => {
+      // Inicia inmediatamente los controles al día de hoy sin parpadeo visual
+      initDateControls([]);
       initCharts();
 
       // Fetches fresh month files bypassing browser & CDN cache
