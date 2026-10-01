@@ -1079,27 +1079,26 @@
         };
       });
 
+      // 1. Identifica qué meses tienen al menos un día en el rango
       const activeMonthsInRange = globalLoadedMonths.filter(m => {
         if (!m.daily_records || m.daily_records.length === 0) return false;
         return m.daily_records.some(r => r.date >= startDate && r.date <= endDate);
       });
 
+      // 2. Consulta y SUMA KPIs COMPLETOS Y ESTÁTICOS por mes activo
       activeMonthsInRange.forEach(m => {
         if (!m.kpis) return;
         const totalDays = m.total_days_in_month || 30;
-        const elapsedDays = m.days_elapsed || totalDays;
-        const daysMatching = m.daily_records.filter(r => r.date >= startDate && r.date <= endDate).length;
 
-        const ratio = (daysMatching >= elapsedDays) ? 1 : (daysMatching / totalDays);
-
-        agg.kpi.budget += (m.kpis.budget || 0) * ratio;
-        agg.kpi.signups += Math.round((m.kpis.signups || 0) * ratio);
-        agg.kpi.users += Math.round((m.kpis.users || 0) * ratio);
-        agg.kpi.revenue += (m.kpis.revenue || 0) * ratio;
-        agg.kpi.profit += (m.kpis.profit || 0) * ratio;
+        agg.kpi.budget += (m.kpis.budget || 0);
+        agg.kpi.signups += Math.round(m.kpis.signups || 0);
+        agg.kpi.users += Math.round(m.kpis.users || 0);
+        agg.kpi.revenue += (m.kpis.revenue || 0);
+        agg.kpi.profit += (m.kpis.profit || 0);
         agg.totalMonthDays += totalDays;
       });
 
+      // 3. Advertisers y brands de los meses activos
       activeMonthsInRange.forEach(m => {
         if (m.advertisers_mtd) {
           m.advertisers_mtd.forEach(a => {
@@ -1131,6 +1130,7 @@
         }
       });
 
+      // 4. Caso rápido: si es un mes completo exacto
       let singleMonthFastMatch = null;
       if (activeMonthsInRange.length === 1) {
         const m = activeMonthsInRange[0];
@@ -1171,6 +1171,7 @@
         return agg;
       }
 
+      // 5. Acumulación día a día
       activeMonthsInRange.forEach(m => {
         let monthDaysCount = 0;
         let monthDeliveredCount = 0;
@@ -1313,9 +1314,7 @@
       const rrProfit = Math.round(agg.profit * rrFactor);
       const roiRatio = rrBudget > 0 ? (rrRevenue / rrBudget).toFixed(1) : '0.0';
 
-      // ===============================================================
-      // CORRECCIÓN: RR VERDE SI ES MAYOR/IGUAL AL KPI, ROJO SI ES MENOR (INCLUYE BUDGET)
-      // ===============================================================
+      // RR VERDE SI ES >= AL KPI, ROJO SI ES MENOR (INCLUYE BUDGET)
       const rrBudgetEl = document.getElementById('teamRrBudget');
       rrBudgetEl.textContent = `$${rrBudget.toLocaleString()}`;
       rrBudgetEl.className = `px-2.5 py-3 font-bold text-sm ${rrBudget >= agg.kpi.budget ? 'text-[#16a34a]' : 'text-[#dc2626]'}`;
@@ -1376,9 +1375,6 @@
       cardRrRevenueSub.textContent = `RR: $${(rrRevenue / 1000).toFixed(1)}k`;
       cardRrRevenueSub.className = `font-bold ${rrRevenue >= agg.kpi.revenue ? 'text-emerald-600' : 'text-rose-600'}`;
 
-      // ===============================================================
-      // CORRECCIÓN: SUBTITULO TARJETA BUDGET RR (VERDE SI ES >= AL KPI)
-      // ===============================================================
       const cardRrBudgetSub = document.getElementById('cardRrBudgetSub');
       cardRrBudgetSub.textContent = `RR: $${(rrBudget / 1000).toFixed(1)}k`;
       cardRrBudgetSub.className = `font-bold ${rrBudget >= agg.kpi.budget ? 'text-emerald-600' : 'text-rose-600'}`;
