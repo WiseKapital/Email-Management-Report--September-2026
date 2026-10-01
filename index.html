@@ -235,7 +235,7 @@
                   EMAIL
                 </span>
               </td>
-              <!-- KPIS Values (SUMMED DYNAMICALLY ACROSS FILTERED MONTHS) -->
+              <!-- KPIS Values -->
               <td id="teamKpiBudget" class="px-2.5 py-3 font-bold text-slate-900 text-sm">$0</td>
               <td id="teamKpiSignups" class="px-2.5 py-3 font-bold text-slate-900 text-sm">0</td>
               <td id="teamKpiUsers" class="px-2.5 py-3 font-bold text-slate-900 text-sm">0</td>
@@ -769,7 +769,7 @@
 
   </div>
 
-  <!-- ================= SCRIPTS: DYNAMIC MULTI-MONTH LOADER ================= -->
+  <!-- ================= SCRIPTS ================= -->
   <script>
     const MONTH_KEYS = [
       'january', 'february', 'march', 'april', 'may', 'june',
@@ -782,7 +782,6 @@
     const initialTableState = {};
     const tableSortDirections = {};
 
-    // Helper para obtener hoy en formato local YYYY-MM-DD
     function getTodayIso() {
       const now = new Date();
       const y = now.getFullYear();
@@ -792,8 +791,8 @@
     }
 
     const _initialToday = getTodayIso();
-    let currentStartDate = _initialToday.substring(0, 8) + '01'; // Día 01 del mes actual
-    let currentEndDate = _initialToday;                         // Hasta el día de hoy
+    let currentStartDate = _initialToday.substring(0, 8) + '01';
+    let currentEndDate = _initialToday;
     let activeCalTarget = 'from';
     let calViewYear = new Date().getFullYear();
     let calViewMonth = new Date().getMonth();
@@ -870,7 +869,6 @@
       return minD !== '9999-12-31' ? minD : `${new Date().getFullYear()}-01-01`;
     }
 
-    // El límite superior máximo seleccionable es siempre el día de hoy
     function getEffectiveMaxDate(months) {
       return getTodayIso();
     }
@@ -878,7 +876,6 @@
     function initDateControls(months) {
       const maxAllowed = getEffectiveMaxDate(months);
 
-      // Muestra desde el 01 del mes actual hasta el día actual
       currentStartDate = maxAllowed.substring(0, 8) + '01';
       currentEndDate = maxAllowed;
 
@@ -890,7 +887,6 @@
       calViewMonth = now.getMonth();
     }
 
-    // ================= CUSTOM CALENDAR POPUP CONTROLLER =================
     function toggleCustomCalendar(target) {
       const popup = document.getElementById('customCalendarPopup');
       const fromBtn = document.getElementById('fromPillBtn');
@@ -950,7 +946,6 @@
 
       headerTitle.textContent = `${MONTH_NAMES[calViewMonth]} ${calViewYear}`;
 
-      // Deshabilita el botón siguiente si se está en el mes actual o superior
       const maxYear = parseInt(maxAllowed.substring(0, 4), 10);
       const maxMonth = parseInt(maxAllowed.substring(5, 7), 10) - 1;
       if (calViewYear > maxYear || (calViewYear === maxYear && calViewMonth >= maxMonth)) {
@@ -982,7 +977,6 @@
         cell.type = 'button';
         cell.textContent = day;
 
-        // Bloquea cualquier día superior a la fecha actual de hoy
         const isPastToday = dateIso > maxAllowed;
         const isBeforeMin = dateIso < minAllowed;
 
@@ -1085,13 +1079,11 @@
         };
       });
 
-      // 1. Identify which months actually fall within the selected date range
       const activeMonthsInRange = globalLoadedMonths.filter(m => {
         if (!m.daily_records || m.daily_records.length === 0) return false;
         return m.daily_records.some(r => r.date >= startDate && r.date <= endDate);
       });
 
-      // 2. Query and SUM KPIs from each active month in range
       activeMonthsInRange.forEach(m => {
         if (!m.kpis) return;
         const totalDays = m.total_days_in_month || 30;
@@ -1108,7 +1100,6 @@
         agg.totalMonthDays += totalDays;
       });
 
-      // 3. Seed advertisers and brands exclusively from months in range
       activeMonthsInRange.forEach(m => {
         if (m.advertisers_mtd) {
           m.advertisers_mtd.forEach(a => {
@@ -1140,7 +1131,6 @@
         }
       });
 
-      // 4. Single full-month fast path (exact JSON match)
       let singleMonthFastMatch = null;
       if (activeMonthsInRange.length === 1) {
         const m = activeMonthsInRange[0];
@@ -1181,7 +1171,6 @@
         return agg;
       }
 
-      // 5. Multi-month or sub-range day-by-day accumulation
       activeMonthsInRange.forEach(m => {
         let monthDaysCount = 0;
         let monthDeliveredCount = 0;
@@ -1324,9 +1313,12 @@
       const rrProfit = Math.round(agg.profit * rrFactor);
       const roiRatio = rrBudget > 0 ? (rrRevenue / rrBudget).toFixed(1) : '0.0';
 
+      // ===============================================================
+      // CORRECCIÓN: RR VERDE SI ES MAYOR/IGUAL AL KPI, ROJO SI ES MENOR (INCLUYE BUDGET)
+      // ===============================================================
       const rrBudgetEl = document.getElementById('teamRrBudget');
       rrBudgetEl.textContent = `$${rrBudget.toLocaleString()}`;
-      rrBudgetEl.className = `px-2.5 py-3 font-bold text-sm ${rrBudget <= agg.kpi.budget ? 'text-[#16a34a]' : 'text-[#dc2626]'}`;
+      rrBudgetEl.className = `px-2.5 py-3 font-bold text-sm ${rrBudget >= agg.kpi.budget ? 'text-[#16a34a]' : 'text-[#dc2626]'}`;
 
       const rrSignupsEl = document.getElementById('teamRrSignups');
       rrSignupsEl.textContent = rrSignups.toLocaleString();
@@ -1384,9 +1376,12 @@
       cardRrRevenueSub.textContent = `RR: $${(rrRevenue / 1000).toFixed(1)}k`;
       cardRrRevenueSub.className = `font-bold ${rrRevenue >= agg.kpi.revenue ? 'text-emerald-600' : 'text-rose-600'}`;
 
+      // ===============================================================
+      // CORRECCIÓN: SUBTITULO TARJETA BUDGET RR (VERDE SI ES >= AL KPI)
+      // ===============================================================
       const cardRrBudgetSub = document.getElementById('cardRrBudgetSub');
       cardRrBudgetSub.textContent = `RR: $${(rrBudget / 1000).toFixed(1)}k`;
-      cardRrBudgetSub.className = `font-bold ${rrBudget <= agg.kpi.budget ? 'text-emerald-600' : 'text-rose-600'}`;
+      cardRrBudgetSub.className = `font-bold ${rrBudget >= agg.kpi.budget ? 'text-emerald-600' : 'text-rose-600'}`;
 
       const cardRrProfitSub = document.getElementById('cardRrProfitSub');
       cardRrProfitSub.textContent = `RR: $${(rrProfit / 1000).toFixed(1)}k`;
@@ -1473,15 +1468,30 @@
       document.getElementById('andreaKpiReg').textContent = opsKpiReg.toLocaleString();
       document.getElementById('andreaKpiUsers').textContent = opsKpiUsers.toLocaleString();
 
+      const jessieRegRrVal = Math.round(ops.jessie.signups * rrFactor);
+      const jessieUsersRrVal = Math.round(ops.jessie.users * rrFactor);
+      const andreaRegRrVal = Math.round(ops.andrea.signups * rrFactor);
+      const andreaUsersRrVal = Math.round(ops.andrea.users * rrFactor);
+
       document.getElementById('jessieRegMtd').textContent = ops.jessie.signups;
-      document.getElementById('jessieRegRr').textContent = Math.round(ops.jessie.signups * rrFactor);
+      const jessieRegRrEl = document.getElementById('jessieRegRr');
+      jessieRegRrEl.textContent = jessieRegRrVal;
+      jessieRegRrEl.className = `py-2 px-3 font-bold ${jessieRegRrVal >= opsKpiReg ? 'text-emerald-600' : 'text-rose-600'}`;
+
       document.getElementById('jessieUsersMtd').textContent = ops.jessie.users;
-      document.getElementById('jessieUsersRr').textContent = Math.round(ops.jessie.users * rrFactor);
+      const jessieUsersRrEl = document.getElementById('jessieUsersRr');
+      jessieUsersRrEl.textContent = jessieUsersRrVal;
+      jessieUsersRrEl.className = `py-2 px-3 font-bold ${jessieUsersRrVal >= opsKpiUsers ? 'text-emerald-600' : 'text-rose-600'}`;
 
       document.getElementById('andreaRegMtd').textContent = ops.andrea.signups;
-      document.getElementById('andreaRegRr').textContent = Math.round(ops.andrea.signups * rrFactor);
+      const andreaRegRrEl = document.getElementById('andreaRegRr');
+      andreaRegRrEl.textContent = andreaRegRrVal;
+      andreaRegRrEl.className = `py-2 px-3 font-bold ${andreaRegRrVal >= opsKpiReg ? 'text-emerald-600' : 'text-rose-600'}`;
+
       document.getElementById('andreaUsersMtd').textContent = ops.andrea.users;
-      document.getElementById('andreaUsersRr').textContent = Math.round(ops.andrea.users * rrFactor);
+      const andreaUsersRrEl = document.getElementById('andreaUsersRr');
+      andreaUsersRrEl.textContent = andreaUsersRrVal;
+      andreaUsersRrEl.className = `py-2 px-3 font-bold ${andreaUsersRrVal >= opsKpiUsers ? 'text-emerald-600' : 'text-rose-600'}`;
 
       const tbodySignups = document.getElementById('opsSignupsTableBody');
       tbodySignups.innerHTML = '';
@@ -1869,13 +1879,10 @@
       }
     }
 
-    // App Initialization on DOM Ready
     document.addEventListener('DOMContentLoaded', async () => {
-      // Inicia inmediatamente los controles al día de hoy sin parpadeo visual
       initDateControls([]);
       initCharts();
 
-      // Fetches fresh month files bypassing browser & CDN cache
       globalLoadedMonths = await loadAllMonths();
 
       const badge = document.getElementById('dataStatusBadge');
