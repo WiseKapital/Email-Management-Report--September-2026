@@ -178,7 +178,7 @@
         </div>
       </div>
 
-      <!-- ERROR ALERT (ONLY SHOWN IF SOMETHING CRITICAL FAILS) -->
+      <!-- ERROR ALERT -->
       <div class="flex items-center gap-2 self-start lg:self-center">
         <span id="dataStatusBadge" class="hidden inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-800 border border-rose-200">
         </span>
@@ -375,6 +375,7 @@
             <thead>
               <tr>
                 <th class="py-3 px-4 text-left font-bold text-xs uppercase tracking-wider">ESP ▲</th>
+                <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">VOLUME</th>
                 <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Delivered</th>
                 <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Soft Bounce</th>
                 <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Hard Bounce</th>
@@ -1106,7 +1107,7 @@
           }
 
           if (col1.toUpperCase() === 'TOTAL') {
-            continue; // Totals are automatically summed from domains
+            continue; // Totals are automatically calculated from domain breakdown
           }
 
           const domainName = col1;
@@ -1586,7 +1587,7 @@
       document.getElementById('dateRangeSubtitle').textContent = dateText;
       document.getElementById('opsPeriodBadge').textContent = dateText;
 
-      // 3. Render ESP Deliverability Table from CSV Data (Soft & Hard Bounce)
+      // 3. Render ESP Deliverability Table with VOLUME
       renderEspTable(agg.esp, agg);
 
       // 4. Render Ops Team Tables
@@ -1608,19 +1609,24 @@
       tbody.innerHTML = '';
 
       if (!espList || espList.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="8" class="py-6 text-center text-slate-400 italic">No deliverability CSV files found for this date range.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="9" class="py-6 text-center text-slate-400 italic">No deliverability CSV files found for this date range.</td></tr>`;
         tfoot.innerHTML = '';
         return;
       }
 
       espList.forEach(item => {
+        const itemSoft = item.softBounce || 0;
+        const itemHard = item.hardBounce || 0;
+        const itemVol = item.delivered + itemSoft + itemHard;
+
         const summaryTr = document.createElement('tr');
         summaryTr.className = 'esp-summary-row';
         summaryTr.innerHTML = `
           <td class="py-3 px-4 text-left font-bold text-slate-900">${item.esp}</td>
+          <td class="py-3 px-4 font-mono font-bold text-slate-800">${itemVol.toLocaleString()}</td>
           <td class="py-3 px-4 font-mono font-bold">${item.delivered.toLocaleString()}</td>
-          <td class="py-3 px-4 font-mono text-amber-700 font-semibold">${(item.softBounce || 0).toLocaleString()}</td>
-          <td class="py-3 px-4 font-mono text-rose-700 font-semibold">${(item.hardBounce || 0).toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono text-amber-700 font-semibold">${itemSoft.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono text-rose-700 font-semibold">${itemHard.toLocaleString()}</td>
           <td class="py-3 px-4 font-mono font-semibold text-emerald-700">${item.opened.toLocaleString()}</td>
           <td class="py-3 px-4 font-mono font-semibold text-sky-700">${item.clicked.toLocaleString()}</td>
           <td class="py-3 px-4 font-mono text-amber-600 font-bold">${item.signups.toLocaleString()}</td>
@@ -1631,13 +1637,18 @@
         if (item.domains) {
           Object.keys(item.domains).forEach(domName => {
             const d = item.domains[domName];
+            const dSoft = d.softBounce || 0;
+            const dHard = d.hardBounce || 0;
+            const dVol = d.delivered + dSoft + dHard;
+
             const domTr = document.createElement('tr');
             domTr.className = `domain-row text-xs text-slate-600 ${areDetailsExpanded ? '' : 'hidden'}`;
             domTr.innerHTML = `
               <td class="py-1.5 px-4 text-left pl-8 font-medium">${domName}</td>
+              <td class="font-mono text-slate-700 font-semibold">${dVol.toLocaleString()}</td>
               <td>${d.delivered.toLocaleString()}</td>
-              <td class="text-amber-700">${(d.softBounce || 0).toLocaleString()}</td>
-              <td class="text-rose-700">${(d.hardBounce || 0).toLocaleString()}</td>
+              <td class="text-amber-700">${dSoft.toLocaleString()}</td>
+              <td class="text-rose-700">${dHard.toLocaleString()}</td>
               <td class="text-emerald-700">${d.opened.toLocaleString()}</td>
               <td class="text-sky-700">${d.clicked.toLocaleString()}</td>
               <td>${d.signups.toLocaleString()}</td>
@@ -1650,13 +1661,17 @@
 
       const grandSignups = (agg.espSignups !== undefined) ? agg.espSignups : agg.signups;
       const grandPlayers = (agg.espPlayers !== undefined) ? agg.espPlayers : agg.users;
+      const grandSoft = agg.softBounce || 0;
+      const grandHard = agg.hardBounce || 0;
+      const grandVol = (agg.delivered || 0) + grandSoft + grandHard;
 
       tfoot.innerHTML = `
         <tr class="font-bold text-slate-900 text-sm">
           <td class="py-3.5 px-4 text-left font-bold">Grand total</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-slate-900">${grandVol.toLocaleString()}</td>
           <td class="py-3.5 px-4 font-mono font-bold">${agg.delivered.toLocaleString()}</td>
-          <td class="py-3.5 px-4 font-mono font-bold text-amber-700">${(agg.softBounce || 0).toLocaleString()}</td>
-          <td class="py-3.5 px-4 font-mono font-bold text-rose-700">${(agg.hardBounce || 0).toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-amber-700">${grandSoft.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-rose-700">${grandHard.toLocaleString()}</td>
           <td class="py-3.5 px-4 font-mono font-bold text-emerald-700">${agg.opened.toLocaleString()}</td>
           <td class="py-3.5 px-4 font-mono font-bold text-sky-700">${agg.clicked.toLocaleString()}</td>
           <td class="py-3.5 px-4 font-mono font-bold text-amber-600">${grandSignups.toLocaleString()}</td>
@@ -2097,7 +2112,6 @@
 
       globalLoadedMonths = await loadAllMonths();
 
-      // Ensure notice badge remains hidden
       const badge = document.getElementById('dataStatusBadge');
       if (badge) badge.classList.add('hidden');
 
