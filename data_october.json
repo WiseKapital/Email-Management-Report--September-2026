@@ -2,7 +2,7 @@
   "month": "October",
   "year": 2026,
   "total_days_in_month": 31,
-  "days_elapsed": 1,
+  "days_elapsed": 2,
   "kpis": {
     "budget": 1100,
     "signups": 450,
@@ -16,27 +16,27 @@
     "opened": 0,
     "clicked": 0,
     "unsub": 0,
-    "budget": 35.48,
-    "signups": 6,
+    "budget": 70.96,
+    "signups": 9,
     "users": 1,
     "revenue": 150.0,
-    "profit": 114.52,
-    "s2p_ratio": "1:6"
+    "profit": 79.04,
+    "s2p_ratio": "1:9"
   },
   "advertisers_mtd": [
     {
       "advertiser": "Splash",
-      "signups": 3,
+      "signups": 5,
       "users": 1,
       "revenue": 150.0,
-      "s2p": "1:3"
+      "s2p": "1:5"
     },
     {
       "advertiser": "GameTime Digital",
-      "signups": 3,
+      "signups": 4,
       "users": 0,
       "revenue": 0.0,
-      "s2p": "0:3"
+      "s2p": "0:4"
     },
     {
       "advertiser": "AFF 66",
@@ -99,10 +99,10 @@
     {
       "brand": "splashcoins",
       "advertiser": "Splash",
-      "signups": 3,
+      "signups": 5,
       "users": 1,
       "revenue": 150.0,
-      "s2p": "1:3"
+      "s2p": "1:5"
     },
     {
       "brand": "CoinsBack",
@@ -111,6 +111,14 @@
       "users": 0,
       "revenue": 0.0,
       "s2p": "0:2"
+    },
+    {
+      "brand": "LuckyBunny",
+      "advertiser": "GameTime Digital",
+      "signups": 1,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:1"
     },
     {
       "brand": "McLuck",
@@ -153,6 +161,30 @@
       "s2p": "0:0"
     },
     {
+      "brand": "FS Casino",
+      "advertiser": "ALL IN AFFILIATES",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "brand": "Sixty6",
+      "advertiser": "AFF 66",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
+      "brand": "Smash Casino",
+      "advertiser": "ALL IN AFFILIATES",
+      "signups": 0,
+      "users": 0,
+      "revenue": 0.0,
+      "s2p": "0:0"
+    },
+    {
       "brand": "SweepJungle",
       "advertiser": "AFF 66",
       "signups": 0,
@@ -164,7 +196,7 @@
   "esp_mtd_totals": [],
   "team_ops_mtd": {
     "andrea": {
-      "signups": 3,
+      "signups": 4,
       "users": 0
     },
     "jessie": {
@@ -173,9 +205,9 @@
     },
     "signups_by_advertiser": {
       "GAMETIME DIGITAL": {
-        "andrea": 3,
+        "andrea": 4,
         "jessie": 0,
-        "total": 3
+        "total": 4
       },
       "SPLASH": {
         "andrea": 0,
@@ -339,16 +371,40 @@
       "opened": 0,
       "clicked": 0,
       "unsub": 0,
-      "budget": 0.0,
-      "signups": 0,
+      "budget": 35.48,
+      "signups": 3,
       "users": 0,
       "revenue": 0.0,
-      "profit": 0.0,
-      "advertisers": {},
-      "brands": {},
+      "profit": -35.48,
+      "advertisers": {
+        "Splash": {
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "GameTime Digital": {
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        }
+      },
+      "brands": {
+        "splashcoins": {
+          "advertiser": "Splash",
+          "signups": 2,
+          "users": 0,
+          "revenue": 0.0
+        },
+        "LuckyBunny": {
+          "advertiser": "GameTime Digital",
+          "signups": 1,
+          "users": 0,
+          "revenue": 0.0
+        }
+      },
       "ops": {
         "andrea": {
-          "signups": 0,
+          "signups": 1,
           "users": 0
         },
         "jessie": {
