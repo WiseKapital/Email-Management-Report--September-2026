@@ -91,7 +91,7 @@
             <span class="w-3 h-3 rounded-full bg-blue-600 animate-pulse"></span>
             <h1 id="dashTitle" class="text-2xl font-bold text-slate-900 tracking-tight">Performance Dashboard</h1>
           </div>
-          <p class="text-sm text-slate-500 mt-0.5">Email Deliverability by ESP & Advertiser Conversions (Multi-Month)</p>
+          <p class="text-sm text-slate-500 mt-0.5">Email Deliverability by ESP (CSVs) & Advertiser Conversions (Multi-Month)</p>
         </div>
 
         <!-- DATE RANGE SELECTOR -->
@@ -355,7 +355,7 @@
         </div>
       </section>
 
-      <!-- DATA TABLE: EMAIL PERFORMANCE BY ESP -->
+      <!-- DATA TABLE: EMAIL PERFORMANCE BY ESP (Direct from CSVs) -->
       <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         <div class="px-6 py-3.5 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/50">
           <div class="flex items-center gap-3">
@@ -783,6 +783,7 @@
     let chartRefs = {};
     const initialTableState = {};
     const tableSortDirections = {};
+    const csvCache = {};
 
     function getTodayIso() {
       const now = new Date();
@@ -832,15 +833,11 @@
         try {
           const res = await fetch(p, {
             cache: 'no-store',
-            headers: {
-              'Cache-Control': 'no-cache',
-              'Pragma': 'no-cache'
-            }
+            headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
           });
           if (res.ok) {
             const data = await res.json();
             if (data && (data.daily_records || data.summary_mtd)) {
-              console.log(`Successfully fetched fresh file: ${p}`);
               return data;
             }
           }
@@ -855,10 +852,6 @@
       return loaded.filter(m => m !== null);
     }
 
-    function getMaxDataDate(months) {
-      return getTodayIso();
-    }
-
     function getMinDataDate(months) {
       let minD = '9999-12-31';
       months.forEach(m => {
@@ -871,13 +864,12 @@
       return minD !== '9999-12-31' ? minD : `${new Date().getFullYear()}-01-01`;
     }
 
-    function getEffectiveMaxDate(months) {
+    function getEffectiveMaxDate() {
       return getTodayIso();
     }
 
     function initDateControls(months) {
-      const maxAllowed = getEffectiveMaxDate(months);
-
+      const maxAllowed = getEffectiveMaxDate();
       currentStartDate = maxAllowed.substring(0, 8) + '01';
       currentEndDate = maxAllowed;
 
@@ -943,7 +935,7 @@
       const headerTitle = document.getElementById('calHeaderTitle');
       const grid = document.getElementById('calDaysGrid');
       const nextBtn = document.getElementById('calNextBtn');
-      const maxAllowed = getEffectiveMaxDate(globalLoadedMonths);
+      const maxAllowed = getEffectiveMaxDate();
       const minAllowed = getMinDataDate(globalLoadedMonths);
 
       headerTitle.textContent = `${MONTH_NAMES[calViewMonth]} ${calViewYear}`;
@@ -1001,7 +993,7 @@
       }
     }
 
-    function selectCalendarDate(dateIso) {
+    async function selectCalendarDate(dateIso) {
       if (activeCalTarget === 'from') {
         currentStartDate = dateIso;
         if (currentStartDate > currentEndDate) {
@@ -1020,8 +1012,7 @@
       document.getElementById('fromDisplay').textContent = isoToDisplay(currentStartDate);
       document.getElementById('toDisplay').textContent = isoToDisplay(currentEndDate);
 
-      const agg = aggregateData(currentStartDate, currentEndDate);
-      renderDashboard(agg, currentStartDate, currentEndDate);
+      await updateDashboardForDateRange();
     }
 
     document.addEventListener('click', (e) => {
@@ -1034,14 +1025,250 @@
       }
     });
 
-    // ================= DYNAMIC MULTI-MONTH AGGREGATOR =================
-    function aggregateData(startDate, endDate) {
+    // ================= CSV PARSER & GITHUB PAGES INTEGRATION =================
+    function parseCsvLine(line) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        if (char === '"') {
+          inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+          result.push(current.trim());
+          current = '';
+        } else {
+          current += char;
+        }
+      }
+      result.push(current.trim());
+      return result;
+    }
+
+    function parseCleanNum(val) {
+      if (!val) return 0;
+      const clean = String(val).replace(/["', ]/g, '');
+      const num = parseFloat(clean);
+      return isNaN(num) ? 0 : num;
+    }
+
+    function parseDailyCsv(csvText) {
+      const lines = csvText.split(/\r?\n/);
+      let currentEsp = '';
+      let currentIp = '';
+      const espMap = {};
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+        const cols = parseCsvLine(line);
+
+        const col0 = (cols[0] || '').trim();
+        const col1 = (cols[1] || '').trim();
+
+        if (col0.toLowerCase().includes('date') || col0 === 'ESP' || line.includes('Change dates')) {
+          continue;
+        }
+        if (col0.toUpperCase() === 'GRAND TOTAL') {
+          continue;
+        }
+
+        if (col0.toUpperCase().startsWith('IP ') || col0.toUpperCase() === 'IP' || /^IP\b/i.test(col0)) {
+          currentIp = col0;
+          continue;
+        }
+
+        if (col0 !== '') {
+          currentEsp = col0;
+          currentIp = '';
+          continue;
+        }
+
+        if (col0 === '' && col1 !== '' && col1.toUpperCase() !== 'DOMAIN') {
+          if (!currentEsp) continue;
+          const fullEspName = currentIp ? `${currentEsp} ${currentIp}` : currentEsp;
+
+          if (!espMap[fullEspName]) {
+            espMap[fullEspName] = {
+              esp: fullEspName,
+              delivered: 0,
+              bounced: 0,
+              opened: 0,
+              clicked: 0,
+              unsub: 0,
+              signups: 0,
+              players: 0,
+              domains: {}
+            };
+          }
+
+          if (col1.toUpperCase() === 'TOTAL') {
+            continue; // Totals are automatically summed from domains below
+          }
+
+          const domainName = col1;
+          const deliv = parseCleanNum(cols[2]);
+          const softBounce = parseCleanNum(cols[3]);
+          const hardBounce = parseCleanNum(cols[4]);
+          const totalBounce = softBounce + hardBounce;
+          const open = parseCleanNum(cols[5]);
+          const click = parseCleanNum(cols[7]);
+          const unsub = parseCleanNum(cols[11]);
+          const reg = parseCleanNum(cols[12]);
+          const players = parseCleanNum(cols[13]);
+
+          if (!espMap[fullEspName].domains[domainName]) {
+            espMap[fullEspName].domains[domainName] = {
+              delivered: 0,
+              bounced: 0,
+              opened: 0,
+              clicked: 0,
+              unsub: 0,
+              signups: 0,
+              players: 0
+            };
+          }
+
+          const d = espMap[fullEspName].domains[domainName];
+          d.delivered += deliv;
+          d.bounced += totalBounce;
+          d.opened += open;
+          d.clicked += click;
+          d.unsub += unsub;
+          d.signups += reg;
+          d.players += players;
+
+          const e = espMap[fullEspName];
+          e.delivered += deliv;
+          e.bounced += totalBounce;
+          e.opened += open;
+          e.clicked += click;
+          e.unsub += unsub;
+          e.signups += reg;
+          e.players += players;
+        }
+      }
+
+      return espMap;
+    }
+
+    async function fetchCsvDay(monthKey, dayStr) {
+      const cacheKey = `${monthKey}/${dayStr}`;
+      if (csvCache[cacheKey] !== undefined) {
+        return csvCache[cacheKey];
+      }
+
+      const timestamp = Date.now();
+      const dayNum = parseInt(dayStr, 10);
+
+      // Relative paths optimized for GitHub Pages (handles subfolder repos)
+      const candidates = [
+        `maildata_${monthKey}/${dayStr}.csv?t=${timestamp}`,
+        `./maildata_${monthKey}/${dayStr}.csv?t=${timestamp}`,
+        `maildata_${monthKey}/${dayNum}.csv?t=${timestamp}`,
+        `./maildata_${monthKey}/${dayNum}.csv?t=${timestamp}`
+      ];
+
+      for (const p of candidates) {
+        try {
+          const res = await fetch(p, { cache: 'no-store' });
+          if (res.ok) {
+            const text = await res.text();
+            // Safeguard against GitHub Pages HTML 404 response
+            if (
+              text && 
+              !text.trim().startsWith('<!DOCTYPE') && 
+              !text.trim().startsWith('<html') && 
+              (text.includes('Delivered') || text.includes('ESP'))
+            ) {
+              const parsed = parseDailyCsv(text);
+              csvCache[cacheKey] = parsed;
+              return parsed;
+            }
+          }
+        } catch (e) {}
+      }
+
+      csvCache[cacheKey] = null;
+      return null;
+    }
+
+    async function aggregateCsvForRange(startDate, endDate) {
+      const [sy, sm, sd] = startDate.split('-').map(Number);
+      const [ey, em, ed] = endDate.split('-').map(Number);
+
+      const cur = new Date(sy, sm - 1, sd);
+      const end = new Date(ey, em - 1, ed);
+
+      const dates = [];
+      while (cur <= end) {
+        const mKey = MONTH_KEYS[cur.getMonth()];
+        const dayStr = String(cur.getDate()).padStart(2, '0');
+        dates.push({ monthKey: mKey, dayStr });
+        cur.setDate(cur.getDate() + 1);
+      }
+
+      const results = await Promise.all(dates.map(d => fetchCsvDay(d.monthKey, d.dayStr)));
+      const mergedEsp = {};
+
+      results.forEach(dayEspMap => {
+        if (!dayEspMap) return;
+        Object.keys(dayEspMap).forEach(espName => {
+          if (!mergedEsp[espName]) {
+            mergedEsp[espName] = {
+              esp: espName,
+              delivered: 0,
+              bounced: 0,
+              opened: 0,
+              clicked: 0,
+              unsub: 0,
+              signups: 0,
+              players: 0,
+              domains: {}
+            };
+          }
+          const s = dayEspMap[espName];
+          const t = mergedEsp[espName];
+
+          t.delivered += s.delivered;
+          t.bounced += s.bounced;
+          t.opened += s.opened;
+          t.clicked += s.clicked;
+          t.unsub += s.unsub;
+          t.signups += s.signups;
+          t.players += s.players;
+
+          Object.keys(s.domains).forEach(dom => {
+            if (!t.domains[dom]) {
+              t.domains[dom] = {
+                delivered: 0,
+                bounced: 0,
+                opened: 0,
+                clicked: 0,
+                unsub: 0,
+                signups: 0,
+                players: 0
+              };
+            }
+            const sd = s.domains[dom];
+            const td = t.domains[dom];
+            td.delivered += sd.delivered;
+            td.bounced += sd.bounced;
+            td.opened += sd.opened;
+            td.clicked += sd.clicked;
+            td.unsub += sd.unsub;
+            td.signups += sd.signups;
+            td.players += sd.players;
+          });
+        });
+      });
+
+      return mergedEsp;
+    }
+
+    // ================= JSON AGGREGATOR (Financials, Ops, Affiliates) =================
+    function aggregateJsonData(startDate, endDate) {
       const agg = {
-        delivered: 0,
-        bounced: 0,
-        opened: 0,
-        clicked: 0,
-        unsub: 0,
         budget: 0,
         signups: 0,
         users: 0,
@@ -1056,51 +1283,24 @@
           andrea: { signups: 0, users: 0 },
           signups_by_advertiser: {},
           users_by_advertiser: {}
-        },
-        esp: []
+        }
       };
 
-      const DEFAULT_ESPS = [
-        "MLJ (Mailjet) IP 1",
-        "MLJ (Mailjet) IP 2",
-        "MLJ (Mailjet) IP 3 / SH",
-        "SEG (Sendgrid) IP 1",
-        "SEG (Sendgrid) IP 2 / SH"
-      ];
-      const espMap = {};
-      DEFAULT_ESPS.forEach(name => {
-        espMap[name] = {
-          esp: name,
-          delivered: 0,
-          bounced: 0,
-          opened: 0,
-          clicked: 0,
-          signups: 0,
-          players: 0,
-          domains: {}
-        };
-      });
-
-      // 1. Identifica qué meses tienen al menos un día en el rango
       const activeMonthsInRange = globalLoadedMonths.filter(m => {
         if (!m.daily_records || m.daily_records.length === 0) return false;
         return m.daily_records.some(r => r.date >= startDate && r.date <= endDate);
       });
 
-      // 2. Consulta y SUMA KPIs COMPLETOS Y ESTÁTICOS por mes activo
       activeMonthsInRange.forEach(m => {
         if (!m.kpis) return;
-        const totalDays = m.total_days_in_month || 30;
-
         agg.kpi.budget += (m.kpis.budget || 0);
         agg.kpi.signups += Math.round(m.kpis.signups || 0);
         agg.kpi.users += Math.round(m.kpis.users || 0);
         agg.kpi.revenue += (m.kpis.revenue || 0);
         agg.kpi.profit += (m.kpis.profit || 0);
-        agg.totalMonthDays += totalDays;
+        agg.totalMonthDays += (m.total_days_in_month || 30);
       });
 
-      // 3. Advertisers y brands de los meses activos
       activeMonthsInRange.forEach(m => {
         if (m.advertisers_mtd) {
           m.advertisers_mtd.forEach(a => {
@@ -1137,73 +1337,17 @@
         }
       });
 
-      // 4. Caso rápido: si es un mes completo exacto
-      let singleMonthFastMatch = null;
-      if (activeMonthsInRange.length === 1) {
-        const m = activeMonthsInRange[0];
-        const mDays = m.days_elapsed || m.total_days_in_month || 28;
-        const matchingDays = m.daily_records.filter(r => r.date >= startDate && r.date <= endDate).length;
-        if (matchingDays >= mDays) {
-          singleMonthFastMatch = m;
-        }
-      }
-
-      if (singleMonthFastMatch) {
-        const m = singleMonthFastMatch;
-        agg.delivered = m.summary_mtd.delivered;
-        agg.bounced = m.summary_mtd.bounced;
-        agg.opened = m.summary_mtd.opened;
-        agg.clicked = m.summary_mtd.clicked;
-        agg.unsub = m.summary_mtd.unsub;
-        agg.budget = m.summary_mtd.budget;
-        agg.signups = m.summary_mtd.signups;
-        agg.users = m.summary_mtd.users;
-        agg.revenue = m.summary_mtd.revenue;
-        agg.profit = m.summary_mtd.profit;
-        agg.daysElapsedInRange = m.days_elapsed || 28;
-        agg.totalMonthDays = m.total_days_in_month || 30;
-
-        agg.advertisers = {};
-        m.advertisers_mtd.forEach(a => {
-          agg.advertisers[a.advertiser] = { signups: a.signups, users: a.users, revenue: a.revenue };
-        });
-
-        agg.brands = {};
-        m.brands_mtd.forEach(b => {
-          agg.brands[b.brand] = { 
-            advertiser: b.advertiser || '-',
-            signups: b.signups, 
-            users: b.users, 
-            revenue: b.revenue 
-          };
-        });
-
-        agg.ops = m.team_ops_mtd;
-        agg.esp = m.esp_mtd_totals;
-        return agg;
-      }
-
-      // 5. Acumulación día a día
       activeMonthsInRange.forEach(m => {
         let monthDaysCount = 0;
-        let monthDeliveredCount = 0;
-
         if (m.daily_records) {
           m.daily_records.forEach(record => {
             if (record.date >= startDate && record.date <= endDate) {
               monthDaysCount++;
               agg.daysElapsedInRange++;
-              agg.delivered += record.delivered || 0;
-              agg.bounced += record.bounced || 0;
-              agg.opened += record.opened || 0;
-              agg.clicked += record.clicked || 0;
-              agg.unsub += record.unsub || 0;
               agg.budget += record.budget || 0;
               agg.signups += record.signups || 0;
               agg.users += record.users || 0;
               agg.revenue += record.revenue || 0;
-
-              monthDeliveredCount += (record.delivered || 0);
 
               if (record.advertisers) {
                 Object.keys(record.advertisers).forEach(adv => {
@@ -1274,46 +1418,61 @@
             });
           }
         }
-
-        if (m.esp_mtd_totals && m.esp_mtd_totals.length > 0 && monthDeliveredCount > 0) {
-          const mTotalDeliv = m.summary_mtd && m.summary_mtd.delivered > 0 ? m.summary_mtd.delivered : monthDeliveredCount;
-          const delivRatio = Math.min(1, monthDeliveredCount / mTotalDeliv);
-
-          m.esp_mtd_totals.forEach(item => {
-            if (espMap[item.esp]) {
-              espMap[item.esp].delivered += Math.round(item.delivered * delivRatio);
-              espMap[item.esp].bounced += Math.round(item.bounced * delivRatio);
-              espMap[item.esp].opened += Math.round(item.opened * delivRatio);
-              espMap[item.esp].clicked += Math.round(item.clicked * delivRatio);
-              espMap[item.esp].signups += Math.round(item.signups * delivRatio);
-              espMap[item.esp].players += Math.round(item.players * delivRatio);
-
-              if (item.domains) {
-                Object.keys(item.domains).forEach(domName => {
-                  if (!espMap[item.esp].domains[domName]) {
-                    espMap[item.esp].domains[domName] = { delivered: 0, bounced: 0, opened: 0, clicked: 0, signups: 0, players: 0 };
-                  }
-                  const d = item.domains[domName];
-                  espMap[item.esp].domains[domName].delivered += Math.round(d.delivered * delivRatio);
-                  espMap[item.esp].domains[domName].bounced += Math.round(d.bounced * delivRatio);
-                  espMap[item.esp].domains[domName].opened += Math.round(d.opened * delivRatio);
-                  espMap[item.esp].domains[domName].clicked += Math.round(d.clicked * delivRatio);
-                  espMap[item.esp].domains[domName].signups += Math.round(d.signups * delivRatio);
-                  espMap[item.esp].domains[domName].players += Math.round(d.players * delivRatio);
-                });
-              }
-            }
-          });
-        }
       });
 
-      agg.esp = Object.values(espMap);
       agg.profit = agg.revenue - agg.budget;
       return agg;
     }
 
+    async function updateDashboardForDateRange() {
+      // 1. JSON Data (KPIs, OPS, Financials, Advertisers)
+      const agg = aggregateJsonData(currentStartDate, currentEndDate);
+
+      // 2. CSV Data (Deliverability, ESPs, Domains)
+      const csvEspMap = await aggregateCsvForRange(currentStartDate, currentEndDate);
+      const csvEspList = Object.values(csvEspMap);
+
+      if (csvEspList.length > 0) {
+        // Show active ESPs
+        const activeEspList = csvEspList.filter(e => e.delivered > 0 || e.signups > 0 || e.opened > 0);
+        agg.esp = activeEspList.length > 0 ? activeEspList : csvEspList;
+
+        let totalDeliv = 0, totalBounce = 0, totalOpen = 0, totalClick = 0, totalUnsub = 0;
+        let totalEspSignups = 0, totalEspPlayers = 0;
+
+        agg.esp.forEach(e => {
+          totalDeliv += e.delivered;
+          totalBounce += e.bounced;
+          totalOpen += e.opened;
+          totalClick += e.clicked;
+          totalUnsub += e.unsub;
+          totalEspSignups += e.signups;
+          totalEspPlayers += e.players;
+        });
+
+        agg.delivered = totalDeliv;
+        agg.bounced = totalBounce;
+        agg.opened = totalOpen;
+        agg.clicked = totalClick;
+        agg.unsub = totalUnsub;
+        agg.espSignups = totalEspSignups;
+        agg.espPlayers = totalEspPlayers;
+      } else {
+        agg.esp = [];
+        agg.delivered = 0;
+        agg.bounced = 0;
+        agg.opened = 0;
+        agg.clicked = 0;
+        agg.unsub = 0;
+        agg.espSignups = 0;
+        agg.espPlayers = 0;
+      }
+
+      renderDashboard(agg, currentStartDate, currentEndDate);
+    }
+
     function renderDashboard(agg, startDate, endDate) {
-      const daysCount = Math.max(1, agg.daysElapsedInRange || 28);
+      const daysCount = Math.max(1, agg.daysElapsedInRange || 1);
       const rrFactor = agg.totalMonthDays > 0 ? (agg.totalMonthDays / daysCount) : (30 / daysCount);
 
       // 1. Team Performance Overview
@@ -1336,7 +1495,6 @@
       const rrProfit = Math.round(agg.profit * rrFactor);
       const roiRatio = rrBudget > 0 ? (rrRevenue / rrBudget).toFixed(1) : '0.0';
 
-      // RR VERDE SI ES >= AL KPI, ROJO SI ES MENOR (INCLUYE BUDGET)
       const rrBudgetEl = document.getElementById('teamRrBudget');
       rrBudgetEl.textContent = `$${rrBudget.toLocaleString()}`;
       rrBudgetEl.className = `px-2.5 py-3 font-bold text-sm ${rrBudget >= agg.kpi.budget ? 'text-[#16a34a]' : 'text-[#dc2626]'}`;
@@ -1360,20 +1518,20 @@
       document.getElementById('teamRrRoi').textContent = `1:${roiRatio}`;
 
       // 2. Section 1 Top 10 KPI Cards
-      document.getElementById('kpiDelivered').textContent = agg.delivered.toLocaleString();
-      document.getElementById('kpiOpened').textContent = agg.opened.toLocaleString();
-      document.getElementById('kpiClicked').textContent = agg.clicked.toLocaleString();
-      document.getElementById('kpiBounced').textContent = agg.bounced.toLocaleString();
-      document.getElementById('kpiUnsub').textContent = agg.unsub.toLocaleString();
+      document.getElementById('kpiDelivered').textContent = (agg.delivered || 0).toLocaleString();
+      document.getElementById('kpiOpened').textContent = (agg.opened || 0).toLocaleString();
+      document.getElementById('kpiClicked').textContent = (agg.clicked || 0).toLocaleString();
+      document.getElementById('kpiBounced').textContent = (agg.bounced || 0).toLocaleString();
+      document.getElementById('kpiUnsub').textContent = (agg.unsub || 0).toLocaleString();
       document.getElementById('kpiSignups').textContent = agg.signups.toLocaleString();
       document.getElementById('kpiUsers').textContent = agg.users.toLocaleString();
       document.getElementById('kpiRevenue').textContent = `$${Math.round(agg.revenue).toLocaleString()}`;
       document.getElementById('kpiBudget').textContent = `$${Math.round(agg.budget).toLocaleString()}`;
       document.getElementById('kpiProfit').textContent = `$${Math.round(agg.profit).toLocaleString()}`;
 
-      const openRate = agg.delivered > 0 ? ((agg.opened / agg.delivered) * 100).toFixed(2) : 0;
-      const clickRate = agg.delivered > 0 ? ((agg.clicked / agg.delivered) * 100).toFixed(2) : 0;
-      const bounceRate = agg.delivered > 0 ? ((agg.bounced / agg.delivered) * 100).toFixed(2) : 0;
+      const openRate = agg.delivered > 0 ? ((agg.opened / agg.delivered) * 100).toFixed(2) : '0.00';
+      const clickRate = agg.delivered > 0 ? ((agg.clicked / agg.delivered) * 100).toFixed(2) : '0.00';
+      const bounceRate = agg.delivered > 0 ? ((agg.bounced / agg.delivered) * 100).toFixed(2) : '0.00';
 
       document.getElementById('kpiOpenRate').textContent = `${openRate}% Open Rate`;
       document.getElementById('kpiClickRate').textContent = `${clickRate}% Click Rate`;
@@ -1410,7 +1568,7 @@
       document.getElementById('dateRangeSubtitle').textContent = dateText;
       document.getElementById('opsPeriodBadge').textContent = dateText;
 
-      // 3. Render ESP Deliverability Table
+      // 3. Render ESP Deliverability Table from CSV Data
       renderEspTable(agg.esp, agg);
 
       // 4. Render Ops Team Tables
@@ -1430,6 +1588,12 @@
       const tbody = document.getElementById('espTableBody');
       const tfoot = document.getElementById('espTableFoot');
       tbody.innerHTML = '';
+
+      if (!espList || espList.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-slate-400 italic">No deliverability CSV files found for this date range.</td></tr>`;
+        tfoot.innerHTML = '';
+        return;
+      }
 
       espList.forEach(item => {
         const summaryTr = document.createElement('tr');
@@ -1464,6 +1628,9 @@
         }
       });
 
+      const grandSignups = (agg.espSignups !== undefined) ? agg.espSignups : agg.signups;
+      const grandPlayers = (agg.espPlayers !== undefined) ? agg.espPlayers : agg.users;
+
       tfoot.innerHTML = `
         <tr class="font-bold text-slate-900 text-sm">
           <td class="py-3.5 px-4 text-left font-bold">Grand total</td>
@@ -1471,8 +1638,8 @@
           <td class="py-3.5 px-4 font-mono font-bold">${agg.bounced.toLocaleString()}</td>
           <td class="py-3.5 px-4 font-mono font-bold text-emerald-700">${agg.opened.toLocaleString()}</td>
           <td class="py-3.5 px-4 font-mono font-bold text-sky-700">${agg.clicked.toLocaleString()}</td>
-          <td class="py-3.5 px-4 font-mono font-bold text-amber-600">${agg.signups.toLocaleString()}</td>
-          <td class="py-3.5 px-4 font-mono font-bold text-indigo-600">${agg.users.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-amber-600">${grandSignups.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-indigo-600">${grandPlayers.toLocaleString()}</td>
         </tr>
       `;
     }
@@ -1625,7 +1792,7 @@
       chartRefs.espVol = new Chart(document.getElementById('chartEspVolumen'), {
         type: 'bar',
         data: {
-          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
+          labels: [],
           datasets: [
             { label: 'Delivered', data: [], backgroundColor: '#2563eb', borderRadius: 4 },
             { label: 'Open', data: [], backgroundColor: '#10b981', borderRadius: 4 }
@@ -1645,7 +1812,7 @@
       chartRefs.espClicks = new Chart(document.getElementById('chartEspClicks'), {
         type: 'bar',
         data: {
-          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
+          labels: [],
           datasets: [{ label: 'Clicks', data: [], backgroundColor: '#0284c7', borderRadius: 4 }]
         },
         options: {
@@ -1653,7 +1820,7 @@
           maintainAspectRatio: false,
           plugins: { legend: { display: false } },
           scales: {
-            y: { grid: { color: '#f1f5f9' }, ticks: { stepSize: 300, font: { size: 9 } } },
+            y: { grid: { color: '#f1f5f9' }, ticks: { font: { size: 9 } } },
             x: { grid: { display: false }, ticks: { font: { size: 9 } } }
           }
         }
@@ -1662,7 +1829,7 @@
       chartRefs.espOpenRate = new Chart(document.getElementById('chartEspOpenRate'), {
         type: 'bar',
         data: {
-          labels: ['MLJ IP1', 'MLJ IP2', 'MLJ IP3', 'SEG IP1', 'SEG IP2'],
+          labels: [],
           datasets: [{ label: 'Open Rate (%)', data: [], backgroundColor: '#10b981', borderRadius: 4 }]
         },
         options: {
@@ -1722,7 +1889,7 @@
           maintainAspectRatio: false,
           plugins: { legend: { display: false } },
           scales: {
-            y: { max: 2100, grid: { color: '#f1f5f9' }, ticks: { stepSize: 300, font: { size: 9 } } },
+            y: { grid: { color: '#f1f5f9' }, ticks: { font: { size: 9 } } },
             x: { grid: { display: false }, ticks: { font: { size: 9 } } }
           }
         }
@@ -1768,21 +1935,26 @@
     function updateCharts(agg) {
       if (!chartRefs.espVol) return;
 
-      chartRefs.espVol.data.datasets[0].data = agg.esp.map(e => e.delivered);
-      chartRefs.espVol.data.datasets[1].data = agg.esp.map(e => e.opened);
+      const dynamicEspLabels = (agg.esp || []).map(e => e.esp.replace(' (Mailjet)', '').replace(' (Sendgrid)', ''));
+
+      chartRefs.espVol.data.labels = dynamicEspLabels;
+      chartRefs.espVol.data.datasets[0].data = (agg.esp || []).map(e => e.delivered);
+      chartRefs.espVol.data.datasets[1].data = (agg.esp || []).map(e => e.opened);
       chartRefs.espVol.update();
 
-      chartRefs.espClicks.data.datasets[0].data = agg.esp.map(e => e.clicked);
+      chartRefs.espClicks.data.labels = dynamicEspLabels;
+      chartRefs.espClicks.data.datasets[0].data = (agg.esp || []).map(e => e.clicked);
       chartRefs.espClicks.update();
 
-      chartRefs.espOpenRate.data.datasets[0].data = agg.esp.map(e => e.delivered > 0 ? +((e.opened / e.delivered) * 100).toFixed(2) : 0);
+      chartRefs.espOpenRate.data.labels = dynamicEspLabels;
+      chartRefs.espOpenRate.data.datasets[0].data = (agg.esp || []).map(e => e.delivered > 0 ? +((e.opened / e.delivered) * 100).toFixed(2) : 0);
       chartRefs.espOpenRate.update();
 
       const domainAgg = { Gmail: 0, Other: 0, Yahoo: 0, iCloud: 0, Outlook: 0, Hotmail: 0, Aol: 0 };
       const domainOpens = { Gmail: 0, Other: 0, Yahoo: 0, iCloud: 0, Outlook: 0, Hotmail: 0, Aol: 0 };
       const domainClicks = { Gmail: 0, Other: 0, Yahoo: 0, iCloud: 0, Outlook: 0, Hotmail: 0, Aol: 0 };
 
-      agg.esp.forEach(e => {
+      (agg.esp || []).forEach(e => {
         if (e.domains) {
           Object.keys(e.domains).forEach(dom => {
             if (domainAgg[dom] !== undefined) {
@@ -1906,16 +2078,14 @@
 
       const badge = document.getElementById('dataStatusBadge');
       if (globalLoadedMonths.length === 0) {
-        badge.textContent = 'Error: No JSON data files detected. Check repository.';
+        badge.textContent = 'Notice: No JSON data files detected. CSVs will still load if present.';
         badge.classList.remove('hidden');
       } else {
         badge.classList.add('hidden');
       }
 
       initDateControls(globalLoadedMonths);
-
-      const agg = aggregateData(currentStartDate, currentEndDate);
-      renderDashboard(agg, currentStartDate, currentEndDate);
+      await updateDashboardForDateRange();
     });
   </script>
 
