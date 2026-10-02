@@ -178,7 +178,7 @@
         </div>
       </div>
 
-      <!-- ERROR ALERT (ONLY SHOWN IF SOMETHING FAILS) -->
+      <!-- ERROR ALERT (ONLY SHOWN IF SOMETHING CRITICAL FAILS) -->
       <div class="flex items-center gap-2 self-start lg:self-center">
         <span id="dataStatusBadge" class="hidden inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-800 border border-rose-200">
         </span>
@@ -376,7 +376,8 @@
               <tr>
                 <th class="py-3 px-4 text-left font-bold text-xs uppercase tracking-wider">ESP ▲</th>
                 <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Delivered</th>
-                <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Bounced</th>
+                <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Soft Bounce</th>
+                <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Hard Bounce</th>
                 <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Opened</th>
                 <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">Clicked</th>
                 <th class="py-3 px-4 font-bold text-xs uppercase tracking-wider">SIGNUPS</th>
@@ -1092,6 +1093,8 @@
             espMap[fullEspName] = {
               esp: fullEspName,
               delivered: 0,
+              softBounce: 0,
+              hardBounce: 0,
               bounced: 0,
               opened: 0,
               clicked: 0,
@@ -1103,7 +1106,7 @@
           }
 
           if (col1.toUpperCase() === 'TOTAL') {
-            continue; // Totals are automatically summed from domains below
+            continue; // Totals are automatically summed from domains
           }
 
           const domainName = col1;
@@ -1120,6 +1123,8 @@
           if (!espMap[fullEspName].domains[domainName]) {
             espMap[fullEspName].domains[domainName] = {
               delivered: 0,
+              softBounce: 0,
+              hardBounce: 0,
               bounced: 0,
               opened: 0,
               clicked: 0,
@@ -1131,6 +1136,8 @@
 
           const d = espMap[fullEspName].domains[domainName];
           d.delivered += deliv;
+          d.softBounce += softBounce;
+          d.hardBounce += hardBounce;
           d.bounced += totalBounce;
           d.opened += open;
           d.clicked += click;
@@ -1140,6 +1147,8 @@
 
           const e = espMap[fullEspName];
           e.delivered += deliv;
+          e.softBounce += softBounce;
+          e.hardBounce += hardBounce;
           e.bounced += totalBounce;
           e.opened += open;
           e.clicked += click;
@@ -1161,7 +1170,6 @@
       const timestamp = Date.now();
       const dayNum = parseInt(dayStr, 10);
 
-      // Relative paths optimized for GitHub Pages (handles subfolder repos)
       const candidates = [
         `maildata_${monthKey}/${dayStr}.csv?t=${timestamp}`,
         `./maildata_${monthKey}/${dayStr}.csv?t=${timestamp}`,
@@ -1174,7 +1182,6 @@
           const res = await fetch(p, { cache: 'no-store' });
           if (res.ok) {
             const text = await res.text();
-            // Safeguard against GitHub Pages HTML 404 response
             if (
               text && 
               !text.trim().startsWith('<!DOCTYPE') && 
@@ -1218,6 +1225,8 @@
             mergedEsp[espName] = {
               esp: espName,
               delivered: 0,
+              softBounce: 0,
+              hardBounce: 0,
               bounced: 0,
               opened: 0,
               clicked: 0,
@@ -1231,6 +1240,8 @@
           const t = mergedEsp[espName];
 
           t.delivered += s.delivered;
+          t.softBounce += (s.softBounce || 0);
+          t.hardBounce += (s.hardBounce || 0);
           t.bounced += s.bounced;
           t.opened += s.opened;
           t.clicked += s.clicked;
@@ -1242,6 +1253,8 @@
             if (!t.domains[dom]) {
               t.domains[dom] = {
                 delivered: 0,
+                softBounce: 0,
+                hardBounce: 0,
                 bounced: 0,
                 opened: 0,
                 clicked: 0,
@@ -1253,6 +1266,8 @@
             const sd = s.domains[dom];
             const td = t.domains[dom];
             td.delivered += sd.delivered;
+            td.softBounce += (sd.softBounce || 0);
+            td.hardBounce += (sd.hardBounce || 0);
             td.bounced += sd.bounced;
             td.opened += sd.opened;
             td.clicked += sd.clicked;
@@ -1425,23 +1440,22 @@
     }
 
     async function updateDashboardForDateRange() {
-      // 1. JSON Data (KPIs, OPS, Financials, Advertisers)
       const agg = aggregateJsonData(currentStartDate, currentEndDate);
-
-      // 2. CSV Data (Deliverability, ESPs, Domains)
       const csvEspMap = await aggregateCsvForRange(currentStartDate, currentEndDate);
       const csvEspList = Object.values(csvEspMap);
 
       if (csvEspList.length > 0) {
-        // Show active ESPs
         const activeEspList = csvEspList.filter(e => e.delivered > 0 || e.signups > 0 || e.opened > 0);
         agg.esp = activeEspList.length > 0 ? activeEspList : csvEspList;
 
-        let totalDeliv = 0, totalBounce = 0, totalOpen = 0, totalClick = 0, totalUnsub = 0;
+        let totalDeliv = 0, totalSoftBounce = 0, totalHardBounce = 0, totalBounce = 0;
+        let totalOpen = 0, totalClick = 0, totalUnsub = 0;
         let totalEspSignups = 0, totalEspPlayers = 0;
 
         agg.esp.forEach(e => {
           totalDeliv += e.delivered;
+          totalSoftBounce += (e.softBounce || 0);
+          totalHardBounce += (e.hardBounce || 0);
           totalBounce += e.bounced;
           totalOpen += e.opened;
           totalClick += e.clicked;
@@ -1451,6 +1465,8 @@
         });
 
         agg.delivered = totalDeliv;
+        agg.softBounce = totalSoftBounce;
+        agg.hardBounce = totalHardBounce;
         agg.bounced = totalBounce;
         agg.opened = totalOpen;
         agg.clicked = totalClick;
@@ -1460,6 +1476,8 @@
       } else {
         agg.esp = [];
         agg.delivered = 0;
+        agg.softBounce = 0;
+        agg.hardBounce = 0;
         agg.bounced = 0;
         agg.opened = 0;
         agg.clicked = 0;
@@ -1568,7 +1586,7 @@
       document.getElementById('dateRangeSubtitle').textContent = dateText;
       document.getElementById('opsPeriodBadge').textContent = dateText;
 
-      // 3. Render ESP Deliverability Table from CSV Data
+      // 3. Render ESP Deliverability Table from CSV Data (Soft & Hard Bounce)
       renderEspTable(agg.esp, agg);
 
       // 4. Render Ops Team Tables
@@ -1590,7 +1608,7 @@
       tbody.innerHTML = '';
 
       if (!espList || espList.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-slate-400 italic">No deliverability CSV files found for this date range.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="8" class="py-6 text-center text-slate-400 italic">No deliverability CSV files found for this date range.</td></tr>`;
         tfoot.innerHTML = '';
         return;
       }
@@ -1601,7 +1619,8 @@
         summaryTr.innerHTML = `
           <td class="py-3 px-4 text-left font-bold text-slate-900">${item.esp}</td>
           <td class="py-3 px-4 font-mono font-bold">${item.delivered.toLocaleString()}</td>
-          <td class="py-3 px-4 font-mono">${item.bounced.toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono text-amber-700 font-semibold">${(item.softBounce || 0).toLocaleString()}</td>
+          <td class="py-3 px-4 font-mono text-rose-700 font-semibold">${(item.hardBounce || 0).toLocaleString()}</td>
           <td class="py-3 px-4 font-mono font-semibold text-emerald-700">${item.opened.toLocaleString()}</td>
           <td class="py-3 px-4 font-mono font-semibold text-sky-700">${item.clicked.toLocaleString()}</td>
           <td class="py-3 px-4 font-mono text-amber-600 font-bold">${item.signups.toLocaleString()}</td>
@@ -1617,7 +1636,8 @@
             domTr.innerHTML = `
               <td class="py-1.5 px-4 text-left pl-8 font-medium">${domName}</td>
               <td>${d.delivered.toLocaleString()}</td>
-              <td>${d.bounced.toLocaleString()}</td>
+              <td class="text-amber-700">${(d.softBounce || 0).toLocaleString()}</td>
+              <td class="text-rose-700">${(d.hardBounce || 0).toLocaleString()}</td>
               <td class="text-emerald-700">${d.opened.toLocaleString()}</td>
               <td class="text-sky-700">${d.clicked.toLocaleString()}</td>
               <td>${d.signups.toLocaleString()}</td>
@@ -1635,7 +1655,8 @@
         <tr class="font-bold text-slate-900 text-sm">
           <td class="py-3.5 px-4 text-left font-bold">Grand total</td>
           <td class="py-3.5 px-4 font-mono font-bold">${agg.delivered.toLocaleString()}</td>
-          <td class="py-3.5 px-4 font-mono font-bold">${agg.bounced.toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-amber-700">${(agg.softBounce || 0).toLocaleString()}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-rose-700">${(agg.hardBounce || 0).toLocaleString()}</td>
           <td class="py-3.5 px-4 font-mono font-bold text-emerald-700">${agg.opened.toLocaleString()}</td>
           <td class="py-3.5 px-4 font-mono font-bold text-sky-700">${agg.clicked.toLocaleString()}</td>
           <td class="py-3.5 px-4 font-mono font-bold text-amber-600">${grandSignups.toLocaleString()}</td>
@@ -2076,13 +2097,9 @@
 
       globalLoadedMonths = await loadAllMonths();
 
+      // Ensure notice badge remains hidden
       const badge = document.getElementById('dataStatusBadge');
-      if (globalLoadedMonths.length === 0) {
-        badge.textContent = 'Notice: No JSON data files detected. CSVs will still load if present.';
-        badge.classList.remove('hidden');
-      } else {
-        badge.classList.add('hidden');
-      }
+      if (badge) badge.classList.add('hidden');
 
       initDateControls(globalLoadedMonths);
       await updateDashboardForDateRange();
